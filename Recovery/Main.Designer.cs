@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSub_Connect = new DevExpress.XtraBars.BarSubItem();
@@ -57,17 +57,23 @@
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -88,19 +94,21 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.textEdit1);
+            this.xtraTabPage1.Controls.Add(this.listBoxControl1);
+            this.xtraTabPage1.Controls.Add(this.simpleButton1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(564, 365);
             this.xtraTabPage1.Text = "General";
             // 
-            // pictureBox1
+            // textEdit1
             // 
-            this.pictureBox1.Image = global::Recovery.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(570, 58);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.textEdit1.EditValue = "CLTHS_";
+            this.textEdit1.Location = new System.Drawing.Point(3, 259);
+            this.textEdit1.MenuManager = this.barManager1;
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(299, 20);
+            this.textEdit1.TabIndex = 2;
             // 
             // barManager1
             // 
@@ -236,6 +244,7 @@
             // 
             // statStatus
             // 
+            this.statStatus.AccessibleName = "statStatus";
             this.statStatus.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.statStatus.Caption = "STAT STATUS";
             this.statStatus.Id = 17;
@@ -336,6 +345,22 @@
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
+            // listBoxControl1
+            // 
+            this.listBoxControl1.Location = new System.Drawing.Point(308, 3);
+            this.listBoxControl1.Name = "listBoxControl1";
+            this.listBoxControl1.Size = new System.Drawing.Size(253, 359);
+            this.listBoxControl1.TabIndex = 1;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(3, 285);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(299, 77);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "Run Query";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // xtraTabPage3
             // 
             this.xtraTabPage3.Name = "xtraTabPage3";
@@ -351,7 +376,7 @@
             // xtraTabPage5
             // 
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(0, 0);
+            this.xtraTabPage5.Size = new System.Drawing.Size(564, 365);
             this.xtraTabPage5.Text = "Time";
             // 
             // xtraTabPage6
@@ -372,6 +397,16 @@
             this.xtraTabPage8.Size = new System.Drawing.Size(564, 365);
             this.xtraTabPage8.Text = "Debugger";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Recovery.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(570, 58);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,9 +426,12 @@
             this.Text = "GTA V Recovery Tool 2.0 [1.26 BLES]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -421,7 +459,6 @@
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem4;
-        private DevExpress.XtraBars.BarStaticItem statStatus;
         private DevExpress.XtraBars.BarStaticItem connectionPSN;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
@@ -433,6 +470,10 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage8;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraBars.BarStaticItem statStatus;
 
     }
 }

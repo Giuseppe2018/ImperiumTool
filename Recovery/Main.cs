@@ -17,6 +17,20 @@ namespace Recovery
         {
             InitializeComponent();
         }
+        public static uint Hash(string input)
+        {
+            byte[] stingbytes = Encoding.UTF8.GetBytes(input.ToLower());
+            uint num1 = 0U;
+            for (int i = 0; i < stingbytes.Length; i++)
+            {
+                uint num2 = num1 + (uint)stingbytes[i];
+                uint num3 = num2 + (num2 << 10);
+                num1 = num3 ^ num3 >> 6;
+            }
+            uint num4 = num1 + (num1 << 3);
+            uint num5 = num4 ^ num4 >> 11;
+            return num5 + (num5 << 15);
+        }
         #region Link
         string cmethod;
         void connect(SelectAPI api)
@@ -67,5 +81,15 @@ namespace Recovery
             barSub_Connect.Glyph = Recovery.Properties.Resources.link_idle;
         }
         #endregion
+
+        private void char1_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Variables.character1 = char1.Checked;
+        }
+
+        private void char2_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Variables.character2 = char2.Checked;
+        }
     }
 }

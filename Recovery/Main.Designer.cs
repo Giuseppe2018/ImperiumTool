@@ -41,6 +41,8 @@
             this.barButton_Disconnect = new DevExpress.XtraBars.BarButtonItem();
             this.barSub_Settings = new DevExpress.XtraBars.BarSubItem();
             this.skinBarSubItem2 = new DevExpress.XtraBars.SkinBarSubItem();
+            this.char1 = new DevExpress.XtraBars.BarCheckItem();
+            this.char2 = new DevExpress.XtraBars.BarCheckItem();
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
             this.statStatus = new DevExpress.XtraBars.BarStaticItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -55,6 +57,12 @@
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,7 +78,13 @@
             this.xtraTabControl1.Size = new System.Drawing.Size(570, 393);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1});
+            this.xtraTabPage1,
+            this.xtraTabPage3,
+            this.xtraTabPage4,
+            this.xtraTabPage5,
+            this.xtraTabPage6,
+            this.xtraTabPage7,
+            this.xtraTabPage8});
             // 
             // xtraTabPage1
             // 
@@ -115,9 +129,11 @@
             this.barStaticItem4,
             this.statStatus,
             this.connectionPSN,
-            this.barEditItem1});
+            this.barEditItem1,
+            this.char1,
+            this.char2});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 22;
+            this.barManager1.MaxItemId = 24;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
             this.barManager1.ShowScreenTipsInMenus = true;
@@ -184,7 +200,9 @@
             this.barSub_Settings.Glyph = ((System.Drawing.Image)(resources.GetObject("barSub_Settings.Glyph")));
             this.barSub_Settings.Id = 4;
             this.barSub_Settings.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.skinBarSubItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.skinBarSubItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.char1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.char2)});
             this.barSub_Settings.Name = "barSub_Settings";
             // 
             // skinBarSubItem2
@@ -193,6 +211,20 @@
             this.skinBarSubItem2.Glyph = global::Recovery.Properties.Resources.theme;
             this.skinBarSubItem2.Id = 8;
             this.skinBarSubItem2.Name = "skinBarSubItem2";
+            // 
+            // char1
+            // 
+            this.char1.Caption = "Character 1";
+            this.char1.Id = 22;
+            this.char1.Name = "char1";
+            this.char1.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.char1_CheckedChanged);
+            // 
+            // char2
+            // 
+            this.char2.Caption = "Character 2";
+            this.char2.Id = 23;
+            this.char2.Name = "char2";
+            this.char2.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.char2_CheckedChanged);
             // 
             // barStaticItem4
             // 
@@ -304,6 +336,42 @@
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage3.Text = "Garage";
+            // 
+            // xtraTabPage4
+            // 
+            this.xtraTabPage4.Name = "xtraTabPage4";
+            this.xtraTabPage4.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage4.Text = "Appearance";
+            // 
+            // xtraTabPage5
+            // 
+            this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.Size = new System.Drawing.Size(0, 0);
+            this.xtraTabPage5.Text = "Time";
+            // 
+            // xtraTabPage6
+            // 
+            this.xtraTabPage6.Name = "xtraTabPage6";
+            this.xtraTabPage6.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage6.Text = "Dumps";
+            // 
+            // xtraTabPage7
+            // 
+            this.xtraTabPage7.Name = "xtraTabPage7";
+            this.xtraTabPage7.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage7.Text = "Configurations";
+            // 
+            // xtraTabPage8
+            // 
+            this.xtraTabPage8.Name = "xtraTabPage8";
+            this.xtraTabPage8.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage8.Text = "Debugger";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +425,14 @@
         private DevExpress.XtraBars.BarStaticItem connectionPSN;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraBars.BarCheckItem char1;
+        private DevExpress.XtraBars.BarCheckItem char2;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage8;
 
     }
 }

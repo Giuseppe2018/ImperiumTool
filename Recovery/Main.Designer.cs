@@ -35,16 +35,17 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
+            this.barSub_Connect = new DevExpress.XtraBars.BarSubItem();
+            this.barButton_CC = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_TM = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_Disconnect = new DevExpress.XtraBars.BarButtonItem();
+            this.barSub_Settings = new DevExpress.XtraBars.BarSubItem();
             this.skinBarSubItem2 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
+            this.statStatus = new DevExpress.XtraBars.BarStaticItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.connectionStatus = new DevExpress.XtraBars.BarStaticItem();
+            this.connectionPSN = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -52,10 +53,13 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.skinBarSubItem1 = new DevExpress.XtraBars.SkinBarSubItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -98,20 +102,24 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barStaticItem1,
+            this.connectionStatus,
             this.barButtonItem1,
-            this.barSubItem1,
+            this.barSub_Connect,
             this.skinBarSubItem1,
-            this.barSubItem2,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.barButtonItem4,
+            this.barSub_Settings,
+            this.barButton_TM,
+            this.barButton_CC,
+            this.barButton_Disconnect,
             this.skinBarSubItem2,
             this.barStaticItem2,
             this.barStaticItem4,
-            this.barStaticItem5});
+            this.statStatus,
+            this.connectionPSN,
+            this.barEditItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 19;
+            this.barManager1.MaxItemId = 22;
+            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEdit1});
             this.barManager1.ShowScreenTipsInMenus = true;
             this.barManager1.ShowScreenTipsInToolbars = false;
             this.barManager1.ShowShortcutInScreenTips = false;
@@ -124,10 +132,10 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem2, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSub_Connect, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSub_Settings, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem4, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem5)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.statStatus)});
             this.bar2.OptionsBar.AllowQuickCustomization = false;
             this.bar2.OptionsBar.AutoPopupMode = DevExpress.XtraBars.BarAutoPopupMode.None;
             this.bar2.OptionsBar.DisableCustomization = true;
@@ -135,46 +143,49 @@
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // barSubItem1
+            // barSub_Connect
             // 
-            this.barSubItem1.Caption = "Connect";
-            this.barSubItem1.Glyph = global::Recovery.Properties.Resources.link_idle;
-            this.barSubItem1.Id = 2;
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.barSubItem1.Name = "barSubItem1";
+            this.barSub_Connect.Caption = "Connect";
+            this.barSub_Connect.Glyph = global::Recovery.Properties.Resources.link_idle;
+            this.barSub_Connect.Id = 2;
+            this.barSub_Connect.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_CC, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_TM, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Disconnect, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.barSub_Connect.Name = "barSub_Connect";
             // 
-            // barButtonItem3
+            // barButton_CC
             // 
-            this.barButtonItem3.Caption = "Control Console (CCAPI)";
-            this.barButtonItem3.Glyph = global::Recovery.Properties.Resources.ccapi;
-            this.barButtonItem3.Id = 6;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButton_CC.Caption = "Control Console (CCAPI)";
+            this.barButton_CC.Glyph = global::Recovery.Properties.Resources.ccapi;
+            this.barButton_CC.Id = 6;
+            this.barButton_CC.Name = "barButton_CC";
+            this.barButton_CC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_CC_ItemClick);
             // 
-            // barButtonItem2
+            // barButton_TM
             // 
-            this.barButtonItem2.Caption = "Target Manager (TMAPI)";
-            this.barButtonItem2.Glyph = global::Recovery.Properties.Resources.tmapi;
-            this.barButtonItem2.Id = 5;
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButton_TM.Caption = "Target Manager (TMAPI)";
+            this.barButton_TM.Glyph = global::Recovery.Properties.Resources.tmapi;
+            this.barButton_TM.Id = 5;
+            this.barButton_TM.Name = "barButton_TM";
+            this.barButton_TM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_TM_ItemClick);
             // 
-            // barButtonItem4
+            // barButton_Disconnect
             // 
-            this.barButtonItem4.Caption = "Disconnect";
-            this.barButtonItem4.Glyph = global::Recovery.Properties.Resources.disconnect;
-            this.barButtonItem4.Id = 7;
-            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButton_Disconnect.Caption = "Disconnect";
+            this.barButton_Disconnect.Glyph = global::Recovery.Properties.Resources.disconnect;
+            this.barButton_Disconnect.Id = 7;
+            this.barButton_Disconnect.Name = "barButton_Disconnect";
+            this.barButton_Disconnect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Disconnect_ItemClick);
             // 
-            // barSubItem2
+            // barSub_Settings
             // 
-            this.barSubItem2.Caption = "Settings";
-            this.barSubItem2.Glyph = ((System.Drawing.Image)(resources.GetObject("barSubItem2.Glyph")));
-            this.barSubItem2.Id = 4;
-            this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            this.barSub_Settings.Caption = "Settings";
+            this.barSub_Settings.Glyph = ((System.Drawing.Image)(resources.GetObject("barSub_Settings.Glyph")));
+            this.barSub_Settings.Id = 4;
+            this.barSub_Settings.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.skinBarSubItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
-            this.barSubItem2.Name = "barSubItem2";
+            this.barSub_Settings.Name = "barSub_Settings";
             // 
             // skinBarSubItem2
             // 
@@ -185,20 +196,21 @@
             // 
             // barStaticItem4
             // 
-            this.barStaticItem4.Caption = "Created by Kryptus";
+            this.barStaticItem4.Caption = "Developed by Kryptus";
             this.barStaticItem4.Id = 13;
             this.barStaticItem4.LeftIndent = 10;
             this.barStaticItem4.Name = "barStaticItem4";
             this.barStaticItem4.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barStaticItem5
+            // statStatus
             // 
-            this.barStaticItem5.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barStaticItem5.Caption = "     STATUS";
-            this.barStaticItem5.Id = 17;
-            this.barStaticItem5.Name = "barStaticItem5";
-            this.barStaticItem5.RightIndent = 10;
-            this.barStaticItem5.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.statStatus.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.statStatus.Caption = "STAT STATUS";
+            this.statStatus.Id = 17;
+            this.statStatus.Name = "statStatus";
+            this.statStatus.RightIndent = 10;
+            this.statStatus.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.statStatus.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // bar3
             // 
@@ -208,18 +220,29 @@
             this.bar3.DockRow = 0;
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem1)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.connectionStatus),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.connectionPSN, "", false, false, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Caption)});
             this.bar3.OptionsBar.AllowQuickCustomization = false;
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Status bar";
             // 
-            // barStaticItem1
+            // connectionStatus
             // 
-            this.barStaticItem1.Caption = "Idle...";
-            this.barStaticItem1.Id = 0;
-            this.barStaticItem1.Name = "barStaticItem1";
-            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.connectionStatus.Caption = "Idle...";
+            this.connectionStatus.Id = 0;
+            this.connectionStatus.Name = "connectionStatus";
+            this.connectionStatus.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // connectionPSN
+            // 
+            this.connectionPSN.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.connectionPSN.Caption = "PSN";
+            this.connectionPSN.Id = 19;
+            this.connectionPSN.Name = "connectionPSN";
+            this.connectionPSN.RightIndent = 10;
+            this.connectionPSN.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barDockControlTop
             // 
@@ -268,6 +291,19 @@
             this.barStaticItem2.Name = "barStaticItem2";
             this.barStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Caption = "TM";
+            this.barEditItem1.Edit = this.repositoryItemTextEdit1;
+            this.barEditItem1.EditValue = "192.168.1.22";
+            this.barEditItem1.Id = 21;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +325,7 @@
             this.xtraTabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,17 +343,20 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
-        private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarSubItem barSubItem2;
+        private DevExpress.XtraBars.BarStaticItem connectionStatus;
+        private DevExpress.XtraBars.BarSubItem barSub_Connect;
+        private DevExpress.XtraBars.BarButtonItem barButton_CC;
+        private DevExpress.XtraBars.BarButtonItem barButton_TM;
+        private DevExpress.XtraBars.BarButtonItem barButton_Disconnect;
+        private DevExpress.XtraBars.BarSubItem barSub_Settings;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem1;
         private DevExpress.XtraBars.SkinBarSubItem skinBarSubItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.BarStaticItem barStaticItem4;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem5;
+        private DevExpress.XtraBars.BarStaticItem statStatus;
+        private DevExpress.XtraBars.BarStaticItem connectionPSN;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
 
     }
 }

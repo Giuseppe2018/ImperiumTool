@@ -32,7 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.DLC_Valentines = new DevExpress.XtraEditors.SimpleButton();
+            this.DLC_Independence = new DevExpress.XtraEditors.SimpleButton();
+            this.DLC_Christmas = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
+            this.statqSearch = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSub_Connect = new DevExpress.XtraBars.BarSubItem();
@@ -57,22 +67,18 @@
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
+            this.statqList = new DevExpress.XtraEditors.ListBoxControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            this.xtraTabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statqList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,21 +100,96 @@
             // 
             // xtraTabPage1
             // 
-            this.xtraTabPage1.Controls.Add(this.textEdit1);
-            this.xtraTabPage1.Controls.Add(this.listBoxControl1);
-            this.xtraTabPage1.Controls.Add(this.simpleButton1);
+            this.xtraTabPage1.Controls.Add(this.groupControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(564, 365);
             this.xtraTabPage1.Text = "General";
             // 
-            // textEdit1
+            // groupControl1
             // 
-            this.textEdit1.EditValue = "CLTHS_";
-            this.textEdit1.Location = new System.Drawing.Point(3, 259);
-            this.textEdit1.MenuManager = this.barManager1;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(299, 20);
-            this.textEdit1.TabIndex = 2;
+            this.groupControl1.Controls.Add(this.DLC_Valentines);
+            this.groupControl1.Controls.Add(this.DLC_Independence);
+            this.groupControl1.Controls.Add(this.DLC_Christmas);
+            this.groupControl1.Location = new System.Drawing.Point(445, 3);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(116, 111);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "DLC";
+            // 
+            // DLC_Valentines
+            // 
+            this.DLC_Valentines.Location = new System.Drawing.Point(5, 82);
+            this.DLC_Valentines.Name = "DLC_Valentines";
+            this.DLC_Valentines.Size = new System.Drawing.Size(106, 23);
+            this.DLC_Valentines.TabIndex = 2;
+            this.DLC_Valentines.Text = "Valentine\'s Day";
+            this.DLC_Valentines.Click += new System.EventHandler(this.DLC_Valentines_Click);
+            // 
+            // DLC_Independence
+            // 
+            this.DLC_Independence.Location = new System.Drawing.Point(5, 53);
+            this.DLC_Independence.Name = "DLC_Independence";
+            this.DLC_Independence.Size = new System.Drawing.Size(106, 23);
+            this.DLC_Independence.TabIndex = 1;
+            this.DLC_Independence.Text = "Independence Day";
+            this.DLC_Independence.Click += new System.EventHandler(this.DLC_Independence_Click);
+            // 
+            // DLC_Christmas
+            // 
+            this.DLC_Christmas.Location = new System.Drawing.Point(5, 24);
+            this.DLC_Christmas.Name = "DLC_Christmas";
+            this.DLC_Christmas.Size = new System.Drawing.Size(106, 23);
+            this.DLC_Christmas.TabIndex = 0;
+            this.DLC_Christmas.Text = "Christmas";
+            this.DLC_Christmas.Click += new System.EventHandler(this.DLC_Christmas_Click);
+            // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage3.Text = "Garage";
+            // 
+            // xtraTabPage4
+            // 
+            this.xtraTabPage4.Name = "xtraTabPage4";
+            this.xtraTabPage4.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage4.Text = "Appearance";
+            // 
+            // xtraTabPage5
+            // 
+            this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage5.Text = "Time";
+            // 
+            // xtraTabPage6
+            // 
+            this.xtraTabPage6.Name = "xtraTabPage6";
+            this.xtraTabPage6.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage6.Text = "Dumps";
+            // 
+            // xtraTabPage7
+            // 
+            this.xtraTabPage7.Name = "xtraTabPage7";
+            this.xtraTabPage7.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage7.Text = "Configurations";
+            // 
+            // xtraTabPage8
+            // 
+            this.xtraTabPage8.Controls.Add(this.statqSearch);
+            this.xtraTabPage8.Controls.Add(this.statqList);
+            this.xtraTabPage8.Name = "xtraTabPage8";
+            this.xtraTabPage8.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage8.Text = "Debugger";
+            // 
+            // statqSearch
+            // 
+            this.statqSearch.EditValue = "CLTHS_";
+            this.statqSearch.Location = new System.Drawing.Point(331, 342);
+            this.statqSearch.MenuManager = this.barManager1;
+            this.statqSearch.Name = "statqSearch";
+            this.statqSearch.Size = new System.Drawing.Size(230, 20);
+            this.statqSearch.TabIndex = 2;
+            this.statqSearch.EditValueChanged += new System.EventHandler(this.statqSearch_EditValueChanged);
             // 
             // barManager1
             // 
@@ -345,57 +426,12 @@
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
-            // listBoxControl1
+            // statqList
             // 
-            this.listBoxControl1.Location = new System.Drawing.Point(308, 3);
-            this.listBoxControl1.Name = "listBoxControl1";
-            this.listBoxControl1.Size = new System.Drawing.Size(253, 359);
-            this.listBoxControl1.TabIndex = 1;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(3, 285);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(299, 77);
-            this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Run Query";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // xtraTabPage3
-            // 
-            this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(564, 365);
-            this.xtraTabPage3.Text = "Garage";
-            // 
-            // xtraTabPage4
-            // 
-            this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(564, 365);
-            this.xtraTabPage4.Text = "Appearance";
-            // 
-            // xtraTabPage5
-            // 
-            this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(564, 365);
-            this.xtraTabPage5.Text = "Time";
-            // 
-            // xtraTabPage6
-            // 
-            this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(564, 365);
-            this.xtraTabPage6.Text = "Dumps";
-            // 
-            // xtraTabPage7
-            // 
-            this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(564, 365);
-            this.xtraTabPage7.Text = "Configurations";
-            // 
-            // xtraTabPage8
-            // 
-            this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(564, 365);
-            this.xtraTabPage8.Text = "Debugger";
+            this.statqList.Location = new System.Drawing.Point(331, 3);
+            this.statqList.Name = "statqList";
+            this.statqList.Size = new System.Drawing.Size(230, 333);
+            this.statqList.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -427,10 +463,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.xtraTabPage8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statqList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -470,10 +509,13 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.ListBoxControl statqList;
+        private DevExpress.XtraEditors.TextEdit statqSearch;
         private DevExpress.XtraBars.BarStaticItem statStatus;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.SimpleButton DLC_Valentines;
+        private DevExpress.XtraEditors.SimpleButton DLC_Independence;
+        private DevExpress.XtraEditors.SimpleButton DLC_Christmas;
 
     }
 }

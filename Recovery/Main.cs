@@ -8,15 +8,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PS3Lib;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Recovery
 {
     public partial class Main : DevExpress.XtraEditors.XtraForm
     {
         public static PS3API PS3 = new PS3API();
+        public class Setting
+        {
+            public string name { get; set; }
+            public object value { get; set; }
+            public Setting(string Name, object Value)
+            {
+                name = Name;
+                value = Value;
+            }
+        }
+        private List<Setting> settingsList = new List<Setting>();
         public Main()
         {
             InitializeComponent();
+            string[] Settings_Settings_content = File.ReadAllLines("Settings/Settings.json");
+            foreach (string line in Settings_Settings_content)
+            {
+                //load contents into tunable object
+                Setting setting = JsonConvert.DeserializeObject<Setting>(line);
+                settingsList.Add(setting);
+                if (setting.name == "Character_1")
+                {
+                    char1.Checked = Variables.character1 = (bool)setting.value;
+                }
+                if (setting.name == "Character_2")
+                {
+                    char2.Checked = Variables.character2 = (bool)setting.value;
+                }
+            }
+
         }
         #region Stats
         public static Dictionary<string, object> Stats = new Dictionary<string, object>()
@@ -488,6 +517,7 @@ namespace Recovery
             barSub_Connect.Glyph = Recovery.Properties.Resources.link_idle;
         }
         #endregion
+        #region Functions
         private void char1_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Variables.character1 = char1.Checked;
@@ -542,19 +572,38 @@ namespace Recovery
                 MessageBox.Show("Unkown stat type");
             }
         }
-        private void simpleButton1_Click(object sender, EventArgs e)
+        #endregion
+        private void statqSearch_EditValueChanged(object sender, EventArgs e)
         {
-            // Search stat dictionary for any stat containing "ADMIN_CLOTHES_GV_BS": the DLC Clothing stats
+            // Search stat dictionary for any stat containing your search
             var query = from item in Stats
-                        where item.Key.Contains(textEdit1.Text)
+                        where item.Key.ToLower().Contains(statqSearch.Text.ToLower())
+                        orderby item.Key ascending
                         select item;
+            // Clear list
+            statqList.Items.Clear();
             // For each of the query results
-            listBoxControl1.Items.Clear();
-            foreach(KeyValuePair<string, object> item in query)
+            foreach (KeyValuePair<string, object> item in query)
             {
-                //NFunc.setStat(item.Key, item.Value);
-                listBoxControl1.Items.Add(item.Key + " = " + item.Value.ToString());
+                // Add dictionary key & value to list
+                statqList.Items.Add(item.Key + " = " + item.Value.ToString());
             }
         }
+        #region Tunables
+        private void DLC_Christmas_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Tunables.christmasDLC() ? "Enabled" : "Disabled");
+        }
+
+        private void DLC_Independence_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Tunables.independenceDLC() ? "Enabled" : "Disabled");
+        }
+
+        private void DLC_Valentines_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Tunables.valentinesDLC() ? "Enabled" : "Disabled");
+        }
+        #endregion
     }
 }

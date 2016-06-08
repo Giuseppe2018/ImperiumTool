@@ -31,7 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.gHeistVehicles = new DevExpress.XtraTab.XtraTabPage();
+            this.gChromeRims = new DevExpress.XtraEditors.SimpleButton();
+            this.gKits = new DevExpress.XtraEditors.SimpleButton();
+            this.gSkills = new DevExpress.XtraEditors.SimpleButton();
+            this.gWeapons = new DevExpress.XtraEditors.SimpleButton();
+            this.gClothing = new DevExpress.XtraEditors.SimpleButton();
+            this.gContacts = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.DLC_Valentines = new DevExpress.XtraEditors.SimpleButton();
             this.DLC_Independence = new DevExpress.XtraEditors.SimpleButton();
@@ -69,41 +75,129 @@
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.statqList = new DevExpress.XtraEditors.ListBoxControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gTattoos = new DevExpress.XtraEditors.SimpleButton();
+            this.gAwards = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.gVehicleMods = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
+            this.statkwqList = new DevExpress.XtraEditors.ListBoxControl();
+            this.statkwqSearch = new DevExpress.XtraEditors.TextEdit();
+            this.gInfiniteAmmo = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.uIdleKick = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
+            this.gHeistVehicles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            this.xtraTabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statqList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
+            this.xtraTabControl2.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            this.xtraTabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statkwqList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statkwqSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // xtraTabControl1
             // 
             this.xtraTabControl1.Location = new System.Drawing.Point(12, 92);
             this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.SelectedTabPage = this.gHeistVehicles;
             this.xtraTabControl1.Size = new System.Drawing.Size(570, 393);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
+            this.gHeistVehicles,
             this.xtraTabPage3,
             this.xtraTabPage4,
             this.xtraTabPage5,
             this.xtraTabPage6,
             this.xtraTabPage7,
-            this.xtraTabPage8});
+            this.xtraTabPage8,
+            this.xtraTabPage1});
             // 
-            // xtraTabPage1
+            // gHeistVehicles
             // 
-            this.xtraTabPage1.Controls.Add(this.groupControl1);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(564, 365);
-            this.xtraTabPage1.Text = "General";
+            this.gHeistVehicles.Controls.Add(this.groupControl2);
+            this.gHeistVehicles.Controls.Add(this.gInfiniteAmmo);
+            this.gHeistVehicles.Controls.Add(this.gVehicleMods);
+            this.gHeistVehicles.Controls.Add(this.simpleButton1);
+            this.gHeistVehicles.Controls.Add(this.gAwards);
+            this.gHeistVehicles.Controls.Add(this.gTattoos);
+            this.gHeistVehicles.Controls.Add(this.gChromeRims);
+            this.gHeistVehicles.Controls.Add(this.gKits);
+            this.gHeistVehicles.Controls.Add(this.gSkills);
+            this.gHeistVehicles.Controls.Add(this.gWeapons);
+            this.gHeistVehicles.Controls.Add(this.gClothing);
+            this.gHeistVehicles.Controls.Add(this.gContacts);
+            this.gHeistVehicles.Controls.Add(this.groupControl1);
+            this.gHeistVehicles.Name = "gHeistVehicles";
+            this.gHeistVehicles.Size = new System.Drawing.Size(564, 365);
+            this.gHeistVehicles.Text = "General";
+            // 
+            // gChromeRims
+            // 
+            this.gChromeRims.Location = new System.Drawing.Point(299, 32);
+            this.gChromeRims.Name = "gChromeRims";
+            this.gChromeRims.Size = new System.Drawing.Size(142, 23);
+            this.gChromeRims.TabIndex = 8;
+            this.gChromeRims.Text = "Own All Chrome Rims";
+            this.gChromeRims.Click += new System.EventHandler(this.gChromeRims_Click);
+            // 
+            // gKits
+            // 
+            this.gKits.Location = new System.Drawing.Point(151, 32);
+            this.gKits.Name = "gKits";
+            this.gKits.Size = new System.Drawing.Size(142, 23);
+            this.gKits.TabIndex = 7;
+            this.gKits.Text = "Own All Camos + Chutes";
+            this.gKits.Click += new System.EventHandler(this.gKits_Click);
+            // 
+            // gSkills
+            // 
+            this.gSkills.Location = new System.Drawing.Point(3, 3);
+            this.gSkills.Name = "gSkills";
+            this.gSkills.Size = new System.Drawing.Size(142, 23);
+            this.gSkills.TabIndex = 6;
+            this.gSkills.Text = "Maximum Skills";
+            this.gSkills.Click += new System.EventHandler(this.gSkills_Click);
+            // 
+            // gWeapons
+            // 
+            this.gWeapons.Location = new System.Drawing.Point(151, 3);
+            this.gWeapons.Name = "gWeapons";
+            this.gWeapons.Size = new System.Drawing.Size(142, 23);
+            this.gWeapons.TabIndex = 5;
+            this.gWeapons.Text = "Own All Weapons";
+            this.gWeapons.Click += new System.EventHandler(this.gWeapons_Click);
+            // 
+            // gClothing
+            // 
+            this.gClothing.Location = new System.Drawing.Point(3, 32);
+            this.gClothing.Name = "gClothing";
+            this.gClothing.Size = new System.Drawing.Size(142, 23);
+            this.gClothing.TabIndex = 4;
+            this.gClothing.Text = "Own All Clothing";
+            this.gClothing.Click += new System.EventHandler(this.gClothing_Click);
+            // 
+            // gContacts
+            // 
+            this.gContacts.Location = new System.Drawing.Point(3, 90);
+            this.gContacts.Name = "gContacts";
+            this.gContacts.Size = new System.Drawing.Size(142, 23);
+            this.gContacts.TabIndex = 3;
+            this.gContacts.Text = "Unlock All Contacts";
+            this.gContacts.Click += new System.EventHandler(this.gContacts_Click);
             // 
             // groupControl1
             // 
@@ -175,19 +269,17 @@
             // 
             // xtraTabPage8
             // 
-            this.xtraTabPage8.Controls.Add(this.statqSearch);
-            this.xtraTabPage8.Controls.Add(this.statqList);
             this.xtraTabPage8.Name = "xtraTabPage8";
             this.xtraTabPage8.Size = new System.Drawing.Size(564, 365);
             this.xtraTabPage8.Text = "Debugger";
             // 
             // statqSearch
             // 
-            this.statqSearch.EditValue = "CLTHS_";
-            this.statqSearch.Location = new System.Drawing.Point(331, 342);
+            this.statqSearch.EditValue = "";
+            this.statqSearch.Location = new System.Drawing.Point(3, 308);
             this.statqSearch.MenuManager = this.barManager1;
             this.statqSearch.Name = "statqSearch";
-            this.statqSearch.Size = new System.Drawing.Size(230, 20);
+            this.statqSearch.Size = new System.Drawing.Size(546, 20);
             this.statqSearch.TabIndex = 2;
             this.statqSearch.EditValueChanged += new System.EventHandler(this.statqSearch_EditValueChanged);
             // 
@@ -428,9 +520,9 @@
             // 
             // statqList
             // 
-            this.statqList.Location = new System.Drawing.Point(331, 3);
+            this.statqList.Location = new System.Drawing.Point(3, 3);
             this.statqList.Name = "statqList";
-            this.statqList.Size = new System.Drawing.Size(230, 333);
+            this.statqList.Size = new System.Drawing.Size(546, 299);
             this.statqList.TabIndex = 1;
             // 
             // pictureBox1
@@ -442,6 +534,120 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // gTattoos
+            // 
+            this.gTattoos.Location = new System.Drawing.Point(151, 61);
+            this.gTattoos.Name = "gTattoos";
+            this.gTattoos.Size = new System.Drawing.Size(142, 23);
+            this.gTattoos.TabIndex = 9;
+            this.gTattoos.Text = "Unlock All Tattoos";
+            this.gTattoos.Click += new System.EventHandler(this.gTattoos_Click);
+            // 
+            // gAwards
+            // 
+            this.gAwards.Location = new System.Drawing.Point(3, 61);
+            this.gAwards.Name = "gAwards";
+            this.gAwards.Size = new System.Drawing.Size(142, 23);
+            this.gAwards.TabIndex = 10;
+            this.gAwards.Text = "Unlock All Awards";
+            this.gAwards.Click += new System.EventHandler(this.gAwards_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(299, 61);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(142, 23);
+            this.simpleButton1.TabIndex = 11;
+            this.simpleButton1.Text = "Unlock Heist Vehicles";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // gVehicleMods
+            // 
+            this.gVehicleMods.Location = new System.Drawing.Point(299, 3);
+            this.gVehicleMods.Name = "gVehicleMods";
+            this.gVehicleMods.Size = new System.Drawing.Size(142, 23);
+            this.gVehicleMods.TabIndex = 12;
+            this.gVehicleMods.Text = "Unlock All Vehicle Mods";
+            this.gVehicleMods.Click += new System.EventHandler(this.gVehicleMods_Click);
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.xtraTabControl2);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage1.Text = "Development";
+            // 
+            // xtraTabControl2
+            // 
+            this.xtraTabControl2.Location = new System.Drawing.Point(3, 3);
+            this.xtraTabControl2.Name = "xtraTabControl2";
+            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage2;
+            this.xtraTabControl2.Size = new System.Drawing.Size(558, 359);
+            this.xtraTabControl2.TabIndex = 3;
+            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage2,
+            this.xtraTabPage9});
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.statqList);
+            this.xtraTabPage2.Controls.Add(this.statqSearch);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(552, 331);
+            this.xtraTabPage2.Text = "Stat Query";
+            // 
+            // xtraTabPage9
+            // 
+            this.xtraTabPage9.Controls.Add(this.statkwqList);
+            this.xtraTabPage9.Controls.Add(this.statkwqSearch);
+            this.xtraTabPage9.Name = "xtraTabPage9";
+            this.xtraTabPage9.Size = new System.Drawing.Size(552, 331);
+            this.xtraTabPage9.Text = "Stat Keyword Query";
+            // 
+            // statkwqList
+            // 
+            this.statkwqList.Location = new System.Drawing.Point(3, 3);
+            this.statkwqList.Name = "statkwqList";
+            this.statkwqList.Size = new System.Drawing.Size(546, 299);
+            this.statkwqList.TabIndex = 3;
+            // 
+            // statkwqSearch
+            // 
+            this.statkwqSearch.EditValue = "";
+            this.statkwqSearch.Location = new System.Drawing.Point(3, 308);
+            this.statkwqSearch.MenuManager = this.barManager1;
+            this.statkwqSearch.Name = "statkwqSearch";
+            this.statkwqSearch.Size = new System.Drawing.Size(546, 20);
+            this.statkwqSearch.TabIndex = 4;
+            this.statkwqSearch.EditValueChanged += new System.EventHandler(this.statkwqSearch_EditValueChanged);
+            // 
+            // gInfiniteAmmo
+            // 
+            this.gInfiniteAmmo.Location = new System.Drawing.Point(151, 90);
+            this.gInfiniteAmmo.Name = "gInfiniteAmmo";
+            this.gInfiniteAmmo.Size = new System.Drawing.Size(142, 23);
+            this.gInfiniteAmmo.TabIndex = 13;
+            this.gInfiniteAmmo.Text = "Infinite Heavy Ammo";
+            this.gInfiniteAmmo.Click += new System.EventHandler(this.gInfiniteAmmo_Click);
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.uIdleKick);
+            this.groupControl2.Location = new System.Drawing.Point(445, 120);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(116, 53);
+            this.groupControl2.TabIndex = 3;
+            this.groupControl2.Text = "Utilities";
+            // 
+            // uIdleKick
+            // 
+            this.uIdleKick.Location = new System.Drawing.Point(5, 24);
+            this.uIdleKick.Name = "uIdleKick";
+            this.uIdleKick.Size = new System.Drawing.Size(106, 23);
+            this.uIdleKick.TabIndex = 0;
+            this.uIdleKick.Text = "Disable Idle Kick";
+            this.uIdleKick.Click += new System.EventHandler(this.uIdleKick_Click);
             // 
             // Main
             // 
@@ -462,15 +668,23 @@
             this.Text = "GTA V Recovery Tool 2.0 [1.26 BLES]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
+            this.gHeistVehicles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            this.xtraTabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statqList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
+            this.xtraTabControl2.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            this.xtraTabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.statkwqList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statkwqSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -478,7 +692,7 @@
         #endregion
 
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabPage gHeistVehicles;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
@@ -516,6 +730,25 @@
         private DevExpress.XtraEditors.SimpleButton DLC_Valentines;
         private DevExpress.XtraEditors.SimpleButton DLC_Independence;
         private DevExpress.XtraEditors.SimpleButton DLC_Christmas;
+        private DevExpress.XtraEditors.SimpleButton gContacts;
+        private DevExpress.XtraEditors.SimpleButton gClothing;
+        private DevExpress.XtraEditors.SimpleButton gWeapons;
+        private DevExpress.XtraEditors.SimpleButton gSkills;
+        private DevExpress.XtraEditors.SimpleButton gKits;
+        private DevExpress.XtraEditors.SimpleButton gChromeRims;
+        private DevExpress.XtraEditors.SimpleButton gTattoos;
+        private DevExpress.XtraEditors.SimpleButton gAwards;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton gVehicleMods;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage9;
+        private DevExpress.XtraEditors.ListBoxControl statkwqList;
+        private DevExpress.XtraEditors.TextEdit statkwqSearch;
+        private DevExpress.XtraEditors.SimpleButton gInfiniteAmmo;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.SimpleButton uIdleKick;
 
     }
 }

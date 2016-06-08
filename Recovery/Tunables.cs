@@ -159,6 +159,15 @@ namespace Recovery
             toggleTunable(Indices.INDEPENDENCE_DAY_DEACTIVATE_PLACED_FIREWORKS, !toggle);
             return toggle;
         }
+        public static bool idleKick()
+        {
+            bool toggle = getTunableI(Indices.IDLEKICK_KICK) != Int32.MaxValue;
+            setTunable(Indices.IDLEKICK_KICK, toggle ? Int32.MaxValue : 900000);
+            setTunable(Indices.IDLEKICK_WARNING3, toggle ? Int32.MaxValue : 600000);
+            setTunable(Indices.IDLEKICK_WARNING2, toggle ? Int32.MaxValue : 300000);
+            setTunable(Indices.IDLEKICK_WARNING1, toggle ? Int32.MaxValue : 120000);
+            return toggle;
+        }
         public static void freeShopping(bool toggle) 
         {
             for (Indices i = Indices.SHOPPING_START; i < Indices.SHOPPING_END; i++)

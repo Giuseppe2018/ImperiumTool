@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using PS3Lib;
 using System.Windows.Forms;
 
-namespace Recovery
+namespace Imperium
 {
     class NFunc
     {

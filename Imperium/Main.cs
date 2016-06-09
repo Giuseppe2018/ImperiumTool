@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Threading;
 
-namespace Recovery
+namespace Imperium
 {
     public partial class Main : DevExpress.XtraEditors.XtraForm
     {
@@ -484,7 +484,7 @@ namespace Recovery
                     connectionPSN.Caption = "Welcome, " + NFunc.psn() + " [Console: " + PS3.GetConsoleName() + "]";
                     connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
                 }
-                barSub_Connect.Glyph = Recovery.Properties.Resources.link_connected;
+                barSub_Connect.Glyph = Imperium.Properties.Resources.link_connected;
             }
             catch (Exception ex)
             {
@@ -506,7 +506,7 @@ namespace Recovery
             PS3.DisconnectTarget();
             connectionStatus.Caption = "Idle...";
             connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            barSub_Connect.Glyph = Recovery.Properties.Resources.link_idle;
+            barSub_Connect.Glyph = Imperium.Properties.Resources.link_idle;
         }
         #endregion
         #region Functions

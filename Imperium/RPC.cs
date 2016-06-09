@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PS3Lib;
 
-namespace Recovery
+namespace Imperium
 {
     class RPC
     {

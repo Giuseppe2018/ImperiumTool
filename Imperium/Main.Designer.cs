@@ -1,4 +1,4 @@
-﻿namespace Recovery
+﻿namespace Imperium
 {
     partial class Main
     {
@@ -32,6 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.gHeistVehicles = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.uIdleKick = new DevExpress.XtraEditors.SimpleButton();
+            this.gInfiniteAmmo = new DevExpress.XtraEditors.SimpleButton();
+            this.gVehicleMods = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.gAwards = new DevExpress.XtraEditors.SimpleButton();
+            this.gTattoos = new DevExpress.XtraEditors.SimpleButton();
             this.gChromeRims = new DevExpress.XtraEditors.SimpleButton();
             this.gKits = new DevExpress.XtraEditors.SimpleButton();
             this.gSkills = new DevExpress.XtraEditors.SimpleButton();
@@ -48,6 +55,10 @@
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.statqList = new DevExpress.XtraEditors.ListBoxControl();
             this.statqSearch = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -73,48 +84,37 @@
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.statqList = new DevExpress.XtraEditors.ListBoxControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.gTattoos = new DevExpress.XtraEditors.SimpleButton();
-            this.gAwards = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.gVehicleMods = new DevExpress.XtraEditors.SimpleButton();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
             this.statkwqList = new DevExpress.XtraEditors.ListBoxControl();
             this.statkwqSearch = new DevExpress.XtraEditors.TextEdit();
-            this.gInfiniteAmmo = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.uIdleKick = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.gHeistVehicles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statqList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statqList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             this.xtraTabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statkwqList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statkwqSearch.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
             // 
-            this.xtraTabControl1.Location = new System.Drawing.Point(12, 92);
+            this.xtraTabControl1.Location = new System.Drawing.Point(12, 115);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.gHeistVehicles;
-            this.xtraTabControl1.Size = new System.Drawing.Size(570, 393);
+            this.xtraTabControl1.Size = new System.Drawing.Size(570, 370);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.gHeistVehicles,
@@ -142,8 +142,71 @@
             this.gHeistVehicles.Controls.Add(this.gContacts);
             this.gHeistVehicles.Controls.Add(this.groupControl1);
             this.gHeistVehicles.Name = "gHeistVehicles";
-            this.gHeistVehicles.Size = new System.Drawing.Size(564, 365);
+            this.gHeistVehicles.Size = new System.Drawing.Size(564, 342);
             this.gHeistVehicles.Text = "General";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.uIdleKick);
+            this.groupControl2.Location = new System.Drawing.Point(445, 120);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(116, 53);
+            this.groupControl2.TabIndex = 3;
+            this.groupControl2.Text = "Utilities";
+            // 
+            // uIdleKick
+            // 
+            this.uIdleKick.Location = new System.Drawing.Point(5, 24);
+            this.uIdleKick.Name = "uIdleKick";
+            this.uIdleKick.Size = new System.Drawing.Size(106, 23);
+            this.uIdleKick.TabIndex = 0;
+            this.uIdleKick.Text = "Disable Idle Kick";
+            this.uIdleKick.Click += new System.EventHandler(this.uIdleKick_Click);
+            // 
+            // gInfiniteAmmo
+            // 
+            this.gInfiniteAmmo.Location = new System.Drawing.Point(151, 90);
+            this.gInfiniteAmmo.Name = "gInfiniteAmmo";
+            this.gInfiniteAmmo.Size = new System.Drawing.Size(142, 23);
+            this.gInfiniteAmmo.TabIndex = 13;
+            this.gInfiniteAmmo.Text = "Infinite Heavy Ammo";
+            this.gInfiniteAmmo.Click += new System.EventHandler(this.gInfiniteAmmo_Click);
+            // 
+            // gVehicleMods
+            // 
+            this.gVehicleMods.Location = new System.Drawing.Point(299, 3);
+            this.gVehicleMods.Name = "gVehicleMods";
+            this.gVehicleMods.Size = new System.Drawing.Size(142, 23);
+            this.gVehicleMods.TabIndex = 12;
+            this.gVehicleMods.Text = "Unlock All Vehicle Mods";
+            this.gVehicleMods.Click += new System.EventHandler(this.gVehicleMods_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(299, 61);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(142, 23);
+            this.simpleButton1.TabIndex = 11;
+            this.simpleButton1.Text = "Unlock Heist Vehicles";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // gAwards
+            // 
+            this.gAwards.Location = new System.Drawing.Point(3, 61);
+            this.gAwards.Name = "gAwards";
+            this.gAwards.Size = new System.Drawing.Size(142, 23);
+            this.gAwards.TabIndex = 10;
+            this.gAwards.Text = "Unlock All Awards";
+            this.gAwards.Click += new System.EventHandler(this.gAwards_Click);
+            // 
+            // gTattoos
+            // 
+            this.gTattoos.Location = new System.Drawing.Point(151, 61);
+            this.gTattoos.Name = "gTattoos";
+            this.gTattoos.Size = new System.Drawing.Size(142, 23);
+            this.gTattoos.TabIndex = 9;
+            this.gTattoos.Text = "Unlock All Tattoos";
+            this.gTattoos.Click += new System.EventHandler(this.gTattoos_Click);
             // 
             // gChromeRims
             // 
@@ -208,7 +271,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(116, 111);
             this.groupControl1.TabIndex = 0;
-            this.groupControl1.Text = "DLC";
+            this.groupControl1.Text = "Seasonal DLC";
             // 
             // DLC_Valentines
             // 
@@ -240,43 +303,76 @@
             // xtraTabPage3
             // 
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage3.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage3.Text = "Garage";
             // 
             // xtraTabPage4
             // 
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage4.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage4.Text = "Appearance";
             // 
             // xtraTabPage5
             // 
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage5.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage5.Text = "Time";
             // 
             // xtraTabPage6
             // 
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage6.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage6.Text = "Dumps";
             // 
             // xtraTabPage7
             // 
             this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage7.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage7.Text = "Configurations";
             // 
             // xtraTabPage8
             // 
             this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(564, 365);
+            this.xtraTabPage8.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage8.Text = "Debugger";
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.xtraTabControl2);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(564, 342);
+            this.xtraTabPage1.Text = "Development";
+            // 
+            // xtraTabControl2
+            // 
+            this.xtraTabControl2.Location = new System.Drawing.Point(3, 3);
+            this.xtraTabControl2.Name = "xtraTabControl2";
+            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage2;
+            this.xtraTabControl2.Size = new System.Drawing.Size(558, 336);
+            this.xtraTabControl2.TabIndex = 3;
+            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage2,
+            this.xtraTabPage9});
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.statqList);
+            this.xtraTabPage2.Controls.Add(this.statqSearch);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage2.Text = "Stat Query";
+            // 
+            // statqList
+            // 
+            this.statqList.Location = new System.Drawing.Point(3, 3);
+            this.statqList.Name = "statqList";
+            this.statqList.Size = new System.Drawing.Size(546, 276);
+            this.statqList.TabIndex = 1;
             // 
             // statqSearch
             // 
             this.statqSearch.EditValue = "";
-            this.statqSearch.Location = new System.Drawing.Point(3, 308);
+            this.statqSearch.Location = new System.Drawing.Point(3, 285);
             this.statqSearch.MenuManager = this.barManager1;
             this.statqSearch.Name = "statqSearch";
             this.statqSearch.Size = new System.Drawing.Size(546, 20);
@@ -343,7 +439,7 @@
             // barSub_Connect
             // 
             this.barSub_Connect.Caption = "Connect";
-            this.barSub_Connect.Glyph = global::Recovery.Properties.Resources.link_idle;
+            this.barSub_Connect.Glyph = global::Imperium.Properties.Resources.link_idle;
             this.barSub_Connect.Id = 2;
             this.barSub_Connect.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_CC, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
@@ -354,7 +450,7 @@
             // barButton_CC
             // 
             this.barButton_CC.Caption = "Control Console (CCAPI)";
-            this.barButton_CC.Glyph = global::Recovery.Properties.Resources.ccapi;
+            this.barButton_CC.Glyph = global::Imperium.Properties.Resources.ccapi;
             this.barButton_CC.Id = 6;
             this.barButton_CC.Name = "barButton_CC";
             this.barButton_CC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_CC_ItemClick);
@@ -362,7 +458,7 @@
             // barButton_TM
             // 
             this.barButton_TM.Caption = "Target Manager (TMAPI)";
-            this.barButton_TM.Glyph = global::Recovery.Properties.Resources.tmapi;
+            this.barButton_TM.Glyph = global::Imperium.Properties.Resources.tmapi;
             this.barButton_TM.Id = 5;
             this.barButton_TM.Name = "barButton_TM";
             this.barButton_TM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_TM_ItemClick);
@@ -370,7 +466,7 @@
             // barButton_Disconnect
             // 
             this.barButton_Disconnect.Caption = "Disconnect";
-            this.barButton_Disconnect.Glyph = global::Recovery.Properties.Resources.disconnect;
+            this.barButton_Disconnect.Glyph = global::Imperium.Properties.Resources.disconnect;
             this.barButton_Disconnect.Id = 7;
             this.barButton_Disconnect.Name = "barButton_Disconnect";
             this.barButton_Disconnect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Disconnect_ItemClick);
@@ -389,7 +485,7 @@
             // skinBarSubItem2
             // 
             this.skinBarSubItem2.Caption = "Theme";
-            this.skinBarSubItem2.Glyph = global::Recovery.Properties.Resources.theme;
+            this.skinBarSubItem2.Glyph = global::Imperium.Properties.Resources.theme;
             this.skinBarSubItem2.Id = 8;
             this.skinBarSubItem2.Name = "skinBarSubItem2";
             // 
@@ -518,136 +614,40 @@
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
-            // statqList
-            // 
-            this.statqList.Location = new System.Drawing.Point(3, 3);
-            this.statqList.Name = "statqList";
-            this.statqList.Size = new System.Drawing.Size(546, 299);
-            this.statqList.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Recovery.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(570, 58);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // gTattoos
-            // 
-            this.gTattoos.Location = new System.Drawing.Point(151, 61);
-            this.gTattoos.Name = "gTattoos";
-            this.gTattoos.Size = new System.Drawing.Size(142, 23);
-            this.gTattoos.TabIndex = 9;
-            this.gTattoos.Text = "Unlock All Tattoos";
-            this.gTattoos.Click += new System.EventHandler(this.gTattoos_Click);
-            // 
-            // gAwards
-            // 
-            this.gAwards.Location = new System.Drawing.Point(3, 61);
-            this.gAwards.Name = "gAwards";
-            this.gAwards.Size = new System.Drawing.Size(142, 23);
-            this.gAwards.TabIndex = 10;
-            this.gAwards.Text = "Unlock All Awards";
-            this.gAwards.Click += new System.EventHandler(this.gAwards_Click);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(299, 61);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(142, 23);
-            this.simpleButton1.TabIndex = 11;
-            this.simpleButton1.Text = "Unlock Heist Vehicles";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // gVehicleMods
-            // 
-            this.gVehicleMods.Location = new System.Drawing.Point(299, 3);
-            this.gVehicleMods.Name = "gVehicleMods";
-            this.gVehicleMods.Size = new System.Drawing.Size(142, 23);
-            this.gVehicleMods.TabIndex = 12;
-            this.gVehicleMods.Text = "Unlock All Vehicle Mods";
-            this.gVehicleMods.Click += new System.EventHandler(this.gVehicleMods_Click);
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.xtraTabControl2);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(564, 365);
-            this.xtraTabPage1.Text = "Development";
-            // 
-            // xtraTabControl2
-            // 
-            this.xtraTabControl2.Location = new System.Drawing.Point(3, 3);
-            this.xtraTabControl2.Name = "xtraTabControl2";
-            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage2;
-            this.xtraTabControl2.Size = new System.Drawing.Size(558, 359);
-            this.xtraTabControl2.TabIndex = 3;
-            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage2,
-            this.xtraTabPage9});
-            // 
-            // xtraTabPage2
-            // 
-            this.xtraTabPage2.Controls.Add(this.statqList);
-            this.xtraTabPage2.Controls.Add(this.statqSearch);
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(552, 331);
-            this.xtraTabPage2.Text = "Stat Query";
-            // 
             // xtraTabPage9
             // 
             this.xtraTabPage9.Controls.Add(this.statkwqList);
             this.xtraTabPage9.Controls.Add(this.statkwqSearch);
             this.xtraTabPage9.Name = "xtraTabPage9";
-            this.xtraTabPage9.Size = new System.Drawing.Size(552, 331);
+            this.xtraTabPage9.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage9.Text = "Stat Keyword Query";
             // 
             // statkwqList
             // 
             this.statkwqList.Location = new System.Drawing.Point(3, 3);
             this.statkwqList.Name = "statkwqList";
-            this.statkwqList.Size = new System.Drawing.Size(546, 299);
+            this.statkwqList.Size = new System.Drawing.Size(546, 276);
             this.statkwqList.TabIndex = 3;
             // 
             // statkwqSearch
             // 
             this.statkwqSearch.EditValue = "";
-            this.statkwqSearch.Location = new System.Drawing.Point(3, 308);
+            this.statkwqSearch.Location = new System.Drawing.Point(3, 285);
             this.statkwqSearch.MenuManager = this.barManager1;
             this.statkwqSearch.Name = "statkwqSearch";
             this.statkwqSearch.Size = new System.Drawing.Size(546, 20);
             this.statkwqSearch.TabIndex = 4;
             this.statkwqSearch.EditValueChanged += new System.EventHandler(this.statkwqSearch_EditValueChanged);
             // 
-            // gInfiniteAmmo
+            // pictureBox1
             // 
-            this.gInfiniteAmmo.Location = new System.Drawing.Point(151, 90);
-            this.gInfiniteAmmo.Name = "gInfiniteAmmo";
-            this.gInfiniteAmmo.Size = new System.Drawing.Size(142, 23);
-            this.gInfiniteAmmo.TabIndex = 13;
-            this.gInfiniteAmmo.Text = "Infinite Heavy Ammo";
-            this.gInfiniteAmmo.Click += new System.EventHandler(this.gInfiniteAmmo_Click);
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.uIdleKick);
-            this.groupControl2.Location = new System.Drawing.Point(445, 120);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(116, 53);
-            this.groupControl2.TabIndex = 3;
-            this.groupControl2.Text = "Utilities";
-            // 
-            // uIdleKick
-            // 
-            this.uIdleKick.Location = new System.Drawing.Point(5, 24);
-            this.uIdleKick.Name = "uIdleKick";
-            this.uIdleKick.Size = new System.Drawing.Size(106, 23);
-            this.uIdleKick.TabIndex = 0;
-            this.uIdleKick.Text = "Disable Idle Kick";
-            this.uIdleKick.Click += new System.EventHandler(this.uIdleKick_Click);
+            this.pictureBox1.Image = global::Imperium.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(570, 81);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // Main
             // 
@@ -665,26 +665,26 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GTA V Recovery Tool 2.0 [1.26 BLES]";
+            this.Text = "Imperium Recovery Tool 2.0  [1.26/BLES/PS3]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.gHeistVehicles.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statqList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
             this.xtraTabControl2.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.statqList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             this.xtraTabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statkwqList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statkwqSearch.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

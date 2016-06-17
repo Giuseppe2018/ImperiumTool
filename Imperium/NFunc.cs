@@ -15,6 +15,18 @@ namespace Imperium
         {
             return RPC.Call(Natives.PLAYER_ID);
         }
+        public static int pedid()
+        {
+            return RPC.Call(Natives.PLAYER_PED_ID);
+        }
+        public static int vehid()
+        {
+            return RPC.Call(Natives.GET_VEHICLE_PED_IS_USING, pedid());
+        }
+        public static bool isInVehicle() 
+        {
+            return Convert.ToBoolean(RPC.Call(Natives.IS_PED_IN_ANY_VEHICLE, pedid()));
+        }
         public static string psn()
         {
             int name = RPC.Call(Natives.GET_PLAYER_NAME, pid());

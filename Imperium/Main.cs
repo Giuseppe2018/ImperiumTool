@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using PS3Lib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PS3Lib;
-using Newtonsoft.Json;
-using System.IO;
-using System.Threading;
+using System.Xml;
 
 namespace Imperium
 {
@@ -31,10 +32,14 @@ namespace Imperium
         public Main()
         {
             InitializeComponent();
-            string[] Settings_Settings_content = File.ReadAllLines("Settings/Settings.json");
+
+            string[] Settings_Settings_content = File.ReadAllLines("Data/Settings.json");
             foreach (string line in Settings_Settings_content)
             {
-                //load contents into tunable object
+                /*
+                 { "name": "Character_1", "value": true }
+                 { "name": "Character_2", "value": false }
+                 */
                 Setting setting = JsonConvert.DeserializeObject<Setting>(line);
                 settingsList.Add(setting);
                 if (setting.name == "Character_1")
@@ -46,6 +51,8 @@ namespace Imperium
                     char2.Checked = Variables.character2 = (bool)setting.value;
                 }
             }
+
+            refreshOutfitListing();
 
         }
         #region Stats
@@ -291,14 +298,14 @@ namespace Imperium
             { "CLTHS_AVAILABLE_FEET_5", new StatData(-1, "clothing") },
             { "CLTHS_AVAILABLE_FEET_6", new StatData(-1, "clothing") },
             { "CLTHS_AVAILABLE_FEET_7", new StatData(-1, "clothing") },
-            { "CLTHS_AVAILABLE_HAIR", new StatData(-1, "hair") },
-            { "CLTHS_AVAILABLE_HAIR_1", new StatData(-1, "hair") },
-            { "CLTHS_AVAILABLE_HAIR_2", new StatData(-1, "hair") },
-            { "CLTHS_AVAILABLE_HAIR_3", new StatData(-1, "hair") },
-            { "CLTHS_AVAILABLE_HAIR_4", new StatData(-1, "hair") },
-            { "CLTHS_AVAILABLE_HAIR_5", new StatData(-1, "hair") },
-            { "CLTHS_AVAILABLE_HAIR_6", new StatData(-1, "hair") },
-            { "CLTHS_AVAILABLE_HAIR_7", new StatData(-1, "hair") },
+            { "CLTHS_AVAILABLE_HAIR", new StatData(-1, "clothingHair") },
+            { "CLTHS_AVAILABLE_HAIR_1", new StatData(-1, "clothingHair") },
+            { "CLTHS_AVAILABLE_HAIR_2", new StatData(-1, "clothingHair") },
+            { "CLTHS_AVAILABLE_HAIR_3", new StatData(-1, "clothingHair") },
+            { "CLTHS_AVAILABLE_HAIR_4", new StatData(-1, "clothingHair") },
+            { "CLTHS_AVAILABLE_HAIR_5", new StatData(-1, "clothingHair") },
+            { "CLTHS_AVAILABLE_HAIR_6", new StatData(-1, "clothingHair") },
+            { "CLTHS_AVAILABLE_HAIR_7", new StatData(-1, "clothingHair") },
             { "CLTHS_AVAILABLE_JBIB", new StatData(-1, "clothing") },
             { "CLTHS_AVAILABLE_JBIB_1", new StatData(-1, "clothing") },
             { "CLTHS_AVAILABLE_JBIB_2", new StatData(-1, "clothing") },
@@ -442,8 +449,95 @@ namespace Imperium
             { "PETROLCAN_FM_AMMO_CURRENT", new StatData(-1, "infiniteAmmo") },
             { "PRXMINE_FM_AMMO_CURRENT", new StatData(-1, "infiniteAmmo") },
             { "HOMLNCH_FM_AMMO_CURRENT", new StatData(-1, "infiniteAmmo") },
+            { "MPPLY_HEIST_ACH_TRACKER", new StatData(-1, "heistTrophies") },
 
         };
+        #endregion
+        #region Teleport
+        public class TpData 
+        {
+             public string label { get; set; }
+            public string grouping { get; set; }
+            public TpData(string _label, string _grouping)
+            {
+                label = _label;
+                grouping = _grouping;
+            }
+        }
+        public static Dictionary<double[], TpData> Locations = new Dictionary<double[], TpData>()
+		{
+			{ new double[] { 1705.173, 3747.373, 33.922 }, new TpData("Sandy Shores", "Ammunation") },
+			{ new double[] { 234.312, -42.553, 69.676 }, new TpData("Hawick", "Ammunation") },
+			{ new double[] { 843.569, -1018.228, 27.561 }, new TpData("La Mesa", "Ammunation") },
+			{ new double[] { -320.263, 6071.031, 31.337 }, new TpData("Paleto Bay", "Ammunation") },
+			{ new double[] { -663.388, -950.879, 21.399 }, new TpData("Little Seoul", "Ammunation") },
+			{ new double[] { -1324.082, -388.411, 36.545 }, new TpData("Morningwood", "Ammunation") },
+			{ new double[] { -1108.773, 2685.568, 18.875 }, new TpData("Great Chaparral", "Ammunation") },
+			{ new double[] { -3158.208, 1078.877, 20.691 }, new TpData("Chumash", "Ammunation") },
+			{ new double[] { 2568.549, 313.032, 108.461 }, new TpData("Tataviam", "Ammunation") },
+			{ new double[] { 15.288, -1122.648, 28.816 }, new TpData("Pillbox Hill", "Ammunation") },
+			{ new double[] { 812.893, -2139.652, 29.292 }, new TpData("Cypress Flats", "Ammunation") },
+			
+			{ new double[] { -827.346, -190.451, 37.604 }, new TpData("Rockford Hills", "Barber Shop") },
+			{ new double[] { 130.348, -1715.111, 29.234 }, new TpData("Davis", "Barber Shop") },
+			{ new double[] { -1295.014, -1116.923, 6.655 }, new TpData("Vespucci", "Barber Shop") },
+			{ new double[] { 1936.458, 3720.811, 32.672 }, new TpData("Sandy Shores", "Barber Shop") },
+			{ new double[] { 1202.648, -470.297, 66.246 }, new TpData("Mirror Park", "Barber Shop") },
+			{ new double[] { -30.615, -142.411, 57.051 }, new TpData("Hawick", "Barber Shop") },
+			{ new double[] { -284.387, 6236.210, 31.460 }, new TpData("Paleto Bay", "Barber Shop") },
+			
+			{ new double[] { 411.758, -808.082, 29.144 }, new TpData("Textile City", "Binco") },
+			{ new double[] { -814.987, -1083.856, 11.012 }, new TpData("Vespucci Canals", "Binco") },
+			
+			{ new double[] { 89.663, -1390.938, 29.249 }, new TpData("Strawberry", "Discount") },
+			{ new double[] { 1678.675, 4821.034, 42.007 }, new TpData("Grapeseed", "Discount") },
+			{ new double[] { -1091.677, 2700.770, 19.625 }, new TpData("Great Chaparral", "Discount") },
+			{ new double[] { 1200.602, 2696.959, 37.927 }, new TpData("Senora Desert", "Discount") },
+			{ new double[] { -5.078, 6521.567, 31.270 }, new TpData("Paleto Bay", "Discount") },
+			
+			{ new double[] { -365.425, -131.809, 37.873 }, new TpData("Burton", "LS Customs") },
+			{ new double[] { -1134.224, -1984.387, 13.166 }, new TpData("LS Airport", "LS Customs") },
+			{ new double[] { 709.797, -1082.649, 22.398 }, new TpData("La Mesa", "LS Customs") },
+			{ new double[] { 1178.653, 2666.179, 37.881 }, new TpData("Senora Desert", "LS Customs") },
+			
+			{ new double[] { -718.441, -162.860, 37.013 }, new TpData("Rockford Hills", "Ponsonbys") },
+			{ new double[] { -150.952, -304.549, 38.925 }, new TpData("Burton", "Ponsonbys") },
+			{ new double[] { -1461.290, -226.524, 49.249 }, new TpData("Morningwood", "Ponsonbys") },
+			
+			{ new double[] { -1209.446, -783.510, 17.169 }, new TpData("Del Perro", "Suburban") },
+			{ new double[] { 617.782, 2736.849, 41.999 }, new TpData("Harmony", "Suburban") },
+			{ new double[] { 130.452, -202.726, 54.505 }, new TpData("Harwick", "Suburban") },
+			{ new double[] { -3165.330, 1062.592, 20.840 }, new TpData("Chumash", "Suburban") },
+			
+			{ new double[] { 318.079, 170.586, 103.767 }, new TpData("Downtown", "Tattoo") },
+			{ new double[] { 1853.978, 3745.352, 33.082 }, new TpData("Sandy Shores", "Tattoo") },
+			{ new double[] { -286.602, 6202.248, 31.322 }, new TpData("Paleto Bay", "Tattoo") },
+			{ new double[] { -1159.103, -1417.739, 4.706 }, new TpData("Vespucci Canals", "Tattoo") },
+			{ new double[] { 1319.359, -1643.693, 52.145 }, new TpData("El Burro Heights", "Tattoo") },
+			{ new double[] { -3162.709, 1071.733, 20.681 }, new TpData("Chumash", "Tattoo") },
+			
+			{ new double[] { 126.219, 6608.142, 31.866 }, new TpData("Beekers Garage", "Miscellaneous") },
+			{ new double[] { -1339.926, -1279.063, 4.870 }, new TpData("Vespucci Movie Masks", "Miscellaneous") },
+		};
+        void teleport(double[] loc)
+        {
+            float[] nLoc = { (float)loc[0], (float)loc[1], (float)loc[2] };
+            uint location = 0x10030000;
+            byte[] XLocation = BitConverter.GetBytes(nLoc[0]);
+            byte[] YLocation = BitConverter.GetBytes(nLoc[1]);
+            byte[] ZLocation = BitConverter.GetBytes(nLoc[2]);
+            Array.Reverse(XLocation);
+            Array.Reverse(YLocation);
+            Array.Reverse(ZLocation);
+            byte[] buffer = new byte[] { XLocation[0], XLocation[1], XLocation[2], XLocation[3], YLocation[0], YLocation[1], YLocation[2], YLocation[3], ZLocation[0], ZLocation[1], ZLocation[2] };
+            PS3.SetMemory(location, buffer);
+            Thread.Sleep(10);
+            RPC.Call(Natives.DO_SCREEN_FADE_OUT, 400);
+            Thread.Sleep(300);
+            RPC.Call(Natives.SET_ENTITY_COORDS, NFunc.isInVehicle() ? NFunc.vehid() : NFunc.pedid(), location, 1, 0, 0, 1);
+            Thread.Sleep(1000);
+            RPC.Call(Natives.DO_SCREEN_FADE_IN, 400);
+        }
         #endregion
         public static uint Hash(string input)
         {
@@ -605,24 +699,24 @@ namespace Imperium
         {
             var query = from item in Stats
                         where item.Key.ToLower().Contains(statqSearch.Text.ToLower())
-                        orderby item.Key ascending
+                        orderby item.Value.keyword ascending
                         select item;
             statqList.Items.Clear();
             foreach (KeyValuePair<string, StatData> item in query)
             {
-                statqList.Items.Add(item.Key + " = " + item.Value.value.ToString());
+                statqList.Items.Add("[" + item.Value.keyword + "] " + item.Key + " = " + item.Value.value.ToString());
             }
         }
         private void statkwqSearch_EditValueChanged(object sender, EventArgs e)
         {
             var query = from item in Stats
                         where item.Value.keyword.ToLower().Contains(statkwqSearch.Text.ToLower())
-                        orderby item.Key ascending
+                        orderby item.Value.keyword ascending
                         select item;
             statkwqList.Items.Clear();
             foreach (KeyValuePair<string, StatData> item in query)
             {
-                statkwqList.Items.Add(item.Key + " = " + item.Value.value.ToString());
+                statkwqList.Items.Add("[" + item.Value.keyword + "] " + item.Key + " = " + item.Value.value.ToString());
             }
         }
         #region Tunables
@@ -653,7 +747,7 @@ namespace Imperium
 
         private void gClothing_Click(object sender, EventArgs e)
         {
-            setStatKeywordQuery("clothing", "hair");
+            setStatKeywordQuery("clothing", "clothingHair");
         }
 
         private void gWeapons_Click(object sender, EventArgs e)
@@ -686,7 +780,7 @@ namespace Imperium
             setStatKeywordQuery("awards");
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void gHeistVehicles_Click(object sender, EventArgs e)
         {
             setStatKeywordQuery("heistVehicles");
         }
@@ -700,5 +794,363 @@ namespace Imperium
         {
             setStatKeywordQuery("infiniteAmmo");
         }
+
+        private void gAddBank_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int value = Convert.ToInt32(gAddBank.Text);
+            // Attempting to add negative values will result in random outcomes, so we check for if it's more than $0
+            if (value > 0)
+            {
+                // A normal addition of money. Adds what you tell it to add.
+                if (value <= 10000000)
+                {
+                    RPC.Call(Natives.NETWORK_EARN_FROM_ROCKSTAR, value);
+                }
+                // This native will not permit you to add more than $10,000,000 per call, so we break it up.
+                else
+                {
+                    int valueStorage = value;
+                    while (valueStorage > 0)
+                    {
+                        if (valueStorage >= 10000000)
+                        {
+                            RPC.Call(Natives.NETWORK_EARN_FROM_ROCKSTAR, 10000000);
+                            valueStorage -= 10000000;
+                        }
+                        // This would be the final call. It's setting the remainder that is less than $10,000,000
+                        else
+                        {
+                            RPC.Call(Natives.NETWORK_EARN_FROM_ROCKSTAR, valueStorage);
+                            valueStorage = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void gTeleportType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Load Teleport Locations into combo box
+            var query = from item in Locations
+                        where item.Value.grouping.ToLower().Contains(gTeleportType.Text.ToLower())
+                        orderby item.Value.label ascending
+                        select item;
+            gTeleportLoc.Properties.Items.Clear();
+            foreach (KeyValuePair<double[], TpData> item in query)
+            {
+                gTeleportLoc.Properties.Items.Add(item.Value.label);
+            }
+            gTeleportLoc.SelectedIndex = 0;
+        }
+
+        private void gTeleport_Click(object sender, EventArgs e)
+        {
+            var query = (from item in Locations
+                         where item.Value.grouping.ToLower() == gTeleportType.Text.ToLower() && item.Value.label.ToLower() == gTeleportLoc.Text.ToLower()
+                        select item.Key).ToArray();
+            teleport(query[0]);
+        }
+
+        private void gTutorial_Click(object sender, EventArgs e)
+        {
+            setStatKeywordQuery("tutorial");
+        }
+
+        private void gRedesign_Click(object sender, EventArgs e)
+        {
+            setStatKeywordQuery("redesign");
+        }
+
+        private void gHeistTrophies_Click(object sender, EventArgs e)
+        {
+            setStatKeywordQuery("heistTrophies");
+        }
+
+        private void gRank_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            setStat("CHAR_XP_FM", Lib.Ranks[Convert.ToInt32(gRank.Text) - 1]);
+        }
+
+        private void gRP_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            setStat("CHAR_XP_FM", Convert.ToInt32(gRP.Text));
+        }
+
+        private void gAddCash_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.MONEY, Convert.ToInt32(gAddCash.Text), 0);
+        }
+
+        #region Outfit
+        string[] getOutfitTitles()
+        {
+            string filepath = "Data/Outfits.xml";
+            if (File.Exists(filepath))
+            {
+                List<string> list = new List<string>();
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.ConformanceLevel = ConformanceLevel.Fragment;
+                using (XmlReader reader = XmlReader.Create(new StringReader(File.ReadAllText(filepath)), settings))
+                {
+                    while (reader.ReadToFollowing("outfit"))
+                    {
+                        reader.MoveToFirstAttribute();
+                        list.Add(reader.Value);
+                    }
+                }
+                return list.ToArray();
+            }
+            return null;
+        }
+        string[] aoElements = new string[] { "mask", "hat", "eyes", "ears", "hair", "torso", "tops1", "tops2", "legs", "shoes", "face", "extra", "hands", "armor", "emblem" };
+        Dictionary<string, object[]> getOutfitData(string title)
+        {
+            string filepath = "Data/Outfits.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+
+            XmlNode foundNode = null;
+            foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
+            {
+                if (node.Attributes["title"].InnerText == title)
+                {
+                    foundNode = node;
+                }
+            }
+
+            Dictionary<string, object[]> data = new Dictionary<string, object[]>();
+            if (foundNode != null)
+            {
+                data.Add("gender", new object[] { foundNode.Attributes["gender"].InnerText });
+                data.Add("creator", new object[] { foundNode.Attributes["creator"].InnerText });
+                for (int i = 0; i < aoElements.Count(); i++)
+                {
+                    data.Add(aoElements[i], new object[] { Convert.ToInt32(foundNode.SelectSingleNode(aoElements[i]).Attributes["model"].InnerText), Convert.ToInt32(foundNode.SelectSingleNode(aoElements[i]).Attributes["texture"].InnerText) });
+                }
+                data.Add("description", new object[] { foundNode.SelectSingleNode("description").InnerXml });
+            }
+            return data;
+        }
+        void refreshOutfitListing()
+        {
+            int index = aoListing.SelectedIndex;
+            aoListing.Items.Clear();
+            foreach (string label in getOutfitTitles())
+            {
+                aoListing.Items.Add(label);
+            }
+            aoListing.SelectedIndex = index;
+        }
+        private void aoRefresh_Click(object sender, EventArgs e)
+        {
+            refreshOutfitListing();
+            aoListing.SelectedIndex = outfitTabs.SelectedTabPageIndex = 0;
+        }
+        void aoeRefreshControls()
+        {
+            if (aoListing.SelectedIndex != -1)
+            {
+                DevExpress.XtraEditors.SpinEdit[] aoeControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_m, aoeHat_m, aoeEyes_m, aoeEars_m, aoeHair_m, aoeTorso_m, aoeTops1_m, aoeTops2_m, aoeLegs_m, aoeShoes_m, aoeFace_m, aoeExtra_m, aoeHands_m, aoeArmor_m, aoeEmblem_m };
+                DevExpress.XtraEditors.SpinEdit[] aoeControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_t, aoeHat_t, aoeEyes_t, aoeEars_t, aoeHair_t, aoeTorso_t, aoeTops1_t, aoeTops2_t, aoeLegs_t, aoeShoes_t, aoeFace_t, aoeExtra_t, aoeHands_t, aoeArmor_t, aoeEmblem_t };
+                Dictionary<string, object[]> data = getOutfitData(aoListing.Text);
+                aoeTitle.Text = getOutfitTitles()[aoListing.SelectedIndex];
+
+                for (int i = 0; i < aoeControls_m.Count(); i++)
+                {
+                    aoeControls_m[i].Text = data[aoElements[i]][0].ToString();
+                    aoeControls_t[i].Text = data[aoElements[i]][1].ToString();
+                }
+
+                aoeDescription.Text = data["description"][0].ToString();
+                aoeGender.SelectedIndex = data["gender"][0].ToString() == "male" ? 0 : 1;
+                aoeCreator.Text = "Creator: " + data["creator"][0].ToString();
+            }
+        }
+        private void aoListing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            aoeRefreshControls();
+        }
+
+        private void aoeSave_Click(object sender, EventArgs e)
+        {
+            // Load XML
+            string filepath = "Data/Outfits.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+
+            // Find outfit node
+            XmlNode foundNode = null;
+            foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
+            {
+                if (node.Attributes["title"].InnerText == aoListing.Text)
+                {
+                    foundNode = node;
+                }
+            }
+
+            // Set title
+            foundNode.Attributes["title"].InnerText = aoeTitle.Text;
+
+            // Set values
+            DevExpress.XtraEditors.SpinEdit[] aoeControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_m, aoeHat_m, aoeEyes_m, aoeEars_m, aoeHair_m, aoeTorso_m, aoeTops1_m, aoeTops2_m, aoeLegs_m, aoeShoes_m, aoeFace_m, aoeExtra_m, aoeHands_m, aoeArmor_m, aoeEmblem_m };
+            DevExpress.XtraEditors.SpinEdit[] aoeControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_t, aoeHat_t, aoeEyes_t, aoeEars_t, aoeHair_t, aoeTorso_t, aoeTops1_t, aoeTops2_t, aoeLegs_t, aoeShoes_t, aoeFace_t, aoeExtra_t, aoeHands_t, aoeArmor_t, aoeEmblem_t };
+            for (int i = 0; i < aoElements.Count(); i++)
+            {
+                foundNode.SelectSingleNode(aoElements[i]).Attributes["model"].InnerText = aoeControls_m[i].Text;
+                foundNode.SelectSingleNode(aoElements[i]).Attributes["texture"].InnerText = aoeControls_t[i].Text;
+            }
+
+            // Set gender
+            foundNode.Attributes["gender"].InnerText = aoeGender.SelectedIndex == 0 ? "male" : "female";
+            // Set description
+            foundNode.SelectSingleNode("description").InnerXml = aoeDescription.Text;
+
+            // Save XML
+            doc.Save(filepath);
+
+            refreshOutfitListing();
+        }
+
+        private void aoaAdd_Click(object sender, EventArgs e)
+        {
+            // Load XML
+            string filepath = "Data/Outfits.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+
+            // Create main node
+            XmlNode node = doc.CreateNode(XmlNodeType.Element, "outfit", null);
+
+            // Add title attribute to main node
+            XmlAttribute nodeTitle = doc.CreateAttribute("title");
+            nodeTitle.Value = aoaTitle.Text;
+            node.Attributes.SetNamedItem(nodeTitle);
+            XmlAttribute nodeGender = doc.CreateAttribute("gender");
+            nodeGender.Value = aoaGender.Text.ToLower();
+            node.Attributes.SetNamedItem(nodeGender);
+            XmlAttribute nodeCreator = doc.CreateAttribute("creator");
+            nodeCreator.Value = aoaCreator.Text;
+            node.Attributes.SetNamedItem(nodeCreator);
+
+            DevExpress.XtraEditors.SpinEdit[] aoaControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoaMask_m, aoaHat_m, aoaEyes_m, aoaEars_m, aoaHair_m, aoaTorso_m, aoaTops1_m, aoaTops2_m, aoaLegs_m, aoaShoes_m, aoaFace_m, aoaExtra_m, aoaHands_m, aoaArmor_m, aoaEmblem_m };
+            DevExpress.XtraEditors.SpinEdit[] aoaControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoaMask_t, aoaHat_t, aoaEyes_t, aoaEars_t, aoaHair_t, aoaTorso_t, aoaTops1_t, aoaTops2_t, aoaLegs_t, aoaShoes_t, aoaFace_t, aoaExtra_t, aoaHands_t, aoaArmor_t, aoaEmblem_t };
+            for (int i = 0; i < aoElements.Count(); i++)
+            {
+                // Create new node
+                XmlNode newNode = doc.CreateElement(aoElements[i]);
+
+                // Add model attribute to new node
+                XmlAttribute newNode_m = doc.CreateAttribute("model");
+                newNode_m.Value = aoaControls_m[i].Text;
+                newNode.Attributes.SetNamedItem(newNode_m);
+
+                XmlAttribute newNode_t = doc.CreateAttribute("texture");
+                newNode_t.Value = aoaControls_t[i].Text;
+                newNode.Attributes.SetNamedItem(newNode_t);
+
+                // Add new node to main node
+                node.AppendChild(newNode);
+            }
+
+            // Add description
+            XmlNode descriptionNode = doc.CreateElement("description");
+            descriptionNode.InnerXml = aoaDescription.Text == "" ? "None" : aoaDescription.Text;
+            node.AppendChild(descriptionNode);
+
+            // Add main node to XML
+            doc.DocumentElement.AppendChild(node);
+
+            // Save XML
+            doc.Save(filepath);
+
+            refreshOutfitListing();
+        }
+
+        void Reset()
+        {
+            RPC.Call(Natives.CLEAR_ALL_PED_PROPS, NFunc.pedid());
+            RPC.Call(Natives.CLEAR_PED_DECORATIONS, NFunc.pedid());
+            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NFunc.pedid(), 1, 0, 0);
+            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NFunc.pedid(), 5, 0, 0);
+            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NFunc.pedid(), 9, 0, 0);
+        }
+        int fam;
+        void setClothing(string family, string model, string texture)
+        {
+            if (family == "HAT" || family == "EYES" || family == "EARS")
+            {
+                switch (family)
+                {
+                    case "HAT": fam = 0; break;
+                    case "EYES": fam = 1; break;
+                    case "EARS": fam = 2; break;
+                }
+                if (model != "-1" && texture != "-1")
+                    RPC.Call(Natives.SET_PED_PROP_INDEX, NFunc.pedid(), fam, Convert.ToInt32(model) - 1, Convert.ToInt32(texture));
+            }
+            else
+            {
+                switch (family)
+                {
+                    case "FACE": fam = 0; break;
+                    case "MASK": fam = 1; break;
+                    case "HAIR": fam = 2; break;
+                    case "TORSO": fam = 3; break;
+                    case "LEGS": fam = 4; break;
+                    case "HANDS": fam = 5; break;
+                    case "SHOES": fam = 6; break;
+                    case "EXTRA": fam = 7; break;
+                    case "TOPS1": fam = 8; break;
+                    case "ARMOR": fam = 9; break;
+                    case "EMBLEM": fam = 10; break;
+                    case "TOPS2": fam = 11; break;
+                }
+                if (model != "-1" && texture != "-1")
+                    RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NFunc.pedid(), fam, Convert.ToInt32(model), Convert.ToInt32(texture));
+            }
+        }
+        private void aoEquip_Click(object sender, EventArgs e)
+        {
+            Reset();
+            setClothing("MASK", aoeMask_m.Text, aoeMask_t.Text);
+            setClothing("HAT", aoeHat_m.Text, aoeHat_t.Text);
+            setClothing("EYES", aoeEyes_m.Text, aoeEyes_t.Text);
+            setClothing("EARS", aoeEars_m.Text, aoeEars_t.Text);
+            setClothing("HAIR", aoeHair_m.Text, aoeHair_t.Text);
+            setClothing("TORSO", aoeTorso_m.Text, aoeTorso_t.Text);
+            setClothing("TOPS1", aoeTops1_m.Text, aoeTops1_t.Text);
+            setClothing("TOPS2", aoeTops2_m.Text, aoeTops2_t.Text);
+            setClothing("LEGS", aoeLegs_m.Text, aoeLegs_t.Text);
+            setClothing("SHOES", aoeShoes_m.Text, aoeShoes_t.Text);
+            setClothing("FACE", aoeFace_m.Text, aoeFace_t.Text);
+            setClothing("EXTRA", aoeExtra_m.Text, aoeExtra_t.Text);
+            setClothing("HANDS", aoeHands_m.Text, aoeHands_t.Text);
+            setClothing("ARMOR", aoeArmor_m.Text, aoeArmor_t.Text);
+            setClothing("EMBLEM", aoeEmblem_m.Text, aoeEmblem_t.Text);
+        }
+
+        private void aoDelete_Click(object sender, EventArgs e)
+        {
+            if (aoListing.SelectedIndex != -1)
+            {
+                string filepath = "Data/Outfits.xml";
+                XmlDocument doc = new XmlDocument();
+                doc.Load(filepath);
+
+                XmlNode foundNode = null;
+                foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
+                {
+                    if (node.Attributes["title"].InnerText == aoListing.Text)
+                    {
+                        foundNode = node;
+                    }
+                }
+                foundNode.ParentNode.RemoveChild(foundNode);
+                doc.Save(filepath);
+                aoListing.SelectedIndex = 0;
+                refreshOutfitListing();
+            }
+        }
+        #endregion
     }
 }

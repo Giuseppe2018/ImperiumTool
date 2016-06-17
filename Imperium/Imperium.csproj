@@ -141,7 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
-    <Content Include="logo_bFL_icon.ico" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\link_connected.png" />
     <None Include="Resources\theme.png" />

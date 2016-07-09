@@ -1152,5 +1152,11 @@ namespace Imperium
             }
         }
         #endregion
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            int stor = RPC.Call(Natives.STAT_GET_STRING, Hash(textEdit2.Text), -1);
+            textEdit1.Text = PS3.Extension.ReadString((uint)stor);
+        }
     }
 }

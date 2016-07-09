@@ -64,8 +64,22 @@
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gTeleportLoc = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.buttonEdit7 = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.buttonEdit6 = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.buttonEdit5 = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.buttonEdit4 = new DevExpress.XtraEditors.ButtonEdit();
             this.gAddBank = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.gAddCash = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.gRP = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.gRank = new DevExpress.XtraEditors.ButtonEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.uIdleKick = new DevExpress.XtraEditors.SimpleButton();
             this.gInfiniteAmmo = new DevExpress.XtraEditors.SimpleButton();
@@ -86,72 +100,16 @@
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.statqList = new DevExpress.XtraEditors.ListBoxControl();
-            this.statqSearch = new DevExpress.XtraEditors.TextEdit();
-            this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
-            this.statkwqList = new DevExpress.XtraEditors.ListBoxControl();
-            this.statkwqSearch = new DevExpress.XtraEditors.TextEdit();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.gRank = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.gRP = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.gAddCash = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.buttonEdit4 = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.buttonEdit5 = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.buttonEdit6 = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.buttonEdit7 = new DevExpress.XtraEditors.ButtonEdit();
             this.xtraTabControl3 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage11 = new DevExpress.XtraTab.XtraTabPage();
-            this.aoListing = new DevExpress.XtraEditors.ListBoxControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.aoRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.aoEquip = new DevExpress.XtraEditors.SimpleButton();
+            this.aoDelete = new DevExpress.XtraEditors.SimpleButton();
             this.outfitTabs = new DevExpress.XtraTab.XtraTabControl();
             this.outfitEditTab = new DevExpress.XtraTab.XtraTabPage();
-            this.outfitAddTab = new DevExpress.XtraTab.XtraTabPage();
-            this.aoeSave = new DevExpress.XtraEditors.SimpleButton();
-            this.aoDelete = new DevExpress.XtraEditors.SimpleButton();
-            this.aoEquip = new DevExpress.XtraEditors.SimpleButton();
-            this.aoeTitle = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.aoeGender = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.aoeDescription = new DevExpress.XtraEditors.TextEdit();
-            this.aoeMask_m = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeMask_t = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.aoeHat_t = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeHat_m = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.aoeEars_t = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeEars_m = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-            this.aoeEyes_t = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeEyes_m = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.aoeHair_t = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeHair_m = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.aoeTops1_t = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeTops1_m = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeTorso_t = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeTorso_m = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeCreator = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeTops2_t = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeTops2_m = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.aoeEmblem_t = new DevExpress.XtraEditors.SpinEdit();
@@ -173,9 +131,37 @@
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             this.aoeLegs_t = new DevExpress.XtraEditors.SpinEdit();
             this.aoeLegs_m = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
-            this.aoeTops2_t = new DevExpress.XtraEditors.SpinEdit();
-            this.aoeTops2_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeTops1_t = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeTops1_m = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeTorso_t = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeTorso_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeHair_t = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeHair_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeEars_t = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeEars_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeEyes_t = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeEyes_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeHat_t = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeHat_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeMask_t = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeMask_m = new DevExpress.XtraEditors.SpinEdit();
+            this.aoeDescription = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeGender = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.aoeTitle = new DevExpress.XtraEditors.TextEdit();
+            this.aoeSave = new DevExpress.XtraEditors.SimpleButton();
+            this.outfitAddTab = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl47 = new DevExpress.XtraEditors.LabelControl();
+            this.aoaCreator = new DevExpress.XtraEditors.TextEdit();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.aoaTops2_t = new DevExpress.XtraEditors.SpinEdit();
             this.aoaTops2_m = new DevExpress.XtraEditors.SpinEdit();
@@ -228,9 +214,48 @@
             this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
             this.aoaTitle = new DevExpress.XtraEditors.TextEdit();
             this.aoaAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.aoeCreator = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl47 = new DevExpress.XtraEditors.LabelControl();
-            this.aoaCreator = new DevExpress.XtraEditors.TextEdit();
+            this.aoRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.aoListing = new DevExpress.XtraEditors.ListBoxControl();
+            this.xtraTabPage11 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.statqList = new DevExpress.XtraEditors.ListBoxControl();
+            this.statqSearch = new DevExpress.XtraEditors.TextEdit();
+            this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
+            this.statkwqList = new DevExpress.XtraEditors.ListBoxControl();
+            this.statkwqSearch = new DevExpress.XtraEditors.TextEdit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage12 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage13 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage14 = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.sdSync = new DevExpress.XtraEditors.SimpleButton();
+            this.sdE_s = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl48 = new DevExpress.XtraEditors.LabelControl();
+            this.sdE_set = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl49 = new DevExpress.XtraEditors.LabelControl();
+            this.sdE_v = new DevExpress.XtraEditors.TextEdit();
+            this.sdE_t = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl50 = new DevExpress.XtraEditors.LabelControl();
+            this.sdE_r = new DevExpress.XtraEditors.LabelControl();
+            this.sdV_r = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl53 = new DevExpress.XtraEditors.LabelControl();
+            this.sdV_t = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl54 = new DevExpress.XtraEditors.LabelControl();
+            this.sdV_v = new DevExpress.XtraEditors.TextEdit();
+            this.sdV_get = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl55 = new DevExpress.XtraEditors.LabelControl();
+            this.sdV_s = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -242,55 +267,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.gTeleportLoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gAddBank.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gAddCash.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gRP.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gRank.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.xtraTabPage3.SuspendLayout();
             this.xtraTabPage4.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
-            this.xtraTabControl2.SuspendLayout();
-            this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statqList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).BeginInit();
-            this.xtraTabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.statkwqList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statkwqSearch.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gRank.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gRP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gAddCash.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit7.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).BeginInit();
             this.xtraTabControl3.SuspendLayout();
             this.xtraTabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aoListing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outfitTabs)).BeginInit();
             this.outfitTabs.SuspendLayout();
             this.outfitEditTab.SuspendLayout();
-            this.outfitAddTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTitle.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeGender.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeDescription.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeMask_m.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeMask_t.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeHat_t.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeHat_m.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeEars_t.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeEars_m.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeEyes_t.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeEyes_m.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeHair_t.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeHair_m.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTops1_t.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTops1_m.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTorso_t.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTorso_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTops2_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTops2_m.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeEmblem_t.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeEmblem_m.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeArmor_t.Properties)).BeginInit();
@@ -305,8 +303,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.aoeShoes_m.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeLegs_t.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeLegs_m.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTops2_t.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTops2_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTops1_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTops1_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTorso_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTorso_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeHair_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeHair_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeEars_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeEars_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeEyes_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeEyes_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeHat_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeHat_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeMask_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeMask_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeDescription.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeGender.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTitle.Properties)).BeginInit();
+            this.outfitAddTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aoaCreator.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaTops2_t.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaTops2_m.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaEmblem_t.Properties)).BeginInit();
@@ -340,7 +355,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.aoaDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaGender.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaTitle.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoaCreator.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoListing)).BeginInit();
+            this.xtraTabPage8.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
+            this.xtraTabControl2.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statqList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).BeginInit();
+            this.xtraTabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statkwqList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statkwqSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
+            this.xtraTabControl4.SuspendLayout();
+            this.xtraTabPage12.SuspendLayout();
+            this.xtraTabPage14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdE_v.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdE_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdV_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdV_v.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdV_s.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -352,13 +394,13 @@
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabGeneral,
+            this.xtraTabPage5,
             this.xtraTabPage3,
             this.xtraTabPage4,
-            this.xtraTabPage5,
-            this.xtraTabPage6,
             this.xtraTabPage7,
             this.xtraTabPage8,
-            this.xtraTabPage1});
+            this.xtraTabPage1,
+            this.xtraTabPage14});
             // 
             // tabGeneral
             // 
@@ -737,6 +779,50 @@
             this.groupControl3.TabIndex = 16;
             this.groupControl3.Text = "Inventory";
             // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(5, 188);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(46, 13);
+            this.labelControl10.TabIndex = 29;
+            this.labelControl10.Text = "Fireworks";
+            // 
+            // buttonEdit7
+            // 
+            this.buttonEdit7.EditValue = "0";
+            this.buttonEdit7.Location = new System.Drawing.Point(57, 185);
+            this.buttonEdit7.MenuManager = this.barManager1;
+            this.buttonEdit7.Name = "buttonEdit7";
+            this.buttonEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEdit7.Properties.Mask.EditMask = "f0";
+            this.buttonEdit7.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.buttonEdit7.Properties.Mask.PlaceHolder = '0';
+            this.buttonEdit7.Size = new System.Drawing.Size(80, 20);
+            this.buttonEdit7.TabIndex = 28;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(22, 165);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(29, 13);
+            this.labelControl9.TabIndex = 27;
+            this.labelControl9.Text = "Armor";
+            // 
+            // buttonEdit6
+            // 
+            this.buttonEdit6.EditValue = "0";
+            this.buttonEdit6.Location = new System.Drawing.Point(57, 162);
+            this.buttonEdit6.MenuManager = this.barManager1;
+            this.buttonEdit6.Name = "buttonEdit6";
+            this.buttonEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEdit6.Properties.Mask.EditMask = "f0";
+            this.buttonEdit6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.buttonEdit6.Properties.Mask.PlaceHolder = '0';
+            this.buttonEdit6.Size = new System.Drawing.Size(80, 20);
+            this.buttonEdit6.TabIndex = 26;
+            // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(17, 73);
@@ -744,6 +830,50 @@
             this.labelControl3.Size = new System.Drawing.Size(34, 13);
             this.labelControl3.TabIndex = 15;
             this.labelControl3.Text = "+ Bank";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(18, 142);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(33, 13);
+            this.labelControl8.TabIndex = 25;
+            this.labelControl8.Text = "Snacks";
+            // 
+            // buttonEdit5
+            // 
+            this.buttonEdit5.EditValue = "0";
+            this.buttonEdit5.Location = new System.Drawing.Point(57, 139);
+            this.buttonEdit5.MenuManager = this.barManager1;
+            this.buttonEdit5.Name = "buttonEdit5";
+            this.buttonEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEdit5.Properties.Mask.EditMask = "f0";
+            this.buttonEdit5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.buttonEdit5.Properties.Mask.PlaceHolder = '0';
+            this.buttonEdit5.Size = new System.Drawing.Size(80, 20);
+            this.buttonEdit5.TabIndex = 24;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(20, 119);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(31, 13);
+            this.labelControl7.TabIndex = 23;
+            this.labelControl7.Text = "- Total";
+            // 
+            // buttonEdit4
+            // 
+            this.buttonEdit4.EditValue = "0";
+            this.buttonEdit4.Location = new System.Drawing.Point(57, 116);
+            this.buttonEdit4.MenuManager = this.barManager1;
+            this.buttonEdit4.Name = "buttonEdit4";
+            this.buttonEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEdit4.Properties.Mask.EditMask = "f0";
+            this.buttonEdit4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.buttonEdit4.Properties.Mask.PlaceHolder = '0';
+            this.buttonEdit4.Size = new System.Drawing.Size(80, 20);
+            this.buttonEdit4.TabIndex = 22;
             // 
             // gAddBank
             // 
@@ -759,6 +889,76 @@
             this.gAddBank.Size = new System.Drawing.Size(80, 20);
             this.gAddBank.TabIndex = 14;
             this.gAddBank.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.gAddBank_ButtonClick);
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(16, 96);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(35, 13);
+            this.labelControl6.TabIndex = 21;
+            this.labelControl6.Text = "+ Cash";
+            // 
+            // gAddCash
+            // 
+            this.gAddCash.EditValue = "0";
+            this.gAddCash.Location = new System.Drawing.Point(57, 93);
+            this.gAddCash.MenuManager = this.barManager1;
+            this.gAddCash.Name = "gAddCash";
+            this.gAddCash.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.gAddCash.Properties.Mask.EditMask = "f0";
+            this.gAddCash.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.gAddCash.Properties.Mask.PlaceHolder = '0';
+            this.gAddCash.Size = new System.Drawing.Size(80, 20);
+            this.gAddCash.TabIndex = 20;
+            this.gAddCash.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.gAddCash_ButtonClick);
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(39, 50);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(12, 13);
+            this.labelControl5.TabIndex = 19;
+            this.labelControl5.Text = "XP";
+            // 
+            // gRP
+            // 
+            this.gRP.EditValue = "0";
+            this.gRP.Location = new System.Drawing.Point(57, 47);
+            this.gRP.MenuManager = this.barManager1;
+            this.gRP.Name = "gRP";
+            this.gRP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.gRP.Properties.Mask.EditMask = "f0";
+            this.gRP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.gRP.Properties.Mask.PlaceHolder = '0';
+            this.gRP.Size = new System.Drawing.Size(80, 20);
+            this.gRP.TabIndex = 18;
+            this.gRP.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.gRP_ButtonClick);
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(27, 27);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(24, 13);
+            this.labelControl4.TabIndex = 17;
+            this.labelControl4.Text = "Rank";
+            // 
+            // gRank
+            // 
+            this.gRank.EditValue = "0";
+            this.gRank.Location = new System.Drawing.Point(57, 24);
+            this.gRank.MenuManager = this.barManager1;
+            this.gRank.Name = "gRank";
+            this.gRank.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.gRank.Properties.Mask.EditMask = "f0";
+            this.gRank.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.gRank.Properties.Mask.PlaceHolder = '0';
+            this.gRank.Properties.MaxLength = 4;
+            this.gRank.Size = new System.Drawing.Size(80, 20);
+            this.gRank.TabIndex = 16;
+            this.gRank.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.gRank_ButtonClick);
             // 
             // groupControl2
             // 
@@ -937,266 +1137,6 @@
             this.xtraTabPage4.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage4.Text = "Appearance";
             // 
-            // xtraTabPage5
-            // 
-            this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(564, 342);
-            this.xtraTabPage5.Text = "Time";
-            // 
-            // xtraTabPage6
-            // 
-            this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(564, 342);
-            this.xtraTabPage6.Text = "Dumps";
-            // 
-            // xtraTabPage7
-            // 
-            this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(564, 342);
-            this.xtraTabPage7.Text = "Configurations";
-            // 
-            // xtraTabPage8
-            // 
-            this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(564, 342);
-            this.xtraTabPage8.Text = "Debugger";
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.xtraTabControl2);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(564, 342);
-            this.xtraTabPage1.Text = "Development";
-            // 
-            // xtraTabControl2
-            // 
-            this.xtraTabControl2.Location = new System.Drawing.Point(3, 3);
-            this.xtraTabControl2.Name = "xtraTabControl2";
-            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage2;
-            this.xtraTabControl2.Size = new System.Drawing.Size(558, 336);
-            this.xtraTabControl2.TabIndex = 3;
-            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage2,
-            this.xtraTabPage9});
-            // 
-            // xtraTabPage2
-            // 
-            this.xtraTabPage2.Controls.Add(this.statqList);
-            this.xtraTabPage2.Controls.Add(this.statqSearch);
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(552, 308);
-            this.xtraTabPage2.Text = "Stat Query";
-            // 
-            // statqList
-            // 
-            this.statqList.Location = new System.Drawing.Point(3, 3);
-            this.statqList.Name = "statqList";
-            this.statqList.Size = new System.Drawing.Size(546, 276);
-            this.statqList.TabIndex = 1;
-            // 
-            // statqSearch
-            // 
-            this.statqSearch.EditValue = "";
-            this.statqSearch.Location = new System.Drawing.Point(3, 285);
-            this.statqSearch.MenuManager = this.barManager1;
-            this.statqSearch.Name = "statqSearch";
-            this.statqSearch.Size = new System.Drawing.Size(546, 20);
-            this.statqSearch.TabIndex = 2;
-            this.statqSearch.EditValueChanged += new System.EventHandler(this.statqSearch_EditValueChanged);
-            // 
-            // xtraTabPage9
-            // 
-            this.xtraTabPage9.Controls.Add(this.statkwqList);
-            this.xtraTabPage9.Controls.Add(this.statkwqSearch);
-            this.xtraTabPage9.Name = "xtraTabPage9";
-            this.xtraTabPage9.Size = new System.Drawing.Size(552, 308);
-            this.xtraTabPage9.Text = "Stat Keyword Query";
-            // 
-            // statkwqList
-            // 
-            this.statkwqList.Location = new System.Drawing.Point(3, 3);
-            this.statkwqList.Name = "statkwqList";
-            this.statkwqList.Size = new System.Drawing.Size(546, 276);
-            this.statkwqList.TabIndex = 3;
-            // 
-            // statkwqSearch
-            // 
-            this.statkwqSearch.EditValue = "";
-            this.statkwqSearch.Location = new System.Drawing.Point(3, 285);
-            this.statkwqSearch.MenuManager = this.barManager1;
-            this.statkwqSearch.Name = "statkwqSearch";
-            this.statkwqSearch.Size = new System.Drawing.Size(546, 20);
-            this.statkwqSearch.TabIndex = 4;
-            this.statkwqSearch.EditValueChanged += new System.EventHandler(this.statkwqSearch_EditValueChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Imperium.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(570, 81);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(27, 27);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(24, 13);
-            this.labelControl4.TabIndex = 17;
-            this.labelControl4.Text = "Rank";
-            // 
-            // gRank
-            // 
-            this.gRank.EditValue = "0";
-            this.gRank.Location = new System.Drawing.Point(57, 24);
-            this.gRank.MenuManager = this.barManager1;
-            this.gRank.Name = "gRank";
-            this.gRank.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.gRank.Properties.Mask.EditMask = "f0";
-            this.gRank.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.gRank.Properties.Mask.PlaceHolder = '0';
-            this.gRank.Properties.MaxLength = 4;
-            this.gRank.Size = new System.Drawing.Size(80, 20);
-            this.gRank.TabIndex = 16;
-            this.gRank.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.gRank_ButtonClick);
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(39, 50);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(12, 13);
-            this.labelControl5.TabIndex = 19;
-            this.labelControl5.Text = "XP";
-            // 
-            // gRP
-            // 
-            this.gRP.EditValue = "0";
-            this.gRP.Location = new System.Drawing.Point(57, 47);
-            this.gRP.MenuManager = this.barManager1;
-            this.gRP.Name = "gRP";
-            this.gRP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.gRP.Properties.Mask.EditMask = "f0";
-            this.gRP.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.gRP.Properties.Mask.PlaceHolder = '0';
-            this.gRP.Size = new System.Drawing.Size(80, 20);
-            this.gRP.TabIndex = 18;
-            this.gRP.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.gRP_ButtonClick);
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(16, 96);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(35, 13);
-            this.labelControl6.TabIndex = 21;
-            this.labelControl6.Text = "+ Cash";
-            // 
-            // gAddCash
-            // 
-            this.gAddCash.EditValue = "0";
-            this.gAddCash.Location = new System.Drawing.Point(57, 93);
-            this.gAddCash.MenuManager = this.barManager1;
-            this.gAddCash.Name = "gAddCash";
-            this.gAddCash.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.gAddCash.Properties.Mask.EditMask = "f0";
-            this.gAddCash.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.gAddCash.Properties.Mask.PlaceHolder = '0';
-            this.gAddCash.Size = new System.Drawing.Size(80, 20);
-            this.gAddCash.TabIndex = 20;
-            this.gAddCash.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.gAddCash_ButtonClick);
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(20, 119);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(31, 13);
-            this.labelControl7.TabIndex = 23;
-            this.labelControl7.Text = "- Total";
-            // 
-            // buttonEdit4
-            // 
-            this.buttonEdit4.EditValue = "0";
-            this.buttonEdit4.Location = new System.Drawing.Point(57, 116);
-            this.buttonEdit4.MenuManager = this.barManager1;
-            this.buttonEdit4.Name = "buttonEdit4";
-            this.buttonEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit4.Properties.Mask.EditMask = "f0";
-            this.buttonEdit4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.buttonEdit4.Properties.Mask.PlaceHolder = '0';
-            this.buttonEdit4.Size = new System.Drawing.Size(80, 20);
-            this.buttonEdit4.TabIndex = 22;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(18, 142);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(33, 13);
-            this.labelControl8.TabIndex = 25;
-            this.labelControl8.Text = "Snacks";
-            // 
-            // buttonEdit5
-            // 
-            this.buttonEdit5.EditValue = "0";
-            this.buttonEdit5.Location = new System.Drawing.Point(57, 139);
-            this.buttonEdit5.MenuManager = this.barManager1;
-            this.buttonEdit5.Name = "buttonEdit5";
-            this.buttonEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit5.Properties.Mask.EditMask = "f0";
-            this.buttonEdit5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.buttonEdit5.Properties.Mask.PlaceHolder = '0';
-            this.buttonEdit5.Size = new System.Drawing.Size(80, 20);
-            this.buttonEdit5.TabIndex = 24;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Location = new System.Drawing.Point(22, 165);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(29, 13);
-            this.labelControl9.TabIndex = 27;
-            this.labelControl9.Text = "Armor";
-            // 
-            // buttonEdit6
-            // 
-            this.buttonEdit6.EditValue = "0";
-            this.buttonEdit6.Location = new System.Drawing.Point(57, 162);
-            this.buttonEdit6.MenuManager = this.barManager1;
-            this.buttonEdit6.Name = "buttonEdit6";
-            this.buttonEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit6.Properties.Mask.EditMask = "f0";
-            this.buttonEdit6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.buttonEdit6.Properties.Mask.PlaceHolder = '0';
-            this.buttonEdit6.Size = new System.Drawing.Size(80, 20);
-            this.buttonEdit6.TabIndex = 26;
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(5, 188);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(46, 13);
-            this.labelControl10.TabIndex = 29;
-            this.labelControl10.Text = "Fireworks";
-            // 
-            // buttonEdit7
-            // 
-            this.buttonEdit7.EditValue = "0";
-            this.buttonEdit7.Location = new System.Drawing.Point(57, 185);
-            this.buttonEdit7.MenuManager = this.barManager1;
-            this.buttonEdit7.Name = "buttonEdit7";
-            this.buttonEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit7.Properties.Mask.EditMask = "f0";
-            this.buttonEdit7.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.buttonEdit7.Properties.Mask.PlaceHolder = '0';
-            this.buttonEdit7.Size = new System.Drawing.Size(80, 20);
-            this.buttonEdit7.TabIndex = 28;
-            // 
             // xtraTabControl3
             // 
             this.xtraTabControl3.Location = new System.Drawing.Point(3, 3);
@@ -1220,36 +1160,23 @@
             this.xtraTabPage10.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage10.Text = "Outfits";
             // 
-            // xtraTabPage11
+            // aoEquip
             // 
-            this.xtraTabPage11.Name = "xtraTabPage11";
-            this.xtraTabPage11.Size = new System.Drawing.Size(552, 308);
-            this.xtraTabPage11.Text = "Debugger";
+            this.aoEquip.Location = new System.Drawing.Point(157, 282);
+            this.aoEquip.Name = "aoEquip";
+            this.aoEquip.Size = new System.Drawing.Size(387, 23);
+            this.aoEquip.TabIndex = 6;
+            this.aoEquip.Text = "Equip Outfit";
+            this.aoEquip.Click += new System.EventHandler(this.aoEquip_Click);
             // 
-            // aoListing
+            // aoDelete
             // 
-            this.aoListing.Location = new System.Drawing.Point(3, 22);
-            this.aoListing.Name = "aoListing";
-            this.aoListing.Size = new System.Drawing.Size(148, 254);
-            this.aoListing.TabIndex = 0;
-            this.aoListing.SelectedIndexChanged += new System.EventHandler(this.aoListing_SelectedIndexChanged);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(3, 3);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(61, 13);
-            this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Outfit Listing";
-            // 
-            // aoRefresh
-            // 
-            this.aoRefresh.Location = new System.Drawing.Point(35, 282);
-            this.aoRefresh.Name = "aoRefresh";
-            this.aoRefresh.Size = new System.Drawing.Size(116, 23);
-            this.aoRefresh.TabIndex = 2;
-            this.aoRefresh.Text = "Refresh Listing";
-            this.aoRefresh.Click += new System.EventHandler(this.aoRefresh_Click);
+            this.aoDelete.Location = new System.Drawing.Point(3, 282);
+            this.aoDelete.Name = "aoDelete";
+            this.aoDelete.Size = new System.Drawing.Size(26, 23);
+            this.aoDelete.TabIndex = 4;
+            this.aoDelete.Text = "X";
+            this.aoDelete.Click += new System.EventHandler(this.aoDelete_Click);
             // 
             // outfitTabs
             // 
@@ -1321,413 +1248,52 @@
             this.outfitEditTab.Size = new System.Drawing.Size(386, 245);
             this.outfitEditTab.Text = "Edit";
             // 
-            // outfitAddTab
+            // aoeCreator
             // 
-            this.outfitAddTab.Controls.Add(this.labelControl47);
-            this.outfitAddTab.Controls.Add(this.aoaCreator);
-            this.outfitAddTab.Controls.Add(this.labelControl29);
-            this.outfitAddTab.Controls.Add(this.aoaTops2_t);
-            this.outfitAddTab.Controls.Add(this.aoaTops2_m);
-            this.outfitAddTab.Controls.Add(this.labelControl30);
-            this.outfitAddTab.Controls.Add(this.labelControl31);
-            this.outfitAddTab.Controls.Add(this.aoaEmblem_t);
-            this.outfitAddTab.Controls.Add(this.aoaEmblem_m);
-            this.outfitAddTab.Controls.Add(this.aoaArmor_t);
-            this.outfitAddTab.Controls.Add(this.aoaArmor_m);
-            this.outfitAddTab.Controls.Add(this.labelControl32);
-            this.outfitAddTab.Controls.Add(this.aoaHands_t);
-            this.outfitAddTab.Controls.Add(this.aoaHands_m);
-            this.outfitAddTab.Controls.Add(this.labelControl33);
-            this.outfitAddTab.Controls.Add(this.aoaExtra_t);
-            this.outfitAddTab.Controls.Add(this.aoaExtra_m);
-            this.outfitAddTab.Controls.Add(this.labelControl34);
-            this.outfitAddTab.Controls.Add(this.aoaFace_t);
-            this.outfitAddTab.Controls.Add(this.aoaFace_m);
-            this.outfitAddTab.Controls.Add(this.labelControl35);
-            this.outfitAddTab.Controls.Add(this.aoaShoes_t);
-            this.outfitAddTab.Controls.Add(this.aoaShoes_m);
-            this.outfitAddTab.Controls.Add(this.labelControl36);
-            this.outfitAddTab.Controls.Add(this.aoaLegs_t);
-            this.outfitAddTab.Controls.Add(this.aoaLegs_m);
-            this.outfitAddTab.Controls.Add(this.labelControl37);
-            this.outfitAddTab.Controls.Add(this.labelControl38);
-            this.outfitAddTab.Controls.Add(this.aoaTops1_t);
-            this.outfitAddTab.Controls.Add(this.aoaTops1_m);
-            this.outfitAddTab.Controls.Add(this.aoaTorso_t);
-            this.outfitAddTab.Controls.Add(this.aoaTorso_m);
-            this.outfitAddTab.Controls.Add(this.labelControl39);
-            this.outfitAddTab.Controls.Add(this.aoaHair_t);
-            this.outfitAddTab.Controls.Add(this.aoaHair_m);
-            this.outfitAddTab.Controls.Add(this.labelControl40);
-            this.outfitAddTab.Controls.Add(this.aoaEars_t);
-            this.outfitAddTab.Controls.Add(this.aoaEars_m);
-            this.outfitAddTab.Controls.Add(this.labelControl41);
-            this.outfitAddTab.Controls.Add(this.aoaEyes_t);
-            this.outfitAddTab.Controls.Add(this.aoaEyes_m);
-            this.outfitAddTab.Controls.Add(this.labelControl42);
-            this.outfitAddTab.Controls.Add(this.aoaHat_t);
-            this.outfitAddTab.Controls.Add(this.aoaHat_m);
-            this.outfitAddTab.Controls.Add(this.labelControl43);
-            this.outfitAddTab.Controls.Add(this.aoaMask_t);
-            this.outfitAddTab.Controls.Add(this.aoaMask_m);
-            this.outfitAddTab.Controls.Add(this.aoaDescription);
-            this.outfitAddTab.Controls.Add(this.labelControl44);
-            this.outfitAddTab.Controls.Add(this.labelControl45);
-            this.outfitAddTab.Controls.Add(this.aoaGender);
-            this.outfitAddTab.Controls.Add(this.labelControl46);
-            this.outfitAddTab.Controls.Add(this.aoaTitle);
-            this.outfitAddTab.Controls.Add(this.aoaAdd);
-            this.outfitAddTab.Name = "outfitAddTab";
-            this.outfitAddTab.Size = new System.Drawing.Size(386, 245);
-            this.outfitAddTab.Text = "Add";
+            this.aoeCreator.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.aoeCreator.Location = new System.Drawing.Point(233, 3);
+            this.aoeCreator.Name = "aoeCreator";
+            this.aoeCreator.Size = new System.Drawing.Size(150, 20);
+            this.aoeCreator.TabIndex = 92;
+            this.aoeCreator.Text = "Creator:";
             // 
-            // aoeSave
+            // labelControl28
             // 
-            this.aoeSave.Location = new System.Drawing.Point(3, 219);
-            this.aoeSave.Name = "aoeSave";
-            this.aoeSave.Size = new System.Drawing.Size(380, 23);
-            this.aoeSave.TabIndex = 4;
-            this.aoeSave.Text = "Save Changes";
-            this.aoeSave.Click += new System.EventHandler(this.aoeSave_Click);
+            this.labelControl28.Location = new System.Drawing.Point(134, 32);
+            this.labelControl28.Name = "labelControl28";
+            this.labelControl28.Size = new System.Drawing.Size(32, 13);
+            this.labelControl28.TabIndex = 91;
+            this.labelControl28.Text = "Tops 2";
             // 
-            // aoDelete
+            // aoeTops2_t
             // 
-            this.aoDelete.Location = new System.Drawing.Point(3, 282);
-            this.aoDelete.Name = "aoDelete";
-            this.aoDelete.Size = new System.Drawing.Size(26, 23);
-            this.aoDelete.TabIndex = 4;
-            this.aoDelete.Text = "X";
-            this.aoDelete.Click += new System.EventHandler(this.aoDelete_Click);
-            // 
-            // aoEquip
-            // 
-            this.aoEquip.Location = new System.Drawing.Point(157, 282);
-            this.aoEquip.Name = "aoEquip";
-            this.aoEquip.Size = new System.Drawing.Size(387, 23);
-            this.aoEquip.TabIndex = 6;
-            this.aoEquip.Text = "Equip Outfit";
-            this.aoEquip.Click += new System.EventHandler(this.aoEquip_Click);
-            // 
-            // aoeTitle
-            // 
-            this.aoeTitle.Location = new System.Drawing.Point(43, 3);
-            this.aoeTitle.MenuManager = this.barManager1;
-            this.aoeTitle.Name = "aoeTitle";
-            this.aoeTitle.Size = new System.Drawing.Size(184, 20);
-            this.aoeTitle.TabIndex = 5;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(17, 6);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(20, 13);
-            this.labelControl11.TabIndex = 7;
-            this.labelControl11.Text = "Title";
-            // 
-            // aoeGender
-            // 
-            this.aoeGender.EditValue = "Male";
-            this.aoeGender.Location = new System.Drawing.Point(304, 55);
-            this.aoeGender.MenuManager = this.barManager1;
-            this.aoeGender.Name = "aoeGender";
-            this.aoeGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeGender.Properties.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.aoeGender.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.aoeGender.Size = new System.Drawing.Size(79, 20);
-            this.aoeGender.TabIndex = 8;
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Location = new System.Drawing.Point(263, 58);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(35, 13);
-            this.labelControl12.TabIndex = 9;
-            this.labelControl12.Text = "Gender";
-            // 
-            // labelControl13
-            // 
-            this.labelControl13.Location = new System.Drawing.Point(15, 196);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(53, 13);
-            this.labelControl13.TabIndex = 10;
-            this.labelControl13.Text = "Description";
-            // 
-            // aoeDescription
-            // 
-            this.aoeDescription.Location = new System.Drawing.Point(74, 193);
-            this.aoeDescription.MenuManager = this.barManager1;
-            this.aoeDescription.Name = "aoeDescription";
-            this.aoeDescription.Size = new System.Drawing.Size(309, 20);
-            this.aoeDescription.TabIndex = 11;
-            // 
-            // aoeMask_m
-            // 
-            this.aoeMask_m.EditValue = new decimal(new int[] {
+            this.aoeTops2_t.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.aoeMask_m.Location = new System.Drawing.Point(43, 29);
-            this.aoeMask_m.MenuManager = this.barManager1;
-            this.aoeMask_m.Name = "aoeMask_m";
-            this.aoeMask_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.aoeTops2_t.Location = new System.Drawing.Point(212, 29);
+            this.aoeTops2_t.MenuManager = this.barManager1;
+            this.aoeTops2_t.Name = "aoeTops2_t";
+            this.aoeTops2_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeMask_m.Size = new System.Drawing.Size(39, 20);
-            this.aoeMask_m.TabIndex = 12;
+            this.aoeTops2_t.Size = new System.Drawing.Size(39, 20);
+            this.aoeTops2_t.TabIndex = 89;
             // 
-            // aoeMask_t
+            // aoeTops2_m
             // 
-            this.aoeMask_t.EditValue = new decimal(new int[] {
+            this.aoeTops2_m.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.aoeMask_t.Location = new System.Drawing.Point(83, 29);
-            this.aoeMask_t.MenuManager = this.barManager1;
-            this.aoeMask_t.Name = "aoeMask_t";
-            this.aoeMask_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.aoeTops2_m.Location = new System.Drawing.Point(172, 29);
+            this.aoeTops2_m.MenuManager = this.barManager1;
+            this.aoeTops2_m.Name = "aoeTops2_m";
+            this.aoeTops2_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeMask_t.Size = new System.Drawing.Size(39, 20);
-            this.aoeMask_t.TabIndex = 13;
-            // 
-            // labelControl14
-            // 
-            this.labelControl14.Location = new System.Drawing.Point(13, 32);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(24, 13);
-            this.labelControl14.TabIndex = 15;
-            this.labelControl14.Text = "Mask";
-            // 
-            // labelControl15
-            // 
-            this.labelControl15.Location = new System.Drawing.Point(20, 53);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(17, 13);
-            this.labelControl15.TabIndex = 19;
-            this.labelControl15.Text = "Hat";
-            // 
-            // aoeHat_t
-            // 
-            this.aoeHat_t.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeHat_t.Location = new System.Drawing.Point(83, 50);
-            this.aoeHat_t.MenuManager = this.barManager1;
-            this.aoeHat_t.Name = "aoeHat_t";
-            this.aoeHat_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeHat_t.Size = new System.Drawing.Size(39, 20);
-            this.aoeHat_t.TabIndex = 17;
-            // 
-            // aoeHat_m
-            // 
-            this.aoeHat_m.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeHat_m.Location = new System.Drawing.Point(43, 50);
-            this.aoeHat_m.MenuManager = this.barManager1;
-            this.aoeHat_m.Name = "aoeHat_m";
-            this.aoeHat_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeHat_m.Size = new System.Drawing.Size(39, 20);
-            this.aoeHat_m.TabIndex = 16;
-            // 
-            // labelControl16
-            // 
-            this.labelControl16.Location = new System.Drawing.Point(16, 95);
-            this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(21, 13);
-            this.labelControl16.TabIndex = 27;
-            this.labelControl16.Text = "Ears";
-            // 
-            // aoeEars_t
-            // 
-            this.aoeEars_t.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeEars_t.Location = new System.Drawing.Point(83, 92);
-            this.aoeEars_t.MenuManager = this.barManager1;
-            this.aoeEars_t.Name = "aoeEars_t";
-            this.aoeEars_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeEars_t.Size = new System.Drawing.Size(39, 20);
-            this.aoeEars_t.TabIndex = 25;
-            // 
-            // aoeEars_m
-            // 
-            this.aoeEars_m.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeEars_m.Location = new System.Drawing.Point(43, 92);
-            this.aoeEars_m.MenuManager = this.barManager1;
-            this.aoeEars_m.Name = "aoeEars_m";
-            this.aoeEars_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeEars_m.Size = new System.Drawing.Size(39, 20);
-            this.aoeEars_m.TabIndex = 24;
-            // 
-            // labelControl17
-            // 
-            this.labelControl17.Location = new System.Drawing.Point(14, 74);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(23, 13);
-            this.labelControl17.TabIndex = 23;
-            this.labelControl17.Text = "Eyes";
-            // 
-            // aoeEyes_t
-            // 
-            this.aoeEyes_t.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeEyes_t.Location = new System.Drawing.Point(83, 71);
-            this.aoeEyes_t.MenuManager = this.barManager1;
-            this.aoeEyes_t.Name = "aoeEyes_t";
-            this.aoeEyes_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeEyes_t.Size = new System.Drawing.Size(39, 20);
-            this.aoeEyes_t.TabIndex = 21;
-            // 
-            // aoeEyes_m
-            // 
-            this.aoeEyes_m.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeEyes_m.Location = new System.Drawing.Point(43, 71);
-            this.aoeEyes_m.MenuManager = this.barManager1;
-            this.aoeEyes_m.Name = "aoeEyes_m";
-            this.aoeEyes_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeEyes_m.Size = new System.Drawing.Size(39, 20);
-            this.aoeEyes_m.TabIndex = 20;
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Location = new System.Drawing.Point(18, 116);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(19, 13);
-            this.labelControl18.TabIndex = 31;
-            this.labelControl18.Text = "Hair";
-            // 
-            // aoeHair_t
-            // 
-            this.aoeHair_t.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeHair_t.Location = new System.Drawing.Point(83, 113);
-            this.aoeHair_t.MenuManager = this.barManager1;
-            this.aoeHair_t.Name = "aoeHair_t";
-            this.aoeHair_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeHair_t.Size = new System.Drawing.Size(39, 20);
-            this.aoeHair_t.TabIndex = 29;
-            // 
-            // aoeHair_m
-            // 
-            this.aoeHair_m.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeHair_m.Location = new System.Drawing.Point(43, 113);
-            this.aoeHair_m.MenuManager = this.barManager1;
-            this.aoeHair_m.Name = "aoeHair_m";
-            this.aoeHair_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeHair_m.Size = new System.Drawing.Size(39, 20);
-            this.aoeHair_m.TabIndex = 28;
-            // 
-            // labelControl25
-            // 
-            this.labelControl25.Location = new System.Drawing.Point(5, 158);
-            this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(32, 13);
-            this.labelControl25.TabIndex = 58;
-            this.labelControl25.Text = "Tops 1";
-            // 
-            // aoeTops1_t
-            // 
-            this.aoeTops1_t.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeTops1_t.Location = new System.Drawing.Point(83, 155);
-            this.aoeTops1_t.MenuManager = this.barManager1;
-            this.aoeTops1_t.Name = "aoeTops1_t";
-            this.aoeTops1_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeTops1_t.Size = new System.Drawing.Size(39, 20);
-            this.aoeTops1_t.TabIndex = 56;
-            // 
-            // aoeTops1_m
-            // 
-            this.aoeTops1_m.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeTops1_m.Location = new System.Drawing.Point(43, 155);
-            this.aoeTops1_m.MenuManager = this.barManager1;
-            this.aoeTops1_m.Name = "aoeTops1_m";
-            this.aoeTops1_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeTops1_m.Size = new System.Drawing.Size(39, 20);
-            this.aoeTops1_m.TabIndex = 55;
-            // 
-            // aoeTorso_t
-            // 
-            this.aoeTorso_t.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeTorso_t.Location = new System.Drawing.Point(83, 134);
-            this.aoeTorso_t.MenuManager = this.barManager1;
-            this.aoeTorso_t.Name = "aoeTorso_t";
-            this.aoeTorso_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeTorso_t.Size = new System.Drawing.Size(39, 20);
-            this.aoeTorso_t.TabIndex = 53;
-            // 
-            // aoeTorso_m
-            // 
-            this.aoeTorso_m.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.aoeTorso_m.Location = new System.Drawing.Point(43, 134);
-            this.aoeTorso_m.MenuManager = this.barManager1;
-            this.aoeTorso_m.Name = "aoeTorso_m";
-            this.aoeTorso_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeTorso_m.Size = new System.Drawing.Size(39, 20);
-            this.aoeTorso_m.TabIndex = 52;
-            // 
-            // labelControl24
-            // 
-            this.labelControl24.Location = new System.Drawing.Point(10, 138);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(27, 13);
-            this.labelControl24.TabIndex = 59;
-            this.labelControl24.Text = "Torso";
+            this.aoeTops2_m.Size = new System.Drawing.Size(39, 20);
+            this.aoeTops2_m.TabIndex = 88;
             // 
             // labelControl19
             // 
@@ -1995,43 +1561,411 @@
             this.aoeLegs_m.Size = new System.Drawing.Size(39, 20);
             this.aoeLegs_m.TabIndex = 60;
             // 
-            // labelControl28
+            // labelControl24
             // 
-            this.labelControl28.Location = new System.Drawing.Point(134, 32);
-            this.labelControl28.Name = "labelControl28";
-            this.labelControl28.Size = new System.Drawing.Size(32, 13);
-            this.labelControl28.TabIndex = 91;
-            this.labelControl28.Text = "Tops 2";
+            this.labelControl24.Location = new System.Drawing.Point(10, 138);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(27, 13);
+            this.labelControl24.TabIndex = 59;
+            this.labelControl24.Text = "Torso";
             // 
-            // aoeTops2_t
+            // labelControl25
             // 
-            this.aoeTops2_t.EditValue = new decimal(new int[] {
+            this.labelControl25.Location = new System.Drawing.Point(5, 158);
+            this.labelControl25.Name = "labelControl25";
+            this.labelControl25.Size = new System.Drawing.Size(32, 13);
+            this.labelControl25.TabIndex = 58;
+            this.labelControl25.Text = "Tops 1";
+            // 
+            // aoeTops1_t
+            // 
+            this.aoeTops1_t.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.aoeTops2_t.Location = new System.Drawing.Point(212, 29);
-            this.aoeTops2_t.MenuManager = this.barManager1;
-            this.aoeTops2_t.Name = "aoeTops2_t";
-            this.aoeTops2_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.aoeTops1_t.Location = new System.Drawing.Point(83, 155);
+            this.aoeTops1_t.MenuManager = this.barManager1;
+            this.aoeTops1_t.Name = "aoeTops1_t";
+            this.aoeTops1_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeTops2_t.Size = new System.Drawing.Size(39, 20);
-            this.aoeTops2_t.TabIndex = 89;
+            this.aoeTops1_t.Size = new System.Drawing.Size(39, 20);
+            this.aoeTops1_t.TabIndex = 56;
             // 
-            // aoeTops2_m
+            // aoeTops1_m
             // 
-            this.aoeTops2_m.EditValue = new decimal(new int[] {
+            this.aoeTops1_m.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.aoeTops2_m.Location = new System.Drawing.Point(172, 29);
-            this.aoeTops2_m.MenuManager = this.barManager1;
-            this.aoeTops2_m.Name = "aoeTops2_m";
-            this.aoeTops2_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.aoeTops1_m.Location = new System.Drawing.Point(43, 155);
+            this.aoeTops1_m.MenuManager = this.barManager1;
+            this.aoeTops1_m.Name = "aoeTops1_m";
+            this.aoeTops1_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.aoeTops2_m.Size = new System.Drawing.Size(39, 20);
-            this.aoeTops2_m.TabIndex = 88;
+            this.aoeTops1_m.Size = new System.Drawing.Size(39, 20);
+            this.aoeTops1_m.TabIndex = 55;
+            // 
+            // aoeTorso_t
+            // 
+            this.aoeTorso_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeTorso_t.Location = new System.Drawing.Point(83, 134);
+            this.aoeTorso_t.MenuManager = this.barManager1;
+            this.aoeTorso_t.Name = "aoeTorso_t";
+            this.aoeTorso_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeTorso_t.Size = new System.Drawing.Size(39, 20);
+            this.aoeTorso_t.TabIndex = 53;
+            // 
+            // aoeTorso_m
+            // 
+            this.aoeTorso_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeTorso_m.Location = new System.Drawing.Point(43, 134);
+            this.aoeTorso_m.MenuManager = this.barManager1;
+            this.aoeTorso_m.Name = "aoeTorso_m";
+            this.aoeTorso_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeTorso_m.Size = new System.Drawing.Size(39, 20);
+            this.aoeTorso_m.TabIndex = 52;
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(18, 116);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(19, 13);
+            this.labelControl18.TabIndex = 31;
+            this.labelControl18.Text = "Hair";
+            // 
+            // aoeHair_t
+            // 
+            this.aoeHair_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeHair_t.Location = new System.Drawing.Point(83, 113);
+            this.aoeHair_t.MenuManager = this.barManager1;
+            this.aoeHair_t.Name = "aoeHair_t";
+            this.aoeHair_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeHair_t.Size = new System.Drawing.Size(39, 20);
+            this.aoeHair_t.TabIndex = 29;
+            // 
+            // aoeHair_m
+            // 
+            this.aoeHair_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeHair_m.Location = new System.Drawing.Point(43, 113);
+            this.aoeHair_m.MenuManager = this.barManager1;
+            this.aoeHair_m.Name = "aoeHair_m";
+            this.aoeHair_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeHair_m.Size = new System.Drawing.Size(39, 20);
+            this.aoeHair_m.TabIndex = 28;
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Location = new System.Drawing.Point(16, 95);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(21, 13);
+            this.labelControl16.TabIndex = 27;
+            this.labelControl16.Text = "Ears";
+            // 
+            // aoeEars_t
+            // 
+            this.aoeEars_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeEars_t.Location = new System.Drawing.Point(83, 92);
+            this.aoeEars_t.MenuManager = this.barManager1;
+            this.aoeEars_t.Name = "aoeEars_t";
+            this.aoeEars_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeEars_t.Size = new System.Drawing.Size(39, 20);
+            this.aoeEars_t.TabIndex = 25;
+            // 
+            // aoeEars_m
+            // 
+            this.aoeEars_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeEars_m.Location = new System.Drawing.Point(43, 92);
+            this.aoeEars_m.MenuManager = this.barManager1;
+            this.aoeEars_m.Name = "aoeEars_m";
+            this.aoeEars_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeEars_m.Size = new System.Drawing.Size(39, 20);
+            this.aoeEars_m.TabIndex = 24;
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(14, 74);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(23, 13);
+            this.labelControl17.TabIndex = 23;
+            this.labelControl17.Text = "Eyes";
+            // 
+            // aoeEyes_t
+            // 
+            this.aoeEyes_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeEyes_t.Location = new System.Drawing.Point(83, 71);
+            this.aoeEyes_t.MenuManager = this.barManager1;
+            this.aoeEyes_t.Name = "aoeEyes_t";
+            this.aoeEyes_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeEyes_t.Size = new System.Drawing.Size(39, 20);
+            this.aoeEyes_t.TabIndex = 21;
+            // 
+            // aoeEyes_m
+            // 
+            this.aoeEyes_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeEyes_m.Location = new System.Drawing.Point(43, 71);
+            this.aoeEyes_m.MenuManager = this.barManager1;
+            this.aoeEyes_m.Name = "aoeEyes_m";
+            this.aoeEyes_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeEyes_m.Size = new System.Drawing.Size(39, 20);
+            this.aoeEyes_m.TabIndex = 20;
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Location = new System.Drawing.Point(20, 53);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(17, 13);
+            this.labelControl15.TabIndex = 19;
+            this.labelControl15.Text = "Hat";
+            // 
+            // aoeHat_t
+            // 
+            this.aoeHat_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeHat_t.Location = new System.Drawing.Point(83, 50);
+            this.aoeHat_t.MenuManager = this.barManager1;
+            this.aoeHat_t.Name = "aoeHat_t";
+            this.aoeHat_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeHat_t.Size = new System.Drawing.Size(39, 20);
+            this.aoeHat_t.TabIndex = 17;
+            // 
+            // aoeHat_m
+            // 
+            this.aoeHat_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeHat_m.Location = new System.Drawing.Point(43, 50);
+            this.aoeHat_m.MenuManager = this.barManager1;
+            this.aoeHat_m.Name = "aoeHat_m";
+            this.aoeHat_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeHat_m.Size = new System.Drawing.Size(39, 20);
+            this.aoeHat_m.TabIndex = 16;
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Location = new System.Drawing.Point(13, 32);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(24, 13);
+            this.labelControl14.TabIndex = 15;
+            this.labelControl14.Text = "Mask";
+            // 
+            // aoeMask_t
+            // 
+            this.aoeMask_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeMask_t.Location = new System.Drawing.Point(83, 29);
+            this.aoeMask_t.MenuManager = this.barManager1;
+            this.aoeMask_t.Name = "aoeMask_t";
+            this.aoeMask_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeMask_t.Size = new System.Drawing.Size(39, 20);
+            this.aoeMask_t.TabIndex = 13;
+            // 
+            // aoeMask_m
+            // 
+            this.aoeMask_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.aoeMask_m.Location = new System.Drawing.Point(43, 29);
+            this.aoeMask_m.MenuManager = this.barManager1;
+            this.aoeMask_m.Name = "aoeMask_m";
+            this.aoeMask_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeMask_m.Size = new System.Drawing.Size(39, 20);
+            this.aoeMask_m.TabIndex = 12;
+            // 
+            // aoeDescription
+            // 
+            this.aoeDescription.Location = new System.Drawing.Point(74, 193);
+            this.aoeDescription.MenuManager = this.barManager1;
+            this.aoeDescription.Name = "aoeDescription";
+            this.aoeDescription.Size = new System.Drawing.Size(309, 20);
+            this.aoeDescription.TabIndex = 11;
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(15, 196);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(53, 13);
+            this.labelControl13.TabIndex = 10;
+            this.labelControl13.Text = "Description";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(263, 58);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(35, 13);
+            this.labelControl12.TabIndex = 9;
+            this.labelControl12.Text = "Gender";
+            // 
+            // aoeGender
+            // 
+            this.aoeGender.EditValue = "Male";
+            this.aoeGender.Location = new System.Drawing.Point(304, 55);
+            this.aoeGender.MenuManager = this.barManager1;
+            this.aoeGender.Name = "aoeGender";
+            this.aoeGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.aoeGender.Properties.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.aoeGender.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.aoeGender.Size = new System.Drawing.Size(79, 20);
+            this.aoeGender.TabIndex = 8;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(17, 6);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(20, 13);
+            this.labelControl11.TabIndex = 7;
+            this.labelControl11.Text = "Title";
+            // 
+            // aoeTitle
+            // 
+            this.aoeTitle.Location = new System.Drawing.Point(43, 3);
+            this.aoeTitle.MenuManager = this.barManager1;
+            this.aoeTitle.Name = "aoeTitle";
+            this.aoeTitle.Size = new System.Drawing.Size(184, 20);
+            this.aoeTitle.TabIndex = 5;
+            // 
+            // aoeSave
+            // 
+            this.aoeSave.Location = new System.Drawing.Point(3, 219);
+            this.aoeSave.Name = "aoeSave";
+            this.aoeSave.Size = new System.Drawing.Size(380, 23);
+            this.aoeSave.TabIndex = 4;
+            this.aoeSave.Text = "Save Changes";
+            this.aoeSave.Click += new System.EventHandler(this.aoeSave_Click);
+            // 
+            // outfitAddTab
+            // 
+            this.outfitAddTab.Controls.Add(this.labelControl47);
+            this.outfitAddTab.Controls.Add(this.aoaCreator);
+            this.outfitAddTab.Controls.Add(this.labelControl29);
+            this.outfitAddTab.Controls.Add(this.aoaTops2_t);
+            this.outfitAddTab.Controls.Add(this.aoaTops2_m);
+            this.outfitAddTab.Controls.Add(this.labelControl30);
+            this.outfitAddTab.Controls.Add(this.labelControl31);
+            this.outfitAddTab.Controls.Add(this.aoaEmblem_t);
+            this.outfitAddTab.Controls.Add(this.aoaEmblem_m);
+            this.outfitAddTab.Controls.Add(this.aoaArmor_t);
+            this.outfitAddTab.Controls.Add(this.aoaArmor_m);
+            this.outfitAddTab.Controls.Add(this.labelControl32);
+            this.outfitAddTab.Controls.Add(this.aoaHands_t);
+            this.outfitAddTab.Controls.Add(this.aoaHands_m);
+            this.outfitAddTab.Controls.Add(this.labelControl33);
+            this.outfitAddTab.Controls.Add(this.aoaExtra_t);
+            this.outfitAddTab.Controls.Add(this.aoaExtra_m);
+            this.outfitAddTab.Controls.Add(this.labelControl34);
+            this.outfitAddTab.Controls.Add(this.aoaFace_t);
+            this.outfitAddTab.Controls.Add(this.aoaFace_m);
+            this.outfitAddTab.Controls.Add(this.labelControl35);
+            this.outfitAddTab.Controls.Add(this.aoaShoes_t);
+            this.outfitAddTab.Controls.Add(this.aoaShoes_m);
+            this.outfitAddTab.Controls.Add(this.labelControl36);
+            this.outfitAddTab.Controls.Add(this.aoaLegs_t);
+            this.outfitAddTab.Controls.Add(this.aoaLegs_m);
+            this.outfitAddTab.Controls.Add(this.labelControl37);
+            this.outfitAddTab.Controls.Add(this.labelControl38);
+            this.outfitAddTab.Controls.Add(this.aoaTops1_t);
+            this.outfitAddTab.Controls.Add(this.aoaTops1_m);
+            this.outfitAddTab.Controls.Add(this.aoaTorso_t);
+            this.outfitAddTab.Controls.Add(this.aoaTorso_m);
+            this.outfitAddTab.Controls.Add(this.labelControl39);
+            this.outfitAddTab.Controls.Add(this.aoaHair_t);
+            this.outfitAddTab.Controls.Add(this.aoaHair_m);
+            this.outfitAddTab.Controls.Add(this.labelControl40);
+            this.outfitAddTab.Controls.Add(this.aoaEars_t);
+            this.outfitAddTab.Controls.Add(this.aoaEars_m);
+            this.outfitAddTab.Controls.Add(this.labelControl41);
+            this.outfitAddTab.Controls.Add(this.aoaEyes_t);
+            this.outfitAddTab.Controls.Add(this.aoaEyes_m);
+            this.outfitAddTab.Controls.Add(this.labelControl42);
+            this.outfitAddTab.Controls.Add(this.aoaHat_t);
+            this.outfitAddTab.Controls.Add(this.aoaHat_m);
+            this.outfitAddTab.Controls.Add(this.labelControl43);
+            this.outfitAddTab.Controls.Add(this.aoaMask_t);
+            this.outfitAddTab.Controls.Add(this.aoaMask_m);
+            this.outfitAddTab.Controls.Add(this.aoaDescription);
+            this.outfitAddTab.Controls.Add(this.labelControl44);
+            this.outfitAddTab.Controls.Add(this.labelControl45);
+            this.outfitAddTab.Controls.Add(this.aoaGender);
+            this.outfitAddTab.Controls.Add(this.labelControl46);
+            this.outfitAddTab.Controls.Add(this.aoaTitle);
+            this.outfitAddTab.Controls.Add(this.aoaAdd);
+            this.outfitAddTab.Name = "outfitAddTab";
+            this.outfitAddTab.Size = new System.Drawing.Size(386, 245);
+            this.outfitAddTab.Text = "Add";
+            // 
+            // labelControl47
+            // 
+            this.labelControl47.Location = new System.Drawing.Point(233, 6);
+            this.labelControl47.Name = "labelControl47";
+            this.labelControl47.Size = new System.Drawing.Size(37, 13);
+            this.labelControl47.TabIndex = 145;
+            this.labelControl47.Text = "Creator";
+            // 
+            // aoaCreator
+            // 
+            this.aoaCreator.Location = new System.Drawing.Point(276, 3);
+            this.aoaCreator.MenuManager = this.barManager1;
+            this.aoaCreator.Name = "aoaCreator";
+            this.aoaCreator.Size = new System.Drawing.Size(107, 20);
+            this.aoaCreator.TabIndex = 144;
             // 
             // labelControl29
             // 
@@ -2667,30 +2601,383 @@
             this.aoaAdd.Text = "Add Outfit";
             this.aoaAdd.Click += new System.EventHandler(this.aoaAdd_Click);
             // 
-            // aoeCreator
+            // aoRefresh
             // 
-            this.aoeCreator.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.aoeCreator.Location = new System.Drawing.Point(233, 3);
-            this.aoeCreator.Name = "aoeCreator";
-            this.aoeCreator.Size = new System.Drawing.Size(150, 20);
-            this.aoeCreator.TabIndex = 92;
-            this.aoeCreator.Text = "Creator:";
+            this.aoRefresh.Location = new System.Drawing.Point(35, 282);
+            this.aoRefresh.Name = "aoRefresh";
+            this.aoRefresh.Size = new System.Drawing.Size(116, 23);
+            this.aoRefresh.TabIndex = 2;
+            this.aoRefresh.Text = "Refresh Listing";
+            this.aoRefresh.Click += new System.EventHandler(this.aoRefresh_Click);
             // 
-            // labelControl47
+            // labelControl1
             // 
-            this.labelControl47.Location = new System.Drawing.Point(233, 6);
-            this.labelControl47.Name = "labelControl47";
-            this.labelControl47.Size = new System.Drawing.Size(37, 13);
-            this.labelControl47.TabIndex = 145;
-            this.labelControl47.Text = "Creator";
+            this.labelControl1.Location = new System.Drawing.Point(3, 3);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(61, 13);
+            this.labelControl1.TabIndex = 1;
+            this.labelControl1.Text = "Outfit Listing";
             // 
-            // aoaCreator
+            // aoListing
             // 
-            this.aoaCreator.Location = new System.Drawing.Point(276, 3);
-            this.aoaCreator.MenuManager = this.barManager1;
-            this.aoaCreator.Name = "aoaCreator";
-            this.aoaCreator.Size = new System.Drawing.Size(107, 20);
-            this.aoaCreator.TabIndex = 144;
+            this.aoListing.Location = new System.Drawing.Point(3, 22);
+            this.aoListing.Name = "aoListing";
+            this.aoListing.Size = new System.Drawing.Size(148, 254);
+            this.aoListing.TabIndex = 0;
+            this.aoListing.SelectedIndexChanged += new System.EventHandler(this.aoListing_SelectedIndexChanged);
+            // 
+            // xtraTabPage11
+            // 
+            this.xtraTabPage11.Name = "xtraTabPage11";
+            this.xtraTabPage11.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage11.Text = "Debugger";
+            // 
+            // xtraTabPage5
+            // 
+            this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.Size = new System.Drawing.Size(564, 342);
+            this.xtraTabPage5.Text = "Advanced";
+            // 
+            // xtraTabPage7
+            // 
+            this.xtraTabPage7.Name = "xtraTabPage7";
+            this.xtraTabPage7.Size = new System.Drawing.Size(564, 342);
+            this.xtraTabPage7.Text = "Configurations";
+            // 
+            // xtraTabPage8
+            // 
+            this.xtraTabPage8.Controls.Add(this.xtraTabControl4);
+            this.xtraTabPage8.Name = "xtraTabPage8";
+            this.xtraTabPage8.Size = new System.Drawing.Size(564, 342);
+            this.xtraTabPage8.Text = "Debugger";
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.xtraTabControl2);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(564, 342);
+            this.xtraTabPage1.Text = "Development";
+            // 
+            // xtraTabControl2
+            // 
+            this.xtraTabControl2.Location = new System.Drawing.Point(3, 3);
+            this.xtraTabControl2.Name = "xtraTabControl2";
+            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage2;
+            this.xtraTabControl2.Size = new System.Drawing.Size(558, 336);
+            this.xtraTabControl2.TabIndex = 3;
+            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage2,
+            this.xtraTabPage9});
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.statqList);
+            this.xtraTabPage2.Controls.Add(this.statqSearch);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage2.Text = "Stat Query";
+            // 
+            // statqList
+            // 
+            this.statqList.Location = new System.Drawing.Point(3, 3);
+            this.statqList.Name = "statqList";
+            this.statqList.Size = new System.Drawing.Size(546, 276);
+            this.statqList.TabIndex = 1;
+            // 
+            // statqSearch
+            // 
+            this.statqSearch.EditValue = "";
+            this.statqSearch.Location = new System.Drawing.Point(3, 285);
+            this.statqSearch.MenuManager = this.barManager1;
+            this.statqSearch.Name = "statqSearch";
+            this.statqSearch.Size = new System.Drawing.Size(546, 20);
+            this.statqSearch.TabIndex = 2;
+            this.statqSearch.EditValueChanged += new System.EventHandler(this.statqSearch_EditValueChanged);
+            // 
+            // xtraTabPage9
+            // 
+            this.xtraTabPage9.Controls.Add(this.statkwqList);
+            this.xtraTabPage9.Controls.Add(this.statkwqSearch);
+            this.xtraTabPage9.Name = "xtraTabPage9";
+            this.xtraTabPage9.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage9.Text = "Stat Keyword Query";
+            // 
+            // statkwqList
+            // 
+            this.statkwqList.Location = new System.Drawing.Point(3, 3);
+            this.statkwqList.Name = "statkwqList";
+            this.statkwqList.Size = new System.Drawing.Size(546, 276);
+            this.statkwqList.TabIndex = 3;
+            // 
+            // statkwqSearch
+            // 
+            this.statkwqSearch.EditValue = "";
+            this.statkwqSearch.Location = new System.Drawing.Point(3, 285);
+            this.statkwqSearch.MenuManager = this.barManager1;
+            this.statkwqSearch.Name = "statkwqSearch";
+            this.statkwqSearch.Size = new System.Drawing.Size(546, 20);
+            this.statkwqSearch.TabIndex = 4;
+            this.statkwqSearch.EditValueChanged += new System.EventHandler(this.statkwqSearch_EditValueChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Imperium.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(570, 81);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // xtraTabControl4
+            // 
+            this.xtraTabControl4.Location = new System.Drawing.Point(3, 3);
+            this.xtraTabControl4.Name = "xtraTabControl4";
+            this.xtraTabControl4.SelectedTabPage = this.xtraTabPage12;
+            this.xtraTabControl4.Size = new System.Drawing.Size(558, 336);
+            this.xtraTabControl4.TabIndex = 0;
+            this.xtraTabControl4.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage12,
+            this.xtraTabPage13});
+            // 
+            // xtraTabPage12
+            // 
+            this.xtraTabPage12.Controls.Add(this.sdSync);
+            this.xtraTabPage12.Controls.Add(this.groupControl6);
+            this.xtraTabPage12.Controls.Add(this.groupControl5);
+            this.xtraTabPage12.Name = "xtraTabPage12";
+            this.xtraTabPage12.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage12.Text = "Generic";
+            // 
+            // xtraTabPage13
+            // 
+            this.xtraTabPage13.Name = "xtraTabPage13";
+            this.xtraTabPage13.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage13.Text = "Inspector";
+            // 
+            // xtraTabPage14
+            // 
+            this.xtraTabPage14.Controls.Add(this.textEdit2);
+            this.xtraTabPage14.Controls.Add(this.textEdit1);
+            this.xtraTabPage14.Controls.Add(this.simpleButton1);
+            this.xtraTabPage14.Name = "xtraTabPage14";
+            this.xtraTabPage14.Size = new System.Drawing.Size(564, 342);
+            this.xtraTabPage14.Text = "x";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(3, 3);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(203, 48);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(3, 83);
+            this.textEdit1.MenuManager = this.barManager1;
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(203, 20);
+            this.textEdit1.TabIndex = 1;
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(3, 57);
+            this.textEdit2.MenuManager = this.barManager1;
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(203, 20);
+            this.textEdit2.TabIndex = 2;
+            // 
+            // groupControl5
+            // 
+            this.groupControl5.Controls.Add(this.sdE_r);
+            this.groupControl5.Controls.Add(this.labelControl50);
+            this.groupControl5.Controls.Add(this.sdE_t);
+            this.groupControl5.Controls.Add(this.labelControl49);
+            this.groupControl5.Controls.Add(this.sdE_v);
+            this.groupControl5.Controls.Add(this.sdE_set);
+            this.groupControl5.Controls.Add(this.labelControl48);
+            this.groupControl5.Controls.Add(this.sdE_s);
+            this.groupControl5.Location = new System.Drawing.Point(3, 3);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(270, 186);
+            this.groupControl5.TabIndex = 0;
+            this.groupControl5.Text = "Edit";
+            // 
+            // groupControl6
+            // 
+            this.groupControl6.Controls.Add(this.sdV_r);
+            this.groupControl6.Controls.Add(this.sdV_s);
+            this.groupControl6.Controls.Add(this.labelControl53);
+            this.groupControl6.Controls.Add(this.sdV_v);
+            this.groupControl6.Controls.Add(this.labelControl54);
+            this.groupControl6.Controls.Add(this.labelControl55);
+            this.groupControl6.Controls.Add(this.sdV_t);
+            this.groupControl6.Controls.Add(this.sdV_get);
+            this.groupControl6.Location = new System.Drawing.Point(279, 3);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(270, 186);
+            this.groupControl6.TabIndex = 1;
+            this.groupControl6.Text = "View";
+            // 
+            // sdSync
+            // 
+            this.sdSync.Location = new System.Drawing.Point(3, 195);
+            this.sdSync.Name = "sdSync";
+            this.sdSync.Size = new System.Drawing.Size(546, 110);
+            this.sdSync.TabIndex = 2;
+            this.sdSync.Text = "Trigger Network Sync";
+            // 
+            // sdE_s
+            // 
+            this.sdE_s.EditValue = "MP0_";
+            this.sdE_s.Location = new System.Drawing.Point(46, 24);
+            this.sdE_s.MenuManager = this.barManager1;
+            this.sdE_s.Name = "sdE_s";
+            this.sdE_s.Size = new System.Drawing.Size(219, 20);
+            this.sdE_s.TabIndex = 0;
+            // 
+            // labelControl48
+            // 
+            this.labelControl48.Location = new System.Drawing.Point(20, 27);
+            this.labelControl48.Name = "labelControl48";
+            this.labelControl48.Size = new System.Drawing.Size(20, 13);
+            this.labelControl48.TabIndex = 1;
+            this.labelControl48.Text = "Stat";
+            // 
+            // sdE_set
+            // 
+            this.sdE_set.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sdE_set.Appearance.Options.UseFont = true;
+            this.sdE_set.Location = new System.Drawing.Point(5, 102);
+            this.sdE_set.Name = "sdE_set";
+            this.sdE_set.Size = new System.Drawing.Size(260, 52);
+            this.sdE_set.TabIndex = 2;
+            this.sdE_set.Text = "Save Edit";
+            // 
+            // labelControl49
+            // 
+            this.labelControl49.Location = new System.Drawing.Point(14, 53);
+            this.labelControl49.Name = "labelControl49";
+            this.labelControl49.Size = new System.Drawing.Size(26, 13);
+            this.labelControl49.TabIndex = 4;
+            this.labelControl49.Text = "Value";
+            // 
+            // sdE_v
+            // 
+            this.sdE_v.Location = new System.Drawing.Point(46, 50);
+            this.sdE_v.MenuManager = this.barManager1;
+            this.sdE_v.Name = "sdE_v";
+            this.sdE_v.Size = new System.Drawing.Size(219, 20);
+            this.sdE_v.TabIndex = 3;
+            // 
+            // sdE_t
+            // 
+            this.sdE_t.EditValue = "Int 32";
+            this.sdE_t.Location = new System.Drawing.Point(46, 76);
+            this.sdE_t.MenuManager = this.barManager1;
+            this.sdE_t.Name = "sdE_t";
+            this.sdE_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.sdE_t.Properties.Items.AddRange(new object[] {
+            "Int 32",
+            "Bool",
+            "Float",
+            "String"});
+            this.sdE_t.Size = new System.Drawing.Size(219, 20);
+            this.sdE_t.TabIndex = 5;
+            // 
+            // labelControl50
+            // 
+            this.labelControl50.Location = new System.Drawing.Point(16, 79);
+            this.labelControl50.Name = "labelControl50";
+            this.labelControl50.Size = new System.Drawing.Size(24, 13);
+            this.labelControl50.TabIndex = 6;
+            this.labelControl50.Text = "Type";
+            // 
+            // sdE_r
+            // 
+            this.sdE_r.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.sdE_r.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.sdE_r.Location = new System.Drawing.Point(5, 160);
+            this.sdE_r.Name = "sdE_r";
+            this.sdE_r.Size = new System.Drawing.Size(260, 21);
+            this.sdE_r.TabIndex = 7;
+            // 
+            // sdV_r
+            // 
+            this.sdV_r.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.sdV_r.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.sdV_r.Location = new System.Drawing.Point(5, 160);
+            this.sdV_r.Name = "sdV_r";
+            this.sdV_r.Size = new System.Drawing.Size(260, 21);
+            this.sdV_r.TabIndex = 15;
+            // 
+            // labelControl53
+            // 
+            this.labelControl53.Location = new System.Drawing.Point(16, 53);
+            this.labelControl53.Name = "labelControl53";
+            this.labelControl53.Size = new System.Drawing.Size(24, 13);
+            this.labelControl53.TabIndex = 14;
+            this.labelControl53.Text = "Type";
+            // 
+            // sdV_t
+            // 
+            this.sdV_t.EditValue = "Int 32";
+            this.sdV_t.Location = new System.Drawing.Point(46, 50);
+            this.sdV_t.MenuManager = this.barManager1;
+            this.sdV_t.Name = "sdV_t";
+            this.sdV_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.sdV_t.Properties.Items.AddRange(new object[] {
+            "Int 32",
+            "Bool",
+            "Float",
+            "String"});
+            this.sdV_t.Size = new System.Drawing.Size(219, 20);
+            this.sdV_t.TabIndex = 13;
+            // 
+            // labelControl54
+            // 
+            this.labelControl54.Location = new System.Drawing.Point(14, 137);
+            this.labelControl54.Name = "labelControl54";
+            this.labelControl54.Size = new System.Drawing.Size(26, 13);
+            this.labelControl54.TabIndex = 12;
+            this.labelControl54.Text = "Value";
+            // 
+            // sdV_v
+            // 
+            this.sdV_v.Location = new System.Drawing.Point(46, 134);
+            this.sdV_v.MenuManager = this.barManager1;
+            this.sdV_v.Name = "sdV_v";
+            this.sdV_v.Size = new System.Drawing.Size(219, 20);
+            this.sdV_v.TabIndex = 11;
+            // 
+            // sdV_get
+            // 
+            this.sdV_get.Location = new System.Drawing.Point(5, 76);
+            this.sdV_get.Name = "sdV_get";
+            this.sdV_get.Size = new System.Drawing.Size(260, 52);
+            this.sdV_get.TabIndex = 10;
+            this.sdV_get.Text = "Retrieve Value";
+            // 
+            // labelControl55
+            // 
+            this.labelControl55.Location = new System.Drawing.Point(20, 27);
+            this.labelControl55.Name = "labelControl55";
+            this.labelControl55.Size = new System.Drawing.Size(20, 13);
+            this.labelControl55.TabIndex = 9;
+            this.labelControl55.Text = "Stat";
+            // 
+            // sdV_s
+            // 
+            this.sdV_s.EditValue = "MP0_";
+            this.sdV_s.Location = new System.Drawing.Point(46, 24);
+            this.sdV_s.MenuManager = this.barManager1;
+            this.sdV_s.Name = "sdV_s";
+            this.sdV_s.Size = new System.Drawing.Size(219, 20);
+            this.sdV_s.TabIndex = 8;
             // 
             // Main
             // 
@@ -2708,7 +2995,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Imperium Recovery Tool 2.0  [1.26/BLES/PS3]";
+            this.Text = "Imperium Recovery Tool 1.0  [1.26/BLES/PS3]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -2721,7 +3008,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gAddBank.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gAddCash.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gRP.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gRank.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -2729,51 +3023,16 @@
             this.xtraTabPage3.ResumeLayout(false);
             this.xtraTabPage3.PerformLayout();
             this.xtraTabPage4.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
-            this.xtraTabControl2.ResumeLayout(false);
-            this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.statqList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).EndInit();
-            this.xtraTabPage9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.statkwqList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.statkwqSearch.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gRank.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gRP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gAddCash.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit7.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).EndInit();
             this.xtraTabControl3.ResumeLayout(false);
             this.xtraTabPage10.ResumeLayout(false);
             this.xtraTabPage10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aoListing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.outfitTabs)).EndInit();
             this.outfitTabs.ResumeLayout(false);
             this.outfitEditTab.ResumeLayout(false);
             this.outfitEditTab.PerformLayout();
-            this.outfitAddTab.ResumeLayout(false);
-            this.outfitAddTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTitle.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeGender.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeDescription.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeMask_m.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeMask_t.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeHat_t.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeHat_m.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeEars_t.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeEars_m.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeEyes_t.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeEyes_m.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeHair_t.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeHair_m.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTops1_t.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTops1_m.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTorso_t.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTorso_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTops2_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTops2_m.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeEmblem_t.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeEmblem_m.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeArmor_t.Properties)).EndInit();
@@ -2788,8 +3047,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.aoeShoes_m.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeLegs_t.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoeLegs_m.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTops2_t.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoeTops2_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTops1_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTops1_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTorso_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTorso_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeHair_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeHair_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeEars_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeEars_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeEyes_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeEyes_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeHat_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeHat_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeMask_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeMask_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeDescription.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeGender.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoeTitle.Properties)).EndInit();
+            this.outfitAddTab.ResumeLayout(false);
+            this.outfitAddTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.aoaCreator.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaTops2_t.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaTops2_m.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaEmblem_t.Properties)).EndInit();
@@ -2823,7 +3100,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.aoaDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaGender.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaTitle.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aoaCreator.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aoListing)).EndInit();
+            this.xtraTabPage8.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
+            this.xtraTabControl2.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.statqList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statqSearch.Properties)).EndInit();
+            this.xtraTabPage9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.statkwqList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statkwqSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
+            this.xtraTabControl4.ResumeLayout(false);
+            this.xtraTabPage12.ResumeLayout(false);
+            this.xtraTabPage14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
+            this.groupControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            this.groupControl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdE_v.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdE_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdV_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdV_v.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sdV_s.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2859,7 +3165,6 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage7;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage8;
         private DevExpress.XtraEditors.ListBoxControl statqList;
@@ -3031,6 +3336,32 @@
         private DevExpress.XtraEditors.LabelControl aoeCreator;
         private DevExpress.XtraEditors.LabelControl labelControl47;
         private DevExpress.XtraEditors.TextEdit aoaCreator;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl4;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage12;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage13;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage14;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.SimpleButton sdSync;
+        private DevExpress.XtraEditors.GroupControl groupControl6;
+        private DevExpress.XtraEditors.LabelControl sdV_r;
+        private DevExpress.XtraEditors.TextEdit sdV_s;
+        private DevExpress.XtraEditors.LabelControl labelControl53;
+        private DevExpress.XtraEditors.TextEdit sdV_v;
+        private DevExpress.XtraEditors.LabelControl labelControl54;
+        private DevExpress.XtraEditors.LabelControl labelControl55;
+        private DevExpress.XtraEditors.ComboBoxEdit sdV_t;
+        private DevExpress.XtraEditors.SimpleButton sdV_get;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraEditors.LabelControl sdE_r;
+        private DevExpress.XtraEditors.LabelControl labelControl50;
+        private DevExpress.XtraEditors.ComboBoxEdit sdE_t;
+        private DevExpress.XtraEditors.LabelControl labelControl49;
+        private DevExpress.XtraEditors.TextEdit sdE_v;
+        private DevExpress.XtraEditors.SimpleButton sdE_set;
+        private DevExpress.XtraEditors.LabelControl labelControl48;
+        private DevExpress.XtraEditors.TextEdit sdE_s;
 
     }
 }

@@ -1153,10 +1153,55 @@ namespace Imperium
         }
         #endregion
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void exSkillEnhanced_Click(object sender, EventArgs e)
         {
-            int stor = RPC.Call(Natives.STAT_GET_STRING, Hash(textEdit2.Text), -1);
-            textEdit1.Text = PS3.Extension.ReadString((uint)stor);
+            setStat("SCRIPT_INCREASE_DRIV", 120);
+            setStat("SCRIPT_INCREASE_FLY", 120);
+            setStat("SCRIPT_INCREASE_LUNG", 120);
+            setStat("SCRIPT_INCREASE_MECH", 120);
+            setStat("SCRIPT_INCREASE_SHO", 120);
+            setStat("SCRIPT_INCREASE_STAM", 120);
+            setStat("SCRIPT_INCREASE_STL", 120);
+            setStat("SCRIPT_INCREASE_STRN", 120);
+        }
+
+        private void exSkillSuperhuman_Click(object sender, EventArgs e)
+        {
+            setStat("SCRIPT_INCREASE_DRIV", 1000);
+            setStat("SCRIPT_INCREASE_FLY", 1000);
+            setStat("SCRIPT_INCREASE_LUNG", 1000);
+            setStat("SCRIPT_INCREASE_MECH", 1000);
+            setStat("SCRIPT_INCREASE_SHO", 1000);
+            setStat("SCRIPT_INCREASE_STAM", 1000);
+            setStat("SCRIPT_INCREASE_STL", 1000);
+            setStat("SCRIPT_INCREASE_STRN", 1000);
+        }
+
+        private void sdSync_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sdE_set_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gModdedRoll_Click(object sender, EventArgs e)
+        {
+            setStat("SCRIPT_INCREASE_STL", 600);
+        }
+
+        private void gFastRun_Click(object sender, EventArgs e)
+        {
+            setStat("CHAR_FM_ABILITY_1_UNLCK", -1);
+            setStat("CHAR_FM_ABILITY_2_UNLCK", -1);
+            setStat("CHAR_FM_ABILITY_3_UNLCK", -1);
+        }
+
+        private void gResetTimer_Click(object sender, EventArgs e)
+        {
+            setStat("MPPLY_VEHICLE_SELL_TIME", 0);
         }
     }
 }

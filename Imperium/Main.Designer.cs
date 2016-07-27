@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.tabGeneral = new DevExpress.XtraTab.XtraTabPage();
+            this.gFastRun = new DevExpress.XtraEditors.SimpleButton();
+            this.gModdedRoll = new DevExpress.XtraEditors.SimpleButton();
             this.gHeistTrophies = new DevExpress.XtraEditors.SimpleButton();
             this.gRedesign = new DevExpress.XtraEditors.SimpleButton();
             this.gTutorial = new DevExpress.XtraEditors.SimpleButton();
@@ -81,6 +83,7 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.gRank = new DevExpress.XtraEditors.ButtonEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.gResetTimer = new DevExpress.XtraEditors.SimpleButton();
             this.uIdleKick = new DevExpress.XtraEditors.SimpleButton();
             this.gInfiniteAmmo = new DevExpress.XtraEditors.SimpleButton();
             this.gVehicleMods = new DevExpress.XtraEditors.SimpleButton();
@@ -219,6 +222,11 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.aoListing = new DevExpress.XtraEditors.ListBoxControl();
             this.xtraTabPage11 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.otftRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl52 = new DevExpress.XtraEditors.LabelControl();
+            this.otftSave = new DevExpress.XtraEditors.SimpleButton();
+            this.otftTitle = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
@@ -248,9 +256,51 @@
             this.exSkillSuperhuman = new DevExpress.XtraEditors.SimpleButton();
             this.exSkillEnhanced = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.gModdedRoll = new DevExpress.XtraEditors.SimpleButton();
-            this.gFastRun = new DevExpress.XtraEditors.SimpleButton();
-            this.gResetTimer = new DevExpress.XtraEditors.SimpleButton();
+            this.otftMod = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl56 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl58 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eTops2_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eTops2_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl59 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl60 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eEmblem_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eEmblem_m = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eArmor_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eArmor_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl61 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eHands_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eHands_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl62 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eExtra_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eExtra_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl64 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eShoes_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eShoes_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl65 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eLegs_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eLegs_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl66 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl67 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eTops1_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eTops1_m = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eTorso_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eTorso_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl69 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eEars_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eEars_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl70 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eEyes_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eEyes_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl71 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eHat_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eHat_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl72 = new DevExpress.XtraEditors.LabelControl();
+            this.otft_eMask_t = new DevExpress.XtraEditors.SpinEdit();
+            this.otft_eMask_m = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl73 = new DevExpress.XtraEditors.LabelControl();
+            this.otftListing = new DevExpress.XtraEditors.ListBoxControl();
+            this.otftPanel = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl57 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -351,6 +401,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.aoaGender.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaTitle.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoListing)).BeginInit();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.otftTitle.Properties)).BeginInit();
             this.xtraTabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
             this.xtraTabControl4.SuspendLayout();
@@ -367,6 +419,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).BeginInit();
             this.xtraTabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otftMod.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTops2_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTops2_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEmblem_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEmblem_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eArmor_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eArmor_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eHands_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eHands_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eExtra_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eExtra_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eShoes_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eShoes_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTops1_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTops1_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTorso_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTorso_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEars_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEars_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEyes_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEyes_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eHat_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eHat_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eMask_t.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eMask_m.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otftListing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otftPanel)).BeginInit();
+            this.otftPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -410,6 +492,24 @@
             this.tabGeneral.Name = "tabGeneral";
             this.tabGeneral.Size = new System.Drawing.Size(564, 342);
             this.tabGeneral.Text = "General";
+            // 
+            // gFastRun
+            // 
+            this.gFastRun.Location = new System.Drawing.Point(297, 207);
+            this.gFastRun.Name = "gFastRun";
+            this.gFastRun.Size = new System.Drawing.Size(142, 23);
+            this.gFastRun.TabIndex = 24;
+            this.gFastRun.Text = "Fast Run";
+            this.gFastRun.Click += new System.EventHandler(this.gFastRun_Click);
+            // 
+            // gModdedRoll
+            // 
+            this.gModdedRoll.Location = new System.Drawing.Point(151, 207);
+            this.gModdedRoll.Name = "gModdedRoll";
+            this.gModdedRoll.Size = new System.Drawing.Size(142, 23);
+            this.gModdedRoll.TabIndex = 23;
+            this.gModdedRoll.Text = "Modded Roll";
+            this.gModdedRoll.Click += new System.EventHandler(this.gModdedRoll_Click);
             // 
             // gHeistTrophies
             // 
@@ -607,7 +707,7 @@
             // 
             // barStaticItem4
             // 
-            this.barStaticItem4.Caption = "Developed by Kryptus";
+            this.barStaticItem4.Caption = "Created by Kryptus";
             this.barStaticItem4.Id = 13;
             this.barStaticItem4.LeftIndent = 10;
             this.barStaticItem4.Name = "barStaticItem4";
@@ -955,6 +1055,15 @@
             this.groupControl2.TabIndex = 3;
             this.groupControl2.Text = "Utilities";
             // 
+            // gResetTimer
+            // 
+            this.gResetTimer.Location = new System.Drawing.Point(5, 53);
+            this.gResetTimer.Name = "gResetTimer";
+            this.gResetTimer.Size = new System.Drawing.Size(106, 23);
+            this.gResetTimer.TabIndex = 1;
+            this.gResetTimer.Text = "Reset Sell Timer";
+            this.gResetTimer.Click += new System.EventHandler(this.gResetTimer_Click);
+            // 
             // uIdleKick
             // 
             this.uIdleKick.Location = new System.Drawing.Point(5, 24);
@@ -1138,7 +1247,8 @@
             this.xtraTabControl3.TabIndex = 0;
             this.xtraTabControl3.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage10,
-            this.xtraTabPage11});
+            this.xtraTabPage11,
+            this.xtraTabPage1});
             // 
             // xtraTabPage10
             // 
@@ -2624,6 +2734,52 @@
             this.xtraTabPage11.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage11.Text = "Debugger";
             // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.otftPanel);
+            this.xtraTabPage1.Controls.Add(this.labelControl73);
+            this.xtraTabPage1.Controls.Add(this.otftListing);
+            this.xtraTabPage1.Controls.Add(this.otftRefresh);
+            this.xtraTabPage1.Controls.Add(this.labelControl57);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage1.Text = "Outfit Editor";
+            // 
+            // otftRefresh
+            // 
+            this.otftRefresh.Location = new System.Drawing.Point(157, 21);
+            this.otftRefresh.Name = "otftRefresh";
+            this.otftRefresh.Size = new System.Drawing.Size(392, 24);
+            this.otftRefresh.TabIndex = 3;
+            this.otftRefresh.Text = "Refresh";
+            this.otftRefresh.Click += new System.EventHandler(this.otR_Click);
+            // 
+            // labelControl52
+            // 
+            this.labelControl52.Location = new System.Drawing.Point(7, 8);
+            this.labelControl52.Name = "labelControl52";
+            this.labelControl52.Size = new System.Drawing.Size(51, 13);
+            this.labelControl52.TabIndex = 2;
+            this.labelControl52.Text = "Outfit Title";
+            // 
+            // otftSave
+            // 
+            this.otftSave.Location = new System.Drawing.Point(5, 224);
+            this.otftSave.Name = "otftSave";
+            this.otftSave.Size = new System.Drawing.Size(382, 25);
+            this.otftSave.TabIndex = 1;
+            this.otftSave.Text = "Save Outfit";
+            this.otftSave.Click += new System.EventHandler(this.ot1_s_Click);
+            // 
+            // otftTitle
+            // 
+            this.otftTitle.Location = new System.Drawing.Point(64, 5);
+            this.otftTitle.MenuManager = this.barManager1;
+            this.otftTitle.Name = "otftTitle";
+            this.otftTitle.Properties.MaxLength = 31;
+            this.otftTitle.Size = new System.Drawing.Size(167, 20);
+            this.otftTitle.TabIndex = 0;
+            // 
             // xtraTabPage7
             // 
             this.xtraTabPage7.Name = "xtraTabPage7";
@@ -2903,32 +3059,627 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // gModdedRoll
+            // otftMod
             // 
-            this.gModdedRoll.Location = new System.Drawing.Point(151, 207);
-            this.gModdedRoll.Name = "gModdedRoll";
-            this.gModdedRoll.Size = new System.Drawing.Size(142, 23);
-            this.gModdedRoll.TabIndex = 23;
-            this.gModdedRoll.Text = "Modded Roll";
-            this.gModdedRoll.Click += new System.EventHandler(this.gModdedRoll_Click);
+            this.otftMod.Location = new System.Drawing.Point(291, 5);
+            this.otftMod.MenuManager = this.barManager1;
+            this.otftMod.Name = "otftMod";
+            this.otftMod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otftMod.Properties.Items.AddRange(new object[] {
+            "Font - Pricedown",
+            "Font - Sign-Painter",
+            "Font - Chalet",
+            "Icon - R* Verified",
+            "Icon - R* Logo #1",
+            "Icon - R* Logo #2",
+            "Size - Small",
+            "Size - Large",
+            "Size - Huge",
+            "Color - RGB",
+            "Color - Blue",
+            "Color - Gold",
+            "Color - Green",
+            "Color - Light Blue",
+            "Color - Orange",
+            "Color - Purple",
+            "Color - Red",
+            "Color - Teal",
+            "Style - Bold",
+            "Style - Italic"});
+            this.otftMod.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.otftMod.Size = new System.Drawing.Size(96, 20);
+            this.otftMod.TabIndex = 5;
+            this.otftMod.SelectedIndexChanged += new System.EventHandler(this.otftMod_SelectedIndexChanged);
             // 
-            // gFastRun
+            // labelControl56
             // 
-            this.gFastRun.Location = new System.Drawing.Point(297, 207);
-            this.gFastRun.Name = "gFastRun";
-            this.gFastRun.Size = new System.Drawing.Size(142, 23);
-            this.gFastRun.TabIndex = 24;
-            this.gFastRun.Text = "Fast Run";
-            this.gFastRun.Click += new System.EventHandler(this.gFastRun_Click);
+            this.labelControl56.Location = new System.Drawing.Point(237, 8);
+            this.labelControl56.Name = "labelControl56";
+            this.labelControl56.Size = new System.Drawing.Size(48, 13);
+            this.labelControl56.TabIndex = 6;
+            this.labelControl56.Text = "Title Mods";
             // 
-            // gResetTimer
+            // labelControl58
             // 
-            this.gResetTimer.Location = new System.Drawing.Point(5, 53);
-            this.gResetTimer.Name = "gResetTimer";
-            this.gResetTimer.Size = new System.Drawing.Size(106, 23);
-            this.gResetTimer.TabIndex = 1;
-            this.gResetTimer.Text = "Reset Sell Timer";
-            this.gResetTimer.Click += new System.EventHandler(this.gResetTimer_Click);
+            this.labelControl58.Location = new System.Drawing.Point(62, 193);
+            this.labelControl58.Name = "labelControl58";
+            this.labelControl58.Size = new System.Drawing.Size(32, 13);
+            this.labelControl58.TabIndex = 136;
+            this.labelControl58.Text = "Tops 2";
+            // 
+            // otft_eTops2_t
+            // 
+            this.otft_eTops2_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eTops2_t.Location = new System.Drawing.Point(140, 190);
+            this.otft_eTops2_t.MenuManager = this.barManager1;
+            this.otft_eTops2_t.Name = "otft_eTops2_t";
+            this.otft_eTops2_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eTops2_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eTops2_t.TabIndex = 135;
+            // 
+            // otft_eTops2_m
+            // 
+            this.otft_eTops2_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eTops2_m.Location = new System.Drawing.Point(100, 190);
+            this.otft_eTops2_m.MenuManager = this.barManager1;
+            this.otft_eTops2_m.Name = "otft_eTops2_m";
+            this.otft_eTops2_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eTops2_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eTops2_m.TabIndex = 134;
+            // 
+            // labelControl59
+            // 
+            this.labelControl59.Location = new System.Drawing.Point(205, 141);
+            this.labelControl59.Name = "labelControl59";
+            this.labelControl59.Size = new System.Drawing.Size(29, 13);
+            this.labelControl59.TabIndex = 133;
+            this.labelControl59.Text = "Armor";
+            // 
+            // labelControl60
+            // 
+            this.labelControl60.Location = new System.Drawing.Point(198, 167);
+            this.labelControl60.Name = "labelControl60";
+            this.labelControl60.Size = new System.Drawing.Size(36, 13);
+            this.labelControl60.TabIndex = 132;
+            this.labelControl60.Text = "Emblem";
+            // 
+            // otft_eEmblem_t
+            // 
+            this.otft_eEmblem_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eEmblem_t.Location = new System.Drawing.Point(280, 164);
+            this.otft_eEmblem_t.MenuManager = this.barManager1;
+            this.otft_eEmblem_t.Name = "otft_eEmblem_t";
+            this.otft_eEmblem_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eEmblem_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eEmblem_t.TabIndex = 131;
+            // 
+            // otft_eEmblem_m
+            // 
+            this.otft_eEmblem_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eEmblem_m.Location = new System.Drawing.Point(240, 164);
+            this.otft_eEmblem_m.MenuManager = this.barManager1;
+            this.otft_eEmblem_m.Name = "otft_eEmblem_m";
+            this.otft_eEmblem_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eEmblem_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eEmblem_m.TabIndex = 130;
+            // 
+            // otft_eArmor_t
+            // 
+            this.otft_eArmor_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eArmor_t.Location = new System.Drawing.Point(280, 138);
+            this.otft_eArmor_t.MenuManager = this.barManager1;
+            this.otft_eArmor_t.Name = "otft_eArmor_t";
+            this.otft_eArmor_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eArmor_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eArmor_t.TabIndex = 129;
+            // 
+            // otft_eArmor_m
+            // 
+            this.otft_eArmor_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eArmor_m.Location = new System.Drawing.Point(240, 138);
+            this.otft_eArmor_m.MenuManager = this.barManager1;
+            this.otft_eArmor_m.Name = "otft_eArmor_m";
+            this.otft_eArmor_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eArmor_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eArmor_m.TabIndex = 128;
+            // 
+            // labelControl61
+            // 
+            this.labelControl61.Location = new System.Drawing.Point(204, 115);
+            this.labelControl61.Name = "labelControl61";
+            this.labelControl61.Size = new System.Drawing.Size(30, 13);
+            this.labelControl61.TabIndex = 127;
+            this.labelControl61.Text = "Hands";
+            // 
+            // otft_eHands_t
+            // 
+            this.otft_eHands_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eHands_t.Location = new System.Drawing.Point(280, 112);
+            this.otft_eHands_t.MenuManager = this.barManager1;
+            this.otft_eHands_t.Name = "otft_eHands_t";
+            this.otft_eHands_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eHands_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eHands_t.TabIndex = 126;
+            // 
+            // otft_eHands_m
+            // 
+            this.otft_eHands_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eHands_m.Location = new System.Drawing.Point(240, 112);
+            this.otft_eHands_m.MenuManager = this.barManager1;
+            this.otft_eHands_m.Name = "otft_eHands_m";
+            this.otft_eHands_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eHands_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eHands_m.TabIndex = 125;
+            // 
+            // labelControl62
+            // 
+            this.labelControl62.Location = new System.Drawing.Point(208, 89);
+            this.labelControl62.Name = "labelControl62";
+            this.labelControl62.Size = new System.Drawing.Size(26, 13);
+            this.labelControl62.TabIndex = 124;
+            this.labelControl62.Text = "Extra";
+            // 
+            // otft_eExtra_t
+            // 
+            this.otft_eExtra_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eExtra_t.Location = new System.Drawing.Point(280, 86);
+            this.otft_eExtra_t.MenuManager = this.barManager1;
+            this.otft_eExtra_t.Name = "otft_eExtra_t";
+            this.otft_eExtra_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eExtra_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eExtra_t.TabIndex = 123;
+            // 
+            // otft_eExtra_m
+            // 
+            this.otft_eExtra_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eExtra_m.Location = new System.Drawing.Point(240, 86);
+            this.otft_eExtra_m.MenuManager = this.barManager1;
+            this.otft_eExtra_m.Name = "otft_eExtra_m";
+            this.otft_eExtra_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eExtra_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eExtra_m.TabIndex = 122;
+            // 
+            // labelControl64
+            // 
+            this.labelControl64.Location = new System.Drawing.Point(205, 63);
+            this.labelControl64.Name = "labelControl64";
+            this.labelControl64.Size = new System.Drawing.Size(29, 13);
+            this.labelControl64.TabIndex = 118;
+            this.labelControl64.Text = "Shoes";
+            // 
+            // otft_eShoes_t
+            // 
+            this.otft_eShoes_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eShoes_t.Location = new System.Drawing.Point(280, 60);
+            this.otft_eShoes_t.MenuManager = this.barManager1;
+            this.otft_eShoes_t.Name = "otft_eShoes_t";
+            this.otft_eShoes_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eShoes_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eShoes_t.TabIndex = 117;
+            // 
+            // otft_eShoes_m
+            // 
+            this.otft_eShoes_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eShoes_m.Location = new System.Drawing.Point(240, 60);
+            this.otft_eShoes_m.MenuManager = this.barManager1;
+            this.otft_eShoes_m.Name = "otft_eShoes_m";
+            this.otft_eShoes_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eShoes_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eShoes_m.TabIndex = 116;
+            // 
+            // labelControl65
+            // 
+            this.labelControl65.Location = new System.Drawing.Point(212, 37);
+            this.labelControl65.Name = "labelControl65";
+            this.labelControl65.Size = new System.Drawing.Size(22, 13);
+            this.labelControl65.TabIndex = 115;
+            this.labelControl65.Text = "Legs";
+            // 
+            // otft_eLegs_t
+            // 
+            this.otft_eLegs_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eLegs_t.Location = new System.Drawing.Point(280, 34);
+            this.otft_eLegs_t.MenuManager = this.barManager1;
+            this.otft_eLegs_t.Name = "otft_eLegs_t";
+            this.otft_eLegs_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eLegs_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eLegs_t.TabIndex = 114;
+            // 
+            // otft_eLegs_m
+            // 
+            this.otft_eLegs_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eLegs_m.Location = new System.Drawing.Point(240, 34);
+            this.otft_eLegs_m.MenuManager = this.barManager1;
+            this.otft_eLegs_m.Name = "otft_eLegs_m";
+            this.otft_eLegs_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eLegs_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eLegs_m.TabIndex = 113;
+            // 
+            // labelControl66
+            // 
+            this.labelControl66.Location = new System.Drawing.Point(67, 142);
+            this.labelControl66.Name = "labelControl66";
+            this.labelControl66.Size = new System.Drawing.Size(27, 13);
+            this.labelControl66.TabIndex = 112;
+            this.labelControl66.Text = "Torso";
+            // 
+            // labelControl67
+            // 
+            this.labelControl67.Location = new System.Drawing.Point(62, 167);
+            this.labelControl67.Name = "labelControl67";
+            this.labelControl67.Size = new System.Drawing.Size(32, 13);
+            this.labelControl67.TabIndex = 111;
+            this.labelControl67.Text = "Tops 1";
+            // 
+            // otft_eTops1_t
+            // 
+            this.otft_eTops1_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eTops1_t.Location = new System.Drawing.Point(140, 164);
+            this.otft_eTops1_t.MenuManager = this.barManager1;
+            this.otft_eTops1_t.Name = "otft_eTops1_t";
+            this.otft_eTops1_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eTops1_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eTops1_t.TabIndex = 110;
+            // 
+            // otft_eTops1_m
+            // 
+            this.otft_eTops1_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eTops1_m.Location = new System.Drawing.Point(100, 164);
+            this.otft_eTops1_m.MenuManager = this.barManager1;
+            this.otft_eTops1_m.Name = "otft_eTops1_m";
+            this.otft_eTops1_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eTops1_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eTops1_m.TabIndex = 109;
+            // 
+            // otft_eTorso_t
+            // 
+            this.otft_eTorso_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eTorso_t.Location = new System.Drawing.Point(140, 138);
+            this.otft_eTorso_t.MenuManager = this.barManager1;
+            this.otft_eTorso_t.Name = "otft_eTorso_t";
+            this.otft_eTorso_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eTorso_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eTorso_t.TabIndex = 108;
+            // 
+            // otft_eTorso_m
+            // 
+            this.otft_eTorso_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eTorso_m.Location = new System.Drawing.Point(100, 138);
+            this.otft_eTorso_m.MenuManager = this.barManager1;
+            this.otft_eTorso_m.Name = "otft_eTorso_m";
+            this.otft_eTorso_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eTorso_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eTorso_m.TabIndex = 107;
+            // 
+            // labelControl69
+            // 
+            this.labelControl69.Location = new System.Drawing.Point(73, 115);
+            this.labelControl69.Name = "labelControl69";
+            this.labelControl69.Size = new System.Drawing.Size(21, 13);
+            this.labelControl69.TabIndex = 103;
+            this.labelControl69.Text = "Ears";
+            // 
+            // otft_eEars_t
+            // 
+            this.otft_eEars_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eEars_t.Location = new System.Drawing.Point(140, 112);
+            this.otft_eEars_t.MenuManager = this.barManager1;
+            this.otft_eEars_t.Name = "otft_eEars_t";
+            this.otft_eEars_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eEars_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eEars_t.TabIndex = 102;
+            // 
+            // otft_eEars_m
+            // 
+            this.otft_eEars_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eEars_m.Location = new System.Drawing.Point(100, 112);
+            this.otft_eEars_m.MenuManager = this.barManager1;
+            this.otft_eEars_m.Name = "otft_eEars_m";
+            this.otft_eEars_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eEars_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eEars_m.TabIndex = 101;
+            // 
+            // labelControl70
+            // 
+            this.labelControl70.Location = new System.Drawing.Point(71, 89);
+            this.labelControl70.Name = "labelControl70";
+            this.labelControl70.Size = new System.Drawing.Size(23, 13);
+            this.labelControl70.TabIndex = 100;
+            this.labelControl70.Text = "Eyes";
+            // 
+            // otft_eEyes_t
+            // 
+            this.otft_eEyes_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eEyes_t.Location = new System.Drawing.Point(140, 86);
+            this.otft_eEyes_t.MenuManager = this.barManager1;
+            this.otft_eEyes_t.Name = "otft_eEyes_t";
+            this.otft_eEyes_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eEyes_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eEyes_t.TabIndex = 99;
+            // 
+            // otft_eEyes_m
+            // 
+            this.otft_eEyes_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eEyes_m.Location = new System.Drawing.Point(100, 86);
+            this.otft_eEyes_m.MenuManager = this.barManager1;
+            this.otft_eEyes_m.Name = "otft_eEyes_m";
+            this.otft_eEyes_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eEyes_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eEyes_m.TabIndex = 98;
+            // 
+            // labelControl71
+            // 
+            this.labelControl71.Location = new System.Drawing.Point(77, 63);
+            this.labelControl71.Name = "labelControl71";
+            this.labelControl71.Size = new System.Drawing.Size(17, 13);
+            this.labelControl71.TabIndex = 97;
+            this.labelControl71.Text = "Hat";
+            // 
+            // otft_eHat_t
+            // 
+            this.otft_eHat_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eHat_t.Location = new System.Drawing.Point(140, 60);
+            this.otft_eHat_t.MenuManager = this.barManager1;
+            this.otft_eHat_t.Name = "otft_eHat_t";
+            this.otft_eHat_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eHat_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eHat_t.TabIndex = 96;
+            // 
+            // otft_eHat_m
+            // 
+            this.otft_eHat_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eHat_m.Location = new System.Drawing.Point(100, 60);
+            this.otft_eHat_m.MenuManager = this.barManager1;
+            this.otft_eHat_m.Name = "otft_eHat_m";
+            this.otft_eHat_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eHat_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eHat_m.TabIndex = 95;
+            // 
+            // labelControl72
+            // 
+            this.labelControl72.Location = new System.Drawing.Point(70, 37);
+            this.labelControl72.Name = "labelControl72";
+            this.labelControl72.Size = new System.Drawing.Size(24, 13);
+            this.labelControl72.TabIndex = 94;
+            this.labelControl72.Text = "Mask";
+            // 
+            // otft_eMask_t
+            // 
+            this.otft_eMask_t.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eMask_t.Location = new System.Drawing.Point(140, 34);
+            this.otft_eMask_t.MenuManager = this.barManager1;
+            this.otft_eMask_t.Name = "otft_eMask_t";
+            this.otft_eMask_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eMask_t.Size = new System.Drawing.Size(39, 20);
+            this.otft_eMask_t.TabIndex = 93;
+            // 
+            // otft_eMask_m
+            // 
+            this.otft_eMask_m.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.otft_eMask_m.Location = new System.Drawing.Point(100, 34);
+            this.otft_eMask_m.MenuManager = this.barManager1;
+            this.otft_eMask_m.Name = "otft_eMask_m";
+            this.otft_eMask_m.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.otft_eMask_m.Size = new System.Drawing.Size(39, 20);
+            this.otft_eMask_m.TabIndex = 92;
+            // 
+            // labelControl73
+            // 
+            this.labelControl73.Location = new System.Drawing.Point(44, 5);
+            this.labelControl73.Name = "labelControl73";
+            this.labelControl73.Size = new System.Drawing.Size(61, 13);
+            this.labelControl73.TabIndex = 141;
+            this.labelControl73.Text = "Outfit Listing";
+            // 
+            // otftListing
+            // 
+            this.otftListing.Items.AddRange(new object[] {
+            "[0] Unknown",
+            "[1] Unknown",
+            "[2] Unknown",
+            "[3] Unknown",
+            "[4] Unknown",
+            "[5] Unknown",
+            "[6] Unknown",
+            "[7] Unknown",
+            "[8] Unknown",
+            "[9] Unknown"});
+            this.otftListing.Location = new System.Drawing.Point(3, 21);
+            this.otftListing.Name = "otftListing";
+            this.otftListing.Size = new System.Drawing.Size(148, 154);
+            this.otftListing.TabIndex = 140;
+            this.otftListing.SelectedIndexChanged += new System.EventHandler(this.otftListing_SelectedIndexChanged);
+            // 
+            // otftPanel
+            // 
+            this.otftPanel.Controls.Add(this.labelControl52);
+            this.otftPanel.Controls.Add(this.otftTitle);
+            this.otftPanel.Controls.Add(this.otftMod);
+            this.otftPanel.Controls.Add(this.labelControl58);
+            this.otftPanel.Controls.Add(this.otftSave);
+            this.otftPanel.Controls.Add(this.labelControl56);
+            this.otftPanel.Controls.Add(this.otft_eTops2_t);
+            this.otftPanel.Controls.Add(this.otft_eMask_m);
+            this.otftPanel.Controls.Add(this.otft_eTops2_m);
+            this.otftPanel.Controls.Add(this.otft_eMask_t);
+            this.otftPanel.Controls.Add(this.labelControl59);
+            this.otftPanel.Controls.Add(this.labelControl72);
+            this.otftPanel.Controls.Add(this.labelControl60);
+            this.otftPanel.Controls.Add(this.otft_eHat_m);
+            this.otftPanel.Controls.Add(this.otft_eEmblem_t);
+            this.otftPanel.Controls.Add(this.otft_eHat_t);
+            this.otftPanel.Controls.Add(this.otft_eEmblem_m);
+            this.otftPanel.Controls.Add(this.labelControl71);
+            this.otftPanel.Controls.Add(this.otft_eArmor_t);
+            this.otftPanel.Controls.Add(this.otft_eEyes_m);
+            this.otftPanel.Controls.Add(this.otft_eArmor_m);
+            this.otftPanel.Controls.Add(this.otft_eEyes_t);
+            this.otftPanel.Controls.Add(this.labelControl61);
+            this.otftPanel.Controls.Add(this.labelControl70);
+            this.otftPanel.Controls.Add(this.otft_eHands_t);
+            this.otftPanel.Controls.Add(this.otft_eEars_m);
+            this.otftPanel.Controls.Add(this.otft_eHands_m);
+            this.otftPanel.Controls.Add(this.otft_eEars_t);
+            this.otftPanel.Controls.Add(this.labelControl62);
+            this.otftPanel.Controls.Add(this.labelControl69);
+            this.otftPanel.Controls.Add(this.otft_eExtra_t);
+            this.otftPanel.Controls.Add(this.otft_eExtra_m);
+            this.otftPanel.Controls.Add(this.otft_eTorso_m);
+            this.otftPanel.Controls.Add(this.otft_eTorso_t);
+            this.otftPanel.Controls.Add(this.labelControl64);
+            this.otftPanel.Controls.Add(this.otft_eTops1_m);
+            this.otftPanel.Controls.Add(this.otft_eShoes_t);
+            this.otftPanel.Controls.Add(this.otft_eTops1_t);
+            this.otftPanel.Controls.Add(this.otft_eShoes_m);
+            this.otftPanel.Controls.Add(this.labelControl67);
+            this.otftPanel.Controls.Add(this.labelControl65);
+            this.otftPanel.Controls.Add(this.labelControl66);
+            this.otftPanel.Controls.Add(this.otft_eLegs_t);
+            this.otftPanel.Controls.Add(this.otft_eLegs_m);
+            this.otftPanel.Location = new System.Drawing.Point(157, 51);
+            this.otftPanel.Name = "otftPanel";
+            this.otftPanel.Size = new System.Drawing.Size(392, 254);
+            this.otftPanel.TabIndex = 142;
+            this.otftPanel.Visible = false;
+            // 
+            // labelControl57
+            // 
+            this.labelControl57.Location = new System.Drawing.Point(274, 54);
+            this.labelControl57.Name = "labelControl57";
+            this.labelControl57.Size = new System.Drawing.Size(158, 13);
+            this.labelControl57.TabIndex = 143;
+            this.labelControl57.Text = "Please create this outfit in game.";
             // 
             // Main
             // 
@@ -3052,6 +3803,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.aoaGender.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoaTitle.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aoListing)).EndInit();
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.otftTitle.Properties)).EndInit();
             this.xtraTabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
             this.xtraTabControl4.ResumeLayout(false);
@@ -3070,6 +3824,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).EndInit();
             this.xtraTabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otftMod.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTops2_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTops2_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEmblem_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEmblem_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eArmor_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eArmor_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eHands_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eHands_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eExtra_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eExtra_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eShoes_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eShoes_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTops1_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTops1_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTorso_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eTorso_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEars_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEars_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEyes_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eEyes_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eHat_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eHat_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eMask_t.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otft_eMask_m.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otftListing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otftPanel)).EndInit();
+            this.otftPanel.ResumeLayout(false);
+            this.otftPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3297,6 +4082,56 @@
         private DevExpress.XtraEditors.SimpleButton gFastRun;
         private DevExpress.XtraEditors.SimpleButton gModdedRoll;
         private DevExpress.XtraEditors.SimpleButton gResetTimer;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+        private DevExpress.XtraEditors.SimpleButton otftRefresh;
+        private DevExpress.XtraEditors.LabelControl labelControl52;
+        private DevExpress.XtraEditors.SimpleButton otftSave;
+        private DevExpress.XtraEditors.TextEdit otftTitle;
+        private DevExpress.XtraEditors.LabelControl labelControl56;
+        private DevExpress.XtraEditors.ComboBoxEdit otftMod;
+        private DevExpress.XtraEditors.LabelControl labelControl73;
+        private DevExpress.XtraEditors.ListBoxControl otftListing;
+        private DevExpress.XtraEditors.LabelControl labelControl58;
+        private DevExpress.XtraEditors.SpinEdit otft_eTops2_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eTops2_m;
+        private DevExpress.XtraEditors.LabelControl labelControl59;
+        private DevExpress.XtraEditors.LabelControl labelControl60;
+        private DevExpress.XtraEditors.SpinEdit otft_eEmblem_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eEmblem_m;
+        private DevExpress.XtraEditors.SpinEdit otft_eArmor_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eArmor_m;
+        private DevExpress.XtraEditors.LabelControl labelControl61;
+        private DevExpress.XtraEditors.SpinEdit otft_eHands_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eHands_m;
+        private DevExpress.XtraEditors.LabelControl labelControl62;
+        private DevExpress.XtraEditors.SpinEdit otft_eExtra_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eExtra_m;
+        private DevExpress.XtraEditors.LabelControl labelControl64;
+        private DevExpress.XtraEditors.SpinEdit otft_eShoes_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eShoes_m;
+        private DevExpress.XtraEditors.LabelControl labelControl65;
+        private DevExpress.XtraEditors.SpinEdit otft_eLegs_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eLegs_m;
+        private DevExpress.XtraEditors.LabelControl labelControl66;
+        private DevExpress.XtraEditors.LabelControl labelControl67;
+        private DevExpress.XtraEditors.SpinEdit otft_eTops1_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eTops1_m;
+        private DevExpress.XtraEditors.SpinEdit otft_eTorso_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eTorso_m;
+        private DevExpress.XtraEditors.LabelControl labelControl69;
+        private DevExpress.XtraEditors.SpinEdit otft_eEars_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eEars_m;
+        private DevExpress.XtraEditors.LabelControl labelControl70;
+        private DevExpress.XtraEditors.SpinEdit otft_eEyes_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eEyes_m;
+        private DevExpress.XtraEditors.LabelControl labelControl71;
+        private DevExpress.XtraEditors.SpinEdit otft_eHat_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eHat_m;
+        private DevExpress.XtraEditors.LabelControl labelControl72;
+        private DevExpress.XtraEditors.SpinEdit otft_eMask_t;
+        private DevExpress.XtraEditors.SpinEdit otft_eMask_m;
+        private DevExpress.XtraEditors.PanelControl otftPanel;
+        private DevExpress.XtraEditors.LabelControl labelControl57;
 
     }
 }

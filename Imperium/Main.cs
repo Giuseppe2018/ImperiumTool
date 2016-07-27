@@ -577,6 +577,9 @@ namespace Imperium
                     connectionStatus.Caption = "Connected [" + (tmapi ? "TM" : "CC") + "]";
                     connectionPSN.Caption = "Welcome, " + NFunc.psn() + " [Console: " + PS3.GetConsoleName() + "]";
                     connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+
+                    otftDoRefresh(true);
+
                 }
                 barSub_Connect.Glyph = Imperium.Properties.Resources.link_connected;
             }
@@ -695,30 +698,6 @@ namespace Imperium
             }).Start();
         }
         #endregion
-        private void statqSearch_EditValueChanged(object sender, EventArgs e)
-        {
-            var query = from item in Stats
-                        where item.Key.ToLower().Contains(statqSearch.Text.ToLower())
-                        orderby item.Value.keyword ascending
-                        select item;
-            statqList.Items.Clear();
-            foreach (KeyValuePair<string, StatData> item in query)
-            {
-                statqList.Items.Add("[" + item.Value.keyword + "] " + item.Key + " = " + item.Value.value.ToString());
-            }
-        }
-        private void statkwqSearch_EditValueChanged(object sender, EventArgs e)
-        {
-            var query = from item in Stats
-                        where item.Value.keyword.ToLower().Contains(statkwqSearch.Text.ToLower())
-                        orderby item.Value.keyword ascending
-                        select item;
-            statkwqList.Items.Clear();
-            foreach (KeyValuePair<string, StatData> item in query)
-            {
-                statkwqList.Items.Add("[" + item.Value.keyword + "] " + item.Key + " = " + item.Value.value.ToString());
-            }
-        }
         #region Tunables
         private void DLC_Christmas_Click(object sender, EventArgs e)
         {
@@ -1202,6 +1181,191 @@ namespace Imperium
         private void gResetTimer_Click(object sender, EventArgs e)
         {
             setStat("MPPLY_VEHICLE_SELL_TIME", 0);
+        }
+        void otftDoRefresh(bool hard = false)
+        {
+            if (hard)
+            {
+                int scroll = otftListing.SelectedIndex;
+                otftListing.Items.Clear();
+                for (int i = 0; i < 10; i++)
+                {
+                    otftListing.Items.Add("[" + i + "] " + (Outfit.Name(i) == "" ? "Empty" : Outfit.Name(i)));
+                }
+                if (scroll >= 0)
+                    otftListing.SelectedIndex = scroll;
+            }
+            if (Outfit.Name(otftListing.SelectedIndex) != "")
+            {
+                otftPanel.Visible = true;
+                otftTitle.Text = Outfit.Name(otftListing.SelectedIndex);
+                OutfitStruct o = Outfit.Fetch(otftListing.SelectedIndex);
+                otft_eMask_m.Value = o.mask;
+                otft_eMask_t.Value = o.maskT;
+                otft_eTorso_m.Value = o.torso;
+                otft_eTorso_t.Value = o.torsoT;
+                otft_eLegs_m.Value = o.legs;
+                otft_eLegs_t.Value = o.legsT;
+                otft_eHands_m.Value = o.hands;
+                otft_eHands_t.Value = o.handsT;
+                otft_eShoes_m.Value = o.shoes;
+                otft_eShoes_t.Value = o.shoesT;
+                otft_eExtra_m.Value = o.extra;
+                otft_eExtra_t.Value = o.extraT;
+                otft_eTops1_m.Value = o.tops1;
+                otft_eTops1_t.Value = o.tops1T;
+                otft_eArmor_m.Value = o.armor;
+                otft_eArmor_t.Value = o.armorT;
+                otft_eEmblem_m.Value = o.emblem;
+                otft_eEmblem_t.Value = o.emblemT;
+                otft_eTops2_m.Value = o.tops2;
+                otft_eTops2_t.Value = o.tops2T;
+                otft_eHat_m.Value = o.hat;
+                otft_eHat_t.Value = o.hatT;
+                otft_eEyes_m.Value = o.eyes;
+                otft_eEyes_t.Value = o.eyesT;
+                otft_eEars_m.Value = o.ears;
+                otft_eEars_t.Value = o.earsT;
+            }
+            else
+            {
+                otftPanel.Visible = false;
+            }
+        }
+
+        private void otftListing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            otftDoRefresh();
+        }
+        private void otR_Click(object sender, EventArgs e)
+        {
+            otftDoRefresh(true);
+        }
+        private void ot1_s_Click(object sender, EventArgs e)
+        {
+            Outfit.Name(otftListing.SelectedIndex, otftTitle.Text);
+            otftDoRefresh(true);
+        }
+
+        private void otftMod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (otftMod.Text)
+            {
+                case "Font - Pricedown":
+                    {
+                        otftTitle.Text = "~s~<font face=\"$gtaCash\">Text";
+                        break;
+                    }
+                case "Font - Sign-Painter":
+                    {
+                        otftTitle.Text = "~s~<font face=\"$Font5\">Text";
+                        break;
+                    }
+                case "Font - Chalet":
+                    {
+                        otftTitle.Text = "~s~<font face=\"$Font2_cond\">Text";
+                        break;
+                    }
+                case "Icon - R* Verified":
+                    {
+                        if (otftTitle.Text.Length <= 30)
+                            otftTitle.Text += "¦";
+                        break;
+                    }
+                case "Icon - R* Logo #1":
+                    {
+                        if (otftTitle.Text.Length <= 30)
+                            otftTitle.Text += "÷";
+                        break;
+                    }
+                case "Icon - R* Logo #2":
+                    {
+                        if (otftTitle.Text.Length <= 30)
+                            otftTitle.Text += "∑";
+                        break;
+                    }
+                case "Size - Small":
+                    {
+                        otftTitle.Text = "~s~<font size=\"10\">Text";
+                        break;
+                    }
+                case "Size - Large":
+                    {
+                        otftTitle.Text = "~s~<font size=\"50\">Text";
+                        break;
+                    }
+                case "Size - Huge":
+                    {
+                        otftTitle.Text = "~s~<font size=\"200\">Text";
+                        break;
+                    }
+                case "Color - RGB":
+                    {
+                        otftTitle.Text = "~s~<font color=\"#FF0000\">Text";
+                        break;
+                    }
+                case "Color - Blue":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~b~";
+                        break;
+                    }
+                case "Color - Gold":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~y~";
+                        break;
+                    }
+                case "Color - Green":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~g~";
+                        break;
+                    }
+                case "Color - Light Blue":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~f~";
+                        break;
+                    }
+                case "Color - Orange":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~o~";
+                        break;
+                    }
+                case "Color - Purple":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~p~";
+                        break;
+                    }
+                case "Color - Red":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~r~";
+                        break;
+                    }
+                case "Color - Teal":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~d~";
+                        break;
+                    }
+                case "Style - Bold":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~h~";
+                        break;
+                    }
+                case "Style - Italic":
+                    {
+                        if (otftTitle.Text.Length <= 23)
+                            otftTitle.Text += "~italic~";
+                        break;
+                    }
+            }
+            otftMod.SelectedIndex = -1;
         }
     }
 }

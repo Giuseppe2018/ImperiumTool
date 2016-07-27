@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="Natives.cs" />
     <Compile Include="NFunc.cs" />
+    <Compile Include="Outfit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RPC.cs" />

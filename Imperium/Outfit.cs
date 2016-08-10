@@ -91,5 +91,44 @@ namespace Imperium
 
             return outfit;
         }
+        public static void Apply(int index, OutfitStruct outfit)
+        {
+            PS3.ConnectTarget();
+            uint address = PS3.Extension.ReadUInt32(pointer);
+            uint outfit_struct = (address - ptr_struct) + ((uint)index * len_struct) + 4;
+            uint outfit_textures = (address - ptr_textures) + ((uint)index * len_struct);
+            uint accessory_struct = (address - ptr_struct_a) + ((uint)index * len_struct_a);
+            uint accessory_textures = (address - ptr_textures_a) + ((uint)index * len_struct_a);
+
+            PS3.Extension.WriteInt32(outfit_struct, outfit.mask);
+            PS3.Extension.WriteInt32(outfit_struct + 0x08, outfit.torso);
+            PS3.Extension.WriteInt32(outfit_struct + 0x0C, outfit.legs);
+            PS3.Extension.WriteInt32(outfit_struct + 0x10, outfit.hands);
+            PS3.Extension.WriteInt32(outfit_struct + 0x14, outfit.shoes);
+            PS3.Extension.WriteInt32(outfit_struct + 0x18, outfit.extra);
+            PS3.Extension.WriteInt32(outfit_struct + 0x1C, outfit.tops1);
+            PS3.Extension.WriteInt32(outfit_struct + 0x20, outfit.armor);
+            PS3.Extension.WriteInt32(outfit_struct + 0x24, outfit.emblem);
+            PS3.Extension.WriteInt32(outfit_struct + 0x28, outfit.tops2);
+
+            PS3.Extension.WriteInt32(outfit_textures, outfit.maskT);
+            PS3.Extension.WriteInt32(outfit_textures + 0x08, outfit.torsoT);
+            PS3.Extension.WriteInt32(outfit_textures + 0x0C, outfit.legsT);
+            PS3.Extension.WriteInt32(outfit_textures + 0x10, outfit.handsT);
+            PS3.Extension.WriteInt32(outfit_textures + 0x14, outfit.shoesT);
+            PS3.Extension.WriteInt32(outfit_textures + 0x18, outfit.extraT);
+            PS3.Extension.WriteInt32(outfit_textures + 0x1C, outfit.tops1T);
+            PS3.Extension.WriteInt32(outfit_textures + 0x20, outfit.armorT);
+            PS3.Extension.WriteInt32(outfit_textures + 0x24, outfit.emblemT);
+            PS3.Extension.WriteInt32(outfit_textures + 0x28, outfit.tops2T);
+
+            PS3.Extension.WriteInt32(accessory_struct, outfit.hat);
+            PS3.Extension.WriteInt32(accessory_struct + 0x04, outfit.eyes);
+            PS3.Extension.WriteInt32(accessory_struct + 0x08, outfit.ears);
+
+            PS3.Extension.WriteInt32(accessory_textures, outfit.hatT);
+            PS3.Extension.WriteInt32(accessory_textures + 0x04, outfit.eyesT);
+            PS3.Extension.WriteInt32(accessory_textures + 0x08, outfit.earsT);
+        }
     }
 }

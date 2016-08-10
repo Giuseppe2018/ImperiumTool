@@ -1244,6 +1244,34 @@ namespace Imperium
         private void ot1_s_Click(object sender, EventArgs e)
         {
             Outfit.Name(otftListing.SelectedIndex, otftTitle.Text);
+            OutfitStruct outfit = Outfit.Fetch(otftListing.SelectedIndex);
+            outfit.mask = Convert.ToInt32(otft_eMask_m.Value);
+            outfit.maskT = Convert.ToInt32(otft_eMask_t.Value);
+            outfit.torso = Convert.ToInt32(otft_eTorso_m.Value);
+            outfit.torsoT = Convert.ToInt32(otft_eTorso_t.Value);
+            outfit.legs = Convert.ToInt32(otft_eLegs_m.Value);
+            outfit.legsT = Convert.ToInt32(otft_eLegs_t.Value);
+            outfit.hands = Convert.ToInt32(otft_eHands_m.Value);
+            outfit.handsT = Convert.ToInt32(otft_eHands_t.Value);
+            outfit.shoes = Convert.ToInt32(otft_eShoes_m.Value);
+            outfit.shoesT = Convert.ToInt32(otft_eShoes_t.Value);
+            outfit.extra = Convert.ToInt32(otft_eExtra_m.Value);
+            outfit.extraT = Convert.ToInt32(otft_eExtra_t.Value);
+            outfit.tops1 = Convert.ToInt32(otft_eTops1_m.Value);
+            outfit.tops1T = Convert.ToInt32(otft_eTops1_t.Value);
+            outfit.armor = Convert.ToInt32(otft_eArmor_m.Value);
+            outfit.armorT = Convert.ToInt32(otft_eArmor_t.Value);
+            outfit.emblem = Convert.ToInt32(otft_eEmblem_m.Value);
+            outfit.emblemT = Convert.ToInt32(otft_eEmblem_t.Value);
+            outfit.tops2 = Convert.ToInt32(otft_eTops2_m.Value);
+            outfit.tops2T = Convert.ToInt32(otft_eTops2_t.Value);
+            outfit.hat = Convert.ToInt32(otft_eHat_m.Value);
+            outfit.hatT = Convert.ToInt32(otft_eHat_t.Value);
+            outfit.eyes = Convert.ToInt32(otft_eEyes_m.Value);
+            outfit.eyesT = Convert.ToInt32(otft_eEyes_t.Value);
+            outfit.ears = Convert.ToInt32(otft_eEars_m.Value);
+            outfit.earsT = Convert.ToInt32(otft_eEars_t.Value);
+            Outfit.Apply(otftListing.SelectedIndex, outfit);
             otftDoRefresh(true);
         }
 
@@ -1282,6 +1310,18 @@ namespace Imperium
                     {
                         if (otftTitle.Text.Length <= 30)
                             otftTitle.Text += "∑";
+                        break;
+                    }
+                case "Icon - Wanted Star":
+                    {
+                        if (otftTitle.Text.Length <= 27)
+                            otftTitle.Text += "~ws~";
+                        break;
+                    }
+                case "Icon - Lock":
+                    {
+                        if (otftTitle.Text.Length <= 30)
+                            otftTitle.Text += "Ω";
                         break;
                     }
                 case "Size - Small":
@@ -1366,6 +1406,38 @@ namespace Imperium
                     }
             }
             otftMod.SelectedIndex = -1;
+        }
+
+        private void gDeductTotal_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.NETWORK_SPENT_CASH_DROP, Convert.ToInt32(gDeductTotal.Text));
+        }
+
+        private void gSnacks_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            string[] statsSnacks = new string[] { "NO_BOUGHT_YUM_SNACKS", "NO_BOUGHT_HEALTH_SNACKS", "NO_BOUGHT_EPIC_SNACKS", "NUMBER_OF_ORANGE_BOUGHT", "NUMBER_OF_BOURGE_BOUGHT" };
+            foreach (string snack in statsSnacks)
+            {
+                setStat(snack, Convert.ToInt32(gSnacks.Text));
+            }
+        }
+
+        private void gArmor_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            string[] statsArmor = new string[] { "MP_CHAR_ARMOUR_1_COUNT", "MP_CHAR_ARMOUR_2_COUNT", "MP_CHAR_ARMOUR_3_COUNT", "MP_CHAR_ARMOUR_4_COUNT", "MP_CHAR_ARMOUR_5_COUNT" };
+            foreach (string armor in statsArmor)
+            {
+                setStat(armor, Convert.ToInt32(gArmor.Text));
+            }
+        }
+
+        private void gFireworks_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            string[] statsFireworks = new string[] { "FIREWORK_TYPE_1_WHITE", "FIREWORK_TYPE_1_RED", "FIREWORK_TYPE_1_BLUE", "FIREWORK_TYPE_2_WHITE", "FIREWORK_TYPE_2_RED", "FIREWORK_TYPE_2_BLUE", "FIREWORK_TYPE_3_WHITE", "FIREWORK_TYPE_3_RED", "FIREWORK_TYPE_3_BLUE", "FIREWORK_TYPE_4_WHITE", "FIREWORK_TYPE_4_RED", "FIREWORK_TYPE_4_BLUE" };
+            foreach (string firework in statsFireworks)
+            {
+                setStat(firework, Convert.ToInt32(gFireworks.Text));
+            }
         }
     }
 }

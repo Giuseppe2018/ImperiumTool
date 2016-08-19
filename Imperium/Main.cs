@@ -47,7 +47,7 @@ namespace Imperium
             int version = Convert.ToInt32(Regex.Replace(new System.Net.WebClient().DownloadString("http://lexicongta.com/ngu/imperium.php"), "<.*?>", String.Empty));
             if (version > Variables.version)
             {
-                DevExpress.XtraEditors.XtraMessageBox.Show("Woah! There's an Imperium update available!");
+                DevExpress.XtraEditors.XtraMessageBox.Show("Woah! There's an Imperium update available!\nYour version is " + Variables.version + ", the newest version is " + version + "!");
             }
 
             // Initialize Settings

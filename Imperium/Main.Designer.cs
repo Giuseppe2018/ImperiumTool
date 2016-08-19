@@ -35,8 +35,6 @@
             this.gFastRun = new DevExpress.XtraEditors.SimpleButton();
             this.gModdedRoll = new DevExpress.XtraEditors.SimpleButton();
             this.gHeistTrophies = new DevExpress.XtraEditors.SimpleButton();
-            this.gRedesign = new DevExpress.XtraEditors.SimpleButton();
-            this.gTutorial = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.gTeleport = new DevExpress.XtraEditors.SimpleButton();
             this.gTeleportType = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -85,6 +83,8 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.gResetTimer = new DevExpress.XtraEditors.SimpleButton();
             this.uIdleKick = new DevExpress.XtraEditors.SimpleButton();
+            this.gRedesign = new DevExpress.XtraEditors.SimpleButton();
+            this.gTutorial = new DevExpress.XtraEditors.SimpleButton();
             this.gInfiniteAmmo = new DevExpress.XtraEditors.SimpleButton();
             this.gVehicleMods = new DevExpress.XtraEditors.SimpleButton();
             this.gAllVehicles = new DevExpress.XtraEditors.SimpleButton();
@@ -101,8 +101,56 @@
             this.DLC_Independence = new DevExpress.XtraEditors.SimpleButton();
             this.DLC_Christmas = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.labelControl68 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.labelControl74 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabControl5 = new DevExpress.XtraTab.XtraTabControl();
+            this.page = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
+            this.garPlateText = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl63 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.comboBoxEdit7 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboBoxEdit6 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl84 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl83 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl82 = new DevExpress.XtraEditors.LabelControl();
+            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.comboBoxEdit5 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboBoxEdit4 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl81 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl75 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.garRGB_Sec_Set = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl77 = new DevExpress.XtraEditors.LabelControl();
+            this.garRGB_Prim_Set = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl76 = new DevExpress.XtraEditors.LabelControl();
+            this.garRGB_Sec_Clear = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.garRGB = new DevExpress.XtraEditors.ColorPickEdit();
+            this.garRGB_Prim_Clear = new DevExpress.XtraEditors.SimpleButton();
+            this.garRefresh = new DevExpress.XtraEditors.SimpleButton();
+            this.garModel = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl79 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage15 = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.garListing_Refresh = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl80 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl78 = new DevExpress.XtraEditors.LabelControl();
+            this.garListing = new DevExpress.XtraEditors.ListBoxControl();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl3 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
@@ -221,7 +269,6 @@
             this.aoRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.aoListing = new DevExpress.XtraEditors.ListBoxControl();
-            this.xtraTabPage11 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.otftPanel = new DevExpress.XtraEditors.PanelControl();
             this.labelControl52 = new DevExpress.XtraEditors.LabelControl();
@@ -272,7 +319,10 @@
             this.otftListing = new DevExpress.XtraEditors.ListBoxControl();
             this.otftRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl57 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage11 = new DevExpress.XtraTab.XtraTabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage12 = new DevExpress.XtraTab.XtraTabPage();
@@ -295,18 +345,17 @@
             this.sdE_set = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl48 = new DevExpress.XtraEditors.LabelControl();
             this.sdE_s = new DevExpress.XtraEditors.TextEdit();
-            this.xtraTabPage13 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage14 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl51 = new DevExpress.XtraEditors.LabelControl();
             this.exSkillSuperhuman = new DevExpress.XtraEditors.SimpleButton();
             this.exSkillEnhanced = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl68 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl74 = new DevExpress.XtraEditors.LabelControl();
+            this.advert = new System.Windows.Forms.PictureBox();
+            this.labelControl85 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit8 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboBoxEdit9 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboBoxEdit10 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl86 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -331,7 +380,40 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.xtraTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
+            this.xtraTabControl2.SuspendLayout();
+            this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.xtraTabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.xtraTabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.xtraTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl5)).BeginInit();
+            this.xtraTabControl5.SuspendLayout();
+            this.page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
+            this.groupControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.garPlateText.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
+            this.groupControl8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
+            this.groupControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.garRGB.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.garModel.Properties)).BeginInit();
+            this.xtraTabPage15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.garListing)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).BeginInit();
             this.xtraTabControl3.SuspendLayout();
@@ -440,6 +522,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_t.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_m.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.otftListing)).BeginInit();
+            this.xtraTabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.xtraTabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.xtraTabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
             this.xtraTabControl4.SuspendLayout();
@@ -456,10 +542,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).BeginInit();
             this.xtraTabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
-            this.xtraTabControl2.SuspendLayout();
-            this.xtraTabPage2.SuspendLayout();
-            this.xtraTabPage9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.advert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit10.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -529,24 +615,6 @@
             this.gHeistTrophies.Text = "Unlock Heist Trophies";
             this.gHeistTrophies.Click += new System.EventHandler(this.gHeistTrophies_Click);
             // 
-            // gRedesign
-            // 
-            this.gRedesign.Location = new System.Drawing.Point(5, 111);
-            this.gRedesign.Name = "gRedesign";
-            this.gRedesign.Size = new System.Drawing.Size(106, 23);
-            this.gRedesign.TabIndex = 21;
-            this.gRedesign.Text = "Redesign Character";
-            this.gRedesign.Click += new System.EventHandler(this.gRedesign_Click);
-            // 
-            // gTutorial
-            // 
-            this.gTutorial.Location = new System.Drawing.Point(5, 82);
-            this.gTutorial.Name = "gTutorial";
-            this.gTutorial.Size = new System.Drawing.Size(106, 23);
-            this.gTutorial.TabIndex = 20;
-            this.gTutorial.Text = "Skip Tutorial";
-            this.gTutorial.Click += new System.EventHandler(this.gTutorial_Click);
-            // 
             // groupControl4
             // 
             this.groupControl4.Controls.Add(this.gTeleport);
@@ -575,6 +643,7 @@
             this.gTeleportType.Name = "gTeleportType";
             this.gTeleportType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gTeleportType.Properties.DropDownRows = 15;
             this.gTeleportType.Properties.Items.AddRange(new object[] {
             "Ammunation",
             "Barber Shop",
@@ -776,7 +845,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 491);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 562);
             this.barDockControlBottom.Size = new System.Drawing.Size(594, 25);
             // 
             // barDockControlLeft
@@ -784,14 +853,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 22);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 469);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 540);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(594, 22);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 469);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 540);
             // 
             // barButtonItem1
             // 
@@ -833,6 +902,7 @@
             this.gTeleportLoc.Name = "gTeleportLoc";
             this.gTeleportLoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gTeleportLoc.Properties.DropDownRows = 15;
             this.gTeleportLoc.Properties.Items.AddRange(new object[] {
             "Sandy Shores",
             "Hawick",
@@ -1088,6 +1158,24 @@
             this.uIdleKick.Text = "Disable Idle Kick";
             this.uIdleKick.Click += new System.EventHandler(this.uIdleKick_Click);
             // 
+            // gRedesign
+            // 
+            this.gRedesign.Location = new System.Drawing.Point(5, 111);
+            this.gRedesign.Name = "gRedesign";
+            this.gRedesign.Size = new System.Drawing.Size(106, 23);
+            this.gRedesign.TabIndex = 21;
+            this.gRedesign.Text = "Redesign Character";
+            this.gRedesign.Click += new System.EventHandler(this.gRedesign_Click);
+            // 
+            // gTutorial
+            // 
+            this.gTutorial.Location = new System.Drawing.Point(5, 82);
+            this.gTutorial.Name = "gTutorial";
+            this.gTutorial.Size = new System.Drawing.Size(106, 23);
+            this.gTutorial.TabIndex = 20;
+            this.gTutorial.Text = "Skip Tutorial";
+            this.gTutorial.Click += new System.EventHandler(this.gTutorial_Click);
+            // 
             // gInfiniteAmmo
             // 
             this.gInfiniteAmmo.Location = new System.Drawing.Point(299, 62);
@@ -1232,20 +1320,529 @@
             this.xtraTabPage5.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage5.Text = "Advanced";
             // 
+            // xtraTabControl2
+            // 
+            this.xtraTabControl2.Location = new System.Drawing.Point(3, 3);
+            this.xtraTabControl2.Name = "xtraTabControl2";
+            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage2;
+            this.xtraTabControl2.Size = new System.Drawing.Size(558, 336);
+            this.xtraTabControl2.TabIndex = 0;
+            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage2,
+            this.xtraTabPage9,
+            this.xtraTabPage6});
+            // 
+            // xtraTabPage2
+            // 
+            this.xtraTabPage2.Controls.Add(this.pictureBox4);
+            this.xtraTabPage2.Controls.Add(this.labelControl68);
+            this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage2.Text = "Combat";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Imperium.Properties.Resources.coming_soon;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 97);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(546, 86);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 27;
+            this.pictureBox4.TabStop = false;
+            // 
+            // labelControl68
+            // 
+            this.labelControl68.Location = new System.Drawing.Point(3, 3);
+            this.labelControl68.Name = "labelControl68";
+            this.labelControl68.Size = new System.Drawing.Size(147, 78);
+            this.labelControl68.TabIndex = 26;
+            this.labelControl68.Text = "To-Do:\r\n- Death Types (Explosion, Fall)\r\n- Kill Counts\r\n- Weapon Kills\r\n- Bounty\r" +
+    "\n- Stars\r\n";
+            this.labelControl68.Visible = false;
+            // 
+            // xtraTabPage9
+            // 
+            this.xtraTabPage9.Controls.Add(this.pictureBox5);
+            this.xtraTabPage9.Controls.Add(this.labelControl74);
+            this.xtraTabPage9.Name = "xtraTabPage9";
+            this.xtraTabPage9.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage9.Text = "Vehicles";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Imperium.Properties.Resources.coming_soon;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 99);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(546, 86);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 28;
+            this.pictureBox5.TabStop = false;
+            // 
+            // labelControl74
+            // 
+            this.labelControl74.Location = new System.Drawing.Point(3, 3);
+            this.labelControl74.Name = "labelControl74";
+            this.labelControl74.Size = new System.Drawing.Size(164, 26);
+            this.labelControl74.TabIndex = 27;
+            this.labelControl74.Text = "To-Do:\r\n- Races, Turbo Starts, Slipstreams";
+            this.labelControl74.Visible = false;
+            // 
+            // xtraTabPage6
+            // 
+            this.xtraTabPage6.Controls.Add(this.pictureBox6);
+            this.xtraTabPage6.Name = "xtraTabPage6";
+            this.xtraTabPage6.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage6.Text = "Time";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::Imperium.Properties.Resources.coming_soon;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 97);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(546, 86);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 28;
+            this.pictureBox6.TabStop = false;
+            // 
             // xtraTabPage3
             // 
-            this.xtraTabPage3.Controls.Add(this.labelControl2);
+            this.xtraTabPage3.Controls.Add(this.xtraTabControl5);
+            this.xtraTabPage3.Controls.Add(this.garListing_Refresh);
+            this.xtraTabPage3.Controls.Add(this.labelControl80);
+            this.xtraTabPage3.Controls.Add(this.labelControl78);
+            this.xtraTabPage3.Controls.Add(this.garListing);
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage3.Text = "Garage";
             // 
+            // xtraTabControl5
+            // 
+            this.xtraTabControl5.Location = new System.Drawing.Point(150, 3);
+            this.xtraTabControl5.Name = "xtraTabControl5";
+            this.xtraTabControl5.SelectedTabPage = this.page;
+            this.xtraTabControl5.Size = new System.Drawing.Size(411, 336);
+            this.xtraTabControl5.TabIndex = 6;
+            this.xtraTabControl5.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.page,
+            this.xtraTabPage15});
+            // 
+            // page
+            // 
+            this.page.Controls.Add(this.groupControl9);
+            this.page.Controls.Add(this.groupControl8);
+            this.page.Controls.Add(this.groupControl7);
+            this.page.Controls.Add(this.garRefresh);
+            this.page.Controls.Add(this.garModel);
+            this.page.Controls.Add(this.labelControl79);
+            this.page.Name = "page";
+            this.page.Size = new System.Drawing.Size(405, 308);
+            this.page.Text = "Selected Vehicle Slot";
+            // 
+            // groupControl9
+            // 
+            this.groupControl9.Controls.Add(this.labelControl86);
+            this.groupControl9.Controls.Add(this.comboBoxEdit10);
+            this.groupControl9.Controls.Add(this.checkEdit2);
+            this.groupControl9.Controls.Add(this.checkEdit3);
+            this.groupControl9.Controls.Add(this.garPlateText);
+            this.groupControl9.Controls.Add(this.labelControl63);
+            this.groupControl9.Location = new System.Drawing.Point(3, 214);
+            this.groupControl9.Name = "groupControl9";
+            this.groupControl9.Size = new System.Drawing.Size(399, 55);
+            this.groupControl9.TabIndex = 14;
+            this.groupControl9.Text = "Miscellaneous";
+            // 
+            // checkEdit2
+            // 
+            this.checkEdit2.Location = new System.Drawing.Point(301, 24);
+            this.checkEdit2.MenuManager = this.barManager1;
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.Caption = "Insurance";
+            this.checkEdit2.Size = new System.Drawing.Size(70, 19);
+            this.checkEdit2.TabIndex = 10;
+            // 
+            // checkEdit3
+            // 
+            this.checkEdit3.Location = new System.Drawing.Point(243, 24);
+            this.checkEdit3.MenuManager = this.barManager1;
+            this.checkEdit3.Name = "checkEdit3";
+            this.checkEdit3.Properties.Caption = "Xenon";
+            this.checkEdit3.Size = new System.Drawing.Size(52, 19);
+            this.checkEdit3.TabIndex = 11;
+            // 
+            // garPlateText
+            // 
+            this.garPlateText.EditValue = "";
+            this.garPlateText.Location = new System.Drawing.Point(60, 24);
+            this.garPlateText.MenuManager = this.barManager1;
+            this.garPlateText.Name = "garPlateText";
+            this.garPlateText.Properties.MaxLength = 8;
+            this.garPlateText.Size = new System.Drawing.Size(57, 20);
+            this.garPlateText.TabIndex = 6;
+            this.garPlateText.EditValueChanged += new System.EventHandler(this.garPlateText_EditValueChanged);
+            // 
+            // labelControl63
+            // 
+            this.labelControl63.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl63.Location = new System.Drawing.Point(5, 27);
+            this.labelControl63.Name = "labelControl63";
+            this.labelControl63.Size = new System.Drawing.Size(49, 13);
+            this.labelControl63.TabIndex = 7;
+            this.labelControl63.Text = "Plate Text";
+            // 
+            // groupControl8
+            // 
+            this.groupControl8.Controls.Add(this.comboBoxEdit9);
+            this.groupControl8.Controls.Add(this.labelControl85);
+            this.groupControl8.Controls.Add(this.checkEdit1);
+            this.groupControl8.Controls.Add(this.comboBoxEdit8);
+            this.groupControl8.Controls.Add(this.comboBoxEdit7);
+            this.groupControl8.Controls.Add(this.comboBoxEdit6);
+            this.groupControl8.Controls.Add(this.labelControl84);
+            this.groupControl8.Controls.Add(this.labelControl83);
+            this.groupControl8.Controls.Add(this.labelControl82);
+            this.groupControl8.Controls.Add(this.spinEdit1);
+            this.groupControl8.Controls.Add(this.comboBoxEdit5);
+            this.groupControl8.Controls.Add(this.comboBoxEdit4);
+            this.groupControl8.Location = new System.Drawing.Point(3, 27);
+            this.groupControl8.Name = "groupControl8";
+            this.groupControl8.Size = new System.Drawing.Size(208, 181);
+            this.groupControl8.TabIndex = 13;
+            this.groupControl8.Text = "Modshop";
+            // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(57, 76);
+            this.checkEdit1.MenuManager = this.barManager1;
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "Turbo Tuning";
+            this.checkEdit1.Size = new System.Drawing.Size(146, 19);
+            this.checkEdit1.TabIndex = 9;
+            // 
+            // comboBoxEdit7
+            // 
+            this.comboBoxEdit7.Location = new System.Drawing.Point(133, 101);
+            this.comboBoxEdit7.MenuManager = this.barManager1;
+            this.comboBoxEdit7.Name = "comboBoxEdit7";
+            this.comboBoxEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit7.Size = new System.Drawing.Size(70, 20);
+            this.comboBoxEdit7.TabIndex = 6;
+            // 
+            // comboBoxEdit6
+            // 
+            this.comboBoxEdit6.Location = new System.Drawing.Point(57, 101);
+            this.comboBoxEdit6.MenuManager = this.barManager1;
+            this.comboBoxEdit6.Name = "comboBoxEdit6";
+            this.comboBoxEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit6.Size = new System.Drawing.Size(70, 20);
+            this.comboBoxEdit6.TabIndex = 5;
+            // 
+            // labelControl84
+            // 
+            this.labelControl84.Location = new System.Drawing.Point(16, 104);
+            this.labelControl84.Name = "labelControl84";
+            this.labelControl84.Size = new System.Drawing.Size(35, 13);
+            this.labelControl84.TabIndex = 4;
+            this.labelControl84.Text = "Wheels";
+            // 
+            // labelControl83
+            // 
+            this.labelControl83.Location = new System.Drawing.Point(19, 27);
+            this.labelControl83.Name = "labelControl83";
+            this.labelControl83.Size = new System.Drawing.Size(32, 13);
+            this.labelControl83.TabIndex = 3;
+            this.labelControl83.Text = "Tuning";
+            // 
+            // labelControl82
+            // 
+            this.labelControl82.Location = new System.Drawing.Point(27, 53);
+            this.labelControl82.Name = "labelControl82";
+            this.labelControl82.Size = new System.Drawing.Size(24, 13);
+            this.labelControl82.TabIndex = 2;
+            this.labelControl82.Text = "Body";
+            // 
+            // spinEdit1
+            // 
+            this.spinEdit1.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit1.Location = new System.Drawing.Point(133, 50);
+            this.spinEdit1.MenuManager = this.barManager1;
+            this.spinEdit1.Name = "spinEdit1";
+            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit1.Size = new System.Drawing.Size(70, 20);
+            this.spinEdit1.TabIndex = 1;
+            // 
+            // comboBoxEdit5
+            // 
+            this.comboBoxEdit5.Location = new System.Drawing.Point(57, 24);
+            this.comboBoxEdit5.Name = "comboBoxEdit5";
+            this.comboBoxEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit5.Properties.Items.AddRange(new object[] {
+            "Engine",
+            "Suspension",
+            "Transmission",
+            "Brakes"});
+            this.comboBoxEdit5.Size = new System.Drawing.Size(70, 20);
+            this.comboBoxEdit5.TabIndex = 0;
+            // 
+            // comboBoxEdit4
+            // 
+            this.comboBoxEdit4.Location = new System.Drawing.Point(57, 50);
+            this.comboBoxEdit4.MenuManager = this.barManager1;
+            this.comboBoxEdit4.Name = "comboBoxEdit4";
+            this.comboBoxEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit4.Properties.Items.AddRange(new object[] {
+            "Armor",
+            "Windows",
+            "Horn",
+            "Body",
+            "Front Bumper",
+            "Rear Bumper",
+            "Skirts",
+            "Exhaust",
+            "Chassis",
+            "Roof",
+            "Hood",
+            "Grille",
+            "Spoiler"});
+            this.comboBoxEdit4.Size = new System.Drawing.Size(70, 20);
+            this.comboBoxEdit4.TabIndex = 0;
+            // 
+            // groupControl7
+            // 
+            this.groupControl7.Controls.Add(this.labelControl81);
+            this.groupControl7.Controls.Add(this.labelControl75);
+            this.groupControl7.Controls.Add(this.comboBoxEdit3);
+            this.groupControl7.Controls.Add(this.garRGB_Sec_Set);
+            this.groupControl7.Controls.Add(this.labelControl77);
+            this.groupControl7.Controls.Add(this.garRGB_Prim_Set);
+            this.groupControl7.Controls.Add(this.comboBoxEdit2);
+            this.groupControl7.Controls.Add(this.labelControl2);
+            this.groupControl7.Controls.Add(this.labelControl76);
+            this.groupControl7.Controls.Add(this.garRGB_Sec_Clear);
+            this.groupControl7.Controls.Add(this.comboBoxEdit1);
+            this.groupControl7.Controls.Add(this.garRGB);
+            this.groupControl7.Controls.Add(this.garRGB_Prim_Clear);
+            this.groupControl7.Location = new System.Drawing.Point(217, 27);
+            this.groupControl7.Name = "groupControl7";
+            this.groupControl7.Size = new System.Drawing.Size(185, 181);
+            this.groupControl7.TabIndex = 12;
+            this.groupControl7.Text = "Respray";
+            // 
+            // labelControl81
+            // 
+            this.labelControl81.Location = new System.Drawing.Point(7, 79);
+            this.labelControl81.Name = "labelControl81";
+            this.labelControl81.Size = new System.Drawing.Size(83, 13);
+            this.labelControl81.TabIndex = 18;
+            this.labelControl81.Text = "Pearlescant Paint";
+            // 
+            // labelControl75
+            // 
+            this.labelControl75.Location = new System.Drawing.Point(16, 157);
+            this.labelControl75.Name = "labelControl75";
+            this.labelControl75.Size = new System.Drawing.Size(74, 13);
+            this.labelControl75.TabIndex = 17;
+            this.labelControl75.Text = "Secondary RGB";
+            // 
+            // comboBoxEdit3
+            // 
+            this.comboBoxEdit3.Location = new System.Drawing.Point(96, 76);
+            this.comboBoxEdit3.MenuManager = this.barManager1;
+            this.comboBoxEdit3.Name = "comboBoxEdit3";
+            this.comboBoxEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit3.Size = new System.Drawing.Size(84, 20);
+            this.comboBoxEdit3.TabIndex = 17;
+            // 
+            // garRGB_Sec_Set
+            // 
+            this.garRGB_Sec_Set.Location = new System.Drawing.Point(96, 154);
+            this.garRGB_Sec_Set.Name = "garRGB_Sec_Set";
+            this.garRGB_Sec_Set.Size = new System.Drawing.Size(39, 20);
+            this.garRGB_Sec_Set.TabIndex = 16;
+            this.garRGB_Sec_Set.Text = "Apply";
+            this.garRGB_Sec_Set.Click += new System.EventHandler(this.garRGB_Sec_Set_Click);
+            // 
+            // labelControl77
+            // 
+            this.labelControl77.Location = new System.Drawing.Point(12, 53);
+            this.labelControl77.Name = "labelControl77";
+            this.labelControl77.Size = new System.Drawing.Size(78, 13);
+            this.labelControl77.TabIndex = 16;
+            this.labelControl77.Text = "Secondary Paint";
+            // 
+            // garRGB_Prim_Set
+            // 
+            this.garRGB_Prim_Set.Location = new System.Drawing.Point(96, 128);
+            this.garRGB_Prim_Set.Name = "garRGB_Prim_Set";
+            this.garRGB_Prim_Set.Size = new System.Drawing.Size(39, 20);
+            this.garRGB_Prim_Set.TabIndex = 15;
+            this.garRGB_Prim_Set.Text = "Apply";
+            this.garRGB_Prim_Set.Click += new System.EventHandler(this.garRGB_Prim_Set_Click);
+            // 
+            // comboBoxEdit2
+            // 
+            this.comboBoxEdit2.Location = new System.Drawing.Point(96, 50);
+            this.comboBoxEdit2.MenuManager = this.barManager1;
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Size = new System.Drawing.Size(84, 20);
+            this.comboBoxEdit2.TabIndex = 15;
+            // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(3, 3);
+            this.labelControl2.Location = new System.Drawing.Point(31, 131);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(419, 39);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = resources.GetString("labelControl2.Text");
+            this.labelControl2.Size = new System.Drawing.Size(59, 13);
+            this.labelControl2.TabIndex = 14;
+            this.labelControl2.Text = "Primary RGB";
+            // 
+            // labelControl76
+            // 
+            this.labelControl76.Location = new System.Drawing.Point(27, 27);
+            this.labelControl76.Name = "labelControl76";
+            this.labelControl76.Size = new System.Drawing.Size(63, 13);
+            this.labelControl76.TabIndex = 14;
+            this.labelControl76.Text = "Primary Paint";
+            // 
+            // garRGB_Sec_Clear
+            // 
+            this.garRGB_Sec_Clear.Location = new System.Drawing.Point(141, 154);
+            this.garRGB_Sec_Clear.Name = "garRGB_Sec_Clear";
+            this.garRGB_Sec_Clear.Size = new System.Drawing.Size(39, 20);
+            this.garRGB_Sec_Clear.TabIndex = 13;
+            this.garRGB_Sec_Clear.Text = "Clear";
+            this.garRGB_Sec_Clear.Click += new System.EventHandler(this.garRGB_Sec_Clear_Click);
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(96, 24);
+            this.comboBoxEdit1.MenuManager = this.barManager1;
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(84, 20);
+            this.comboBoxEdit1.TabIndex = 13;
+            // 
+            // garRGB
+            // 
+            this.garRGB.EditValue = System.Drawing.Color.Empty;
+            this.garRGB.Location = new System.Drawing.Point(5, 102);
+            this.garRGB.MenuManager = this.barManager1;
+            this.garRGB.Name = "garRGB";
+            this.garRGB.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.garRGB.Size = new System.Drawing.Size(175, 20);
+            this.garRGB.TabIndex = 9;
+            this.garRGB.EditValueChanged += new System.EventHandler(this.garRGB_Prim_EditValueChanged);
+            // 
+            // garRGB_Prim_Clear
+            // 
+            this.garRGB_Prim_Clear.Location = new System.Drawing.Point(141, 128);
+            this.garRGB_Prim_Clear.Name = "garRGB_Prim_Clear";
+            this.garRGB_Prim_Clear.Size = new System.Drawing.Size(39, 20);
+            this.garRGB_Prim_Clear.TabIndex = 10;
+            this.garRGB_Prim_Clear.Text = "Clear";
+            this.garRGB_Prim_Clear.Click += new System.EventHandler(this.garRGB_Prim_Clear_Click);
+            // 
+            // garRefresh
+            // 
+            this.garRefresh.Location = new System.Drawing.Point(3, 275);
+            this.garRefresh.Name = "garRefresh";
+            this.garRefresh.Size = new System.Drawing.Size(399, 30);
+            this.garRefresh.TabIndex = 8;
+            this.garRefresh.Text = "Refresh Garage Slot Data";
+            this.garRefresh.Click += new System.EventHandler(this.garRefresh_Click);
+            // 
+            // garModel
+            // 
+            this.garModel.Location = new System.Drawing.Point(89, 3);
+            this.garModel.MenuManager = this.barManager1;
+            this.garModel.Name = "garModel";
+            this.garModel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.garModel.Properties.DropDownRows = 25;
+            this.garModel.Properties.Items.AddRange(new object[] {
+            "Space Docker",
+            "Adder",
+            "Sanchez (Livery)"});
+            this.garModel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.garModel.Size = new System.Drawing.Size(313, 18);
+            this.garModel.TabIndex = 4;
+            this.garModel.SelectedIndexChanged += new System.EventHandler(this.garModel_SelectedIndexChanged);
+            // 
+            // labelControl79
+            // 
+            this.labelControl79.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl79.Location = new System.Drawing.Point(15, 6);
+            this.labelControl79.Name = "labelControl79";
+            this.labelControl79.Size = new System.Drawing.Size(68, 13);
+            this.labelControl79.TabIndex = 5;
+            this.labelControl79.Text = "Change Model";
+            // 
+            // xtraTabPage15
+            // 
+            this.xtraTabPage15.Controls.Add(this.simpleButton1);
+            this.xtraTabPage15.Name = "xtraTabPage15";
+            this.xtraTabPage15.Size = new System.Drawing.Size(405, 308);
+            this.xtraTabPage15.Text = "Garage Management";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(3, 3);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(399, 23);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "[Test] Paint G1 Chrome";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
+            // 
+            // garListing_Refresh
+            // 
+            this.garListing_Refresh.Location = new System.Drawing.Point(3, 301);
+            this.garListing_Refresh.Name = "garListing_Refresh";
+            this.garListing_Refresh.Size = new System.Drawing.Size(141, 23);
+            this.garListing_Refresh.TabIndex = 8;
+            this.garListing_Refresh.Text = "Refresh Listing";
+            this.garListing_Refresh.Click += new System.EventHandler(this.garListing_Refresh_Click);
+            // 
+            // labelControl80
+            // 
+            this.labelControl80.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl80.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl80.Location = new System.Drawing.Point(3, 327);
+            this.labelControl80.Name = "labelControl80";
+            this.labelControl80.Size = new System.Drawing.Size(141, 13);
+            this.labelControl80.TabIndex = 6;
+            this.labelControl80.Text = "Credit to Proditaki";
+            // 
+            // labelControl78
+            // 
+            this.labelControl78.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl78.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl78.Location = new System.Drawing.Point(3, 7);
+            this.labelControl78.Name = "labelControl78";
+            this.labelControl78.Size = new System.Drawing.Size(141, 13);
+            this.labelControl78.TabIndex = 3;
+            this.labelControl78.Text = "Garage Listing";
+            // 
+            // garListing
+            // 
+            this.garListing.HorizontalScrollbar = true;
+            this.garListing.Location = new System.Drawing.Point(3, 22);
+            this.garListing.Name = "garListing";
+            this.garListing.Size = new System.Drawing.Size(141, 273);
+            this.garListing.TabIndex = 2;
+            this.garListing.SelectedIndexChanged += new System.EventHandler(this.garListing_SelectedIndexChanged);
             // 
             // xtraTabPage4
             // 
@@ -2744,12 +3341,6 @@
             this.aoListing.TabIndex = 0;
             this.aoListing.SelectedIndexChanged += new System.EventHandler(this.aoListing_SelectedIndexChanged);
             // 
-            // xtraTabPage11
-            // 
-            this.xtraTabPage11.Name = "xtraTabPage11";
-            this.xtraTabPage11.Size = new System.Drawing.Size(552, 308);
-            this.xtraTabPage11.Text = "Debugger";
-            // 
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.otftPanel);
@@ -3420,11 +4011,39 @@
             this.labelControl57.TabIndex = 143;
             this.labelControl57.Text = "Please create this outfit in game.";
             // 
+            // xtraTabPage11
+            // 
+            this.xtraTabPage11.Controls.Add(this.pictureBox3);
+            this.xtraTabPage11.Name = "xtraTabPage11";
+            this.xtraTabPage11.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage11.Text = "Debugger";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Imperium.Properties.Resources.coming_soon;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 110);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(546, 86);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
             // xtraTabPage7
             // 
+            this.xtraTabPage7.Controls.Add(this.pictureBox2);
             this.xtraTabPage7.Name = "xtraTabPage7";
             this.xtraTabPage7.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage7.Text = "Configurations";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Imperium.Properties.Resources.coming_soon;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 121);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(558, 86);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // xtraTabPage8
             // 
@@ -3441,8 +4060,7 @@
             this.xtraTabControl4.Size = new System.Drawing.Size(558, 336);
             this.xtraTabControl4.TabIndex = 0;
             this.xtraTabControl4.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage12,
-            this.xtraTabPage13});
+            this.xtraTabPage12});
             // 
             // xtraTabPage12
             // 
@@ -3541,6 +4159,7 @@
             "Bool",
             "Float",
             "String"});
+            this.sdV_t.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.sdV_t.Size = new System.Drawing.Size(219, 20);
             this.sdV_t.TabIndex = 13;
             // 
@@ -3550,7 +4169,8 @@
             this.sdV_get.Name = "sdV_get";
             this.sdV_get.Size = new System.Drawing.Size(260, 52);
             this.sdV_get.TabIndex = 10;
-            this.sdV_get.Text = "Retrieve Value";
+            this.sdV_get.Text = "View Stat Value";
+            this.sdV_get.Click += new System.EventHandler(this.sdV_get_Click);
             // 
             // groupControl5
             // 
@@ -3598,6 +4218,7 @@
             "Bool",
             "Float",
             "String"});
+            this.sdE_t.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.sdE_t.Size = new System.Drawing.Size(219, 20);
             this.sdE_t.TabIndex = 5;
             // 
@@ -3625,7 +4246,7 @@
             this.sdE_set.Name = "sdE_set";
             this.sdE_set.Size = new System.Drawing.Size(260, 52);
             this.sdE_set.TabIndex = 2;
-            this.sdE_set.Text = "Save Edit";
+            this.sdE_set.Text = "Save Stat Edit";
             this.sdE_set.Click += new System.EventHandler(this.sdE_set_Click);
             // 
             // labelControl48
@@ -3644,12 +4265,6 @@
             this.sdE_s.Name = "sdE_s";
             this.sdE_s.Size = new System.Drawing.Size(219, 20);
             this.sdE_s.TabIndex = 0;
-            // 
-            // xtraTabPage13
-            // 
-            this.xtraTabPage13.Name = "xtraTabPage13";
-            this.xtraTabPage13.Size = new System.Drawing.Size(552, 308);
-            this.xtraTabPage13.Text = "Inspector";
             // 
             // xtraTabPage14
             // 
@@ -3691,7 +4306,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Imperium.Properties.Resources.rt;
+            this.pictureBox1.Image = global::Imperium.Properties.Resources.rt3;
             this.pictureBox1.Location = new System.Drawing.Point(12, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(570, 81);
@@ -3699,60 +4314,81 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // xtraTabControl2
+            // advert
             // 
-            this.xtraTabControl2.Location = new System.Drawing.Point(3, 3);
-            this.xtraTabControl2.Name = "xtraTabControl2";
-            this.xtraTabControl2.SelectedTabPage = this.xtraTabPage2;
-            this.xtraTabControl2.Size = new System.Drawing.Size(558, 336);
-            this.xtraTabControl2.TabIndex = 0;
-            this.xtraTabControl2.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage2,
-            this.xtraTabPage9,
-            this.xtraTabPage6});
+            this.advert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.advert.Image = global::Imperium.Properties.Resources.imperium_lexiconadvert5;
+            this.advert.Location = new System.Drawing.Point(12, 486);
+            this.advert.Name = "advert";
+            this.advert.Size = new System.Drawing.Size(570, 70);
+            this.advert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.advert.TabIndex = 6;
+            this.advert.TabStop = false;
+            this.advert.Click += new System.EventHandler(this.advert_Click);
             // 
-            // xtraTabPage2
+            // labelControl85
             // 
-            this.xtraTabPage2.Controls.Add(this.labelControl68);
-            this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(552, 308);
-            this.xtraTabPage2.Text = "Combat";
+            this.labelControl85.Location = new System.Drawing.Point(26, 130);
+            this.labelControl85.Name = "labelControl85";
+            this.labelControl85.Size = new System.Drawing.Size(25, 13);
+            this.labelControl85.TabIndex = 20;
+            this.labelControl85.Text = "Color";
             // 
-            // xtraTabPage6
+            // comboBoxEdit8
             // 
-            this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(552, 308);
-            this.xtraTabPage6.Text = "Time";
+            this.comboBoxEdit8.Location = new System.Drawing.Point(57, 127);
+            this.comboBoxEdit8.MenuManager = this.barManager1;
+            this.comboBoxEdit8.Name = "comboBoxEdit8";
+            this.comboBoxEdit8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit8.Size = new System.Drawing.Size(146, 20);
+            this.comboBoxEdit8.TabIndex = 19;
             // 
-            // xtraTabPage9
+            // comboBoxEdit9
             // 
-            this.xtraTabPage9.Controls.Add(this.labelControl74);
-            this.xtraTabPage9.Name = "xtraTabPage9";
-            this.xtraTabPage9.Size = new System.Drawing.Size(552, 308);
-            this.xtraTabPage9.Text = "Vehicles";
+            this.comboBoxEdit9.Location = new System.Drawing.Point(133, 24);
+            this.comboBoxEdit9.Name = "comboBoxEdit9";
+            this.comboBoxEdit9.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit9.Properties.Items.AddRange(new object[] {
+            "Engine",
+            "Suspension",
+            "Transmission",
+            "Brakes"});
+            this.comboBoxEdit9.Size = new System.Drawing.Size(70, 20);
+            this.comboBoxEdit9.TabIndex = 21;
             // 
-            // labelControl68
+            // comboBoxEdit10
             // 
-            this.labelControl68.Location = new System.Drawing.Point(3, 3);
-            this.labelControl68.Name = "labelControl68";
-            this.labelControl68.Size = new System.Drawing.Size(147, 78);
-            this.labelControl68.TabIndex = 26;
-            this.labelControl68.Text = "To-Do:\r\n- Death Types (Explosion, Fall)\r\n- Kill Counts\r\n- Weapon Kills\r\n- Bounty\r" +
-    "\n- Stars\r\n";
+            this.comboBoxEdit10.Location = new System.Drawing.Point(180, 24);
+            this.comboBoxEdit10.Name = "comboBoxEdit10";
+            this.comboBoxEdit10.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit10.Properties.Items.AddRange(new object[] {
+            "Blue/White 1",
+            "Yellow/Black",
+            "Yellow/Blue",
+            "Blue/White 2",
+            "Blue/White 3",
+            "Yankton"});
+            this.comboBoxEdit10.Size = new System.Drawing.Size(57, 20);
+            this.comboBoxEdit10.TabIndex = 22;
             // 
-            // labelControl74
+            // labelControl86
             // 
-            this.labelControl74.Location = new System.Drawing.Point(3, 3);
-            this.labelControl74.Name = "labelControl74";
-            this.labelControl74.Size = new System.Drawing.Size(164, 26);
-            this.labelControl74.TabIndex = 27;
-            this.labelControl74.Text = "To-Do:\r\n- Races, Turbo Starts, Slipstreams";
+            this.labelControl86.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl86.Location = new System.Drawing.Point(123, 27);
+            this.labelControl86.Name = "labelControl86";
+            this.labelControl86.Size = new System.Drawing.Size(51, 13);
+            this.labelControl86.TabIndex = 23;
+            this.labelControl86.Text = "Plate Type";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 516);
+            this.ClientSize = new System.Drawing.Size(594, 587);
+            this.Controls.Add(this.advert);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -3764,7 +4400,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Imperium Account Editor 1.0  [1.26/BLES/PS3]";
+            this.Text = "Imperium Account Editor 0.5  [1.26/BLES/PS3]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -3790,8 +4426,46 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.xtraTabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
+            this.xtraTabControl2.ResumeLayout(false);
+            this.xtraTabPage2.ResumeLayout(false);
+            this.xtraTabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.xtraTabPage9.ResumeLayout(false);
+            this.xtraTabPage9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.xtraTabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.xtraTabPage3.ResumeLayout(false);
-            this.xtraTabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl5)).EndInit();
+            this.xtraTabControl5.ResumeLayout(false);
+            this.page.ResumeLayout(false);
+            this.page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
+            this.groupControl9.ResumeLayout(false);
+            this.groupControl9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.garPlateText.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
+            this.groupControl8.ResumeLayout(false);
+            this.groupControl8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
+            this.groupControl7.ResumeLayout(false);
+            this.groupControl7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.garRGB.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.garModel.Properties)).EndInit();
+            this.xtraTabPage15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.garListing)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).EndInit();
             this.xtraTabControl3.ResumeLayout(false);
@@ -3905,6 +4579,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_t.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_m.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.otftListing)).EndInit();
+            this.xtraTabPage11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.xtraTabPage7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.xtraTabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
             this.xtraTabControl4.ResumeLayout(false);
@@ -3923,12 +4601,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).EndInit();
             this.xtraTabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).EndInit();
-            this.xtraTabControl2.ResumeLayout(false);
-            this.xtraTabPage2.ResumeLayout(false);
-            this.xtraTabPage2.PerformLayout();
-            this.xtraTabPage9.ResumeLayout(false);
-            this.xtraTabPage9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.advert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit10.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3985,7 +4661,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.SimpleButton uIdleKick;
         private DevExpress.XtraEditors.ButtonEdit gAddBank;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.GroupControl groupControl4;
@@ -4129,7 +4804,6 @@
         private DevExpress.XtraEditors.TextEdit aoaCreator;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage12;
-        private DevExpress.XtraTab.XtraTabPage xtraTabPage13;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage14;
         private DevExpress.XtraEditors.SimpleButton sdSync;
         private DevExpress.XtraEditors.GroupControl groupControl6;
@@ -4212,6 +4886,57 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage9;
         private DevExpress.XtraEditors.LabelControl labelControl74;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
+        private DevExpress.XtraEditors.SimpleButton garListing_Refresh;
+        private DevExpress.XtraEditors.ComboBoxEdit garModel;
+        private DevExpress.XtraEditors.LabelControl labelControl79;
+        private DevExpress.XtraEditors.LabelControl labelControl80;
+        private DevExpress.XtraEditors.LabelControl labelControl78;
+        private DevExpress.XtraEditors.ListBoxControl garListing;
+        private System.Windows.Forms.PictureBox advert;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl5;
+        private DevExpress.XtraTab.XtraTabPage page;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage15;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.LabelControl labelControl63;
+        private DevExpress.XtraEditors.TextEdit garPlateText;
+        private DevExpress.XtraEditors.SimpleButton garRefresh;
+        private DevExpress.XtraEditors.ColorPickEdit garRGB;
+        private DevExpress.XtraEditors.GroupControl groupControl7;
+        private DevExpress.XtraEditors.SimpleButton garRGB_Prim_Clear;
+        private DevExpress.XtraEditors.SimpleButton garRGB_Sec_Clear;
+        private DevExpress.XtraEditors.LabelControl labelControl75;
+        private DevExpress.XtraEditors.SimpleButton garRGB_Sec_Set;
+        private DevExpress.XtraEditors.SimpleButton garRGB_Prim_Set;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl9;
+        private DevExpress.XtraEditors.GroupControl groupControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl81;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
+        private DevExpress.XtraEditors.LabelControl labelControl77;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl76;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit3;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit7;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit6;
+        private DevExpress.XtraEditors.LabelControl labelControl84;
+        private DevExpress.XtraEditors.LabelControl labelControl83;
+        private DevExpress.XtraEditors.LabelControl labelControl82;
+        private DevExpress.XtraEditors.SpinEdit spinEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit5;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit4;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit9;
+        private DevExpress.XtraEditors.LabelControl labelControl85;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit8;
+        private DevExpress.XtraEditors.LabelControl labelControl86;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit10;
 
     }
 }

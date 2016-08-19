@@ -32,5 +32,9 @@ namespace Imperium
             int name = RPC.Call(Natives.GET_PLAYER_NAME, pid());
             return PS3.Extension.ReadString((uint)name);
         }
+        public static void save()
+        {
+            RPC.Call(Natives.STAT_SAVE, 0, false, 3);
+        }
     }
 }

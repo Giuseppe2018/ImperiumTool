@@ -8,6 +8,7 @@ namespace Imperium
 {
     class Variables
     {
+        public static int version = 50;
         public static bool character1, character2;
     }
 }

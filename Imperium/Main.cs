@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace Imperium
 {
@@ -28,30 +29,75 @@ namespace Imperium
                 value = Value;
             }
         }
+        public class VehicleModel
+        {
+            public string label { get; set; }
+            public string model { get; set; }
+            public VehicleModel(string Label, string Model)
+            {
+                label = Label;
+                model = Model;
+            }
+        }
         private List<Setting> settingsList = new List<Setting>();
+        Dictionary<string, string> VehicleModels = new Dictionary<string, string>();
         public Main()
         {
             InitializeComponent();
-
-            string[] Settings_Settings_content = File.ReadAllLines("Data/Settings.json");
-            foreach (string line in Settings_Settings_content)
+            int version = Convert.ToInt32(Regex.Replace(new System.Net.WebClient().DownloadString("http://lexicongta.com/ngu/imperium.php"), "<.*?>", String.Empty));
+            if (version > Variables.version)
             {
-                /*
-                 { "name": "Character_1", "value": true }
-                 { "name": "Character_2", "value": false }
-                 */
-                Setting setting = JsonConvert.DeserializeObject<Setting>(line);
-                settingsList.Add(setting);
-                if (setting.name == "Character_1")
-                {
-                    char1.Checked = Variables.character1 = (bool)setting.value;
-                }
-                if (setting.name == "Character_2")
-                {
-                    char2.Checked = Variables.character2 = (bool)setting.value;
-                }
+                DevExpress.XtraEditors.XtraMessageBox.Show("Woah! There's an Imperium update available!");
             }
 
+            // Initialize Settings
+            string settings_filepath = "Data/Settings.json";
+            if (File.Exists(settings_filepath))
+            {
+                string[] Settings_Settings_content = File.ReadAllLines(settings_filepath);
+                foreach (string line in Settings_Settings_content)
+                {
+                    Setting setting = JsonConvert.DeserializeObject<Setting>(line);
+                    settingsList.Add(setting);
+                    if (setting.name == "Character_1")
+                    {
+                        char1.Checked = Variables.character1 = (bool)setting.value;
+                    }
+                    if (setting.name == "Character_2")
+                    {
+                        char2.Checked = Variables.character2 = (bool)setting.value;
+                    }
+                }
+            }
+            else MessageBox.Show(settings_filepath + " is missing! :(");
+            // Initialize Vehicle Models
+            string vehicles_filepath = "Data/Vehicles.json";
+            if (File.Exists(vehicles_filepath))
+            {
+                string[] vehicles_content = File.ReadAllLines(vehicles_filepath);
+                garModel.Properties.Items.Clear();
+                // Grab from json
+                foreach (string line in vehicles_content)
+                {
+                    VehicleModel vehicle = JsonConvert.DeserializeObject<VehicleModel>(line);
+                    if (vehicle.model != "")
+                    {
+                        VehicleModels.Add(vehicle.label == "" ? vehicle.model.ToUpper() : vehicle.label, vehicle.model);
+                    }
+                }
+                // Alphabetize
+                /*var query = from item in VehicleModels
+                            orderby item.Key ascending
+                            select item;*/
+                // Add to combo box
+                foreach (KeyValuePair<string, string> entry in VehicleModels)
+                {
+                    garModel.Properties.Items.Add(entry.Key);
+                }
+            }
+            else MessageBox.Show(vehicles_filepath + " is missing! :(");
+
+            // Refresh Outfit
             refreshOutfitListing();
 
         }
@@ -1158,12 +1204,80 @@ namespace Imperium
 
         private void sdSync_Click(object sender, EventArgs e)
         {
-
+            NFunc.save();
         }
 
         private void sdE_set_Click(object sender, EventArgs e)
         {
-
+            switch (sdE_t.Text)
+            {
+                case "Int 32":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToInt32(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "Bool":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_BOOL, Hash(sdE_s.Text), Convert.ToInt32(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "Float":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_FLOAT, Hash(sdE_s.Text), float.Parse((sdE_v.Text)), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "String":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_STRING, Hash(sdE_s.Text), sdE_v.Text, 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+            }
+        }
+        private void sdV_get_Click(object sender, EventArgs e)
+        {
+            switch (sdV_t.Text)
+            {
+                case "Int 32":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "Bool":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_BOOL, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "Float":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_FLOAT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadFloat(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "String":
+                    sdV_v.Text = PS3.Extension.ReadString(Convert.ToUInt32(RPC.Call(Natives.STAT_GET_STRING, Hash(sdV_s.Text), -1)));
+                    sdV_r.Text = "";
+                    break;
+            }
         }
 
         private void gModdedRoll_Click(object sender, EventArgs e)
@@ -1439,5 +1553,139 @@ namespace Imperium
                 setStat(firework, Convert.ToInt32(gFireworks.Text));
             }
         }
+        private void advert_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://lexicongta.com/order");
+        }
+        bool garUpdating = false;
+        void refreshGarage()
+        {
+            int index = garListing.SelectedIndex;
+            garListing.Items.Clear();
+            for (int i = 0; i < 39; i++)
+            {
+                uint model = Garage.getUint(i, Garage.Model);
+                int ni = i + 1;
+                string prefix = "[" + Math.Ceiling((decimal)ni / 13) + "/" + (ni > 13 ? (ni > 26 ? ni - 26 : ni - 13) : ni).ToString("D2") + "] ";
+                var query = (from item in VehicleModels
+                             where Hash(item.Value) == model
+                             select new { item.Key }).SingleOrDefault();
+                if (model == 0)
+                    garListing.Items.Add(prefix + "---");
+                else if (query == null)
+                    garListing.Items.Add(prefix + model.ToString("X2"));
+                else
+                    garListing.Items.Add(prefix + query.Key);
+            }
+            garListing.SelectedIndex = index == -1 ? 0 : index;
+        }
+        void refreshGarageControls()
+        {
+            int i = garListing.SelectedIndex;
+            if (i >= 0 && i <= 39)
+            {
+                garUpdating = true;
+                garPlateText.Text = Garage.getString(i, Garage.Plate_Text);
+                garRGB.Color = Color.FromArgb(
+                    Garage.getInt(i, Garage.RGB_Cache_R), 
+                    Garage.getInt(i, Garage.RGB_Cache_G), 
+                    Garage.getInt(i, Garage.RGB_Cache_B)
+                    );
+                /*garRGB_Sec.Color = Color.FromArgb(
+                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_R | Garage.RGB_Secondary)),
+                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_G | Garage.RGB_Secondary)),
+                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_B | Garage.RGB_Secondary))
+                    );*/
+                garUpdating = false;
+            }
+        }
+        private void garModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var query = (from item in VehicleModels
+                         where item.Key == garModel.Text
+                         select new { item.Value }).SingleOrDefault();
+            uint model = Hash(query.Value);
+            Garage.setUint(garListing.SelectedIndex, Garage.Model, model);
+            Garage.resetSlot(garListing.SelectedIndex);
+            refreshGarage();
+        }
+
+        private void garListing_Refresh_Click(object sender, EventArgs e)
+        {
+            refreshGarage();
+        }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                Garage.setByte(i, Garage.Paint_Primary, Convert.ToByte(120));
+                Garage.resetSlot(i);
+            }
+        }
+
+        private void garListing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refreshGarageControls();
+        }
+
+        private void garRefresh_Click(object sender, EventArgs e)
+        {
+            refreshGarageControls();
+        }
+
+        private void garPlateText_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!garUpdating && garPlateText.Text.Length <= 8)
+            {
+                Garage.setString(garListing.SelectedIndex, Garage.Plate_Text, garPlateText.Text);
+                Garage.resetSlot(garListing.SelectedIndex);
+            }
+        }
+
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            Garage.setByte(garListing.SelectedIndex, Garage.Paint_Primary, Convert.ToByte(120));
+            Garage.resetSlot(garListing.SelectedIndex);
+        }
+
+        private void garRGB_Prim_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!garUpdating)
+            {
+                int i = garListing.SelectedIndex;
+                Garage.setUint(i, Garage.RGB_Cache_R, garRGB.Color.R);
+                Garage.setUint(i, Garage.RGB_Cache_G, garRGB.Color.G);
+                Garage.setUint(i, Garage.RGB_Cache_B, garRGB.Color.B);
+            }
+        }
+
+        private void garRGB_Prim_Set_Click(object sender, EventArgs e)
+        {
+            int i = garListing.SelectedIndex;
+            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) | Garage.RGB_Primary);
+            Garage.resetSlot(i);
+        }
+
+        private void garRGB_Prim_Clear_Click(object sender, EventArgs e)
+        {
+            int i = garListing.SelectedIndex;
+            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Primary));
+            Garage.resetSlot(i);
+        }
+        private void garRGB_Sec_Set_Click(object sender, EventArgs e)
+        {
+            int i = garListing.SelectedIndex;
+            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) | Garage.RGB_Secondary);
+            Garage.resetSlot(i);
+        }
+
+        private void garRGB_Sec_Clear_Click(object sender, EventArgs e)
+        {
+            int i = garListing.SelectedIndex;
+            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Secondary));
+            Garage.resetSlot(i);
+        }
+
     }
 }

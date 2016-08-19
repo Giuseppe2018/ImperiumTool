@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Garage.cs" />
     <Compile Include="Lib.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -142,6 +143,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\imperium_lexiconadvert3.png" />
+    <None Include="Resources\imperium_lexiconadvert2.png" />
+    <None Include="Resources\imperium_lexiconadvert1.png" />
+    <None Include="Resources\rt3.png" />
+    <None Include="Resources\rt2.png" />
+    <None Include="Resources\rt1.png" />
+    <None Include="Resources\coming_soon.png" />
+    <None Include="Resources\imperium_lexiconadvert.png" />
+    <None Include="Resources\imperium_lexiconadvert2.jpg" />
+    <None Include="Resources\imperium_lexiconadvert1.jpg" />
+    <None Include="Resources\imperium_lexiconadvert.jpg" />
     <None Include="Resources\rt.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\link_connected.png" />

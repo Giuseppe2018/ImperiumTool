@@ -358,6 +358,7 @@
             this.advert = new System.Windows.Forms.PictureBox();
             this.labelControl87 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl89 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -3415,6 +3416,7 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.labelControl89);
             this.xtraTabPage1.Controls.Add(this.labelControl87);
             this.xtraTabPage1.Controls.Add(this.otftPanel);
             this.xtraTabPage1.Controls.Add(this.labelControl73);
@@ -4417,6 +4419,16 @@
             this.labelControl88.TabIndex = 22;
             this.labelControl88.Text = "This will be completed later on.";
             // 
+            // labelControl89
+            // 
+            this.labelControl89.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl89.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl89.Location = new System.Drawing.Point(3, 181);
+            this.labelControl89.Name = "labelControl89";
+            this.labelControl89.Size = new System.Drawing.Size(148, 13);
+            this.labelControl89.TabIndex = 145;
+            this.labelControl89.Text = "Credit to Tustin";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4973,6 +4985,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit10;
         private DevExpress.XtraEditors.LabelControl labelControl88;
         private DevExpress.XtraEditors.LabelControl labelControl87;
+        private DevExpress.XtraEditors.LabelControl labelControl89;
 
     }
 }

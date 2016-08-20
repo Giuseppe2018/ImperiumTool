@@ -26,7 +26,6 @@ namespace Imperium
     class Outfit
     {
         public static PS3API PS3 = new PS3API();
-        public static PS3API API = new PS3API();
         public static uint pointer = 0x02223518;
         public static uint len_struct = 0x34;
         public static uint len_struct_a = 0x28;

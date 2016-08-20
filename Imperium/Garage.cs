@@ -11,7 +11,6 @@ namespace Imperium
     class Garage
     {
         public static PS3API PS3 = new PS3API();
-        public static PS3API API = new PS3API();
         public static uint pointer = 0x1E70390;
         public static uint Armor = 115,
         Body = 211,

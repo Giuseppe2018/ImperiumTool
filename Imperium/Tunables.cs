@@ -11,7 +11,6 @@ namespace Imperium
     class Tunables
     {
         public static PS3API PS3 = new PS3API();
-        public static PS3API API = new PS3API();
         public static uint PTR_TUNABLES = 0x1E70374; // 1.26 // BLES
         public enum Indices : uint
         {

@@ -63,6 +63,8 @@ namespace Imperium
             0x7C, 0x08, 0x03, 0xA6,
             0x38, 0x21, 0x00, 0x70 };
 
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             PS3.SetMemory(SFA1, mem);
             PS3.Extension.WriteUInt32(EFA1, CBAB(EFA1, BAB1));
             PS3.Extension.WriteUInt32(BFA1, CBAB(BFA1, SFA1));
@@ -70,6 +72,8 @@ namespace Imperium
 
         public static int Call(Natives func_address, params object[] parameters)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint address = (uint)func_address;
             int length = parameters.Length;
             int index = 0;
@@ -125,6 +129,8 @@ namespace Imperium
 
         private static void WriteSingle(uint address, float input)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             byte[] Bytes = new byte[4];
             BitConverter.GetBytes(input).CopyTo((Array)Bytes, 0);
             Array.Reverse((Array)Bytes, 0, 4);
@@ -133,6 +139,8 @@ namespace Imperium
 
         private static void WriteSingle(uint address, float[] input)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             int length = input.Length;
             byte[] Bytes = new byte[length * 4];
             for (int index = 0; index < length; ++index)
@@ -142,6 +150,8 @@ namespace Imperium
 
         private static byte[] ReverseBytes(byte[] toReverse)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             Array.Reverse((Array)toReverse);
             return toReverse;
         }

@@ -40,6 +40,7 @@ namespace Imperium
             if (index >= 0 && index <= 9)
             {
                 PS3.ConnectTarget();
+                PS3.AttachProcess();
                 uint address = PS3.Extension.ReadUInt32(pointer);
                 uint offset = (uint)((int)address + (int)ptr_name + index * len_name);
                 if (name != null)
@@ -51,6 +52,7 @@ namespace Imperium
         public static OutfitStruct Fetch(int index = 0)
         {
             PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint address = PS3.Extension.ReadUInt32(pointer);
             uint outfit_struct = (address - ptr_struct) + ((uint)index * len_struct) + 4;
             uint outfit_textures = (address - ptr_textures) + ((uint)index * len_struct);
@@ -93,6 +95,7 @@ namespace Imperium
         public static void Apply(int index, OutfitStruct outfit)
         {
             PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint address = PS3.Extension.ReadUInt32(pointer);
             uint outfit_struct = (address - ptr_struct) + ((uint)index * len_struct) + 4;
             uint outfit_textures = (address - ptr_textures) + ((uint)index * len_struct);

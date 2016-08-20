@@ -609,7 +609,6 @@ namespace Imperium
             try
             {
                 PS3.ConnectTarget();
-                PS3.AttachProcess();
                 RPC.Enable();
 
                 if (NFunc.psn() == "")

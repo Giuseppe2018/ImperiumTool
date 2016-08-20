@@ -61,42 +61,61 @@ namespace Imperium
         public static uint offset()
         {
             PS3.ConnectTarget();
+            PS3.AttachProcess();
             return PS3.Extension.ReadUInt32(pointer);
         }
         public static uint getUint(int slot, uint mod)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             return PS3.Extension.ReadUInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod));
         }
         public static void setUint(int slot, uint mod, uint value)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             PS3.Extension.WriteUInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
         }
         public static int getInt(int slot, uint mod)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             return PS3.Extension.ReadInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod));
         }
         public static void setByte(int slot, uint mod, byte value)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             PS3.Extension.WriteByte(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
         }
         public static byte getByte(int slot, uint mod)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             return PS3.Extension.ReadByte(Convert.ToUInt32(offset() + (slot * Padding) + mod));
         }
         public static void setInt(int slot, uint mod, int value)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             PS3.Extension.WriteInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
         }
         public static void setString(int slot, uint mod, string value)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             PS3.Extension.WriteString(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
         }
         public static string getString(int slot, uint mod)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             return PS3.Extension.ReadString(Convert.ToUInt32(offset() + (slot * Padding) + mod));
         }
         public static void resetSlot(int slot)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint model = Garage.getUint(slot, Garage.Model);
             Garage.setUint(slot, Garage.Model, 0);
             Thread.Sleep(250);

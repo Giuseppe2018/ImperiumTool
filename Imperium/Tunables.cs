@@ -54,6 +54,8 @@ namespace Imperium
         };
         public static uint getTunableAddress(Indices index)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint i = (uint)index;
             uint TunablesAddress = PS3.Extension.ReadUInt32(PTR_TUNABLES) + 4;
             if (TunablesAddress != 0)
@@ -66,6 +68,8 @@ namespace Imperium
         }
         public static bool setTunable(Indices index, object value)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint address = getTunableAddress(index);
             if (address != 0)
             {
@@ -83,6 +87,8 @@ namespace Imperium
         }
         public static int getTunableI(Indices index)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint address = getTunableAddress(index);
             if (address != 0)
             {
@@ -92,6 +98,8 @@ namespace Imperium
         }
         public static float getTunableF(Indices index)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint address = getTunableAddress(index);
             if (address != 0)
             {
@@ -101,6 +109,8 @@ namespace Imperium
         }
         public static bool getTunableB(Indices index)
         {
+            PS3.ConnectTarget();
+            PS3.AttachProcess();
             uint address = getTunableAddress(index);
             if (address != 0)
             {

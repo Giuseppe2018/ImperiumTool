@@ -359,6 +359,9 @@
             this.labelControl87 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl89 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl10 = new DevExpress.XtraEditors.GroupControl();
+            this.tbp_TimePlayed = new DevExpress.XtraEditors.SimpleButton();
+            this.tbp_CreationDate = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -549,6 +552,8 @@
             this.xtraTabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).BeginInit();
+            this.groupControl10.SuspendLayout();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -4345,6 +4350,7 @@
             // 
             // xtraTabPage14
             // 
+            this.xtraTabPage14.Controls.Add(this.groupControl10);
             this.xtraTabPage14.Controls.Add(this.labelControl51);
             this.xtraTabPage14.Controls.Add(this.exSkillSuperhuman);
             this.xtraTabPage14.Controls.Add(this.exSkillEnhanced);
@@ -4429,6 +4435,34 @@
             this.labelControl89.TabIndex = 145;
             this.labelControl89.Text = "Credit to Tustin";
             // 
+            // groupControl10
+            // 
+            this.groupControl10.Controls.Add(this.tbp_CreationDate);
+            this.groupControl10.Controls.Add(this.tbp_TimePlayed);
+            this.groupControl10.Location = new System.Drawing.Point(3, 286);
+            this.groupControl10.Name = "groupControl10";
+            this.groupControl10.Size = new System.Drawing.Size(558, 53);
+            this.groupControl10.TabIndex = 10;
+            this.groupControl10.Text = "Transfer Bypass Tests";
+            // 
+            // tbp_TimePlayed
+            // 
+            this.tbp_TimePlayed.Location = new System.Drawing.Point(5, 24);
+            this.tbp_TimePlayed.Name = "tbp_TimePlayed";
+            this.tbp_TimePlayed.Size = new System.Drawing.Size(269, 23);
+            this.tbp_TimePlayed.TabIndex = 0;
+            this.tbp_TimePlayed.Text = "Forge Time Played";
+            this.tbp_TimePlayed.Click += new System.EventHandler(this.tbp_TimePlayed_Click);
+            // 
+            // tbp_CreationDate
+            // 
+            this.tbp_CreationDate.Location = new System.Drawing.Point(284, 24);
+            this.tbp_CreationDate.Name = "tbp_CreationDate";
+            this.tbp_CreationDate.Size = new System.Drawing.Size(269, 23);
+            this.tbp_CreationDate.TabIndex = 1;
+            this.tbp_CreationDate.Text = "Forge Creation Date";
+            this.tbp_CreationDate.Click += new System.EventHandler(this.tbp_CreationDate_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4446,7 +4480,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Imperium Account Editor 0.5  [1.26/BLES/PS3]";
+            this.Text = "Imperium Account Editor 0.7  [1.26/BLES/PS3]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -4651,6 +4685,8 @@
             this.xtraTabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).EndInit();
+            this.groupControl10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4986,6 +5022,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl88;
         private DevExpress.XtraEditors.LabelControl labelControl87;
         private DevExpress.XtraEditors.LabelControl labelControl89;
+        private DevExpress.XtraEditors.GroupControl groupControl10;
+        private DevExpress.XtraEditors.SimpleButton tbp_CreationDate;
+        private DevExpress.XtraEditors.SimpleButton tbp_TimePlayed;
 
     }
 }

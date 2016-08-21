@@ -19,6 +19,556 @@ namespace Imperium
     public partial class Main : DevExpress.XtraEditors.XtraForm
     {
         public static PS3API PS3 = new PS3API();
+
+        class RPC
+        {
+            private static uint SFA1 = 0x1BF5000;
+            private static uint EFA1 = 0x1BF5088;
+            private static uint BFA1 = 0x18614;
+            private static uint BAB1 = 0x18620;
+
+            public static uint CBAB(uint F, uint T)
+            {
+                if (F > T)
+                    return 0x4C000000 - (F - T);
+                else if (F < T)
+                    return T - F + 0x48000000;
+                else
+                    return 0x48000000;
+            }
+
+            public static void Enable()
+            {
+                byte[] mem = new byte[] {
+            0xF8, 0x21, 0xFF, 0x91,
+            0x7C, 0x08, 0x02, 0xA6,
+            0xF8, 0x01, 0x00, 0x80,
+            0x3C, 0x60, 0x10, 0x04,
+            0x81, 0x83, 0x00, 0x4C,
+            0x2C, 0x0C, 0x00, 0x00,
+            0x41, 0x82, 0x00, 0x64,
+            0x80, 0x83, 0x00, 0x04,
+            0x80, 0xA3, 0x00, 0x08,
+            0x80, 0xC3, 0x00, 0x0C,
+            0x80, 0xE3, 0x00, 0x10,
+            0x81, 0x03, 0x00, 0x14,
+            0x81, 0x23, 0x00, 0x18,
+            0x81, 0x43, 0x00, 0x1C,
+            0x81, 0x63, 0x00, 0x20,
+            0xC0, 0x23, 0x00, 0x24,
+            0xc0, 0x43, 0x00, 0x28,
+            0xC0, 0x63, 0x00, 0x2C,
+            0xC0, 0x83, 0x00, 0x30,
+            0xC0, 0xA3, 0x00, 0x34,
+            0xc0, 0xC3, 0x00, 0x38,
+            0xC0, 0xE3, 0x00, 0x3C,
+            0xC1, 0x03, 0x00, 0x40,
+            0xC1, 0x23, 0x00, 0x48,
+            0x80, 0x63, 0x00, 0x00,
+            0x7D, 0x89, 0x03, 0xA6,
+            0x4E, 0x80, 0x04, 0x21,
+            0x3C, 0x80, 0x10, 0x04,
+            0x38, 0xA0, 0x00, 0x00,
+            0x90, 0xA4, 0x00, 0x4C,
+            0x90, 0x64, 0x00, 0x50,
+            0xE8, 0x01, 0x00, 0x80,
+            0x7C, 0x08, 0x03, 0xA6,
+            0x38, 0x21, 0x00, 0x70 };
+
+                PS3.SetMemory(SFA1, mem);
+                PS3.Extension.WriteUInt32(EFA1, CBAB(EFA1, BAB1));
+                PS3.Extension.WriteUInt32(BFA1, CBAB(BFA1, SFA1));
+            }
+
+            public static int Call(Natives func_address, params object[] parameters)
+            {
+                uint address = (uint)func_address;
+                int length = parameters.Length;
+                int index = 0;
+                uint num3 = 0;
+                uint num4 = 0;
+                uint num5 = 0;
+                uint num6 = 0;
+                while (index < length)
+                {
+                    if (parameters[index] is int)
+                    {
+                        PS3.Extension.WriteInt32(0x10040000 + (num3 * 4), (int)parameters[index]);
+                        num3++;
+                    }
+                    else if (parameters[index] is uint)
+                    {
+                        PS3.Extension.WriteUInt32(0x10040000 + (num3 * 4), (uint)parameters[index]);
+                        num3++;
+                    }
+                    else
+                    {
+                        uint num7;
+                        if (parameters[index] is string)
+                        {
+                            num7 = 0x10042000 + (num4 * 0x400);
+                            PS3.Extension.WriteString(num7, Convert.ToString(parameters[index]));
+                            PS3.Extension.WriteUInt32(0x10040000 + (num3 * 4), num7);
+                            num3++;
+                            num4++;
+                        }
+                        else if (parameters[index] is float)
+                        {
+                            WriteSingle(0x10040024 + (num5 * 4), (float)parameters[index]);
+                            num5++;
+                        }
+                        else if (parameters[index] is float[])
+                        {
+                            float[] input = (float[])parameters[index];
+                            num7 = 0x10041000 + (num6 * 4);
+                            WriteSingle(num7, input);
+                            PS3.Extension.WriteUInt32(0x10040000 + (num3 * 4), num7);
+                            num3++;
+                            num6 += (uint)input.Length;
+                        }
+                    }
+                    index++;
+                }
+                PS3.Extension.WriteUInt32(0x1004004C, address);
+                while (PS3.Extension.ReadUInt32(0x1004004C) != 0) ;
+
+                return PS3.Extension.ReadInt32(0x10040050);
+            }
+
+            private static void WriteSingle(uint address, float input)
+            {
+                byte[] Bytes = new byte[4];
+                BitConverter.GetBytes(input).CopyTo((Array)Bytes, 0);
+                Array.Reverse((Array)Bytes, 0, 4);
+                PS3.SetMemory(address, Bytes);
+            }
+
+            private static void WriteSingle(uint address, float[] input)
+            {
+                int length = input.Length;
+                byte[] Bytes = new byte[length * 4];
+                for (int index = 0; index < length; ++index)
+                    ReverseBytes(BitConverter.GetBytes(input[index])).CopyTo((Array)Bytes, index * 4);
+                PS3.SetMemory(address, Bytes);
+            }
+
+            private static byte[] ReverseBytes(byte[] toReverse)
+            {
+                Array.Reverse((Array)toReverse);
+                return toReverse;
+            }
+        }
+
+        class Tunables
+        {
+            public static uint PTR_TUNABLES = 0x1E70374; // 1.26 // BLES
+            public enum Indices : uint
+            {
+                // 1.26
+                AMOUNT_TO_FORGIVE_BADSPORT_BY = 82,
+                BADSPORT_RESET_MINUTES = 81,
+                Car_impound_fee = 5978,
+                DISABLE_CHRISTMAS_CLOTHING = 6884,
+                DISABLE_CHRISTMAS_MASKS = 6885,
+                DISABLE_CHRISTMAS_TREE_APARTMENT = 6883,
+                DISABLE_CHRISTMAS_TREE_PERISHING_SQUARE = 6882,
+                DISABLE_CHRISTMAS_TREE_PERISHING_SQUARE_SNOW = 6881,
+                DISABLE_PV_DUPLICATE_FIX = 3649,
+                DISABLE_SNOWBALLS = 6880,
+                IDLEKICK_WARNING1 = 73,
+                IDLEKICK_WARNING2 = 74,
+                IDLEKICK_WARNING3 = 75,
+                IDLEKICK_KICK = 76,
+                INDEPENDENCE_DAY_DEACTIVATE_FIREWORKS_LAUNCHER = 6011,
+                MAX_BET_LIMIT = 84,
+                MAX_NUMBER_OF_SNOWBALLS = 6887,
+                PICK_UP_NUMBER_OF_SNOWBALLS = 6888,
+                PS_ELITAS_CHUTE_BAG = 6279,
+                PS_EVENT_ITEM_HIGH_FLYER_CHUTE_BAG = 6281,
+                PS_FLIGHT_SCHOOL_CHUTE_BAG = 6280,
+                TOGGLE_ACTIVATE_INDEPENDENCE_PACK = 6003,
+                Toggle_activate_Monster_truck = 6017,
+                Toggle_activate_Western_sovereign = 6016,
+                TOGGLE_CHRISTMAS_EVE_GIFT = 6935,
+                TOGGLE_NEW_YEARS_DAY_GIFT = 6937,
+                TOGGLE_NEW_YEARS_EVE_GIFT = 6936,
+                TOGGLE_XMAS_CONTENT = 4724,
+                TURN_ON_VALENTINES_EVENT = 4827,
+                TURN_SNOW_ON_OFF = 4715,
+                WEAPONS_INDEPENDENCEDAY_FIREWORKLAUNCHER_AMMO = 6031,
+                INDEPENDENCE_DAY_DEACTIVATE_PLACED_FIREWORKS = 6012,
+                SHOPPING_START = 59,
+                SHOPPING_END = 69,
+                KICK_VOTES_NEEDED_RATIO = 6,
+                XP_MULTIPLIER = 1,
+            };
+            public static uint getTunableAddress(Indices index)
+            {
+                uint i = (uint)index;
+                uint TunablesAddress = PS3.Extension.ReadUInt32(PTR_TUNABLES) + 4;
+                if (TunablesAddress != 0)
+                {
+                    uint temp = TunablesAddress;
+                    temp += (i * 4);
+                    return temp;
+                }
+                return 0;
+            }
+            public static bool setTunable(Indices index, object value)
+            {
+                uint address = getTunableAddress(index);
+                if (address != 0)
+                {
+                    if (value is int || value is uint || value is bool)
+                    {
+                        PS3.Extension.WriteInt32(address, Convert.ToInt32(value));
+                    }
+                    else if (value is float || value is long)
+                    {
+                        PS3.Extension.WriteFloat(address, (float)value);
+                    }
+                    return true;
+                }
+                return false;
+            }
+            public static int getTunableI(Indices index)
+            {
+                uint address = getTunableAddress(index);
+                if (address != 0)
+                {
+                    return PS3.Extension.ReadInt32(address);
+                }
+                return 0;
+            }
+            public static float getTunableF(Indices index)
+            {
+                uint address = getTunableAddress(index);
+                if (address != 0)
+                {
+                    return PS3.Extension.ReadFloat(address);
+                }
+                return 0;
+            }
+            public static bool getTunableB(Indices index)
+            {
+                uint address = getTunableAddress(index);
+                if (address != 0)
+                {
+                    return PS3.Extension.ReadInt32(address) == 1;
+                }
+                return false;
+            }
+            public static void toggleTunable(Indices index, bool toggle)
+            {
+                setTunable(index, toggle);
+            }
+            public static bool disableIdleKick()
+            {
+                bool toggle = !(getTunableI(Indices.IDLEKICK_KICK) == 0x3B9ACA00);
+                setTunable(Indices.IDLEKICK_WARNING1, toggle ? 0x3B9ACA00 : 120000);
+                setTunable(Indices.IDLEKICK_WARNING2, toggle ? 0x3B9ACA00 : 300000);
+                setTunable(Indices.IDLEKICK_WARNING3, toggle ? 0x3B9ACA00 : 600000);
+                setTunable(Indices.IDLEKICK_KICK, toggle ? 0x3B9ACA00 : 900000);
+                return toggle;
+            }
+            public static bool christmasWeather()
+            {
+                bool toggle = !getTunableB(Indices.TURN_SNOW_ON_OFF);
+                toggleTunable(Indices.TURN_SNOW_ON_OFF, toggle);
+                toggleTunable(Indices.DISABLE_CHRISTMAS_TREE_PERISHING_SQUARE_SNOW, !toggle);
+                toggleTunable(Indices.DISABLE_CHRISTMAS_TREE_PERISHING_SQUARE, !toggle);
+                toggleTunable(Indices.DISABLE_CHRISTMAS_TREE_APARTMENT, !toggle);
+                toggleTunable(Indices.DISABLE_SNOWBALLS, !toggle);
+                setTunable(Indices.MAX_NUMBER_OF_SNOWBALLS, toggle ? 255 : 0);
+                setTunable(Indices.PICK_UP_NUMBER_OF_SNOWBALLS, toggle ? 255 : 0);
+                return toggle;
+            }
+            public static bool christmasDLC()
+            {
+                bool toggle = !getTunableB(Indices.TOGGLE_XMAS_CONTENT);
+                toggleTunable(Indices.TOGGLE_XMAS_CONTENT, toggle);
+                toggleTunable(Indices.DISABLE_CHRISTMAS_CLOTHING, !toggle);
+                toggleTunable(Indices.DISABLE_CHRISTMAS_MASKS, !toggle);
+                toggleTunable(Indices.TOGGLE_CHRISTMAS_EVE_GIFT, toggle);
+                return toggle;
+            }
+            public static bool valentinesDLC()
+            {
+                bool toggle = !getTunableB(Indices.TURN_ON_VALENTINES_EVENT);
+                toggleTunable(Indices.TURN_ON_VALENTINES_EVENT, !getTunableB(Indices.TURN_ON_VALENTINES_EVENT));
+                return toggle;
+            }
+            public static bool independenceDLC()
+            {
+                bool toggle = !getTunableB(Indices.TOGGLE_ACTIVATE_INDEPENDENCE_PACK);
+                toggleTunable(Indices.TOGGLE_ACTIVATE_INDEPENDENCE_PACK, toggle);
+                toggleTunable(Indices.INDEPENDENCE_DAY_DEACTIVATE_FIREWORKS_LAUNCHER, !toggle);
+                toggleTunable(Indices.Toggle_activate_Western_sovereign, toggle);
+                toggleTunable(Indices.Toggle_activate_Monster_truck, toggle);
+                toggleTunable(Indices.INDEPENDENCE_DAY_DEACTIVATE_PLACED_FIREWORKS, !toggle);
+                return toggle;
+            }
+            public static bool idleKick()
+            {
+                bool toggle = getTunableI(Indices.IDLEKICK_KICK) != Int32.MaxValue;
+                setTunable(Indices.IDLEKICK_KICK, toggle ? Int32.MaxValue : 900000);
+                setTunable(Indices.IDLEKICK_WARNING3, toggle ? Int32.MaxValue : 600000);
+                setTunable(Indices.IDLEKICK_WARNING2, toggle ? Int32.MaxValue : 300000);
+                setTunable(Indices.IDLEKICK_WARNING1, toggle ? Int32.MaxValue : 120000);
+                return toggle;
+            }
+            public static void freeShopping(bool toggle)
+            {
+                for (Indices i = Indices.SHOPPING_START; i < Indices.SHOPPING_END; i++)
+                {
+                    setTunable(i, toggle ? 0 : 0x3F800000);
+                }
+            }
+
+        }
+
+        public struct OutfitStruct
+        {
+            public int mask, maskT;
+            public int torso, torsoT;
+            public int legs, legsT;
+            public int hands, handsT;
+            public int shoes, shoesT;
+            public int extra, extraT;
+            public int tops1, tops1T;
+            public int armor, armorT;
+            public int emblem, emblemT;
+            public int tops2, tops2T;
+            public int hat, hatT;
+            public int eyes, eyesT;
+            public int ears, earsT;
+        }
+        class Outfit
+        {
+            public static uint pointer = 0x02223518;
+            public static uint len_struct = 0x34;
+            public static uint len_struct_a = 0x28;
+            public static uint len_name = 32;
+            public static uint ptr_struct = 0x710;
+            public static uint ptr_textures = 0x500;
+            public static uint ptr_struct_a = 0x2F8;
+            public static uint ptr_textures_a = 0x164;
+            public static uint ptr_name = 0x108;
+            public static string Name(int index = 0, string name = null)
+            {
+                if (index >= 0 && index <= 9)
+                {
+                    uint address = PS3.Extension.ReadUInt32(pointer);
+                    uint offset = (uint)((int)address + (int)ptr_name + index * len_name);
+                    if (name != null)
+                        PS3.Extension.WriteString(offset, name);
+                    return PS3.Extension.ReadString(offset);
+                }
+                return "";
+            }
+            public static OutfitStruct Fetch(int index = 0)
+            {
+                uint address = PS3.Extension.ReadUInt32(pointer);
+                uint outfit_struct = (address - ptr_struct) + ((uint)index * len_struct) + 4;
+                uint outfit_textures = (address - ptr_textures) + ((uint)index * len_struct);
+                uint accessory_struct = (address - ptr_struct_a) + ((uint)index * len_struct_a);
+                uint accessory_textures = (address - ptr_textures_a) + ((uint)index * len_struct_a);
+                OutfitStruct outfit;
+
+                outfit.mask = PS3.Extension.ReadInt32(outfit_struct);
+                outfit.torso = PS3.Extension.ReadInt32(outfit_struct + 0x08);
+                outfit.legs = PS3.Extension.ReadInt32(outfit_struct + 0x0C);
+                outfit.hands = PS3.Extension.ReadInt32(outfit_struct + 0x10);
+                outfit.shoes = PS3.Extension.ReadInt32(outfit_struct + 0x14);
+                outfit.extra = PS3.Extension.ReadInt32(outfit_struct + 0x18);
+                outfit.tops1 = PS3.Extension.ReadInt32(outfit_struct + 0x1C);
+                outfit.armor = PS3.Extension.ReadInt32(outfit_struct + 0x20);
+                outfit.emblem = PS3.Extension.ReadInt32(outfit_struct + 0x24);
+                outfit.tops2 = PS3.Extension.ReadInt32(outfit_struct + 0x28);
+
+                outfit.maskT = PS3.Extension.ReadInt32(outfit_textures);
+                outfit.torsoT = PS3.Extension.ReadInt32(outfit_textures + 0x08);
+                outfit.legsT = PS3.Extension.ReadInt32(outfit_textures + 0x0C);
+                outfit.handsT = PS3.Extension.ReadInt32(outfit_textures + 0x10);
+                outfit.shoesT = PS3.Extension.ReadInt32(outfit_textures + 0x14);
+                outfit.extraT = PS3.Extension.ReadInt32(outfit_textures + 0x18);
+                outfit.tops1T = PS3.Extension.ReadInt32(outfit_textures + 0x1C);
+                outfit.armorT = PS3.Extension.ReadInt32(outfit_textures + 0x20);
+                outfit.emblemT = PS3.Extension.ReadInt32(outfit_textures + 0x24);
+                outfit.tops2T = PS3.Extension.ReadInt32(outfit_textures + 0x28);
+
+                outfit.hat = PS3.Extension.ReadInt32(accessory_struct);
+                outfit.eyes = PS3.Extension.ReadInt32(accessory_struct + 0x04);
+                outfit.ears = PS3.Extension.ReadInt32(accessory_struct + 0x08);
+
+                outfit.hatT = PS3.Extension.ReadInt32(accessory_textures);
+                outfit.eyesT = PS3.Extension.ReadInt32(accessory_textures + 0x04);
+                outfit.earsT = PS3.Extension.ReadInt32(accessory_textures + 0x08);
+
+                return outfit;
+            }
+            public static void Apply(int index, OutfitStruct outfit)
+            {
+                uint address = PS3.Extension.ReadUInt32(pointer);
+                uint outfit_struct = (address - ptr_struct) + ((uint)index * len_struct) + 4;
+                uint outfit_textures = (address - ptr_textures) + ((uint)index * len_struct);
+                uint accessory_struct = (address - ptr_struct_a) + ((uint)index * len_struct_a);
+                uint accessory_textures = (address - ptr_textures_a) + ((uint)index * len_struct_a);
+
+                PS3.Extension.WriteInt32(outfit_struct, outfit.mask);
+                PS3.Extension.WriteInt32(outfit_struct + 0x08, outfit.torso);
+                PS3.Extension.WriteInt32(outfit_struct + 0x0C, outfit.legs);
+                PS3.Extension.WriteInt32(outfit_struct + 0x10, outfit.hands);
+                PS3.Extension.WriteInt32(outfit_struct + 0x14, outfit.shoes);
+                PS3.Extension.WriteInt32(outfit_struct + 0x18, outfit.extra);
+                PS3.Extension.WriteInt32(outfit_struct + 0x1C, outfit.tops1);
+                PS3.Extension.WriteInt32(outfit_struct + 0x20, outfit.armor);
+                PS3.Extension.WriteInt32(outfit_struct + 0x24, outfit.emblem);
+                PS3.Extension.WriteInt32(outfit_struct + 0x28, outfit.tops2);
+
+                PS3.Extension.WriteInt32(outfit_textures, outfit.maskT);
+                PS3.Extension.WriteInt32(outfit_textures + 0x08, outfit.torsoT);
+                PS3.Extension.WriteInt32(outfit_textures + 0x0C, outfit.legsT);
+                PS3.Extension.WriteInt32(outfit_textures + 0x10, outfit.handsT);
+                PS3.Extension.WriteInt32(outfit_textures + 0x14, outfit.shoesT);
+                PS3.Extension.WriteInt32(outfit_textures + 0x18, outfit.extraT);
+                PS3.Extension.WriteInt32(outfit_textures + 0x1C, outfit.tops1T);
+                PS3.Extension.WriteInt32(outfit_textures + 0x20, outfit.armorT);
+                PS3.Extension.WriteInt32(outfit_textures + 0x24, outfit.emblemT);
+                PS3.Extension.WriteInt32(outfit_textures + 0x28, outfit.tops2T);
+
+                PS3.Extension.WriteInt32(accessory_struct, outfit.hat);
+                PS3.Extension.WriteInt32(accessory_struct + 0x04, outfit.eyes);
+                PS3.Extension.WriteInt32(accessory_struct + 0x08, outfit.ears);
+
+                PS3.Extension.WriteInt32(accessory_textures, outfit.hatT);
+                PS3.Extension.WriteInt32(accessory_textures + 0x04, outfit.eyesT);
+                PS3.Extension.WriteInt32(accessory_textures + 0x08, outfit.earsT);
+            }
+        }
+
+        class NFunc
+        {
+            public static int pid()
+            {
+                return RPC.Call(Natives.PLAYER_ID);
+            }
+            public static int pedid()
+            {
+                return RPC.Call(Natives.PLAYER_PED_ID);
+            }
+            public static int vehid()
+            {
+                return RPC.Call(Natives.GET_VEHICLE_PED_IS_USING, pedid());
+            }
+            public static bool isInVehicle()
+            {
+                return Convert.ToBoolean(RPC.Call(Natives.IS_PED_IN_ANY_VEHICLE, pedid()));
+            }
+            public static string psn()
+            {
+                int name = RPC.Call(Natives.GET_PLAYER_NAME, pid());
+                return PS3.Extension.ReadString((uint)name);
+            }
+            public static void save()
+            {
+                RPC.Call(Natives.STAT_SAVE, 0, false, 3);
+            }
+        }
+
+        class Garage
+        {
+            public static uint pointer = 0x1E70390;
+            public static uint Armor = 115,
+            Body = 211,
+            Brakes = 99,
+            Bulletproof = 195,
+            Bulletproof2 = 210,
+            Bumper_Front = 55,
+            Bumper_Rear = 59,
+            Chassis = 71,
+            CustomTire_Front = 155,
+            CustomTire_Rear = 159,
+            Engine = 95,
+            Exhaust = 67,
+            Grille = 75,
+            Hood = 79,
+            Horn = 107,
+            Insurance = 287,
+            Model = 176,
+            Padding = 400,
+            Paint_Pearl = 39,
+            Paint_Primary = 31,
+            Paint_Secondary = 35,
+            Plate_Type = 11,
+            Plate_Text = 12,
+            Repair = 285,
+            Rims_Color = 43,
+            Rims_Front = 143,
+            Rims_Rear = 147,
+            Rims_Type = 191,
+            Roof = 91,
+            Skirts = 63,
+            Smoke_B = 171,
+            Smoke_Enabled = 131,
+            Smoke_G = 167,
+            Smoke_R = 163,
+            Spolier = 51,
+            Suspension = 111,
+            Transmission = 103,
+            Turbo = 123,
+            Window = 175,
+            Xenon = 139,
+            RGB_Cache_R = 49 * 4,
+            RGB_Cache_G = 50 * 4,
+            RGB_Cache_B = 51 * 4,
+            RGB = 52 * 4,
+            RGB_Primary = 0x2000,
+            RGB_Secondary = 0x1000;
+            public static uint offset()
+            {
+                return PS3.Extension.ReadUInt32(pointer);
+            }
+            public static uint getUint(int slot, uint mod)
+            {
+                return PS3.Extension.ReadUInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod));
+            }
+            public static void setUint(int slot, uint mod, uint value)
+            {
+                PS3.Extension.WriteUInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
+            }
+            public static int getInt(int slot, uint mod)
+            {
+                return PS3.Extension.ReadInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod));
+            }
+            public static void setByte(int slot, uint mod, byte value)
+            {
+                PS3.Extension.WriteByte(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
+            }
+            public static byte getByte(int slot, uint mod)
+            {
+                return PS3.Extension.ReadByte(Convert.ToUInt32(offset() + (slot * Padding) + mod));
+            }
+            public static void setInt(int slot, uint mod, int value)
+            {
+                PS3.Extension.WriteInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
+            }
+            public static void setString(int slot, uint mod, string value)
+            {
+                PS3.Extension.WriteString(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
+            }
+            public static string getString(int slot, uint mod)
+            {
+                return PS3.Extension.ReadString(Convert.ToUInt32(offset() + (slot * Padding) + mod));
+            }
+            public static void resetSlot(int slot)
+            {
+                uint model = Garage.getUint(slot, Garage.Model);
+                Garage.setUint(slot, Garage.Model, 0);
+                Thread.Sleep(250);
+                Garage.setUint(slot, Garage.Model, model);
+            }
+        }
         public class Setting
         {
             public string name { get; set; }
@@ -603,12 +1153,16 @@ namespace Imperium
         string cmethod;
         void connect(SelectAPI api)
         {
+            PS3.DisconnectTarget();
+            Variables.api = api;
             bool tmapi = api == SelectAPI.TargetManager;
             PS3.ChangeAPI(api);
             cmethod = tmapi ? "TMAPI" : "CCAPI";
             try
             {
                 PS3.ConnectTarget();
+                PS3.AttachProcess();
+
                 RPC.Enable();
 
                 if (NFunc.psn() == "")
@@ -710,7 +1264,6 @@ namespace Imperium
         {
             new Thread(() =>
             {
-                RPC.PS3.ConnectTarget();
                 foreach (string snippet in snippets)
                 {
                     var query = from item in Stats
@@ -728,7 +1281,6 @@ namespace Imperium
         {
             new Thread(() =>
             {
-                RPC.PS3.ConnectTarget();
                 foreach (string snippet in snippets)
                 {
                     var query = from item in Stats
@@ -1684,6 +2236,19 @@ namespace Imperium
             int i = garListing.SelectedIndex;
             Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Secondary));
             Garage.resetSlot(i);
+        }
+        private void tbp_TimePlayed_Click(object sender, EventArgs e)
+        {
+            int time = Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000));
+            setStat("TOTAL_PLAYING_TIME", time);
+        }
+
+        private void tbp_CreationDate_Click(object sender, EventArgs e)
+        {
+            setStat("CHAR_DATE_CREATED", 872415232);
+            setStat("CLOUD_TIME_CHAR_CREATED", 872415232);
+            setStat("PS_TIME_CHAR_CREATED", 872415232);
+            setStat("CHAR_DATE_RANKUP", 872415232);
         }
 
     }

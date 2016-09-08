@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
 
 namespace Imperium
 {
@@ -597,6 +598,7 @@ namespace Imperium
             int version = Convert.ToInt32(Regex.Replace(new System.Net.WebClient().DownloadString("http://lexicongta.com/ngu/imperium.php"), "<.*?>", String.Empty));
             if (version > Variables.version)
             {
+                System.Diagnostics.Process.Start("http://www.nextgenupdate.com/forums/gta-5-mod-tools/921980-ps3-1-26-bles-cc-tm-imperium-account-editor-0-7-alpha-release-source.html");
                 DevExpress.XtraEditors.XtraMessageBox.Show("Woah! There's an Imperium update available!\nYour version is " + Variables.version + ", the newest version is " + version + "!");
             }
 
@@ -2237,18 +2239,59 @@ namespace Imperium
             Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Secondary));
             Garage.resetSlot(i);
         }
-        private void tbp_TimePlayed_Click(object sender, EventArgs e)
-        {
-            int time = Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000));
-            setStat("TOTAL_PLAYING_TIME", time);
-        }
 
-        private void tbp_CreationDate_Click(object sender, EventArgs e)
+        public uint DateStruct_2_Memory(int _year, int _month, int _day, int _hour, int _minute, int _second, int _millisecond)
         {
-            setStat("CHAR_DATE_CREATED", 872415232);
-            setStat("CLOUD_TIME_CHAR_CREATED", 872415232);
-            setStat("PS_TIME_CHAR_CREATED", 872415232);
-            setStat("CHAR_DATE_RANKUP", 872415232);
+            uint location = 0x10030000;
+            byte[] year = BitConverter.GetBytes(_year);
+            byte[] month = BitConverter.GetBytes(_month);
+            byte[] day = BitConverter.GetBytes(_day);
+            byte[] hour = BitConverter.GetBytes(_hour);
+            byte[] minute = BitConverter.GetBytes(_minute);
+            byte[] second = BitConverter.GetBytes(_second);
+            byte[] millisecond = BitConverter.GetBytes(_millisecond);
+            Array.Reverse(year);
+            Array.Reverse(month);
+            Array.Reverse(day);
+            Array.Reverse(hour);
+            Array.Reverse(minute);
+            Array.Reverse(second);
+            Array.Reverse(millisecond);
+            byte[] buffer = new byte[] { 
+                year[0], year[1], year[2], year[3], 
+                month[0], month[1], month[2], month[3], 
+                day[0], day[1], day[2], day[3], 
+                hour[0], hour[1], hour[2], hour[3], 
+                minute[0], minute[1], minute[2], minute[3], 
+                second[0], second[1], second[2], second[3], 
+                millisecond[0], millisecond[1], millisecond[2], millisecond[3], 
+            };
+            PS3.SetMemory(location, buffer);
+            return location;
+        }
+        private void simpleButton2_Click_2(object sender, EventArgs e)
+        {
+            // Old Date
+            uint old_date = DateStruct_2_Memory(2015, 12, 24, 11, 4, 42, 46);
+            bool _1 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_CREATED"), old_date, 7, 1) == 1;
+            bool _2 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_CLOUD_TIME_CHAR_CREATED"), old_date, 1) == 1;
+            bool _3 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_PS_TIME_CHAR_CREATED"), old_date, 1) == 1;
+
+            // Recent Date
+            uint new_date = DateStruct_2_Memory(2016, 8, 11, 6, 34, 54, 23);
+            bool _4 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_RANKUP"), new_date, 7, 1) == 1;
+
+            // Duration
+            bool _5 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_TOTAL_PLAYING_TIME"), Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000)), 1) == 1;
+
+            // Output
+            MessageBox.Show(
+                (_1 ? "#1 Worked\n" : "#1 Failed\n") +
+                (_2 ? "#2 Worked\n" : "#2 Failed\n") +
+                (_3 ? "#3 Worked\n" : "#3 Failed\n") +
+                (_4 ? "#4 Worked\n" : "#4 Failed\n") +
+                (_5 ? "#5 Worked\n" : "#5 Failed\n") +
+                "");
         }
 
     }

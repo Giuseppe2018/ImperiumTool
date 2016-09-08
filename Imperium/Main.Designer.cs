@@ -150,6 +150,7 @@
             this.garRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.garModel = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl79 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage15 = new DevExpress.XtraTab.XtraTabPage();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.garListing_Refresh = new DevExpress.XtraEditors.SimpleButton();
@@ -275,6 +276,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.aoListing = new DevExpress.XtraEditors.ListBoxControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl89 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl87 = new DevExpress.XtraEditors.LabelControl();
             this.otftPanel = new DevExpress.XtraEditors.PanelControl();
             this.labelControl52 = new DevExpress.XtraEditors.LabelControl();
             this.otftTitle = new DevExpress.XtraEditors.TextEdit();
@@ -351,17 +354,13 @@
             this.labelControl48 = new DevExpress.XtraEditors.LabelControl();
             this.sdE_s = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabPage14 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl10 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl51 = new DevExpress.XtraEditors.LabelControl();
             this.exSkillSuperhuman = new DevExpress.XtraEditors.SimpleButton();
             this.exSkillEnhanced = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.advert = new System.Windows.Forms.PictureBox();
-            this.labelControl87 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl89 = new DevExpress.XtraEditors.LabelControl();
-            this.groupControl10 = new DevExpress.XtraEditors.GroupControl();
-            this.tbp_TimePlayed = new DevExpress.XtraEditors.SimpleButton();
-            this.tbp_CreationDate = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -550,10 +549,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sdE_v.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).BeginInit();
             this.xtraTabPage14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).BeginInit();
             this.groupControl10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advert)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -698,7 +697,7 @@
             this.char1,
             this.char2});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 24;
+            this.barManager1.MaxItemId = 25;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
             this.barManager1.ShowScreenTipsInMenus = true;
@@ -1867,6 +1866,14 @@
             this.labelControl79.Size = new System.Drawing.Size(68, 13);
             this.labelControl79.TabIndex = 5;
             this.labelControl79.Text = "Change Model";
+            // 
+            // labelControl88
+            // 
+            this.labelControl88.Location = new System.Drawing.Point(7, 32);
+            this.labelControl88.Name = "labelControl88";
+            this.labelControl88.Size = new System.Drawing.Size(147, 13);
+            this.labelControl88.TabIndex = 22;
+            this.labelControl88.Text = "This will be completed later on.";
             // 
             // xtraTabPage15
             // 
@@ -3432,6 +3439,24 @@
             this.xtraTabPage1.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage1.Text = "Outfit Editor";
             // 
+            // labelControl89
+            // 
+            this.labelControl89.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl89.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl89.Location = new System.Drawing.Point(3, 181);
+            this.labelControl89.Name = "labelControl89";
+            this.labelControl89.Size = new System.Drawing.Size(148, 13);
+            this.labelControl89.TabIndex = 145;
+            this.labelControl89.Text = "Credit to Tustin";
+            // 
+            // labelControl87
+            // 
+            this.labelControl87.Location = new System.Drawing.Point(14, 229);
+            this.labelControl87.Name = "labelControl87";
+            this.labelControl87.Size = new System.Drawing.Size(125, 13);
+            this.labelControl87.TabIndex = 144;
+            this.labelControl87.Text = "Outfit Import coming soon";
+            // 
             // otftPanel
             // 
             this.otftPanel.Controls.Add(this.labelControl52);
@@ -4358,6 +4383,24 @@
             this.xtraTabPage14.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage14.Text = "Experimental";
             // 
+            // groupControl10
+            // 
+            this.groupControl10.Controls.Add(this.simpleButton2);
+            this.groupControl10.Location = new System.Drawing.Point(3, 228);
+            this.groupControl10.Name = "groupControl10";
+            this.groupControl10.Size = new System.Drawing.Size(558, 111);
+            this.groupControl10.TabIndex = 10;
+            this.groupControl10.Text = "Transfer Bypass Tests";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(5, 24);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(548, 23);
+            this.simpleButton2.TabIndex = 4;
+            this.simpleButton2.Text = "Properly Forge Time Stats";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click_2);
+            // 
             // labelControl51
             // 
             this.labelControl51.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -4409,60 +4452,6 @@
             this.advert.TabStop = false;
             this.advert.Click += new System.EventHandler(this.advert_Click);
             // 
-            // labelControl87
-            // 
-            this.labelControl87.Location = new System.Drawing.Point(14, 229);
-            this.labelControl87.Name = "labelControl87";
-            this.labelControl87.Size = new System.Drawing.Size(125, 13);
-            this.labelControl87.TabIndex = 144;
-            this.labelControl87.Text = "Outfit Import coming soon";
-            // 
-            // labelControl88
-            // 
-            this.labelControl88.Location = new System.Drawing.Point(7, 32);
-            this.labelControl88.Name = "labelControl88";
-            this.labelControl88.Size = new System.Drawing.Size(147, 13);
-            this.labelControl88.TabIndex = 22;
-            this.labelControl88.Text = "This will be completed later on.";
-            // 
-            // labelControl89
-            // 
-            this.labelControl89.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl89.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl89.Location = new System.Drawing.Point(3, 181);
-            this.labelControl89.Name = "labelControl89";
-            this.labelControl89.Size = new System.Drawing.Size(148, 13);
-            this.labelControl89.TabIndex = 145;
-            this.labelControl89.Text = "Credit to Tustin";
-            // 
-            // groupControl10
-            // 
-            this.groupControl10.Controls.Add(this.tbp_CreationDate);
-            this.groupControl10.Controls.Add(this.tbp_TimePlayed);
-            this.groupControl10.Location = new System.Drawing.Point(3, 286);
-            this.groupControl10.Name = "groupControl10";
-            this.groupControl10.Size = new System.Drawing.Size(558, 53);
-            this.groupControl10.TabIndex = 10;
-            this.groupControl10.Text = "Transfer Bypass Tests";
-            // 
-            // tbp_TimePlayed
-            // 
-            this.tbp_TimePlayed.Location = new System.Drawing.Point(5, 24);
-            this.tbp_TimePlayed.Name = "tbp_TimePlayed";
-            this.tbp_TimePlayed.Size = new System.Drawing.Size(269, 23);
-            this.tbp_TimePlayed.TabIndex = 0;
-            this.tbp_TimePlayed.Text = "Forge Time Played";
-            this.tbp_TimePlayed.Click += new System.EventHandler(this.tbp_TimePlayed_Click);
-            // 
-            // tbp_CreationDate
-            // 
-            this.tbp_CreationDate.Location = new System.Drawing.Point(284, 24);
-            this.tbp_CreationDate.Name = "tbp_CreationDate";
-            this.tbp_CreationDate.Size = new System.Drawing.Size(269, 23);
-            this.tbp_CreationDate.TabIndex = 1;
-            this.tbp_CreationDate.Text = "Forge Creation Date";
-            this.tbp_CreationDate.Click += new System.EventHandler(this.tbp_CreationDate_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4480,7 +4469,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Imperium Account Editor 0.7  [1.26/BLES/PS3]";
+            this.Text = "Imperium Account Editor 0.7.5  [1.26/BLES/PS3]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -4683,10 +4672,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.sdE_v.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).EndInit();
             this.xtraTabPage14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).EndInit();
             this.groupControl10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advert)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5023,8 +5012,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl87;
         private DevExpress.XtraEditors.LabelControl labelControl89;
         private DevExpress.XtraEditors.GroupControl groupControl10;
-        private DevExpress.XtraEditors.SimpleButton tbp_CreationDate;
-        private DevExpress.XtraEditors.SimpleButton tbp_TimePlayed;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
 
     }
 }

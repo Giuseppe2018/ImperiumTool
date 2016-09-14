@@ -103,13 +103,36 @@
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.labelControl68 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.labelControl74 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.labelControl143 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl142 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl133 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDate_Second = new DevExpress.XtraEditors.SpinEdit();
+            this.timeDate_Minute = new DevExpress.XtraEditors.SpinEdit();
+            this.timeDate_Hour = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl132 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDate_Day = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl131 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDate_Stat = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl134 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDate_Month = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl135 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDate_Save = new DevExpress.XtraEditors.SimpleButton();
+            this.timeDate_Year = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl126 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDur_Stat = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl130 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDur_Second = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl129 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDur_Minute = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl128 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDur_Hour = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl127 = new DevExpress.XtraEditors.LabelControl();
+            this.timeDur_Save = new DevExpress.XtraEditors.SimpleButton();
+            this.timeDur_Day = new DevExpress.XtraEditors.SpinEdit();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl5 = new DevExpress.XtraTab.XtraTabControl();
             this.page = new DevExpress.XtraTab.XtraTabPage();
@@ -328,9 +351,7 @@
             this.otftRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl57 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage11 = new DevExpress.XtraTab.XtraTabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.xtraTabPage8 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage12 = new DevExpress.XtraTab.XtraTabPage();
@@ -353,12 +374,100 @@
             this.sdE_set = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl48 = new DevExpress.XtraEditors.LabelControl();
             this.sdE_s = new DevExpress.XtraEditors.TextEdit();
-            this.xtraTabPage14 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage13 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl10 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl97 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_V_Second = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl101 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_V_Minute = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl102 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_V_Hour = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl104 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_V_Day = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl105 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_V_Month = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl106 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_V_Year = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrDate_V_Response = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_V_Stat = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl99 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_V_Do = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl98 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_E_Response = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_E_Second = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrDate_E_Do = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl107 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl103 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_E_Minute = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrDate_E_Stat = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl108 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_E_Year = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrDate_E_Hour = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl111 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl109 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrDate_E_Month = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrDate_E_Day = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl110 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage16 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl12 = new DevExpress.XtraEditors.GroupControl();
+            this.dbgrPos_V_X = new DevExpress.XtraEditors.TextEdit();
             this.labelControl51 = new DevExpress.XtraEditors.LabelControl();
-            this.exSkillSuperhuman = new DevExpress.XtraEditors.SimpleButton();
-            this.exSkillEnhanced = new DevExpress.XtraEditors.SimpleButton();
+            this.dbgrPos_V_Response = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl90 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrPos_V_Stat = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrPos_V_Y = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl96 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrPos_V_Z = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrPos_V_Do = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl91 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl13 = new DevExpress.XtraEditors.GroupControl();
+            this.dbgrPos_E_Response = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrPos_E_Do = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl114 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrPos_E_Stat = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrPos_E_X = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl116 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl117 = new DevExpress.XtraEditors.LabelControl();
+            this.dbgrPos_E_Y = new DevExpress.XtraEditors.TextEdit();
+            this.dbgrPos_E_Z = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl118 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraTabPage17 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl24 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl125 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl124 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl123 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl122 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl121 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl120 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Max = new DevExpress.XtraEditors.TextEdit();
+            this.INS_Min = new DevExpress.XtraEditors.TextEdit();
+            this.INS_Default = new DevExpress.XtraEditors.TextEdit();
+            this.INS_UserData = new DevExpress.XtraEditors.TextEdit();
+            this.INS_FlushPriority = new DevExpress.XtraEditors.TextEdit();
+            this.INS_ServerAuthoritative = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl92 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Comment = new DevExpress.XtraEditors.MemoEdit();
+            this.labelControl93 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Online = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl94 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Save = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl95 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Character = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl100 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Owner = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl112 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Profile = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl113 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Type = new DevExpress.XtraEditors.TextEdit();
+            this.groupControl23 = new DevExpress.XtraEditors.GroupControl();
+            this.INS_File = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl115 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl119 = new DevExpress.XtraEditors.LabelControl();
+            this.INS_Stat = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.xtraTabPage14 = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.advert = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -388,11 +497,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.xtraTabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.xtraTabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Second.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Minute.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Hour.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Day.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Stat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Month.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Year.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Stat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Second.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Minute.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Hour.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Day.Properties)).BeginInit();
             this.xtraTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl5)).BeginInit();
             this.xtraTabControl5.SuspendLayout();
@@ -530,10 +648,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_t.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_m.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.otftListing)).BeginInit();
-            this.xtraTabPage11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.xtraTabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.xtraTabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
             this.xtraTabControl4.SuspendLayout();
@@ -548,9 +662,59 @@
             ((System.ComponentModel.ISupportInitialize)(this.sdE_t.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sdE_v.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).BeginInit();
-            this.xtraTabPage14.SuspendLayout();
+            this.xtraTabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).BeginInit();
             this.groupControl10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Second.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Minute.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Hour.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Day.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Month.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Year.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Stat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).BeginInit();
+            this.groupControl11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Second.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Minute.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Stat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Year.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Hour.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Month.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Day.Properties)).BeginInit();
+            this.xtraTabPage16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl12)).BeginInit();
+            this.groupControl12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_V_X.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_V_Stat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_V_Y.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_V_Z.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl13)).BeginInit();
+            this.groupControl13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_E_Stat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_E_X.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_E_Y.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_E_Z.Properties)).BeginInit();
+            this.xtraTabPage17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl24)).BeginInit();
+            this.groupControl24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Max.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Min.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Default.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_UserData.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_FlushPriority.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_ServerAuthoritative.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Comment.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Online.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Save.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Character.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Owner.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Profile.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Type.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl23)).BeginInit();
+            this.groupControl23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_File.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Stat.Properties)).BeginInit();
+            this.xtraTabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advert)).BeginInit();
             this.SuspendLayout();
@@ -1324,7 +1488,6 @@
             // 
             this.xtraTabPage5.Controls.Add(this.xtraTabControl2);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.PageVisible = false;
             this.xtraTabPage5.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage5.Text = "Advanced";
             // 
@@ -1342,21 +1505,11 @@
             // 
             // xtraTabPage2
             // 
-            this.xtraTabPage2.Controls.Add(this.pictureBox4);
             this.xtraTabPage2.Controls.Add(this.labelControl68);
             this.xtraTabPage2.Name = "xtraTabPage2";
+            this.xtraTabPage2.PageVisible = false;
             this.xtraTabPage2.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage2.Text = "Combat";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Imperium.Properties.Resources.coming_soon;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 97);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(546, 86);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 27;
-            this.pictureBox4.TabStop = false;
             // 
             // labelControl68
             // 
@@ -1370,21 +1523,11 @@
             // 
             // xtraTabPage9
             // 
-            this.xtraTabPage9.Controls.Add(this.pictureBox5);
             this.xtraTabPage9.Controls.Add(this.labelControl74);
             this.xtraTabPage9.Name = "xtraTabPage9";
+            this.xtraTabPage9.PageVisible = false;
             this.xtraTabPage9.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage9.Text = "Vehicles";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Imperium.Properties.Resources.coming_soon;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 99);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(546, 86);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 28;
-            this.pictureBox5.TabStop = false;
             // 
             // labelControl74
             // 
@@ -1397,20 +1540,453 @@
             // 
             // xtraTabPage6
             // 
-            this.xtraTabPage6.Controls.Add(this.pictureBox6);
+            this.xtraTabPage6.Controls.Add(this.labelControl143);
+            this.xtraTabPage6.Controls.Add(this.labelControl142);
+            this.xtraTabPage6.Controls.Add(this.labelControl133);
+            this.xtraTabPage6.Controls.Add(this.timeDate_Second);
+            this.xtraTabPage6.Controls.Add(this.timeDate_Minute);
+            this.xtraTabPage6.Controls.Add(this.timeDate_Hour);
+            this.xtraTabPage6.Controls.Add(this.labelControl132);
+            this.xtraTabPage6.Controls.Add(this.timeDate_Day);
+            this.xtraTabPage6.Controls.Add(this.labelControl131);
+            this.xtraTabPage6.Controls.Add(this.timeDate_Stat);
+            this.xtraTabPage6.Controls.Add(this.labelControl134);
+            this.xtraTabPage6.Controls.Add(this.timeDate_Month);
+            this.xtraTabPage6.Controls.Add(this.labelControl135);
+            this.xtraTabPage6.Controls.Add(this.timeDate_Save);
+            this.xtraTabPage6.Controls.Add(this.timeDate_Year);
+            this.xtraTabPage6.Controls.Add(this.labelControl126);
+            this.xtraTabPage6.Controls.Add(this.timeDur_Stat);
+            this.xtraTabPage6.Controls.Add(this.labelControl130);
+            this.xtraTabPage6.Controls.Add(this.timeDur_Second);
+            this.xtraTabPage6.Controls.Add(this.labelControl129);
+            this.xtraTabPage6.Controls.Add(this.timeDur_Minute);
+            this.xtraTabPage6.Controls.Add(this.labelControl128);
+            this.xtraTabPage6.Controls.Add(this.timeDur_Hour);
+            this.xtraTabPage6.Controls.Add(this.labelControl127);
+            this.xtraTabPage6.Controls.Add(this.timeDur_Save);
+            this.xtraTabPage6.Controls.Add(this.timeDur_Day);
             this.xtraTabPage6.Name = "xtraTabPage6";
             this.xtraTabPage6.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage6.Text = "Time";
             // 
-            // pictureBox6
+            // labelControl143
             // 
-            this.pictureBox6.Image = global::Imperium.Properties.Resources.coming_soon;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 97);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(546, 86);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 28;
-            this.pictureBox6.TabStop = false;
+            this.labelControl143.Location = new System.Drawing.Point(305, 125);
+            this.labelControl143.Name = "labelControl143";
+            this.labelControl143.Size = new System.Drawing.Size(23, 13);
+            this.labelControl143.TabIndex = 55;
+            this.labelControl143.Text = "Hour";
+            // 
+            // labelControl142
+            // 
+            this.labelControl142.Location = new System.Drawing.Point(305, 151);
+            this.labelControl142.Name = "labelControl142";
+            this.labelControl142.Size = new System.Drawing.Size(32, 13);
+            this.labelControl142.TabIndex = 54;
+            this.labelControl142.Text = "Minute";
+            // 
+            // labelControl133
+            // 
+            this.labelControl133.Location = new System.Drawing.Point(305, 177);
+            this.labelControl133.Name = "labelControl133";
+            this.labelControl133.Size = new System.Drawing.Size(35, 13);
+            this.labelControl133.TabIndex = 53;
+            this.labelControl133.Text = "Second";
+            // 
+            // timeDate_Second
+            // 
+            this.timeDate_Second.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.timeDate_Second.Location = new System.Drawing.Point(245, 174);
+            this.timeDate_Second.MenuManager = this.barManager1;
+            this.timeDate_Second.Name = "timeDate_Second";
+            this.timeDate_Second.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDate_Second.Properties.IsFloatValue = false;
+            this.timeDate_Second.Properties.Mask.EditMask = "N00";
+            this.timeDate_Second.Size = new System.Drawing.Size(54, 20);
+            this.timeDate_Second.TabIndex = 52;
+            // 
+            // timeDate_Minute
+            // 
+            this.timeDate_Minute.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.timeDate_Minute.Location = new System.Drawing.Point(245, 148);
+            this.timeDate_Minute.MenuManager = this.barManager1;
+            this.timeDate_Minute.Name = "timeDate_Minute";
+            this.timeDate_Minute.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDate_Minute.Properties.IsFloatValue = false;
+            this.timeDate_Minute.Properties.Mask.EditMask = "N00";
+            this.timeDate_Minute.Size = new System.Drawing.Size(54, 20);
+            this.timeDate_Minute.TabIndex = 51;
+            // 
+            // timeDate_Hour
+            // 
+            this.timeDate_Hour.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.timeDate_Hour.Location = new System.Drawing.Point(245, 122);
+            this.timeDate_Hour.MenuManager = this.barManager1;
+            this.timeDate_Hour.Name = "timeDate_Hour";
+            this.timeDate_Hour.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDate_Hour.Properties.IsFloatValue = false;
+            this.timeDate_Hour.Properties.Mask.EditMask = "N00";
+            this.timeDate_Hour.Size = new System.Drawing.Size(54, 20);
+            this.timeDate_Hour.TabIndex = 50;
+            // 
+            // labelControl132
+            // 
+            this.labelControl132.Location = new System.Drawing.Point(160, 177);
+            this.labelControl132.Name = "labelControl132";
+            this.labelControl132.Size = new System.Drawing.Size(19, 13);
+            this.labelControl132.TabIndex = 49;
+            this.labelControl132.Text = "Day";
+            // 
+            // timeDate_Day
+            // 
+            this.timeDate_Day.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.timeDate_Day.Location = new System.Drawing.Point(185, 174);
+            this.timeDate_Day.MenuManager = this.barManager1;
+            this.timeDate_Day.Name = "timeDate_Day";
+            this.timeDate_Day.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDate_Day.Properties.IsFloatValue = false;
+            this.timeDate_Day.Properties.Mask.EditMask = "N00";
+            this.timeDate_Day.Properties.MaxValue = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.timeDate_Day.Size = new System.Drawing.Size(54, 20);
+            this.timeDate_Day.TabIndex = 48;
+            // 
+            // labelControl131
+            // 
+            this.labelControl131.Location = new System.Drawing.Point(116, 99);
+            this.labelControl131.Name = "labelControl131";
+            this.labelControl131.Size = new System.Drawing.Size(23, 13);
+            this.labelControl131.TabIndex = 22;
+            this.labelControl131.Text = "Date";
+            // 
+            // timeDate_Stat
+            // 
+            this.timeDate_Stat.EditValue = "CHAR_DATE_CREATED";
+            this.timeDate_Stat.Location = new System.Drawing.Point(145, 96);
+            this.timeDate_Stat.MenuManager = this.barManager1;
+            this.timeDate_Stat.Name = "timeDate_Stat";
+            this.timeDate_Stat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDate_Stat.Properties.DropDownRows = 20;
+            this.timeDate_Stat.Properties.Items.AddRange(new object[] {
+            "CHAR_DATE_CREATED",
+            "CHAR_DATE_RANKUP",
+            "CHAR_LAST_PLAY_TIME",
+            "LAST_TIME_THRESH_CROSS",
+            "MPPLY_BADSPORT_END",
+            "MPPLY_BADSPORT_START",
+            "MPPLY_BECAME_BADSPORT_DT",
+            "MPPLY_BECAME_CHEATER_DT",
+            "MPPLY_NON_CHEATER_CASH",
+            "MPPLY_STARTED_MP",
+            "MPPLY_TIME_FIRST_CAR_SOLD_TODAY",
+            "REPEAT_OFFENDER_1_TIME",
+            "REPEAT_OFFENDER_2_TIME"});
+            this.timeDate_Stat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.timeDate_Stat.Size = new System.Drawing.Size(207, 20);
+            this.timeDate_Stat.TabIndex = 21;
+            // 
+            // labelControl134
+            // 
+            this.labelControl134.Location = new System.Drawing.Point(149, 151);
+            this.labelControl134.Name = "labelControl134";
+            this.labelControl134.Size = new System.Drawing.Size(30, 13);
+            this.labelControl134.TabIndex = 16;
+            this.labelControl134.Text = "Month";
+            // 
+            // timeDate_Month
+            // 
+            this.timeDate_Month.EditValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.timeDate_Month.Location = new System.Drawing.Point(185, 148);
+            this.timeDate_Month.MenuManager = this.barManager1;
+            this.timeDate_Month.Name = "timeDate_Month";
+            this.timeDate_Month.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDate_Month.Properties.IsFloatValue = false;
+            this.timeDate_Month.Properties.Mask.EditMask = "N00";
+            this.timeDate_Month.Properties.MaxValue = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.timeDate_Month.Size = new System.Drawing.Size(54, 20);
+            this.timeDate_Month.TabIndex = 15;
+            // 
+            // labelControl135
+            // 
+            this.labelControl135.Location = new System.Drawing.Point(157, 125);
+            this.labelControl135.Name = "labelControl135";
+            this.labelControl135.Size = new System.Drawing.Size(22, 13);
+            this.labelControl135.TabIndex = 14;
+            this.labelControl135.Text = "Year";
+            // 
+            // timeDate_Save
+            // 
+            this.timeDate_Save.Location = new System.Drawing.Point(358, 95);
+            this.timeDate_Save.Name = "timeDate_Save";
+            this.timeDate_Save.Size = new System.Drawing.Size(81, 99);
+            this.timeDate_Save.TabIndex = 13;
+            this.timeDate_Save.Text = "Save";
+            this.timeDate_Save.Click += new System.EventHandler(this.timeDate_Save_Click);
+            // 
+            // timeDate_Year
+            // 
+            this.timeDate_Year.EditValue = new decimal(new int[] {
+            2016,
+            0,
+            0,
+            0});
+            this.timeDate_Year.Location = new System.Drawing.Point(185, 122);
+            this.timeDate_Year.MenuManager = this.barManager1;
+            this.timeDate_Year.Name = "timeDate_Year";
+            this.timeDate_Year.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDate_Year.Properties.IsFloatValue = false;
+            this.timeDate_Year.Properties.Mask.EditMask = "N00";
+            this.timeDate_Year.Size = new System.Drawing.Size(54, 20);
+            this.timeDate_Year.TabIndex = 12;
+            // 
+            // labelControl126
+            // 
+            this.labelControl126.Location = new System.Drawing.Point(98, 6);
+            this.labelControl126.Name = "labelControl126";
+            this.labelControl126.Size = new System.Drawing.Size(41, 13);
+            this.labelControl126.TabIndex = 11;
+            this.labelControl126.Text = "Duration";
+            // 
+            // timeDur_Stat
+            // 
+            this.timeDur_Stat.EditValue = "CREW_LOCAL_TIME_0";
+            this.timeDur_Stat.Location = new System.Drawing.Point(145, 3);
+            this.timeDur_Stat.MenuManager = this.barManager1;
+            this.timeDur_Stat.Name = "timeDur_Stat";
+            this.timeDur_Stat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDur_Stat.Properties.DropDownRows = 20;
+            this.timeDur_Stat.Properties.Items.AddRange(new object[] {
+            "CREW_LOCAL_TIME_0",
+            "CREW_LOCAL_TIME_1",
+            "CREW_LOCAL_TIME_2",
+            "CREW_LOCAL_TIME_3",
+            "CREW_LOCAL_TIME_4",
+            "LEADERBOARD_PLAYING_TIME",
+            "LONGEST_2WHEEL_TIME",
+            "LONGEST_CAM_TIME_DRIVING",
+            "LONGEST_KILLING_SPREE_TIME",
+            "LONGEST_PLAYING_TIME",
+            "LONGEST_STOPPIE_TIME",
+            "LONGEST_WHEELIE_TIME",
+            "MPPLY_CREW_LOCAL_TIME_0",
+            "MPPLY_CREW_LOCAL_TIME_1",
+            "MPPLY_CREW_LOCAL_TIME_2",
+            "MPPLY_CREW_LOCAL_TIME_3",
+            "MPPLY_CREW_LOCAL_TIME_4",
+            "MPPLY_TOTAL_TIME_IN_LOBBY",
+            "MPPLY_TOTAL_TIME_LOAD_SCREEN",
+            "MPPLY_TOTAL_TIME_MISSION_CREATO",
+            "MPPLY_TOTAL_TIME_SPENT_DEATHMAT",
+            "MPPLY_TOTAL_TIME_SPENT_FREEMODE",
+            "MPPLY_TOTAL_TIME_SPENT_ON_MISS",
+            "MPPLY_TOTAL_TIME_SPENT_RACES",
+            "TIME_AS_A_DRIVER",
+            "TIME_AS_A_PASSENGER",
+            "TIME_DRIVING_BICYCLE",
+            "TIME_DRIVING_BIKE",
+            "TIME_DRIVING_BOAT",
+            "TIME_DRIVING_CAR",
+            "TIME_DRIVING_HELI",
+            "TIME_DRIVING_PASSENGER",
+            "TIME_DRIVING_PLANE",
+            "TIME_DRIVING_QUADBIKE",
+            "TIME_DRIVING_SUBMARINE",
+            "TIME_IN_CAR",
+            "TIME_IN_COVER",
+            "TIME_IN_WATER",
+            "TIME_LAST_WANTED_LEVEL",
+            "TIME_NOTDROWNINWATER",
+            "TIME_ON_LOST_BIKE",
+            "TIME_SPECT_CREW_MEMBERS",
+            "TIME_SPECT_CREW_NOT_FRIEND",
+            "TIME_SPECT_FREEROAM",
+            "TIME_SPECT_FRIEND_NOT_CREW",
+            "TIME_SPECT_FRIENDS",
+            "TIME_SPECT_JOBS",
+            "TIME_SPECT_STRANGERS",
+            "TIME_SPENT_FLYING",
+            "TIME_SWIMMING",
+            "TIME_UNDERWATER",
+            "TIME_WALKING",
+            "TIMEINHELI",
+            "TIMEWITHOUTCRASHING",
+            "TOTAL_PLAYING_TIME",
+            "TOTAL_SHOP_TIME",
+            "TOTAL_STARTMENU_TIME",
+            "TOTAL_TIME_SPECCAM_CTF",
+            "TOTAL_TIME_SPECCAM_LTS",
+            "TOTAL_TIME_SPECCAM_MISS",
+            "TOTAL_TIME_SPECCAM_SUR",
+            "TOTAL_TIME_SPENT_ON_PHONE",
+            "TOTAL_TIME_UNDERWATER"});
+            this.timeDur_Stat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.timeDur_Stat.Size = new System.Drawing.Size(207, 20);
+            this.timeDur_Stat.TabIndex = 10;
+            // 
+            // labelControl130
+            // 
+            this.labelControl130.Location = new System.Drawing.Point(293, 32);
+            this.labelControl130.Name = "labelControl130";
+            this.labelControl130.Size = new System.Drawing.Size(6, 13);
+            this.labelControl130.TabIndex = 9;
+            this.labelControl130.Text = "S";
+            // 
+            // timeDur_Second
+            // 
+            this.timeDur_Second.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.timeDur_Second.Location = new System.Drawing.Point(306, 29);
+            this.timeDur_Second.MenuManager = this.barManager1;
+            this.timeDur_Second.Name = "timeDur_Second";
+            this.timeDur_Second.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDur_Second.Properties.IsFloatValue = false;
+            this.timeDur_Second.Properties.Mask.EditMask = "N00";
+            this.timeDur_Second.Properties.MaxValue = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.timeDur_Second.Size = new System.Drawing.Size(46, 20);
+            this.timeDur_Second.TabIndex = 8;
+            // 
+            // labelControl129
+            // 
+            this.labelControl129.Location = new System.Drawing.Point(228, 32);
+            this.labelControl129.Name = "labelControl129";
+            this.labelControl129.Size = new System.Drawing.Size(8, 13);
+            this.labelControl129.TabIndex = 7;
+            this.labelControl129.Text = "M";
+            // 
+            // timeDur_Minute
+            // 
+            this.timeDur_Minute.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.timeDur_Minute.Location = new System.Drawing.Point(241, 29);
+            this.timeDur_Minute.MenuManager = this.barManager1;
+            this.timeDur_Minute.Name = "timeDur_Minute";
+            this.timeDur_Minute.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDur_Minute.Properties.IsFloatValue = false;
+            this.timeDur_Minute.Properties.Mask.EditMask = "N00";
+            this.timeDur_Minute.Properties.MaxValue = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.timeDur_Minute.Size = new System.Drawing.Size(46, 20);
+            this.timeDur_Minute.TabIndex = 6;
+            // 
+            // labelControl128
+            // 
+            this.labelControl128.Location = new System.Drawing.Point(163, 32);
+            this.labelControl128.Name = "labelControl128";
+            this.labelControl128.Size = new System.Drawing.Size(7, 13);
+            this.labelControl128.TabIndex = 5;
+            this.labelControl128.Text = "H";
+            // 
+            // timeDur_Hour
+            // 
+            this.timeDur_Hour.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.timeDur_Hour.Location = new System.Drawing.Point(176, 29);
+            this.timeDur_Hour.MenuManager = this.barManager1;
+            this.timeDur_Hour.Name = "timeDur_Hour";
+            this.timeDur_Hour.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDur_Hour.Properties.IsFloatValue = false;
+            this.timeDur_Hour.Properties.Mask.EditMask = "N00";
+            this.timeDur_Hour.Properties.MaxValue = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.timeDur_Hour.Size = new System.Drawing.Size(46, 20);
+            this.timeDur_Hour.TabIndex = 4;
+            // 
+            // labelControl127
+            // 
+            this.labelControl127.Location = new System.Drawing.Point(98, 32);
+            this.labelControl127.Name = "labelControl127";
+            this.labelControl127.Size = new System.Drawing.Size(7, 13);
+            this.labelControl127.TabIndex = 3;
+            this.labelControl127.Text = "D";
+            // 
+            // timeDur_Save
+            // 
+            this.timeDur_Save.Location = new System.Drawing.Point(358, 2);
+            this.timeDur_Save.Name = "timeDur_Save";
+            this.timeDur_Save.Size = new System.Drawing.Size(81, 47);
+            this.timeDur_Save.TabIndex = 2;
+            this.timeDur_Save.Text = "Save";
+            this.timeDur_Save.Click += new System.EventHandler(this.timeDur_Save_Click);
+            // 
+            // timeDur_Day
+            // 
+            this.timeDur_Day.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.timeDur_Day.Location = new System.Drawing.Point(111, 29);
+            this.timeDur_Day.MenuManager = this.barManager1;
+            this.timeDur_Day.Name = "timeDur_Day";
+            this.timeDur_Day.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeDur_Day.Properties.IsFloatValue = false;
+            this.timeDur_Day.Properties.Mask.EditMask = "N00";
+            this.timeDur_Day.Properties.MaxValue = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.timeDur_Day.Size = new System.Drawing.Size(46, 20);
+            this.timeDur_Day.TabIndex = 1;
             // 
             // xtraTabPage3
             // 
@@ -4118,39 +4694,17 @@
             // 
             // xtraTabPage11
             // 
-            this.xtraTabPage11.Controls.Add(this.pictureBox3);
             this.xtraTabPage11.Name = "xtraTabPage11";
             this.xtraTabPage11.PageVisible = false;
             this.xtraTabPage11.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage11.Text = "Debugger";
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Imperium.Properties.Resources.coming_soon;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 110);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(546, 86);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
             // xtraTabPage7
             // 
-            this.xtraTabPage7.Controls.Add(this.pictureBox2);
             this.xtraTabPage7.Name = "xtraTabPage7";
             this.xtraTabPage7.PageVisible = false;
             this.xtraTabPage7.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage7.Text = "Configurations";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Imperium.Properties.Resources.coming_soon;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 121);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(558, 86);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // xtraTabPage8
             // 
@@ -4167,7 +4721,10 @@
             this.xtraTabControl4.Size = new System.Drawing.Size(558, 336);
             this.xtraTabControl4.TabIndex = 0;
             this.xtraTabControl4.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage12});
+            this.xtraTabPage12,
+            this.xtraTabPage13,
+            this.xtraTabPage16,
+            this.xtraTabPage17});
             // 
             // xtraTabPage12
             // 
@@ -4255,17 +4812,22 @@
             // 
             // sdV_t
             // 
-            this.sdV_t.EditValue = "Int 32";
+            this.sdV_t.EditValue = "int";
             this.sdV_t.Location = new System.Drawing.Point(46, 50);
             this.sdV_t.MenuManager = this.barManager1;
             this.sdV_t.Name = "sdV_t";
             this.sdV_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.sdV_t.Properties.Items.AddRange(new object[] {
-            "Int 32",
-            "Bool",
-            "Float",
-            "String"});
+            "int",
+            "u8",
+            "u16",
+            "u32",
+            "u64",
+            "bool",
+            "float",
+            "string",
+            "userid"});
             this.sdV_t.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.sdV_t.Size = new System.Drawing.Size(219, 20);
             this.sdV_t.TabIndex = 13;
@@ -4314,17 +4876,22 @@
             // 
             // sdE_t
             // 
-            this.sdE_t.EditValue = "Int 32";
+            this.sdE_t.EditValue = "int";
             this.sdE_t.Location = new System.Drawing.Point(46, 76);
             this.sdE_t.MenuManager = this.barManager1;
             this.sdE_t.Name = "sdE_t";
             this.sdE_t.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.sdE_t.Properties.Items.AddRange(new object[] {
-            "Int 32",
-            "Bool",
-            "Float",
-            "String"});
+            "int",
+            "u8",
+            "u16",
+            "u32",
+            "u64",
+            "bool",
+            "float",
+            "string",
+            "userid"});
             this.sdE_t.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.sdE_t.Size = new System.Drawing.Size(219, 20);
             this.sdE_t.TabIndex = 5;
@@ -4373,62 +4940,901 @@
             this.sdE_s.Size = new System.Drawing.Size(219, 20);
             this.sdE_s.TabIndex = 0;
             // 
+            // xtraTabPage13
+            // 
+            this.xtraTabPage13.Controls.Add(this.groupControl10);
+            this.xtraTabPage13.Controls.Add(this.groupControl11);
+            this.xtraTabPage13.Name = "xtraTabPage13";
+            this.xtraTabPage13.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage13.Text = "Date";
+            // 
+            // groupControl10
+            // 
+            this.groupControl10.Controls.Add(this.labelControl97);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Second);
+            this.groupControl10.Controls.Add(this.labelControl101);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Minute);
+            this.groupControl10.Controls.Add(this.labelControl102);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Hour);
+            this.groupControl10.Controls.Add(this.labelControl104);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Day);
+            this.groupControl10.Controls.Add(this.labelControl105);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Month);
+            this.groupControl10.Controls.Add(this.labelControl106);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Year);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Response);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Stat);
+            this.groupControl10.Controls.Add(this.labelControl99);
+            this.groupControl10.Controls.Add(this.dbgrDate_V_Do);
+            this.groupControl10.Location = new System.Drawing.Point(279, 3);
+            this.groupControl10.Name = "groupControl10";
+            this.groupControl10.Size = new System.Drawing.Size(270, 216);
+            this.groupControl10.TabIndex = 3;
+            this.groupControl10.Text = "View";
+            // 
+            // labelControl97
+            // 
+            this.labelControl97.Location = new System.Drawing.Point(216, 190);
+            this.labelControl97.Name = "labelControl97";
+            this.labelControl97.Size = new System.Drawing.Size(35, 13);
+            this.labelControl97.TabIndex = 35;
+            this.labelControl97.Text = "Second";
+            // 
+            // dbgrDate_V_Second
+            // 
+            this.dbgrDate_V_Second.Location = new System.Drawing.Point(131, 187);
+            this.dbgrDate_V_Second.MenuManager = this.barManager1;
+            this.dbgrDate_V_Second.Name = "dbgrDate_V_Second";
+            this.dbgrDate_V_Second.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_V_Second.TabIndex = 34;
+            // 
+            // labelControl101
+            // 
+            this.labelControl101.Location = new System.Drawing.Point(216, 164);
+            this.labelControl101.Name = "labelControl101";
+            this.labelControl101.Size = new System.Drawing.Size(32, 13);
+            this.labelControl101.TabIndex = 33;
+            this.labelControl101.Text = "Minute";
+            // 
+            // dbgrDate_V_Minute
+            // 
+            this.dbgrDate_V_Minute.Location = new System.Drawing.Point(131, 161);
+            this.dbgrDate_V_Minute.MenuManager = this.barManager1;
+            this.dbgrDate_V_Minute.Name = "dbgrDate_V_Minute";
+            this.dbgrDate_V_Minute.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_V_Minute.TabIndex = 32;
+            // 
+            // labelControl102
+            // 
+            this.labelControl102.Location = new System.Drawing.Point(216, 138);
+            this.labelControl102.Name = "labelControl102";
+            this.labelControl102.Size = new System.Drawing.Size(23, 13);
+            this.labelControl102.TabIndex = 31;
+            this.labelControl102.Text = "Hour";
+            // 
+            // dbgrDate_V_Hour
+            // 
+            this.dbgrDate_V_Hour.Location = new System.Drawing.Point(131, 135);
+            this.dbgrDate_V_Hour.MenuManager = this.barManager1;
+            this.dbgrDate_V_Hour.Name = "dbgrDate_V_Hour";
+            this.dbgrDate_V_Hour.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_V_Hour.TabIndex = 30;
+            // 
+            // labelControl104
+            // 
+            this.labelControl104.Location = new System.Drawing.Point(21, 190);
+            this.labelControl104.Name = "labelControl104";
+            this.labelControl104.Size = new System.Drawing.Size(19, 13);
+            this.labelControl104.TabIndex = 29;
+            this.labelControl104.Text = "Day";
+            // 
+            // dbgrDate_V_Day
+            // 
+            this.dbgrDate_V_Day.Location = new System.Drawing.Point(46, 187);
+            this.dbgrDate_V_Day.MenuManager = this.barManager1;
+            this.dbgrDate_V_Day.Name = "dbgrDate_V_Day";
+            this.dbgrDate_V_Day.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_V_Day.TabIndex = 28;
+            // 
+            // labelControl105
+            // 
+            this.labelControl105.Location = new System.Drawing.Point(10, 164);
+            this.labelControl105.Name = "labelControl105";
+            this.labelControl105.Size = new System.Drawing.Size(30, 13);
+            this.labelControl105.TabIndex = 27;
+            this.labelControl105.Text = "Month";
+            // 
+            // dbgrDate_V_Month
+            // 
+            this.dbgrDate_V_Month.Location = new System.Drawing.Point(46, 161);
+            this.dbgrDate_V_Month.MenuManager = this.barManager1;
+            this.dbgrDate_V_Month.Name = "dbgrDate_V_Month";
+            this.dbgrDate_V_Month.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_V_Month.TabIndex = 26;
+            // 
+            // labelControl106
+            // 
+            this.labelControl106.Location = new System.Drawing.Point(18, 138);
+            this.labelControl106.Name = "labelControl106";
+            this.labelControl106.Size = new System.Drawing.Size(22, 13);
+            this.labelControl106.TabIndex = 25;
+            this.labelControl106.Text = "Year";
+            // 
+            // dbgrDate_V_Year
+            // 
+            this.dbgrDate_V_Year.Location = new System.Drawing.Point(46, 135);
+            this.dbgrDate_V_Year.MenuManager = this.barManager1;
+            this.dbgrDate_V_Year.Name = "dbgrDate_V_Year";
+            this.dbgrDate_V_Year.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_V_Year.TabIndex = 24;
+            // 
+            // dbgrDate_V_Response
+            // 
+            this.dbgrDate_V_Response.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.dbgrDate_V_Response.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.dbgrDate_V_Response.Location = new System.Drawing.Point(5, 108);
+            this.dbgrDate_V_Response.Name = "dbgrDate_V_Response";
+            this.dbgrDate_V_Response.Size = new System.Drawing.Size(260, 21);
+            this.dbgrDate_V_Response.TabIndex = 15;
+            // 
+            // dbgrDate_V_Stat
+            // 
+            this.dbgrDate_V_Stat.EditValue = "MP0_CHAR_DATE_CREATED";
+            this.dbgrDate_V_Stat.Location = new System.Drawing.Point(46, 24);
+            this.dbgrDate_V_Stat.MenuManager = this.barManager1;
+            this.dbgrDate_V_Stat.Name = "dbgrDate_V_Stat";
+            this.dbgrDate_V_Stat.Size = new System.Drawing.Size(219, 20);
+            this.dbgrDate_V_Stat.TabIndex = 8;
+            // 
+            // labelControl99
+            // 
+            this.labelControl99.Location = new System.Drawing.Point(20, 27);
+            this.labelControl99.Name = "labelControl99";
+            this.labelControl99.Size = new System.Drawing.Size(20, 13);
+            this.labelControl99.TabIndex = 9;
+            this.labelControl99.Text = "Stat";
+            // 
+            // dbgrDate_V_Do
+            // 
+            this.dbgrDate_V_Do.Location = new System.Drawing.Point(5, 50);
+            this.dbgrDate_V_Do.Name = "dbgrDate_V_Do";
+            this.dbgrDate_V_Do.Size = new System.Drawing.Size(260, 52);
+            this.dbgrDate_V_Do.TabIndex = 10;
+            this.dbgrDate_V_Do.Text = "View Stat Value";
+            this.dbgrDate_V_Do.Click += new System.EventHandler(this.dbgrDate_V_Do_Click);
+            // 
+            // groupControl11
+            // 
+            this.groupControl11.Controls.Add(this.labelControl98);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Response);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Second);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Do);
+            this.groupControl11.Controls.Add(this.labelControl107);
+            this.groupControl11.Controls.Add(this.labelControl103);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Minute);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Stat);
+            this.groupControl11.Controls.Add(this.labelControl108);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Year);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Hour);
+            this.groupControl11.Controls.Add(this.labelControl111);
+            this.groupControl11.Controls.Add(this.labelControl109);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Month);
+            this.groupControl11.Controls.Add(this.dbgrDate_E_Day);
+            this.groupControl11.Controls.Add(this.labelControl110);
+            this.groupControl11.Location = new System.Drawing.Point(3, 3);
+            this.groupControl11.Name = "groupControl11";
+            this.groupControl11.Size = new System.Drawing.Size(270, 216);
+            this.groupControl11.TabIndex = 2;
+            this.groupControl11.Text = "Edit";
+            // 
+            // labelControl98
+            // 
+            this.labelControl98.Location = new System.Drawing.Point(216, 105);
+            this.labelControl98.Name = "labelControl98";
+            this.labelControl98.Size = new System.Drawing.Size(35, 13);
+            this.labelControl98.TabIndex = 47;
+            this.labelControl98.Text = "Second";
+            // 
+            // dbgrDate_E_Response
+            // 
+            this.dbgrDate_E_Response.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.dbgrDate_E_Response.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.dbgrDate_E_Response.Location = new System.Drawing.Point(5, 186);
+            this.dbgrDate_E_Response.Name = "dbgrDate_E_Response";
+            this.dbgrDate_E_Response.Size = new System.Drawing.Size(260, 21);
+            this.dbgrDate_E_Response.TabIndex = 7;
+            // 
+            // dbgrDate_E_Second
+            // 
+            this.dbgrDate_E_Second.EditValue = "1";
+            this.dbgrDate_E_Second.Location = new System.Drawing.Point(131, 102);
+            this.dbgrDate_E_Second.MenuManager = this.barManager1;
+            this.dbgrDate_E_Second.Name = "dbgrDate_E_Second";
+            this.dbgrDate_E_Second.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_E_Second.TabIndex = 46;
+            // 
+            // dbgrDate_E_Do
+            // 
+            this.dbgrDate_E_Do.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dbgrDate_E_Do.Appearance.Options.UseFont = true;
+            this.dbgrDate_E_Do.Location = new System.Drawing.Point(5, 128);
+            this.dbgrDate_E_Do.Name = "dbgrDate_E_Do";
+            this.dbgrDate_E_Do.Size = new System.Drawing.Size(260, 52);
+            this.dbgrDate_E_Do.TabIndex = 2;
+            this.dbgrDate_E_Do.Text = "Save Stat Edit";
+            this.dbgrDate_E_Do.Click += new System.EventHandler(this.dbgrDate_E_Do_Click);
+            // 
+            // labelControl107
+            // 
+            this.labelControl107.Location = new System.Drawing.Point(216, 79);
+            this.labelControl107.Name = "labelControl107";
+            this.labelControl107.Size = new System.Drawing.Size(32, 13);
+            this.labelControl107.TabIndex = 45;
+            this.labelControl107.Text = "Minute";
+            // 
+            // labelControl103
+            // 
+            this.labelControl103.Location = new System.Drawing.Point(20, 27);
+            this.labelControl103.Name = "labelControl103";
+            this.labelControl103.Size = new System.Drawing.Size(20, 13);
+            this.labelControl103.TabIndex = 1;
+            this.labelControl103.Text = "Stat";
+            // 
+            // dbgrDate_E_Minute
+            // 
+            this.dbgrDate_E_Minute.EditValue = "1";
+            this.dbgrDate_E_Minute.Location = new System.Drawing.Point(131, 76);
+            this.dbgrDate_E_Minute.MenuManager = this.barManager1;
+            this.dbgrDate_E_Minute.Name = "dbgrDate_E_Minute";
+            this.dbgrDate_E_Minute.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_E_Minute.TabIndex = 44;
+            // 
+            // dbgrDate_E_Stat
+            // 
+            this.dbgrDate_E_Stat.EditValue = "MP0_CHAR_DATE_CREATED";
+            this.dbgrDate_E_Stat.Location = new System.Drawing.Point(46, 24);
+            this.dbgrDate_E_Stat.MenuManager = this.barManager1;
+            this.dbgrDate_E_Stat.Name = "dbgrDate_E_Stat";
+            this.dbgrDate_E_Stat.Size = new System.Drawing.Size(219, 20);
+            this.dbgrDate_E_Stat.TabIndex = 0;
+            // 
+            // labelControl108
+            // 
+            this.labelControl108.Location = new System.Drawing.Point(216, 53);
+            this.labelControl108.Name = "labelControl108";
+            this.labelControl108.Size = new System.Drawing.Size(23, 13);
+            this.labelControl108.TabIndex = 43;
+            this.labelControl108.Text = "Hour";
+            // 
+            // dbgrDate_E_Year
+            // 
+            this.dbgrDate_E_Year.EditValue = "2016";
+            this.dbgrDate_E_Year.Location = new System.Drawing.Point(46, 50);
+            this.dbgrDate_E_Year.MenuManager = this.barManager1;
+            this.dbgrDate_E_Year.Name = "dbgrDate_E_Year";
+            this.dbgrDate_E_Year.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_E_Year.TabIndex = 36;
+            // 
+            // dbgrDate_E_Hour
+            // 
+            this.dbgrDate_E_Hour.EditValue = "1";
+            this.dbgrDate_E_Hour.Location = new System.Drawing.Point(131, 50);
+            this.dbgrDate_E_Hour.MenuManager = this.barManager1;
+            this.dbgrDate_E_Hour.Name = "dbgrDate_E_Hour";
+            this.dbgrDate_E_Hour.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_E_Hour.TabIndex = 42;
+            // 
+            // labelControl111
+            // 
+            this.labelControl111.Location = new System.Drawing.Point(18, 53);
+            this.labelControl111.Name = "labelControl111";
+            this.labelControl111.Size = new System.Drawing.Size(22, 13);
+            this.labelControl111.TabIndex = 37;
+            this.labelControl111.Text = "Year";
+            // 
+            // labelControl109
+            // 
+            this.labelControl109.Location = new System.Drawing.Point(21, 105);
+            this.labelControl109.Name = "labelControl109";
+            this.labelControl109.Size = new System.Drawing.Size(19, 13);
+            this.labelControl109.TabIndex = 41;
+            this.labelControl109.Text = "Day";
+            // 
+            // dbgrDate_E_Month
+            // 
+            this.dbgrDate_E_Month.EditValue = "1";
+            this.dbgrDate_E_Month.Location = new System.Drawing.Point(46, 76);
+            this.dbgrDate_E_Month.MenuManager = this.barManager1;
+            this.dbgrDate_E_Month.Name = "dbgrDate_E_Month";
+            this.dbgrDate_E_Month.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_E_Month.TabIndex = 38;
+            // 
+            // dbgrDate_E_Day
+            // 
+            this.dbgrDate_E_Day.EditValue = "1";
+            this.dbgrDate_E_Day.Location = new System.Drawing.Point(46, 102);
+            this.dbgrDate_E_Day.MenuManager = this.barManager1;
+            this.dbgrDate_E_Day.Name = "dbgrDate_E_Day";
+            this.dbgrDate_E_Day.Size = new System.Drawing.Size(79, 20);
+            this.dbgrDate_E_Day.TabIndex = 40;
+            // 
+            // labelControl110
+            // 
+            this.labelControl110.Location = new System.Drawing.Point(10, 79);
+            this.labelControl110.Name = "labelControl110";
+            this.labelControl110.Size = new System.Drawing.Size(30, 13);
+            this.labelControl110.TabIndex = 39;
+            this.labelControl110.Text = "Month";
+            // 
+            // xtraTabPage16
+            // 
+            this.xtraTabPage16.Controls.Add(this.groupControl12);
+            this.xtraTabPage16.Controls.Add(this.groupControl13);
+            this.xtraTabPage16.Name = "xtraTabPage16";
+            this.xtraTabPage16.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage16.Text = "Position";
+            // 
+            // groupControl12
+            // 
+            this.groupControl12.Controls.Add(this.dbgrPos_V_X);
+            this.groupControl12.Controls.Add(this.labelControl51);
+            this.groupControl12.Controls.Add(this.dbgrPos_V_Response);
+            this.groupControl12.Controls.Add(this.labelControl90);
+            this.groupControl12.Controls.Add(this.dbgrPos_V_Stat);
+            this.groupControl12.Controls.Add(this.dbgrPos_V_Y);
+            this.groupControl12.Controls.Add(this.labelControl96);
+            this.groupControl12.Controls.Add(this.dbgrPos_V_Z);
+            this.groupControl12.Controls.Add(this.dbgrPos_V_Do);
+            this.groupControl12.Controls.Add(this.labelControl91);
+            this.groupControl12.Location = new System.Drawing.Point(279, 3);
+            this.groupControl12.Name = "groupControl12";
+            this.groupControl12.Size = new System.Drawing.Size(270, 216);
+            this.groupControl12.TabIndex = 5;
+            this.groupControl12.Text = "View";
+            // 
+            // dbgrPos_V_X
+            // 
+            this.dbgrPos_V_X.EditValue = "1.0";
+            this.dbgrPos_V_X.Location = new System.Drawing.Point(46, 135);
+            this.dbgrPos_V_X.MenuManager = this.barManager1;
+            this.dbgrPos_V_X.Name = "dbgrPos_V_X";
+            this.dbgrPos_V_X.Size = new System.Drawing.Size(219, 20);
+            this.dbgrPos_V_X.TabIndex = 42;
+            // 
+            // labelControl51
+            // 
+            this.labelControl51.Location = new System.Drawing.Point(34, 138);
+            this.labelControl51.Name = "labelControl51";
+            this.labelControl51.Size = new System.Drawing.Size(6, 13);
+            this.labelControl51.TabIndex = 43;
+            this.labelControl51.Text = "X";
+            // 
+            // dbgrPos_V_Response
+            // 
+            this.dbgrPos_V_Response.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.dbgrPos_V_Response.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.dbgrPos_V_Response.Location = new System.Drawing.Point(5, 108);
+            this.dbgrPos_V_Response.Name = "dbgrPos_V_Response";
+            this.dbgrPos_V_Response.Size = new System.Drawing.Size(260, 21);
+            this.dbgrPos_V_Response.TabIndex = 15;
+            // 
+            // labelControl90
+            // 
+            this.labelControl90.Location = new System.Drawing.Point(34, 190);
+            this.labelControl90.Name = "labelControl90";
+            this.labelControl90.Size = new System.Drawing.Size(6, 13);
+            this.labelControl90.TabIndex = 47;
+            this.labelControl90.Text = "Z";
+            // 
+            // dbgrPos_V_Stat
+            // 
+            this.dbgrPos_V_Stat.EditValue = "MPPLY_SPAWN_POSITION_1";
+            this.dbgrPos_V_Stat.Location = new System.Drawing.Point(46, 24);
+            this.dbgrPos_V_Stat.MenuManager = this.barManager1;
+            this.dbgrPos_V_Stat.Name = "dbgrPos_V_Stat";
+            this.dbgrPos_V_Stat.Size = new System.Drawing.Size(219, 20);
+            this.dbgrPos_V_Stat.TabIndex = 8;
+            // 
+            // dbgrPos_V_Y
+            // 
+            this.dbgrPos_V_Y.EditValue = "1.0";
+            this.dbgrPos_V_Y.Location = new System.Drawing.Point(46, 161);
+            this.dbgrPos_V_Y.MenuManager = this.barManager1;
+            this.dbgrPos_V_Y.Name = "dbgrPos_V_Y";
+            this.dbgrPos_V_Y.Size = new System.Drawing.Size(219, 20);
+            this.dbgrPos_V_Y.TabIndex = 44;
+            // 
+            // labelControl96
+            // 
+            this.labelControl96.Location = new System.Drawing.Point(20, 27);
+            this.labelControl96.Name = "labelControl96";
+            this.labelControl96.Size = new System.Drawing.Size(20, 13);
+            this.labelControl96.TabIndex = 9;
+            this.labelControl96.Text = "Stat";
+            // 
+            // dbgrPos_V_Z
+            // 
+            this.dbgrPos_V_Z.EditValue = "1.0";
+            this.dbgrPos_V_Z.Location = new System.Drawing.Point(46, 187);
+            this.dbgrPos_V_Z.MenuManager = this.barManager1;
+            this.dbgrPos_V_Z.Name = "dbgrPos_V_Z";
+            this.dbgrPos_V_Z.Size = new System.Drawing.Size(219, 20);
+            this.dbgrPos_V_Z.TabIndex = 46;
+            // 
+            // dbgrPos_V_Do
+            // 
+            this.dbgrPos_V_Do.Location = new System.Drawing.Point(5, 50);
+            this.dbgrPos_V_Do.Name = "dbgrPos_V_Do";
+            this.dbgrPos_V_Do.Size = new System.Drawing.Size(260, 52);
+            this.dbgrPos_V_Do.TabIndex = 10;
+            this.dbgrPos_V_Do.Text = "View Stat Value";
+            this.dbgrPos_V_Do.Click += new System.EventHandler(this.dbgrPos_V_Do_Click);
+            // 
+            // labelControl91
+            // 
+            this.labelControl91.Location = new System.Drawing.Point(34, 164);
+            this.labelControl91.Name = "labelControl91";
+            this.labelControl91.Size = new System.Drawing.Size(6, 13);
+            this.labelControl91.TabIndex = 45;
+            this.labelControl91.Text = "Y";
+            // 
+            // groupControl13
+            // 
+            this.groupControl13.Controls.Add(this.dbgrPos_E_Response);
+            this.groupControl13.Controls.Add(this.dbgrPos_E_Do);
+            this.groupControl13.Controls.Add(this.labelControl114);
+            this.groupControl13.Controls.Add(this.dbgrPos_E_Stat);
+            this.groupControl13.Controls.Add(this.dbgrPos_E_X);
+            this.groupControl13.Controls.Add(this.labelControl116);
+            this.groupControl13.Controls.Add(this.labelControl117);
+            this.groupControl13.Controls.Add(this.dbgrPos_E_Y);
+            this.groupControl13.Controls.Add(this.dbgrPos_E_Z);
+            this.groupControl13.Controls.Add(this.labelControl118);
+            this.groupControl13.Location = new System.Drawing.Point(3, 3);
+            this.groupControl13.Name = "groupControl13";
+            this.groupControl13.Size = new System.Drawing.Size(270, 216);
+            this.groupControl13.TabIndex = 4;
+            this.groupControl13.Text = "Edit";
+            // 
+            // dbgrPos_E_Response
+            // 
+            this.dbgrPos_E_Response.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.dbgrPos_E_Response.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.dbgrPos_E_Response.Location = new System.Drawing.Point(5, 186);
+            this.dbgrPos_E_Response.Name = "dbgrPos_E_Response";
+            this.dbgrPos_E_Response.Size = new System.Drawing.Size(260, 21);
+            this.dbgrPos_E_Response.TabIndex = 7;
+            // 
+            // dbgrPos_E_Do
+            // 
+            this.dbgrPos_E_Do.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dbgrPos_E_Do.Appearance.Options.UseFont = true;
+            this.dbgrPos_E_Do.Location = new System.Drawing.Point(5, 128);
+            this.dbgrPos_E_Do.Name = "dbgrPos_E_Do";
+            this.dbgrPos_E_Do.Size = new System.Drawing.Size(260, 52);
+            this.dbgrPos_E_Do.TabIndex = 2;
+            this.dbgrPos_E_Do.Text = "Save Stat Edit";
+            this.dbgrPos_E_Do.Click += new System.EventHandler(this.dbgrPos_E_Do_Click);
+            // 
+            // labelControl114
+            // 
+            this.labelControl114.Location = new System.Drawing.Point(20, 27);
+            this.labelControl114.Name = "labelControl114";
+            this.labelControl114.Size = new System.Drawing.Size(20, 13);
+            this.labelControl114.TabIndex = 1;
+            this.labelControl114.Text = "Stat";
+            // 
+            // dbgrPos_E_Stat
+            // 
+            this.dbgrPos_E_Stat.EditValue = "MPPLY_SPAWN_POSITION_1";
+            this.dbgrPos_E_Stat.Location = new System.Drawing.Point(46, 24);
+            this.dbgrPos_E_Stat.MenuManager = this.barManager1;
+            this.dbgrPos_E_Stat.Name = "dbgrPos_E_Stat";
+            this.dbgrPos_E_Stat.Size = new System.Drawing.Size(219, 20);
+            this.dbgrPos_E_Stat.TabIndex = 0;
+            // 
+            // dbgrPos_E_X
+            // 
+            this.dbgrPos_E_X.EditValue = "1.0";
+            this.dbgrPos_E_X.Location = new System.Drawing.Point(46, 50);
+            this.dbgrPos_E_X.MenuManager = this.barManager1;
+            this.dbgrPos_E_X.Name = "dbgrPos_E_X";
+            this.dbgrPos_E_X.Size = new System.Drawing.Size(219, 20);
+            this.dbgrPos_E_X.TabIndex = 36;
+            // 
+            // labelControl116
+            // 
+            this.labelControl116.Location = new System.Drawing.Point(34, 53);
+            this.labelControl116.Name = "labelControl116";
+            this.labelControl116.Size = new System.Drawing.Size(6, 13);
+            this.labelControl116.TabIndex = 37;
+            this.labelControl116.Text = "X";
+            // 
+            // labelControl117
+            // 
+            this.labelControl117.Location = new System.Drawing.Point(34, 105);
+            this.labelControl117.Name = "labelControl117";
+            this.labelControl117.Size = new System.Drawing.Size(6, 13);
+            this.labelControl117.TabIndex = 41;
+            this.labelControl117.Text = "Z";
+            // 
+            // dbgrPos_E_Y
+            // 
+            this.dbgrPos_E_Y.EditValue = "1.0";
+            this.dbgrPos_E_Y.Location = new System.Drawing.Point(46, 76);
+            this.dbgrPos_E_Y.MenuManager = this.barManager1;
+            this.dbgrPos_E_Y.Name = "dbgrPos_E_Y";
+            this.dbgrPos_E_Y.Size = new System.Drawing.Size(219, 20);
+            this.dbgrPos_E_Y.TabIndex = 38;
+            // 
+            // dbgrPos_E_Z
+            // 
+            this.dbgrPos_E_Z.EditValue = "1.0";
+            this.dbgrPos_E_Z.Location = new System.Drawing.Point(46, 102);
+            this.dbgrPos_E_Z.MenuManager = this.barManager1;
+            this.dbgrPos_E_Z.Name = "dbgrPos_E_Z";
+            this.dbgrPos_E_Z.Size = new System.Drawing.Size(219, 20);
+            this.dbgrPos_E_Z.TabIndex = 40;
+            // 
+            // labelControl118
+            // 
+            this.labelControl118.Location = new System.Drawing.Point(34, 79);
+            this.labelControl118.Name = "labelControl118";
+            this.labelControl118.Size = new System.Drawing.Size(6, 13);
+            this.labelControl118.TabIndex = 39;
+            this.labelControl118.Text = "Y";
+            // 
+            // xtraTabPage17
+            // 
+            this.xtraTabPage17.Controls.Add(this.groupControl24);
+            this.xtraTabPage17.Controls.Add(this.groupControl23);
+            this.xtraTabPage17.Name = "xtraTabPage17";
+            this.xtraTabPage17.Size = new System.Drawing.Size(552, 308);
+            this.xtraTabPage17.Text = "Inspector";
+            // 
+            // groupControl24
+            // 
+            this.groupControl24.Controls.Add(this.labelControl125);
+            this.groupControl24.Controls.Add(this.labelControl124);
+            this.groupControl24.Controls.Add(this.labelControl123);
+            this.groupControl24.Controls.Add(this.labelControl122);
+            this.groupControl24.Controls.Add(this.labelControl121);
+            this.groupControl24.Controls.Add(this.labelControl120);
+            this.groupControl24.Controls.Add(this.INS_Max);
+            this.groupControl24.Controls.Add(this.INS_Min);
+            this.groupControl24.Controls.Add(this.INS_Default);
+            this.groupControl24.Controls.Add(this.INS_UserData);
+            this.groupControl24.Controls.Add(this.INS_FlushPriority);
+            this.groupControl24.Controls.Add(this.INS_ServerAuthoritative);
+            this.groupControl24.Controls.Add(this.labelControl92);
+            this.groupControl24.Controls.Add(this.INS_Comment);
+            this.groupControl24.Controls.Add(this.labelControl93);
+            this.groupControl24.Controls.Add(this.INS_Online);
+            this.groupControl24.Controls.Add(this.labelControl94);
+            this.groupControl24.Controls.Add(this.INS_Save);
+            this.groupControl24.Controls.Add(this.labelControl95);
+            this.groupControl24.Controls.Add(this.INS_Character);
+            this.groupControl24.Controls.Add(this.labelControl100);
+            this.groupControl24.Controls.Add(this.INS_Owner);
+            this.groupControl24.Controls.Add(this.labelControl112);
+            this.groupControl24.Controls.Add(this.INS_Profile);
+            this.groupControl24.Controls.Add(this.labelControl113);
+            this.groupControl24.Controls.Add(this.INS_Type);
+            this.groupControl24.Location = new System.Drawing.Point(5, 84);
+            this.groupControl24.Name = "groupControl24";
+            this.groupControl24.Size = new System.Drawing.Size(544, 221);
+            this.groupControl24.TabIndex = 15;
+            this.groupControl24.Text = "Data";
+            // 
+            // labelControl125
+            // 
+            this.labelControl125.Location = new System.Drawing.Point(402, 157);
+            this.labelControl125.Name = "labelControl125";
+            this.labelControl125.Size = new System.Drawing.Size(44, 13);
+            this.labelControl125.TabIndex = 35;
+            this.labelControl125.Text = "Maximum";
+            // 
+            // labelControl124
+            // 
+            this.labelControl124.Location = new System.Drawing.Point(402, 131);
+            this.labelControl124.Name = "labelControl124";
+            this.labelControl124.Size = new System.Drawing.Size(40, 13);
+            this.labelControl124.TabIndex = 34;
+            this.labelControl124.Text = "Minimum";
+            // 
+            // labelControl123
+            // 
+            this.labelControl123.Location = new System.Drawing.Point(402, 105);
+            this.labelControl123.Name = "labelControl123";
+            this.labelControl123.Size = new System.Drawing.Size(35, 13);
+            this.labelControl123.TabIndex = 33;
+            this.labelControl123.Text = "Default";
+            // 
+            // labelControl122
+            // 
+            this.labelControl122.Location = new System.Drawing.Point(402, 79);
+            this.labelControl122.Name = "labelControl122";
+            this.labelControl122.Size = new System.Drawing.Size(48, 13);
+            this.labelControl122.TabIndex = 32;
+            this.labelControl122.Text = "User Data";
+            // 
+            // labelControl121
+            // 
+            this.labelControl121.Location = new System.Drawing.Point(402, 53);
+            this.labelControl121.Name = "labelControl121";
+            this.labelControl121.Size = new System.Drawing.Size(62, 13);
+            this.labelControl121.TabIndex = 31;
+            this.labelControl121.Text = "Flush Priority";
+            // 
+            // labelControl120
+            // 
+            this.labelControl120.Location = new System.Drawing.Point(402, 27);
+            this.labelControl120.Name = "labelControl120";
+            this.labelControl120.Size = new System.Drawing.Size(98, 13);
+            this.labelControl120.TabIndex = 30;
+            this.labelControl120.Text = "Server Authoritative";
+            // 
+            // INS_Max
+            // 
+            this.INS_Max.Location = new System.Drawing.Point(244, 154);
+            this.INS_Max.MenuManager = this.barManager1;
+            this.INS_Max.Name = "INS_Max";
+            this.INS_Max.Properties.ReadOnly = true;
+            this.INS_Max.Size = new System.Drawing.Size(152, 20);
+            this.INS_Max.TabIndex = 29;
+            // 
+            // INS_Min
+            // 
+            this.INS_Min.Location = new System.Drawing.Point(244, 128);
+            this.INS_Min.MenuManager = this.barManager1;
+            this.INS_Min.Name = "INS_Min";
+            this.INS_Min.Properties.ReadOnly = true;
+            this.INS_Min.Size = new System.Drawing.Size(152, 20);
+            this.INS_Min.TabIndex = 28;
+            // 
+            // INS_Default
+            // 
+            this.INS_Default.Location = new System.Drawing.Point(244, 102);
+            this.INS_Default.MenuManager = this.barManager1;
+            this.INS_Default.Name = "INS_Default";
+            this.INS_Default.Properties.ReadOnly = true;
+            this.INS_Default.Size = new System.Drawing.Size(152, 20);
+            this.INS_Default.TabIndex = 27;
+            // 
+            // INS_UserData
+            // 
+            this.INS_UserData.Location = new System.Drawing.Point(244, 76);
+            this.INS_UserData.MenuManager = this.barManager1;
+            this.INS_UserData.Name = "INS_UserData";
+            this.INS_UserData.Properties.ReadOnly = true;
+            this.INS_UserData.Size = new System.Drawing.Size(152, 20);
+            this.INS_UserData.TabIndex = 26;
+            // 
+            // INS_FlushPriority
+            // 
+            this.INS_FlushPriority.Location = new System.Drawing.Point(244, 50);
+            this.INS_FlushPriority.MenuManager = this.barManager1;
+            this.INS_FlushPriority.Name = "INS_FlushPriority";
+            this.INS_FlushPriority.Properties.ReadOnly = true;
+            this.INS_FlushPriority.Size = new System.Drawing.Size(152, 20);
+            this.INS_FlushPriority.TabIndex = 25;
+            // 
+            // INS_ServerAuthoritative
+            // 
+            this.INS_ServerAuthoritative.Location = new System.Drawing.Point(244, 24);
+            this.INS_ServerAuthoritative.MenuManager = this.barManager1;
+            this.INS_ServerAuthoritative.Name = "INS_ServerAuthoritative";
+            this.INS_ServerAuthoritative.Properties.HideSelection = false;
+            this.INS_ServerAuthoritative.Properties.ReadOnly = true;
+            this.INS_ServerAuthoritative.Size = new System.Drawing.Size(152, 20);
+            this.INS_ServerAuthoritative.TabIndex = 24;
+            // 
+            // labelControl92
+            // 
+            this.labelControl92.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl92.Location = new System.Drawing.Point(35, 182);
+            this.labelControl92.Name = "labelControl92";
+            this.labelControl92.Size = new System.Drawing.Size(45, 13);
+            this.labelControl92.TabIndex = 23;
+            this.labelControl92.Text = "Comment";
+            // 
+            // INS_Comment
+            // 
+            this.INS_Comment.Location = new System.Drawing.Point(86, 180);
+            this.INS_Comment.MenuManager = this.barManager1;
+            this.INS_Comment.Name = "INS_Comment";
+            this.INS_Comment.Properties.ReadOnly = true;
+            this.INS_Comment.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.INS_Comment.Size = new System.Drawing.Size(453, 36);
+            this.INS_Comment.TabIndex = 22;
+            // 
+            // labelControl93
+            // 
+            this.labelControl93.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl93.Location = new System.Drawing.Point(50, 157);
+            this.labelControl93.Name = "labelControl93";
+            this.labelControl93.Size = new System.Drawing.Size(30, 13);
+            this.labelControl93.TabIndex = 20;
+            this.labelControl93.Text = "Online";
+            // 
+            // INS_Online
+            // 
+            this.INS_Online.Location = new System.Drawing.Point(86, 154);
+            this.INS_Online.MenuManager = this.barManager1;
+            this.INS_Online.Name = "INS_Online";
+            this.INS_Online.Properties.ReadOnly = true;
+            this.INS_Online.Size = new System.Drawing.Size(152, 20);
+            this.INS_Online.TabIndex = 21;
+            // 
+            // labelControl94
+            // 
+            this.labelControl94.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl94.Location = new System.Drawing.Point(9, 131);
+            this.labelControl94.Name = "labelControl94";
+            this.labelControl94.Size = new System.Drawing.Size(72, 13);
+            this.labelControl94.TabIndex = 18;
+            this.labelControl94.Text = "Save Category";
+            // 
+            // INS_Save
+            // 
+            this.INS_Save.Location = new System.Drawing.Point(86, 128);
+            this.INS_Save.MenuManager = this.barManager1;
+            this.INS_Save.Name = "INS_Save";
+            this.INS_Save.Properties.ReadOnly = true;
+            this.INS_Save.Size = new System.Drawing.Size(152, 20);
+            this.INS_Save.TabIndex = 19;
+            // 
+            // labelControl95
+            // 
+            this.labelControl95.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl95.Location = new System.Drawing.Point(9, 105);
+            this.labelControl95.Name = "labelControl95";
+            this.labelControl95.Size = new System.Drawing.Size(71, 13);
+            this.labelControl95.TabIndex = 16;
+            this.labelControl95.Text = "Character Stat";
+            // 
+            // INS_Character
+            // 
+            this.INS_Character.Location = new System.Drawing.Point(86, 102);
+            this.INS_Character.MenuManager = this.barManager1;
+            this.INS_Character.Name = "INS_Character";
+            this.INS_Character.Properties.ReadOnly = true;
+            this.INS_Character.Size = new System.Drawing.Size(152, 20);
+            this.INS_Character.TabIndex = 17;
+            // 
+            // labelControl100
+            // 
+            this.labelControl100.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl100.Location = new System.Drawing.Point(48, 79);
+            this.labelControl100.Name = "labelControl100";
+            this.labelControl100.Size = new System.Drawing.Size(32, 13);
+            this.labelControl100.TabIndex = 14;
+            this.labelControl100.Text = "Owner";
+            // 
+            // INS_Owner
+            // 
+            this.INS_Owner.Location = new System.Drawing.Point(86, 76);
+            this.INS_Owner.MenuManager = this.barManager1;
+            this.INS_Owner.Name = "INS_Owner";
+            this.INS_Owner.Properties.ReadOnly = true;
+            this.INS_Owner.Size = new System.Drawing.Size(152, 20);
+            this.INS_Owner.TabIndex = 15;
+            // 
+            // labelControl112
+            // 
+            this.labelControl112.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.labelControl112.Location = new System.Drawing.Point(50, 53);
+            this.labelControl112.Name = "labelControl112";
+            this.labelControl112.Size = new System.Drawing.Size(30, 13);
+            this.labelControl112.TabIndex = 12;
+            this.labelControl112.Text = "Profile";
+            // 
+            // INS_Profile
+            // 
+            this.INS_Profile.Location = new System.Drawing.Point(86, 50);
+            this.INS_Profile.MenuManager = this.barManager1;
+            this.INS_Profile.Name = "INS_Profile";
+            this.INS_Profile.Properties.ReadOnly = true;
+            this.INS_Profile.Size = new System.Drawing.Size(152, 20);
+            this.INS_Profile.TabIndex = 13;
+            // 
+            // labelControl113
+            // 
+            this.labelControl113.Location = new System.Drawing.Point(56, 27);
+            this.labelControl113.Name = "labelControl113";
+            this.labelControl113.Size = new System.Drawing.Size(24, 13);
+            this.labelControl113.TabIndex = 11;
+            this.labelControl113.Text = "Type";
+            // 
+            // INS_Type
+            // 
+            this.INS_Type.Location = new System.Drawing.Point(86, 24);
+            this.INS_Type.MenuManager = this.barManager1;
+            this.INS_Type.Name = "INS_Type";
+            this.INS_Type.Properties.HideSelection = false;
+            this.INS_Type.Properties.ReadOnly = true;
+            this.INS_Type.Size = new System.Drawing.Size(152, 20);
+            this.INS_Type.TabIndex = 11;
+            // 
+            // groupControl23
+            // 
+            this.groupControl23.Controls.Add(this.INS_File);
+            this.groupControl23.Controls.Add(this.labelControl115);
+            this.groupControl23.Controls.Add(this.labelControl119);
+            this.groupControl23.Controls.Add(this.INS_Stat);
+            this.groupControl23.Location = new System.Drawing.Point(5, 3);
+            this.groupControl23.Name = "groupControl23";
+            this.groupControl23.Size = new System.Drawing.Size(544, 75);
+            this.groupControl23.TabIndex = 14;
+            this.groupControl23.Text = "Directory";
+            // 
+            // INS_File
+            // 
+            this.INS_File.Location = new System.Drawing.Point(50, 24);
+            this.INS_File.MenuManager = this.barManager1;
+            this.INS_File.Name = "INS_File";
+            this.INS_File.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.INS_File.Properties.DropDownRows = 15;
+            this.INS_File.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.INS_File.Size = new System.Drawing.Size(489, 20);
+            this.INS_File.TabIndex = 0;
+            this.INS_File.SelectedIndexChanged += new System.EventHandler(this.INS_File_SelectedIndexChanged);
+            // 
+            // labelControl115
+            // 
+            this.labelControl115.Location = new System.Drawing.Point(5, 27);
+            this.labelControl115.Name = "labelControl115";
+            this.labelControl115.Size = new System.Drawing.Size(39, 13);
+            this.labelControl115.TabIndex = 8;
+            this.labelControl115.Text = "Stat File";
+            // 
+            // labelControl119
+            // 
+            this.labelControl119.Location = new System.Drawing.Point(24, 53);
+            this.labelControl119.Name = "labelControl119";
+            this.labelControl119.Size = new System.Drawing.Size(20, 13);
+            this.labelControl119.TabIndex = 10;
+            this.labelControl119.Text = "Stat";
+            // 
+            // INS_Stat
+            // 
+            this.INS_Stat.Location = new System.Drawing.Point(50, 50);
+            this.INS_Stat.MenuManager = this.barManager1;
+            this.INS_Stat.Name = "INS_Stat";
+            this.INS_Stat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.INS_Stat.Properties.DropDownRows = 20;
+            this.INS_Stat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.INS_Stat.Size = new System.Drawing.Size(489, 20);
+            this.INS_Stat.TabIndex = 9;
+            this.INS_Stat.SelectedIndexChanged += new System.EventHandler(this.INS_Stat_SelectedIndexChanged);
+            // 
             // xtraTabPage14
             // 
-            this.xtraTabPage14.Controls.Add(this.groupControl10);
-            this.xtraTabPage14.Controls.Add(this.labelControl51);
-            this.xtraTabPage14.Controls.Add(this.exSkillSuperhuman);
-            this.xtraTabPage14.Controls.Add(this.exSkillEnhanced);
+            this.xtraTabPage14.Controls.Add(this.simpleButton3);
+            this.xtraTabPage14.Controls.Add(this.simpleButton2);
             this.xtraTabPage14.Name = "xtraTabPage14";
             this.xtraTabPage14.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage14.Text = "Experimental";
             // 
-            // groupControl10
+            // simpleButton3
             // 
-            this.groupControl10.Controls.Add(this.simpleButton2);
-            this.groupControl10.Location = new System.Drawing.Point(3, 228);
-            this.groupControl10.Name = "groupControl10";
-            this.groupControl10.Size = new System.Drawing.Size(558, 111);
-            this.groupControl10.TabIndex = 10;
-            this.groupControl10.Text = "Transfer Bypass Tests";
+            this.simpleButton3.Location = new System.Drawing.Point(3, 47);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(275, 38);
+            this.simpleButton3.TabIndex = 5;
+            this.simpleButton3.Text = "Clear New Item Stars (For Unviewed New Items)";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(5, 24);
+            this.simpleButton2.Location = new System.Drawing.Point(3, 3);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(548, 23);
+            this.simpleButton2.Size = new System.Drawing.Size(558, 38);
             this.simpleButton2.TabIndex = 4;
-            this.simpleButton2.Text = "Properly Forge Time Stats";
+            this.simpleButton2.Text = "Transfer Test #1";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click_2);
-            // 
-            // labelControl51
-            // 
-            this.labelControl51.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl51.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl51.Location = new System.Drawing.Point(3, 3);
-            this.labelControl51.Name = "labelControl51";
-            this.labelControl51.Size = new System.Drawing.Size(558, 17);
-            this.labelControl51.TabIndex = 9;
-            this.labelControl51.Text = "Don\'t expect any of these to work. They\'re just some ideas I had. If they do work" +
-    ", please let me know.";
-            // 
-            // exSkillSuperhuman
-            // 
-            this.exSkillSuperhuman.Location = new System.Drawing.Point(151, 26);
-            this.exSkillSuperhuman.Name = "exSkillSuperhuman";
-            this.exSkillSuperhuman.Size = new System.Drawing.Size(142, 23);
-            this.exSkillSuperhuman.TabIndex = 8;
-            this.exSkillSuperhuman.Text = "Superhuman Skills";
-            this.exSkillSuperhuman.Click += new System.EventHandler(this.exSkillSuperhuman_Click);
-            // 
-            // exSkillEnhanced
-            // 
-            this.exSkillEnhanced.Location = new System.Drawing.Point(3, 26);
-            this.exSkillEnhanced.Name = "exSkillEnhanced";
-            this.exSkillEnhanced.Size = new System.Drawing.Size(142, 23);
-            this.exSkillEnhanced.TabIndex = 7;
-            this.exSkillEnhanced.Text = "Enhanced Skills";
-            this.exSkillEnhanced.Click += new System.EventHandler(this.exSkillEnhanced_Click);
             // 
             // pictureBox1
             // 
@@ -4469,7 +5875,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Imperium Account Editor 0.7.5  [1.26/BLES/PS3]";
+            this.Text = "Imperium Account Editor 0.8  [1.26/BLES/PS3]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -4499,12 +5905,22 @@
             this.xtraTabControl2.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.xtraTabPage9.ResumeLayout(false);
             this.xtraTabPage9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.xtraTabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.xtraTabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Second.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Minute.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Hour.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Day.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Stat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Month.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDate_Year.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Stat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Second.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Minute.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Hour.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeDur_Day.Properties)).EndInit();
             this.xtraTabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl5)).EndInit();
             this.xtraTabControl5.ResumeLayout(false);
@@ -4651,10 +6067,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_t.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.otft_eLegs_m.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.otftListing)).EndInit();
-            this.xtraTabPage11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.xtraTabPage7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.xtraTabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
             this.xtraTabControl4.ResumeLayout(false);
@@ -4671,9 +6083,65 @@
             ((System.ComponentModel.ISupportInitialize)(this.sdE_t.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sdE_v.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sdE_s.Properties)).EndInit();
-            this.xtraTabPage14.ResumeLayout(false);
+            this.xtraTabPage13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl10)).EndInit();
             this.groupControl10.ResumeLayout(false);
+            this.groupControl10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Second.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Minute.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Hour.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Day.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Month.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Year.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_V_Stat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).EndInit();
+            this.groupControl11.ResumeLayout(false);
+            this.groupControl11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Second.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Minute.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Stat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Year.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Hour.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Month.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrDate_E_Day.Properties)).EndInit();
+            this.xtraTabPage16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl12)).EndInit();
+            this.groupControl12.ResumeLayout(false);
+            this.groupControl12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_V_X.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_V_Stat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_V_Y.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_V_Z.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl13)).EndInit();
+            this.groupControl13.ResumeLayout(false);
+            this.groupControl13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_E_Stat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_E_X.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_E_Y.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgrPos_E_Z.Properties)).EndInit();
+            this.xtraTabPage17.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl24)).EndInit();
+            this.groupControl24.ResumeLayout(false);
+            this.groupControl24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Max.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Min.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Default.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_UserData.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_FlushPriority.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_ServerAuthoritative.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Comment.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Online.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Save.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Character.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Owner.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Profile.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Type.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl23)).EndInit();
+            this.groupControl23.ResumeLayout(false);
+            this.groupControl23.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_File.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.INS_Stat.Properties)).EndInit();
+            this.xtraTabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advert)).EndInit();
             this.ResumeLayout(false);
@@ -4895,9 +6363,6 @@
         private DevExpress.XtraEditors.SimpleButton sdE_set;
         private DevExpress.XtraEditors.LabelControl labelControl48;
         private DevExpress.XtraEditors.TextEdit sdE_s;
-        private DevExpress.XtraEditors.LabelControl labelControl51;
-        private DevExpress.XtraEditors.SimpleButton exSkillSuperhuman;
-        private DevExpress.XtraEditors.SimpleButton exSkillEnhanced;
         private DevExpress.XtraEditors.SimpleButton gFastRun;
         private DevExpress.XtraEditors.SimpleButton gModdedRoll;
         private DevExpress.XtraEditors.SimpleButton gResetTimer;
@@ -4964,11 +6429,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl78;
         private DevExpress.XtraEditors.ListBoxControl garListing;
         private System.Windows.Forms.PictureBox advert;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl5;
         private DevExpress.XtraTab.XtraTabPage page;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage15;
@@ -5011,8 +6471,125 @@
         private DevExpress.XtraEditors.LabelControl labelControl88;
         private DevExpress.XtraEditors.LabelControl labelControl87;
         private DevExpress.XtraEditors.LabelControl labelControl89;
-        private DevExpress.XtraEditors.GroupControl groupControl10;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage13;
+        private DevExpress.XtraEditors.GroupControl groupControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl97;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_V_Second;
+        private DevExpress.XtraEditors.LabelControl labelControl101;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_V_Minute;
+        private DevExpress.XtraEditors.LabelControl labelControl102;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_V_Hour;
+        private DevExpress.XtraEditors.LabelControl labelControl104;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_V_Day;
+        private DevExpress.XtraEditors.LabelControl labelControl105;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_V_Month;
+        private DevExpress.XtraEditors.LabelControl labelControl106;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_V_Year;
+        private DevExpress.XtraEditors.LabelControl dbgrDate_V_Response;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_V_Stat;
+        private DevExpress.XtraEditors.LabelControl labelControl99;
+        private DevExpress.XtraEditors.SimpleButton dbgrDate_V_Do;
+        private DevExpress.XtraEditors.GroupControl groupControl11;
+        private DevExpress.XtraEditors.LabelControl labelControl98;
+        private DevExpress.XtraEditors.LabelControl dbgrDate_E_Response;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_E_Second;
+        private DevExpress.XtraEditors.SimpleButton dbgrDate_E_Do;
+        private DevExpress.XtraEditors.LabelControl labelControl107;
+        private DevExpress.XtraEditors.LabelControl labelControl103;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_E_Minute;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_E_Stat;
+        private DevExpress.XtraEditors.LabelControl labelControl108;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_E_Year;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_E_Hour;
+        private DevExpress.XtraEditors.LabelControl labelControl111;
+        private DevExpress.XtraEditors.LabelControl labelControl109;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_E_Month;
+        private DevExpress.XtraEditors.TextEdit dbgrDate_E_Day;
+        private DevExpress.XtraEditors.LabelControl labelControl110;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage16;
+        private DevExpress.XtraEditors.GroupControl groupControl12;
+        private DevExpress.XtraEditors.TextEdit dbgrPos_V_X;
+        private DevExpress.XtraEditors.LabelControl labelControl51;
+        private DevExpress.XtraEditors.LabelControl dbgrPos_V_Response;
+        private DevExpress.XtraEditors.LabelControl labelControl90;
+        private DevExpress.XtraEditors.TextEdit dbgrPos_V_Stat;
+        private DevExpress.XtraEditors.TextEdit dbgrPos_V_Y;
+        private DevExpress.XtraEditors.LabelControl labelControl96;
+        private DevExpress.XtraEditors.TextEdit dbgrPos_V_Z;
+        private DevExpress.XtraEditors.SimpleButton dbgrPos_V_Do;
+        private DevExpress.XtraEditors.LabelControl labelControl91;
+        private DevExpress.XtraEditors.GroupControl groupControl13;
+        private DevExpress.XtraEditors.LabelControl dbgrPos_E_Response;
+        private DevExpress.XtraEditors.SimpleButton dbgrPos_E_Do;
+        private DevExpress.XtraEditors.LabelControl labelControl114;
+        private DevExpress.XtraEditors.TextEdit dbgrPos_E_Stat;
+        private DevExpress.XtraEditors.TextEdit dbgrPos_E_X;
+        private DevExpress.XtraEditors.LabelControl labelControl116;
+        private DevExpress.XtraEditors.LabelControl labelControl117;
+        private DevExpress.XtraEditors.TextEdit dbgrPos_E_Y;
+        private DevExpress.XtraEditors.TextEdit dbgrPos_E_Z;
+        private DevExpress.XtraEditors.LabelControl labelControl118;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage17;
+        private DevExpress.XtraEditors.GroupControl groupControl23;
+        private DevExpress.XtraEditors.ComboBoxEdit INS_File;
+        private DevExpress.XtraEditors.LabelControl labelControl115;
+        private DevExpress.XtraEditors.LabelControl labelControl119;
+        private DevExpress.XtraEditors.ComboBoxEdit INS_Stat;
+        private DevExpress.XtraEditors.GroupControl groupControl24;
+        private DevExpress.XtraEditors.LabelControl labelControl92;
+        private DevExpress.XtraEditors.MemoEdit INS_Comment;
+        private DevExpress.XtraEditors.LabelControl labelControl93;
+        private DevExpress.XtraEditors.TextEdit INS_Online;
+        private DevExpress.XtraEditors.LabelControl labelControl94;
+        private DevExpress.XtraEditors.TextEdit INS_Save;
+        private DevExpress.XtraEditors.LabelControl labelControl95;
+        private DevExpress.XtraEditors.TextEdit INS_Character;
+        private DevExpress.XtraEditors.LabelControl labelControl100;
+        private DevExpress.XtraEditors.TextEdit INS_Owner;
+        private DevExpress.XtraEditors.LabelControl labelControl112;
+        private DevExpress.XtraEditors.TextEdit INS_Profile;
+        private DevExpress.XtraEditors.LabelControl labelControl113;
+        private DevExpress.XtraEditors.TextEdit INS_Type;
+        private DevExpress.XtraEditors.LabelControl labelControl120;
+        private DevExpress.XtraEditors.TextEdit INS_Max;
+        private DevExpress.XtraEditors.TextEdit INS_Min;
+        private DevExpress.XtraEditors.TextEdit INS_Default;
+        private DevExpress.XtraEditors.TextEdit INS_UserData;
+        private DevExpress.XtraEditors.TextEdit INS_FlushPriority;
+        private DevExpress.XtraEditors.TextEdit INS_ServerAuthoritative;
+        private DevExpress.XtraEditors.LabelControl labelControl121;
+        private DevExpress.XtraEditors.LabelControl labelControl122;
+        private DevExpress.XtraEditors.LabelControl labelControl125;
+        private DevExpress.XtraEditors.LabelControl labelControl124;
+        private DevExpress.XtraEditors.LabelControl labelControl123;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.LabelControl labelControl126;
+        private DevExpress.XtraEditors.ComboBoxEdit timeDur_Stat;
+        private DevExpress.XtraEditors.LabelControl labelControl130;
+        private DevExpress.XtraEditors.SpinEdit timeDur_Second;
+        private DevExpress.XtraEditors.LabelControl labelControl129;
+        private DevExpress.XtraEditors.SpinEdit timeDur_Minute;
+        private DevExpress.XtraEditors.LabelControl labelControl128;
+        private DevExpress.XtraEditors.SpinEdit timeDur_Hour;
+        private DevExpress.XtraEditors.LabelControl labelControl127;
+        private DevExpress.XtraEditors.SimpleButton timeDur_Save;
+        private DevExpress.XtraEditors.SpinEdit timeDur_Day;
+        private DevExpress.XtraEditors.LabelControl labelControl143;
+        private DevExpress.XtraEditors.LabelControl labelControl142;
+        private DevExpress.XtraEditors.LabelControl labelControl133;
+        private DevExpress.XtraEditors.SpinEdit timeDate_Second;
+        private DevExpress.XtraEditors.SpinEdit timeDate_Minute;
+        private DevExpress.XtraEditors.SpinEdit timeDate_Hour;
+        private DevExpress.XtraEditors.LabelControl labelControl132;
+        private DevExpress.XtraEditors.SpinEdit timeDate_Day;
+        private DevExpress.XtraEditors.LabelControl labelControl131;
+        private DevExpress.XtraEditors.ComboBoxEdit timeDate_Stat;
+        private DevExpress.XtraEditors.LabelControl labelControl134;
+        private DevExpress.XtraEditors.SpinEdit timeDate_Month;
+        private DevExpress.XtraEditors.LabelControl labelControl135;
+        private DevExpress.XtraEditors.SimpleButton timeDate_Save;
+        private DevExpress.XtraEditors.SpinEdit timeDate_Year;
 
     }
 }

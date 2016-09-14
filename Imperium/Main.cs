@@ -592,6 +592,8 @@ namespace Imperium
         }
         private List<Setting> settingsList = new List<Setting>();
         Dictionary<string, string> VehicleModels = new Dictionary<string, string>();
+        string[] filePaths;
+        private XmlDocument xd_mp = new XmlDocument();
         public Main()
         {
             InitializeComponent();
@@ -651,6 +653,18 @@ namespace Imperium
 
             // Refresh Outfit
             refreshOutfitListing();
+
+
+            #region Stat Inspector
+            filePaths = Directory.GetFiles("Data/StatFiles/");
+            foreach (string path in filePaths)
+                INS_File.Properties.Items.Add(path.Substring(15, path.Length - 15));
+            INS_File.SelectedIndex = 0;
+
+            xd_mp.Load(filePaths[0]);
+            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
+                INS_Stat.Properties.Items.Add((object)xmlNode.Value);
+            #endregion
 
         }
         #region Stats
@@ -1764,23 +1778,40 @@ namespace Imperium
         {
             switch (sdE_t.Text)
             {
-                case "Int 32":
+                case "int":
                     if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToInt32(sdE_v.Text), 1)))
                         sdE_r.Text = "Stat Query Successful!";
                     else sdE_r.Text = "Stat Query Failed...";
                     break;
-                case "Bool":
+                case "u8":
+                case "u16":
+                case "u32":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToUInt32(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "u64":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToUInt64(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "bool":
                     if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_BOOL, Hash(sdE_s.Text), Convert.ToInt32(sdE_v.Text), 1)))
                         sdE_r.Text = "Stat Query Successful!";
                     else sdE_r.Text = "Stat Query Failed...";
                     break;
-                case "Float":
+                case "float":
                     if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_FLOAT, Hash(sdE_s.Text), float.Parse((sdE_v.Text)), 1)))
                         sdE_r.Text = "Stat Query Successful!";
                     else sdE_r.Text = "Stat Query Failed...";
                     break;
-                case "String":
+                case "string":
                     if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_STRING, Hash(sdE_s.Text), sdE_v.Text, 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "userid":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_USER_ID, Hash(sdE_s.Text), sdE_v.Text, 1)))
                         sdE_r.Text = "Stat Query Successful!";
                     else sdE_r.Text = "Stat Query Failed...";
                     break;
@@ -1790,7 +1821,7 @@ namespace Imperium
         {
             switch (sdV_t.Text)
             {
-                case "Int 32":
+                case "int":
                     if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
                     {
                         sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
@@ -1802,7 +1833,33 @@ namespace Imperium
                         sdV_r.Text = "Stat Query Failed...";
                     }
                     break;
-                case "Bool":
+                case "u8":
+                case "u16":
+                case "u32":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadUInt32(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "u64":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadUInt64(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "bool":
                     if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_BOOL, Hash(sdV_s.Text), 0x10030040)))
                     {
                         sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
@@ -1814,7 +1871,7 @@ namespace Imperium
                         sdV_r.Text = "Stat Query Failed...";
                     }
                     break;
-                case "Float":
+                case "float":
                     if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_FLOAT, Hash(sdV_s.Text), 0x10030040)))
                     {
                         sdV_v.Text = PS3.Extension.ReadFloat(0x10030040).ToString();
@@ -1826,8 +1883,12 @@ namespace Imperium
                         sdV_r.Text = "Stat Query Failed...";
                     }
                     break;
-                case "String":
+                case "string":
                     sdV_v.Text = PS3.Extension.ReadString(Convert.ToUInt32(RPC.Call(Natives.STAT_GET_STRING, Hash(sdV_s.Text), -1)));
+                    sdV_r.Text = "";
+                    break;
+                case "userid":
+                    sdV_v.Text = PS3.Extension.ReadString(Convert.ToUInt32(RPC.Call(Natives.STAT_GET_USER_ID, Hash(sdV_s.Text))));
                     sdV_r.Text = "";
                     break;
             }
@@ -2243,55 +2304,245 @@ namespace Imperium
         public uint DateStruct_2_Memory(int _year, int _month, int _day, int _hour, int _minute, int _second, int _millisecond)
         {
             uint location = 0x10030000;
-            byte[] year = BitConverter.GetBytes(_year);
-            byte[] month = BitConverter.GetBytes(_month);
-            byte[] day = BitConverter.GetBytes(_day);
-            byte[] hour = BitConverter.GetBytes(_hour);
-            byte[] minute = BitConverter.GetBytes(_minute);
-            byte[] second = BitConverter.GetBytes(_second);
-            byte[] millisecond = BitConverter.GetBytes(_millisecond);
-            Array.Reverse(year);
-            Array.Reverse(month);
-            Array.Reverse(day);
-            Array.Reverse(hour);
-            Array.Reverse(minute);
-            Array.Reverse(second);
-            Array.Reverse(millisecond);
-            byte[] buffer = new byte[] { 
-                year[0], year[1], year[2], year[3], 
-                month[0], month[1], month[2], month[3], 
-                day[0], day[1], day[2], day[3], 
-                hour[0], hour[1], hour[2], hour[3], 
-                minute[0], minute[1], minute[2], minute[3], 
-                second[0], second[1], second[2], second[3], 
-                millisecond[0], millisecond[1], millisecond[2], millisecond[3], 
-            };
-            PS3.SetMemory(location, buffer);
+            PS3.Extension.WriteInt32(0x10030000, _year);
+            PS3.Extension.WriteInt32(0x10030000 + 4, _month);
+            PS3.Extension.WriteInt32(0x10030000 + 8, _day);
+            PS3.Extension.WriteInt32(0x10030000 + 12, _hour);
+            PS3.Extension.WriteInt32(0x10030000 + 16, _minute);
+            PS3.Extension.WriteInt32(0x10030000 + 20, _second);
+            PS3.Extension.WriteInt32(0x10030000 + 24, _millisecond);
             return location;
         }
         private void simpleButton2_Click_2(object sender, EventArgs e)
         {
-            // Old Date
+            // December 24th, 2015
             uint old_date = DateStruct_2_Memory(2015, 12, 24, 11, 4, 42, 46);
             bool _1 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_CREATED"), old_date, 7, 1) == 1;
             bool _2 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_CLOUD_TIME_CHAR_CREATED"), old_date, 1) == 1;
             bool _3 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_PS_TIME_CHAR_CREATED"), old_date, 1) == 1;
+            bool _4 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MPPLY_STARTED_MP"), old_date, 1) == 1;
 
-            // Recent Date
+            // August 11th, 2016
             uint new_date = DateStruct_2_Memory(2016, 8, 11, 6, 34, 54, 23);
-            bool _4 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_RANKUP"), new_date, 7, 1) == 1;
+            bool _5 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_RANKUP"), new_date, 7, 1) == 1;
 
-            // Duration
-            bool _5 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_TOTAL_PLAYING_TIME"), Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000)), 1) == 1;
+            // Duration 
+            bool _6 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_TOTAL_PLAYING_TIME"), Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000)), 1) == 1;
+            bool _7 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MPPLY_TOTAL_TIME_SPENT_FREEMODE"), Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000)), 1) == 1;
+            bool _8 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("LEADERBOARD_PLAYING_TIME"), Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000)), 1) == 1;
 
             // Output
             MessageBox.Show(
-                (_1 ? "#1 Worked\n" : "#1 Failed\n") +
-                (_2 ? "#2 Worked\n" : "#2 Failed\n") +
-                (_3 ? "#3 Worked\n" : "#3 Failed\n") +
-                (_4 ? "#4 Worked\n" : "#4 Failed\n") +
-                (_5 ? "#5 Worked\n" : "#5 Failed\n") +
+                "#1 " + (_1 ? "Worked\n" : "Failed\n") +
+                "#2 " + (_2 ? "Worked\n" : "Failed\n") +
+                "#3 " + (_3 ? "Worked\n" : "Failed\n") +
+                "#4 " + (_4 ? "Worked\n" : "Failed\n") +
+                "#5 " + (_5 ? "Worked\n" : "Failed\n") +
+                "#6 " + (_6 ? "Worked\n" : "Failed\n") +
+                "#7 " + (_7 ? "Worked\n" : "Failed\n") +
+                "#8 " + (_8 ? "Worked\n" : "Failed\n") +
                 "");
+        }
+
+        private void dbgrDate_V_Do_Click(object sender, EventArgs e)
+        {
+            dbgrDate_V_Response.Text = RPC.Call(Natives.STAT_GET_DATE, Main.Hash(dbgrDate_V_Stat.Text), 0x10030000, 7, 3) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
+
+            dbgrDate_V_Year.Text = PS3.Extension.ReadInt32(0x10030000).ToString();
+            dbgrDate_V_Month.Text = PS3.Extension.ReadInt32(0x10030000 + 4).ToString();
+            dbgrDate_V_Day.Text = PS3.Extension.ReadInt32(0x10030000 + 8).ToString();
+            dbgrDate_V_Hour.Text = PS3.Extension.ReadInt32(0x10030000 + 12).ToString();
+            dbgrDate_V_Minute.Text = PS3.Extension.ReadInt32(0x10030000 + 16).ToString();
+            dbgrDate_V_Second.Text = PS3.Extension.ReadInt32(0x10030000 + 20).ToString();
+        }
+
+        private void dbgrDate_E_Do_Click(object sender, EventArgs e)
+        {
+            uint date = DateStruct_2_Memory(
+                Convert.ToInt32(dbgrDate_E_Year.Text),
+                Convert.ToInt32(dbgrDate_E_Month.Text),
+                Convert.ToInt32(dbgrDate_E_Day.Text),
+                Convert.ToInt32(dbgrDate_E_Hour.Text),
+                Convert.ToInt32(dbgrDate_E_Minute.Text),
+                Convert.ToInt32(dbgrDate_E_Second.Text),
+                0
+                );
+            dbgrDate_E_Response.Text = RPC.Call(Natives.STAT_SET_DATE, Main.Hash(dbgrDate_E_Stat.Text), date, 7, 1) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
+        }
+
+        private void dbgrPos_V_Do_Click(object sender, EventArgs e)
+        {
+            dbgrPos_V_Response.Text = RPC.Call(Natives.STAT_GET_POS, Main.Hash(dbgrPos_V_Stat.Text), 0x10030000, 0x10030000 + 4, 0x10030000 + 8, 0) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
+            dbgrPos_V_X.Text = PS3.Extension.ReadFloat(0x10030000).ToString();
+            dbgrPos_V_Y.Text = PS3.Extension.ReadFloat(0x10030000 + 4).ToString();
+            dbgrPos_V_Z.Text = PS3.Extension.ReadFloat(0x10030000 + 8).ToString();
+        }
+
+        private void dbgrPos_E_Do_Click(object sender, EventArgs e)
+        {
+            dbgrPos_E_Response.Text = RPC.Call(Natives.STAT_SET_POS, Main.Hash(dbgrPos_E_Stat.Text), float.Parse(dbgrPos_E_X.Text), float.Parse(dbgrPos_E_Y.Text), float.Parse(dbgrPos_E_Z.Text), 1) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
+        }
+
+        private void INS_File_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            xd_mp.Load("Data/StatFiles/" + INS_File.Text);
+            INS_Stat.Properties.Items.Clear();
+            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
+                INS_Stat.Properties.Items.Add((object)xmlNode.Value);
+            INS_Stat.SelectedIndex = 0;
+        }
+        private string Cap1(string text)
+        {
+            return text.Substring(0, 1).ToUpper() + text.Substring(1, text.Length - 1).ToLower();
+        }
+        private void INS_Stat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = 0;
+            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
+            {
+                if (xmlNode.Value == INS_Stat.Text)
+                {
+                    string deflabel = "Unavailable";
+
+                    try { INS_Type.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@Type")[index].Value); }
+                    catch { INS_Type.Text = deflabel; }
+                    try { if (xd_mp.SelectNodes("StatsSetup/stats/stat/@SaveCategory")[index].Value == "1") INS_Save.Text = "True"; else INS_Save.Text = "False"; }
+                    catch { INS_Save.Text = deflabel; }
+                    try { INS_Online.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@online")[index].Value); }
+                    catch { INS_Online.Text = deflabel; }
+                    try { INS_Profile.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@profile")[index].Value); }
+                    catch { INS_Profile.Text = deflabel; }
+                    try { INS_Owner.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@Owner")[index].Value); }
+                    catch { INS_Owner.Text = deflabel; }
+                    try { INS_Character.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@characterStat")[index].Value); }
+                    catch { INS_Character.Text = deflabel; }
+
+                    try { INS_ServerAuthoritative.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@ServerAuthoritative")[index].Value); }
+                    catch { INS_ServerAuthoritative.Text = deflabel; }
+                    try { INS_FlushPriority.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@FlushPriority")[index].Value; }
+                    catch { INS_FlushPriority.Text = deflabel; }
+                    try { INS_UserData.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@UserData")[index].Value; }
+                    catch { INS_UserData.Text = deflabel; }
+                    try { INS_Default.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Default")[index].Value; }
+                    catch { INS_Default.Text = deflabel; }
+                    try { INS_Min.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Min")[index].Value; }
+                    catch { INS_Min.Text = deflabel; }
+                    try { INS_Max.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Max")[index].Value; }
+                    catch { INS_Max.Text = deflabel; }
+
+                    try { INS_Comment.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Comment")[index].Value; }
+                    catch { INS_Comment.Text = deflabel; }
+                }
+                ++index;
+            }
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            setStat("CHAR_WEAP_VIEWED", -1);
+            setStat("CHAR_WEAP_VIEWED2", -1);
+            setStat("CHAR_WEAP_VIEWED3", -1);
+            setStat("CHAR_WEAP_ADDON_1_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_2_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_3_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_4_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_5_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_6_VIEWED", -1);
+            setStat("CHAR_KIT_1_FM_VIEWED", -1);
+            setStat("CHAR_KIT_2_FM_VIEWED", -1);
+            setStat("CHAR_KIT_3_FM_VIEWED", -1);
+            setStat("CHAR_KIT_4_FM_VIEWED", -1);
+            setStat("CHAR_KIT_5_FM_VIEWED", -1);
+            setStat("CHAR_KIT_6_FM_VIEWED", -1);
+            setStat("CHAR_KIT_7_FM_VIEWED", -1);
+            setStat("CHAR_KIT_8_FM_VIEWED", -1);
+            setStat("CHAR_KIT_9_FM_VIEWED", -1);
+            setStat("CHAR_KIT_10_FM_VIEWED", -1);
+            setStat("CHAR_KIT_11_FM_VIEWED", -1);
+            setStat("CHAR_KIT_12_FM_VIEWED", -1);
+            setStat("CHAR_KIT_13_FM_VIEWED", -1);
+            setStat("CHAR_KIT_14_FM_VIEWED", -1);
+            setStat("CHAR_KIT_15_FM_VIEWED", -1);
+            setStat("CHAR_KIT_16_FM_VIEWED", -1);
+            setStat("TATTOO_FM_VIEWED_0", -1);
+            setStat("TATTOO_FM_VIEWED_1", -1);
+            setStat("TATTOO_FM_VIEWED_2", -1);
+            setStat("TATTOO_FM_VIEWED_3", -1);
+            setStat("TATTOO_FM_VIEWED_4", -1);
+            setStat("TATTOO_FM_VIEWED_5", -1);
+            setStat("TATTOO_FM_VIEWED_6", -1);
+            setStat("TATTOO_FM_VIEWED_7", -1);
+            setStat("TATTOO_FM_VIEWED_8", -1);
+            setStat("TATTOO_FM_VIEWED_9", -1);
+            setStat("TATTOO_FM_VIEWED_10", -1);
+            setStat("TATTOO_FM_VIEWED_11", -1);
+            setStat("TATTOO_FM_VIEWED_12", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_0", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_1", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_2", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_3", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_4", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_5", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_6", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_7", -1);
+            setStat("CHAR_CARMODWHCOL_VIEWED_0", -1);
+            setStat("CHAR_CARMODWHCOL_VIEWED_1", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_0", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_1", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_2", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_3", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_4", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_5", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_6", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_7", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_0", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_1", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_2", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_3", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_4", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_5", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_6", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_7", -1);
+            setStat("CREW_EMBLEMS_PURCHASED", -1);
+            setStat("CHAR_HAIR_VIEWED1", -1);
+            setStat("CHAR_HAIR_VIEWED2", -1);
+            setStat("CHAR_HAIR_VIEWED3", -1);
+            setStat("CHAR_HAIR_VIEWED4", -1);
+            setStat("CHAR_HAIR_VIEWED5", -1);
+            setStat("CHAR_HAIR_VIEWED6", -1);
+            setStat("CHAR_HAIR_VIEWED7", -1);
+            setStat("CHAR_HAIR_VIEWED8", -1);
+            setStat("CHAR_HAIR_VIEWED9", -1);
+            setStat("CHAR_HAIR_VIEWED10", -1);
+            setStat("CHAR_HAIR_VIEWED11", -1);
+            setStat("CHAR_HAIR_VIEWED12", -1);
+        }
+        string formatStat(string stat)
+        {
+            return stat.Contains("MPPLY_") ? stat : ("MP0_" + stat);
+        }
+        private void timeDur_Save_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RPC.Call(Natives.STAT_SET_INT, Main.Hash(formatStat(timeDur_Stat.Text)),
+                    (Convert.ToUInt32(timeDur_Day.Text) * 86400000) +
+                    (Convert.ToUInt32(timeDur_Hour.Text) * 3600000) +
+                    (Convert.ToUInt32(timeDur_Minute.Text) * 60000) +
+                    (Convert.ToUInt32(timeDur_Second.Text) * 1000), 1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void timeDate_Save_Click(object sender, EventArgs e)
+        {
+            uint new_date = DateStruct_2_Memory(
+                (int)timeDate_Year.Value, (int)timeDate_Month.Value, (int)timeDate_Day.Value, 
+                (int)timeDate_Hour.Value, (int)timeDate_Minute.Value, (int)timeDate_Second.Value, 0);
+            RPC.Call(Natives.STAT_SET_DATE, Main.Hash(formatStat(timeDate_Stat.Text)), new_date, 7, 1);
         }
 
     }

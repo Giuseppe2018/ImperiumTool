@@ -2315,21 +2315,25 @@ namespace Imperium
         }
         private void simpleButton2_Click_2(object sender, EventArgs e)
         {
-            // December 24th, 2015
-            uint old_date = DateStruct_2_Memory(2015, 12, 24, 11, 4, 42, 46);
+            // Old Date
+            uint old_date = DateStruct_2_Memory(2015, 12, 24, 0, 0, 0, 0);
             bool _1 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_CREATED"), old_date, 7, 1) == 1;
-            bool _2 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_CLOUD_TIME_CHAR_CREATED"), old_date, 1) == 1;
-            bool _3 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_PS_TIME_CHAR_CREATED"), old_date, 1) == 1;
-            bool _4 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MPPLY_STARTED_MP"), old_date, 1) == 1;
+            bool _2 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MPPLY_STARTED_MP"), old_date, 1) == 1;
 
-            // August 11th, 2016
+            // Recent Date
             uint new_date = DateStruct_2_Memory(2016, 8, 11, 6, 34, 54, 23);
-            bool _5 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_RANKUP"), new_date, 7, 1) == 1;
+            bool _3 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_RANKUP"), new_date, 7, 1) == 1;
 
-            // Duration 
-            bool _6 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_TOTAL_PLAYING_TIME"), Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000)), 1) == 1;
-            bool _7 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MPPLY_TOTAL_TIME_SPENT_FREEMODE"), Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000)), 1) == 1;
-            bool _8 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("LEADERBOARD_PLAYING_TIME"), Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000)), 1) == 1;
+            // Posix/Unix Timestamp
+            int timestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(2015, 12, 24))).TotalSeconds;
+            bool _4 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_CLOUD_TIME_CHAR_CREATED"), timestamp, 1) == 1;
+            bool _5 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_PS_TIME_CHAR_CREATED"), timestamp, 1) == 1;
+
+            // Duration
+            int duration = Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000));
+            bool _6 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_TOTAL_PLAYING_TIME"), duration, 1) == 1;
+            bool _7 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MPPLY_TOTAL_TIME_SPENT_FREEMODE"), duration, 1) == 1;
+            bool _8 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("LEADERBOARD_PLAYING_TIME"), duration, 1) == 1;
 
             // Output
             MessageBox.Show(

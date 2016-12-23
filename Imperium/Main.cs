@@ -346,7 +346,7 @@ namespace Imperium
         }
         class Outfit
         {
-            public static uint pointer = 0x02223518;
+            public static uint pointer = 0x02223918;
             public static uint len_struct = 0x34;
             public static uint len_struct_a = 0x28;
             public static uint len_name = 32;

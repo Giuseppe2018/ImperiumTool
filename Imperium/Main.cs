@@ -23,10 +23,16 @@ namespace Imperium
 
         class RPC
         {
-            private static uint SFA1 = 0x1BF5000;
-            private static uint EFA1 = 0x1BF5088;
+            // 1.27
+            private static uint SFA1 = 0x1BE4C80;
+            private static uint EFA1 = 0x1BE4D08;
             private static uint BFA1 = 0x18614;
             private static uint BAB1 = 0x18620;
+            // 1.26
+            /*private static uint SFA1 = 0x1BF5000;
+            private static uint EFA1 = 0x1BF5088;
+            private static uint BFA1 = 0x18614;
+            private static uint BAB1 = 0x18620;*/
 
             public static uint CBAB(uint F, uint T)
             {

@@ -5875,7 +5875,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Imperium Account Editor 0.8.1  [1.27/BLES/PS3]";
+            this.Text = "Imperium Account Editor 0.8.2  [1.27/BLES/PS3]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);

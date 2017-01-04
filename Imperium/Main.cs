@@ -1706,6 +1706,7 @@ namespace Imperium
                 garUpdating = false;
             }
         }
+
         public uint DateStruct_2_Memory(int _year, int _month, int _day, int _hour, int _minute, int _second, int _millisecond)
         {
             uint location = 0x10030000;
@@ -1718,10 +1719,12 @@ namespace Imperium
             PS3.Extension.WriteInt32(0x10030000 + 24, _millisecond);
             return location;
         }
+
         private string Cap1(string text)
         {
             return text.Substring(0, 1).ToUpper() + text.Substring(1, text.Length - 1).ToLower();
         }
+
         string formatStat(string stat)
         {
             return stat.Contains("MPPLY_") ? stat : ("MP0_" + stat);

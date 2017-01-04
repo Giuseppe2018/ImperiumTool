@@ -6,11 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
-using System.Net.NetworkInformation;
 
 namespace Imperium
 {
@@ -1127,11 +1127,13 @@ namespace Imperium
             InitializeComponent();
 
             #region Server Data
-            if (new Ping().Send("lexicongta.com").Status == IPStatus.Success) // Server is online
+            // Check if server is online
+            if (new Ping().Send("lexicongta.com").Status == IPStatus.Success)
             {
+                // Connect to json
                 System.Net.HttpWebRequest Request =
                     (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://lexicongta.com/imperium/client_data.json");
-                Request.UserAgent = "dick";
+                Request.UserAgent = "dick"; // It was returning a 502 error without editing the user agent.
                 var Response = Request.GetResponse().GetResponseStream();
                 using (StreamReader sr = new StreamReader(Response))
                 {
@@ -1140,7 +1142,7 @@ namespace Imperium
                     #region Main
                     if (ImperiumData.ContainsKey("name") && ImperiumData.ContainsKey("tag"))
                     {
-                        this.Text = $"{ImperiumData["name"]} {Variables.versionLabel} {ImperiumData["tag"]}";
+                        Text = $"{ImperiumData["name"]} {Variables.versionLabel} {ImperiumData["tag"]}";
                     }
 
                     if (ImperiumData.ContainsKey("latest_version") && ImperiumData.ContainsKey("latest_version_label"))
@@ -1250,7 +1252,7 @@ namespace Imperium
             }
             else
             {
-                this.Text = $"Imperium Account Editor {Variables.versionLabel} [PS3 BLES 1.27]";
+                Text = $"Imperium Account Editor {Variables.versionLabel} [PS3 BLES 1.27]";
                 DevExpress.XtraEditors.XtraMessageBox.Show(
                 "Unable to connect to server! (lexicongta.com)\n" +
                 "The server is used to grab information about new updates & ensure compatibility with the latest GTA update.\n" +
@@ -1280,6 +1282,7 @@ namespace Imperium
                 }
             }
             else MessageBox.Show(settings_filepath + " is missing! :(");
+
             // Initialize Vehicle Models
             string vehicles_filepath = "Data/Vehicles.json";
             if (File.Exists(vehicles_filepath))
@@ -1387,6 +1390,7 @@ namespace Imperium
         #endregion
 
         #region Functions
+
         public static uint Hash(string input)
         {
             byte[] stingbytes = Encoding.UTF8.GetBytes(input.ToLower());
@@ -1421,17 +1425,17 @@ namespace Imperium
                 uint address = value is int ? Natives.STAT_SET_INT : Natives.STAT_SET_BOOL;
                 if (stat.Contains("MPPLY_"))
                 {
-                    RPC.Call(address, Main.Hash(stat), Convert.ToInt32(value), 1);
+                    RPC.Call(address, Hash(stat), Convert.ToInt32(value), 1);
                 }
                 else
                 {
                     if (Variables.character1)
                     {
-                        RPC.Call(address, Main.Hash("MP0_" + stat), Convert.ToInt32(value), 1);
+                        RPC.Call(address, Hash("MP0_" + stat), Convert.ToInt32(value), 1);
                     }
                     if (Variables.character2)
                     {
-                        RPC.Call(address, Main.Hash("MP1_" + stat), (int)value, 1);
+                        RPC.Call(address, Hash("MP1_" + stat), (int)value, 1);
                     }
                 }
             }
@@ -1439,17 +1443,17 @@ namespace Imperium
             {
                 if (stat.Contains("MPPLY_"))
                 {
-                    RPC.Call(Natives.STAT_SET_FLOAT, Main.Hash(stat), (float)value, 1);
+                    RPC.Call(Natives.STAT_SET_FLOAT, Hash(stat), (float)value, 1);
                 }
                 else
                 {
                     if (Variables.character1)
                     {
-                        RPC.Call(Natives.STAT_SET_FLOAT, Main.Hash("MP0_" + stat), (float)value, 1);
+                        RPC.Call(Natives.STAT_SET_FLOAT, Hash("MP0_" + stat), (float)value, 1);
                     }
                     if (Variables.character2)
                     {
-                        RPC.Call(Natives.STAT_SET_FLOAT, Main.Hash("MP1_" + stat), (float)value, 1);
+                        RPC.Call(Natives.STAT_SET_FLOAT, Hash("MP1_" + stat), (float)value, 1);
                     }
                 }
             }
@@ -1540,6 +1544,7 @@ namespace Imperium
             }
             return data;
         }
+
         void refreshOutfitListing()
         {
             int index = aoListing.SelectedIndex;
@@ -1550,6 +1555,7 @@ namespace Imperium
             }
             aoListing.SelectedIndex = index;
         }
+
         void aoeRefreshControls()
         {
             if (aoListing.SelectedIndex != -1)
@@ -1738,6 +1744,14 @@ namespace Imperium
         #endregion
 
         #region Options
+
+        private void advert_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://lexicongta.com/order");
+        }
+
+        #region General
+
         private void gContacts_Click(object sender, EventArgs e)
         {
             setStatKeywordQuery("contacts");
@@ -1840,6 +1854,7 @@ namespace Imperium
         {
             Lib.boolNotify(Tunables.valentinesDLC());
         }
+
         private void uIdleKick_Click(object sender, EventArgs e)
         {
             Lib.boolNotify(Tunables.idleKick());
@@ -1898,322 +1913,6 @@ namespace Imperium
             RPC.Call(Natives.MEM_MONEY, Convert.ToInt32(gAddCash.Text), 0);
         }
 
-        private void aoRefresh_Click(object sender, EventArgs e)
-        {
-            refreshOutfitListing();
-            aoListing.SelectedIndex = outfitTabs.SelectedTabPageIndex = 0;
-        }
-
-        private void aoListing_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            aoeRefreshControls();
-        }
-
-        private void aoeSave_Click(object sender, EventArgs e)
-        {
-            // Load XML
-            string filepath = "Data/Outfits.xml";
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filepath);
-
-            // Find outfit node
-            XmlNode foundNode = null;
-            foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
-            {
-                if (node.Attributes["title"].InnerText == aoListing.Text)
-                {
-                    foundNode = node;
-                }
-            }
-
-            // Set title
-            foundNode.Attributes["title"].InnerText = aoeTitle.Text;
-
-            // Set values
-            DevExpress.XtraEditors.SpinEdit[] aoeControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_m, aoeHat_m, aoeEyes_m, aoeEars_m, aoeHair_m, aoeTorso_m, aoeTops1_m, aoeTops2_m, aoeLegs_m, aoeShoes_m, aoeFace_m, aoeExtra_m, aoeHands_m, aoeArmor_m, aoeEmblem_m };
-            DevExpress.XtraEditors.SpinEdit[] aoeControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_t, aoeHat_t, aoeEyes_t, aoeEars_t, aoeHair_t, aoeTorso_t, aoeTops1_t, aoeTops2_t, aoeLegs_t, aoeShoes_t, aoeFace_t, aoeExtra_t, aoeHands_t, aoeArmor_t, aoeEmblem_t };
-            for (int i = 0; i < aoElements.Count(); i++)
-            {
-                foundNode.SelectSingleNode(aoElements[i]).Attributes["model"].InnerText = aoeControls_m[i].Text;
-                foundNode.SelectSingleNode(aoElements[i]).Attributes["texture"].InnerText = aoeControls_t[i].Text;
-            }
-
-            // Set gender
-            foundNode.Attributes["gender"].InnerText = aoeGender.SelectedIndex == 0 ? "male" : "female";
-            // Set description
-            foundNode.SelectSingleNode("description").InnerXml = aoeDescription.Text;
-
-            // Save XML
-            doc.Save(filepath);
-
-            refreshOutfitListing();
-        }
-
-        private void aoaAdd_Click(object sender, EventArgs e)
-        {
-            // Load XML
-            string filepath = "Data/Outfits.xml";
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filepath);
-
-            // Create main node
-            XmlNode node = doc.CreateNode(XmlNodeType.Element, "outfit", null);
-
-            // Add title attribute to main node
-            XmlAttribute nodeTitle = doc.CreateAttribute("title");
-            nodeTitle.Value = aoaTitle.Text;
-            node.Attributes.SetNamedItem(nodeTitle);
-            XmlAttribute nodeGender = doc.CreateAttribute("gender");
-            nodeGender.Value = aoaGender.Text.ToLower();
-            node.Attributes.SetNamedItem(nodeGender);
-            XmlAttribute nodeCreator = doc.CreateAttribute("creator");
-            nodeCreator.Value = aoaCreator.Text;
-            node.Attributes.SetNamedItem(nodeCreator);
-
-            DevExpress.XtraEditors.SpinEdit[] aoaControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoaMask_m, aoaHat_m, aoaEyes_m, aoaEars_m, aoaHair_m, aoaTorso_m, aoaTops1_m, aoaTops2_m, aoaLegs_m, aoaShoes_m, aoaFace_m, aoaExtra_m, aoaHands_m, aoaArmor_m, aoaEmblem_m };
-            DevExpress.XtraEditors.SpinEdit[] aoaControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoaMask_t, aoaHat_t, aoaEyes_t, aoaEars_t, aoaHair_t, aoaTorso_t, aoaTops1_t, aoaTops2_t, aoaLegs_t, aoaShoes_t, aoaFace_t, aoaExtra_t, aoaHands_t, aoaArmor_t, aoaEmblem_t };
-            for (int i = 0; i < aoElements.Count(); i++)
-            {
-                // Create new node
-                XmlNode newNode = doc.CreateElement(aoElements[i]);
-
-                // Add model attribute to new node
-                XmlAttribute newNode_m = doc.CreateAttribute("model");
-                newNode_m.Value = aoaControls_m[i].Text;
-                newNode.Attributes.SetNamedItem(newNode_m);
-
-                XmlAttribute newNode_t = doc.CreateAttribute("texture");
-                newNode_t.Value = aoaControls_t[i].Text;
-                newNode.Attributes.SetNamedItem(newNode_t);
-
-                // Add new node to main node
-                node.AppendChild(newNode);
-            }
-
-            // Add description
-            XmlNode descriptionNode = doc.CreateElement("description");
-            descriptionNode.InnerXml = aoaDescription.Text == "" ? "None" : aoaDescription.Text;
-            node.AppendChild(descriptionNode);
-
-            // Add main node to XML
-            doc.DocumentElement.AppendChild(node);
-
-            // Save XML
-            doc.Save(filepath);
-
-            refreshOutfitListing();
-        }
-
-        private void aoEquip_Click(object sender, EventArgs e)
-        {
-            Reset();
-            setClothing("MASK", aoeMask_m.Text, aoeMask_t.Text);
-            setClothing("HAT", aoeHat_m.Text, aoeHat_t.Text);
-            setClothing("EYES", aoeEyes_m.Text, aoeEyes_t.Text);
-            setClothing("EARS", aoeEars_m.Text, aoeEars_t.Text);
-            setClothing("HAIR", aoeHair_m.Text, aoeHair_t.Text);
-            setClothing("TORSO", aoeTorso_m.Text, aoeTorso_t.Text);
-            setClothing("TOPS1", aoeTops1_m.Text, aoeTops1_t.Text);
-            setClothing("TOPS2", aoeTops2_m.Text, aoeTops2_t.Text);
-            setClothing("LEGS", aoeLegs_m.Text, aoeLegs_t.Text);
-            setClothing("SHOES", aoeShoes_m.Text, aoeShoes_t.Text);
-            setClothing("FACE", aoeFace_m.Text, aoeFace_t.Text);
-            setClothing("EXTRA", aoeExtra_m.Text, aoeExtra_t.Text);
-            setClothing("HANDS", aoeHands_m.Text, aoeHands_t.Text);
-            setClothing("ARMOR", aoeArmor_m.Text, aoeArmor_t.Text);
-            setClothing("EMBLEM", aoeEmblem_m.Text, aoeEmblem_t.Text);
-        }
-
-        private void aoDelete_Click(object sender, EventArgs e)
-        {
-            if (aoListing.SelectedIndex != -1)
-            {
-                string filepath = "Data/Outfits.xml";
-                XmlDocument doc = new XmlDocument();
-                doc.Load(filepath);
-
-                XmlNode foundNode = null;
-                foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
-                {
-                    if (node.Attributes["title"].InnerText == aoListing.Text)
-                    {
-                        foundNode = node;
-                    }
-                }
-                foundNode.ParentNode.RemoveChild(foundNode);
-                doc.Save(filepath);
-                aoListing.SelectedIndex = 0;
-                refreshOutfitListing();
-            }
-        }
-
-        private void exSkillEnhanced_Click(object sender, EventArgs e)
-        {
-            setStat("SCRIPT_INCREASE_DRIV", 120);
-            setStat("SCRIPT_INCREASE_FLY", 120);
-            setStat("SCRIPT_INCREASE_LUNG", 120);
-            setStat("SCRIPT_INCREASE_MECH", 120);
-            setStat("SCRIPT_INCREASE_SHO", 120);
-            setStat("SCRIPT_INCREASE_STAM", 120);
-            setStat("SCRIPT_INCREASE_STL", 120);
-            setStat("SCRIPT_INCREASE_STRN", 120);
-        }
-
-        private void exSkillSuperhuman_Click(object sender, EventArgs e)
-        {
-            setStat("SCRIPT_INCREASE_DRIV", 1000);
-            setStat("SCRIPT_INCREASE_FLY", 1000);
-            setStat("SCRIPT_INCREASE_LUNG", 1000);
-            setStat("SCRIPT_INCREASE_MECH", 1000);
-            setStat("SCRIPT_INCREASE_SHO", 1000);
-            setStat("SCRIPT_INCREASE_STAM", 1000);
-            setStat("SCRIPT_INCREASE_STL", 1000);
-            setStat("SCRIPT_INCREASE_STRN", 1000);
-        }
-
-        private void sdSync_Click(object sender, EventArgs e)
-        {
-            NativeFunctions.save();
-        }
-
-        private void sdE_set_Click(object sender, EventArgs e)
-        {
-            switch (sdE_t.Text)
-            {
-                case "int":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToInt32(sdE_v.Text), 1)))
-                        sdE_r.Text = "Stat Query Successful!";
-                    else sdE_r.Text = "Stat Query Failed...";
-                    break;
-                case "s64":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToInt64(sdE_v.Text), 1)))
-                        sdE_r.Text = "Stat Query Successful!";
-                    else sdE_r.Text = "Stat Query Failed...";
-                    break;
-                case "u8":
-                case "u16":
-                case "u32":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToUInt32(sdE_v.Text), 1)))
-                        sdE_r.Text = "Stat Query Successful!";
-                    else sdE_r.Text = "Stat Query Failed...";
-                    break;
-                case "u64":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToUInt64(sdE_v.Text), 1)))
-                        sdE_r.Text = "Stat Query Successful!";
-                    else sdE_r.Text = "Stat Query Failed...";
-                    break;
-                case "bool":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_BOOL, Hash(sdE_s.Text), Convert.ToInt32(sdE_v.Text), 1)))
-                        sdE_r.Text = "Stat Query Successful!";
-                    else sdE_r.Text = "Stat Query Failed...";
-                    break;
-                case "float":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_FLOAT, Hash(sdE_s.Text), float.Parse((sdE_v.Text)), 1)))
-                        sdE_r.Text = "Stat Query Successful!";
-                    else sdE_r.Text = "Stat Query Failed...";
-                    break;
-                case "string":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_STRING, Hash(sdE_s.Text), sdE_v.Text, 1)))
-                        sdE_r.Text = "Stat Query Successful!";
-                    else sdE_r.Text = "Stat Query Failed...";
-                    break;
-                case "userid":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_USER_ID, Hash(sdE_s.Text), sdE_v.Text, 1)))
-                        sdE_r.Text = "Stat Query Successful!";
-                    else sdE_r.Text = "Stat Query Failed...";
-                    break;
-            }
-        }
-        
-        private void sdV_get_Click(object sender, EventArgs e)
-        {
-            switch (sdV_t.Text)
-            {
-                case "int":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
-                    {
-                        sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
-                        sdV_r.Text = "Stat Query Successful!";
-                    }
-                    else
-                    {
-                        sdV_v.Text = "";
-                        sdV_r.Text = "Stat Query Failed...";
-                    }
-                    break;
-                case "s64":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
-                    {
-                        sdV_v.Text = PS3.Extension.ReadInt64(0x10030040).ToString();
-                        sdV_r.Text = "Stat Query Successful!";
-                    }
-                    else
-                    {
-                        sdV_v.Text = "";
-                        sdV_r.Text = "Stat Query Failed...";
-                    }
-                    break;
-                case "u8":
-                case "u16":
-                case "u32":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
-                    {
-                        sdV_v.Text = PS3.Extension.ReadUInt32(0x10030040).ToString();
-                        sdV_r.Text = "Stat Query Successful!";
-                    }
-                    else
-                    {
-                        sdV_v.Text = "";
-                        sdV_r.Text = "Stat Query Failed...";
-                    }
-                    break;
-                case "u64":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
-                    {
-                        sdV_v.Text = PS3.Extension.ReadUInt64(0x10030040).ToString();
-                        sdV_r.Text = "Stat Query Successful!";
-                    }
-                    else
-                    {
-                        sdV_v.Text = "";
-                        sdV_r.Text = "Stat Query Failed...";
-                    }
-                    break;
-                case "bool":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_BOOL, Hash(sdV_s.Text), 0x10030040)))
-                    {
-                        sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
-                        sdV_r.Text = "Stat Query Successful!";
-                    }
-                    else
-                    {
-                        sdV_v.Text = "";
-                        sdV_r.Text = "Stat Query Failed...";
-                    }
-                    break;
-                case "float":
-                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_FLOAT, Hash(sdV_s.Text), 0x10030040)))
-                    {
-                        sdV_v.Text = PS3.Extension.ReadFloat(0x10030040).ToString();
-                        sdV_r.Text = "Stat Query Successful!";
-                    }
-                    else
-                    {
-                        sdV_v.Text = "";
-                        sdV_r.Text = "Stat Query Failed...";
-                    }
-                    break;
-                case "string":
-                    sdV_v.Text = PS3.Extension.ReadString(Convert.ToUInt32(RPC.Call(Natives.STAT_GET_STRING, Hash(sdV_s.Text), -1)));
-                    sdV_r.Text = "";
-                    break;
-                case "userid":
-                    sdV_v.Text = PS3.Extension.ReadString(Convert.ToUInt32(RPC.Call(Natives.STAT_GET_USER_ID, Hash(sdV_s.Text))));
-                    sdV_r.Text = "";
-                    break;
-            }
-        }
-
         private void gModdedRoll_Click(object sender, EventArgs e)
         {
             setStat("SCRIPT_INCREASE_STL", 600);
@@ -2229,183 +1928,6 @@ namespace Imperium
         private void gResetTimer_Click(object sender, EventArgs e)
         {
             setStat("MPPLY_VEHICLE_SELL_TIME", 0);
-        }
-        
-        private void otftListing_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            otftDoRefresh();
-        }
-
-        private void otR_Click(object sender, EventArgs e)
-        {
-            otftDoRefresh(true);
-        }
-
-        private void ot1_s_Click(object sender, EventArgs e)
-        {
-            Outfit.Name(otftListing.SelectedIndex, otftTitle.Text);
-            OutfitStruct outfit = Outfit.Fetch(otftListing.SelectedIndex);
-            outfit.mask = Convert.ToInt32(otft_eMask_m.Value);
-            outfit.maskT = Convert.ToInt32(otft_eMask_t.Value);
-            outfit.torso = Convert.ToInt32(otft_eTorso_m.Value);
-            outfit.torsoT = Convert.ToInt32(otft_eTorso_t.Value);
-            outfit.legs = Convert.ToInt32(otft_eLegs_m.Value);
-            outfit.legsT = Convert.ToInt32(otft_eLegs_t.Value);
-            outfit.hands = Convert.ToInt32(otft_eHands_m.Value);
-            outfit.handsT = Convert.ToInt32(otft_eHands_t.Value);
-            outfit.shoes = Convert.ToInt32(otft_eShoes_m.Value);
-            outfit.shoesT = Convert.ToInt32(otft_eShoes_t.Value);
-            outfit.extra = Convert.ToInt32(otft_eExtra_m.Value);
-            outfit.extraT = Convert.ToInt32(otft_eExtra_t.Value);
-            outfit.tops1 = Convert.ToInt32(otft_eTops1_m.Value);
-            outfit.tops1T = Convert.ToInt32(otft_eTops1_t.Value);
-            outfit.armor = Convert.ToInt32(otft_eArmor_m.Value);
-            outfit.armorT = Convert.ToInt32(otft_eArmor_t.Value);
-            outfit.emblem = Convert.ToInt32(otft_eEmblem_m.Value);
-            outfit.emblemT = Convert.ToInt32(otft_eEmblem_t.Value);
-            outfit.tops2 = Convert.ToInt32(otft_eTops2_m.Value);
-            outfit.tops2T = Convert.ToInt32(otft_eTops2_t.Value);
-            outfit.hat = Convert.ToInt32(otft_eHat_m.Value);
-            outfit.hatT = Convert.ToInt32(otft_eHat_t.Value);
-            outfit.eyes = Convert.ToInt32(otft_eEyes_m.Value);
-            outfit.eyesT = Convert.ToInt32(otft_eEyes_t.Value);
-            outfit.ears = Convert.ToInt32(otft_eEars_m.Value);
-            outfit.earsT = Convert.ToInt32(otft_eEars_t.Value);
-            Outfit.Apply(otftListing.SelectedIndex, outfit);
-            otftDoRefresh(true);
-        }
-
-        private void otftMod_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (otftMod.Text)
-            {
-                case "Font - Pricedown":
-                    {
-                        otftTitle.Text = "~s~<font face=\"$gtaCash\">Text";
-                        break;
-                    }
-                case "Font - Sign-Painter":
-                    {
-                        otftTitle.Text = "~s~<font face=\"$Font5\">Text";
-                        break;
-                    }
-                case "Font - Chalet":
-                    {
-                        otftTitle.Text = "~s~<font face=\"$Font2_cond\">Text";
-                        break;
-                    }
-                case "Icon - R* Verified":
-                    {
-                        if (otftTitle.Text.Length <= 30)
-                            otftTitle.Text += "¦";
-                        break;
-                    }
-                case "Icon - R* Logo #1":
-                    {
-                        if (otftTitle.Text.Length <= 30)
-                            otftTitle.Text += "÷";
-                        break;
-                    }
-                case "Icon - R* Logo #2":
-                    {
-                        if (otftTitle.Text.Length <= 30)
-                            otftTitle.Text += "∑";
-                        break;
-                    }
-                case "Icon - Wanted Star":
-                    {
-                        if (otftTitle.Text.Length <= 27)
-                            otftTitle.Text += "~ws~";
-                        break;
-                    }
-                case "Icon - Lock":
-                    {
-                        if (otftTitle.Text.Length <= 30)
-                            otftTitle.Text += "Ω";
-                        break;
-                    }
-                case "Size - Small":
-                    {
-                        otftTitle.Text = "~s~<font size=\"10\">Text";
-                        break;
-                    }
-                case "Size - Large":
-                    {
-                        otftTitle.Text = "~s~<font size=\"50\">Text";
-                        break;
-                    }
-                case "Size - Huge":
-                    {
-                        otftTitle.Text = "~s~<font size=\"200\">Text";
-                        break;
-                    }
-                case "Color - RGB":
-                    {
-                        otftTitle.Text = "~s~<font color=\"#FF0000\">Text";
-                        break;
-                    }
-                case "Color - Blue":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~b~";
-                        break;
-                    }
-                case "Color - Gold":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~y~";
-                        break;
-                    }
-                case "Color - Green":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~g~";
-                        break;
-                    }
-                case "Color - Light Blue":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~f~";
-                        break;
-                    }
-                case "Color - Orange":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~o~";
-                        break;
-                    }
-                case "Color - Purple":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~p~";
-                        break;
-                    }
-                case "Color - Red":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~r~";
-                        break;
-                    }
-                case "Color - Teal":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~d~";
-                        break;
-                    }
-                case "Style - Bold":
-                    {
-                        if (otftTitle.Text.Length <= 28)
-                            otftTitle.Text += "~h~";
-                        break;
-                    }
-                case "Style - Italic":
-                    {
-                        if (otftTitle.Text.Length <= 23)
-                            otftTitle.Text += "~italic~";
-                        break;
-                    }
-            }
-            otftMod.SelectedIndex = -1;
         }
 
         private void gDeductTotal_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -2438,325 +1960,6 @@ namespace Imperium
             {
                 setStat(firework, Convert.ToInt32(gFireworks.Text));
             }
-        }
-        private void advert_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://lexicongta.com/order");
-        }
-        private void garModel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var query = (from item in VehicleModels
-                         where item.Key == garModel.Text
-                         select new { item.Value }).SingleOrDefault();
-            uint model = Hash(query.Value);
-            Garage.setUint(garListing.SelectedIndex, Garage.Model, model);
-            Garage.resetSlot(garListing.SelectedIndex);
-            refreshGarage();
-        }
-
-        private void garListing_Refresh_Click(object sender, EventArgs e)
-        {
-            refreshGarage();
-        }
-
-        private void simpleButton1_Click_1(object sender, EventArgs e)
-        {
-            for (int i = 0; i < 13; i++)
-            {
-                Garage.setByte(i, Garage.Paint_Primary, Convert.ToByte(120));
-                Garage.resetSlot(i);
-            }
-        }
-
-        private void garListing_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            refreshGarageControls();
-        }
-
-        private void garRefresh_Click(object sender, EventArgs e)
-        {
-            refreshGarageControls();
-        }
-
-        private void garPlateText_EditValueChanged(object sender, EventArgs e)
-        {
-            if (!garUpdating && garPlateText.Text.Length <= 8)
-            {
-                Garage.setString(garListing.SelectedIndex, Garage.Plate_Text, garPlateText.Text);
-                Garage.resetSlot(garListing.SelectedIndex);
-            }
-        }
-
-        private void simpleButton2_Click_1(object sender, EventArgs e)
-        {
-            Garage.setByte(garListing.SelectedIndex, Garage.Paint_Primary, Convert.ToByte(120));
-            Garage.resetSlot(garListing.SelectedIndex);
-        }
-
-        private void garRGB_Prim_EditValueChanged(object sender, EventArgs e)
-        {
-            if (!garUpdating)
-            {
-                int i = garListing.SelectedIndex;
-                Garage.setUint(i, Garage.RGB_Cache_R, garRGB.Color.R);
-                Garage.setUint(i, Garage.RGB_Cache_G, garRGB.Color.G);
-                Garage.setUint(i, Garage.RGB_Cache_B, garRGB.Color.B);
-            }
-        }
-
-        private void garRGB_Prim_Set_Click(object sender, EventArgs e)
-        {
-            int i = garListing.SelectedIndex;
-            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) | Garage.RGB_Primary);
-            Garage.resetSlot(i);
-        }
-
-        private void garRGB_Prim_Clear_Click(object sender, EventArgs e)
-        {
-            int i = garListing.SelectedIndex;
-            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Primary));
-            Garage.resetSlot(i);
-        }
-        private void garRGB_Sec_Set_Click(object sender, EventArgs e)
-        {
-            int i = garListing.SelectedIndex;
-            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) | Garage.RGB_Secondary);
-            Garage.resetSlot(i);
-        }
-
-        private void garRGB_Sec_Clear_Click(object sender, EventArgs e)
-        {
-            int i = garListing.SelectedIndex;
-            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Secondary));
-            Garage.resetSlot(i);
-        }
-
-        private void simpleButton2_Click_2(object sender, EventArgs e)
-        {
-            // Old Date
-            uint old_date = DateStruct_2_Memory(2015, 12, 24, 0, 0, 0, 0);
-            bool _1 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_CREATED"), old_date, 7, 1) == 1;
-            bool _2 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MPPLY_STARTED_MP"), old_date, 1) == 1;
-
-            // Recent Date
-            uint new_date = DateStruct_2_Memory(2016, 8, 11, 6, 34, 54, 23);
-            bool _3 = RPC.Call(Natives.STAT_SET_DATE, Main.Hash("MP0_CHAR_DATE_RANKUP"), new_date, 7, 1) == 1;
-
-            // Posix/Unix Timestamp
-            int timestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(2015, 12, 24))).TotalSeconds;
-            bool _4 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_CLOUD_TIME_CHAR_CREATED"), timestamp, 1) == 1;
-            bool _5 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_PS_TIME_CHAR_CREATED"), timestamp, 1) == 1;
-
-            // Duration
-            int duration = Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000));
-            bool _6 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MP0_TOTAL_PLAYING_TIME"), duration, 1) == 1;
-            bool _7 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("MPPLY_TOTAL_TIME_SPENT_FREEMODE"), duration, 1) == 1;
-            bool _8 = RPC.Call(Natives.STAT_SET_INT, Main.Hash("LEADERBOARD_PLAYING_TIME"), duration, 1) == 1;
-
-            // Output
-            MessageBox.Show(
-                "#1 " + (_1 ? "Worked\n" : "Failed\n") +
-                "#2 " + (_2 ? "Worked\n" : "Failed\n") +
-                "#3 " + (_3 ? "Worked\n" : "Failed\n") +
-                "#4 " + (_4 ? "Worked\n" : "Failed\n") +
-                "#5 " + (_5 ? "Worked\n" : "Failed\n") +
-                "#6 " + (_6 ? "Worked\n" : "Failed\n") +
-                "#7 " + (_7 ? "Worked\n" : "Failed\n") +
-                "#8 " + (_8 ? "Worked\n" : "Failed\n") +
-                "");
-        }
-
-        private void dbgrDate_V_Do_Click(object sender, EventArgs e)
-        {
-            dbgrDate_V_Response.Text = RPC.Call(Natives.STAT_GET_DATE, Main.Hash(dbgrDate_V_Stat.Text), 0x10030000, 7, 3) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
-
-            dbgrDate_V_Year.Text = PS3.Extension.ReadInt32(0x10030000).ToString();
-            dbgrDate_V_Month.Text = PS3.Extension.ReadInt32(0x10030000 + 4).ToString();
-            dbgrDate_V_Day.Text = PS3.Extension.ReadInt32(0x10030000 + 8).ToString();
-            dbgrDate_V_Hour.Text = PS3.Extension.ReadInt32(0x10030000 + 12).ToString();
-            dbgrDate_V_Minute.Text = PS3.Extension.ReadInt32(0x10030000 + 16).ToString();
-            dbgrDate_V_Second.Text = PS3.Extension.ReadInt32(0x10030000 + 20).ToString();
-        }
-
-        private void dbgrDate_E_Do_Click(object sender, EventArgs e)
-        {
-            uint date = DateStruct_2_Memory(
-                Convert.ToInt32(dbgrDate_E_Year.Text),
-                Convert.ToInt32(dbgrDate_E_Month.Text),
-                Convert.ToInt32(dbgrDate_E_Day.Text),
-                Convert.ToInt32(dbgrDate_E_Hour.Text),
-                Convert.ToInt32(dbgrDate_E_Minute.Text),
-                Convert.ToInt32(dbgrDate_E_Second.Text),
-                0
-                );
-            dbgrDate_E_Response.Text = RPC.Call(Natives.STAT_SET_DATE, Main.Hash(dbgrDate_E_Stat.Text), date, 7, 1) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
-        }
-
-        private void dbgrPos_V_Do_Click(object sender, EventArgs e)
-        {
-            dbgrPos_V_Response.Text = RPC.Call(Natives.STAT_GET_POS, Main.Hash(dbgrPos_V_Stat.Text), 0x10030000, 0x10030000 + 4, 0x10030000 + 8, 0) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
-            dbgrPos_V_X.Text = PS3.Extension.ReadFloat(0x10030000).ToString();
-            dbgrPos_V_Y.Text = PS3.Extension.ReadFloat(0x10030000 + 4).ToString();
-            dbgrPos_V_Z.Text = PS3.Extension.ReadFloat(0x10030000 + 8).ToString();
-        }
-
-        private void dbgrPos_E_Do_Click(object sender, EventArgs e)
-        {
-            dbgrPos_E_Response.Text = RPC.Call(Natives.STAT_SET_POS, Main.Hash(dbgrPos_E_Stat.Text), float.Parse(dbgrPos_E_X.Text), float.Parse(dbgrPos_E_Y.Text), float.Parse(dbgrPos_E_Z.Text), 1) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
-        }
-
-        private void INS_File_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            xd_mp.Load("Data/StatFiles/" + INS_File.Text);
-            INS_Stat.Properties.Items.Clear();
-            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
-                INS_Stat.Properties.Items.Add((object)xmlNode.Value);
-            INS_Stat.SelectedIndex = 0;
-        }
-        private void INS_Stat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = 0;
-            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
-            {
-                if (xmlNode.Value == INS_Stat.Text)
-                {
-                    string deflabel = "Unavailable";
-
-                    try { INS_Type.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@Type")[index].Value); }
-                    catch { INS_Type.Text = deflabel; }
-                    try { if (xd_mp.SelectNodes("StatsSetup/stats/stat/@SaveCategory")[index].Value == "1") INS_Save.Text = "True"; else INS_Save.Text = "False"; }
-                    catch { INS_Save.Text = deflabel; }
-                    try { INS_Online.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@online")[index].Value); }
-                    catch { INS_Online.Text = deflabel; }
-                    try { INS_Profile.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@profile")[index].Value); }
-                    catch { INS_Profile.Text = deflabel; }
-                    try { INS_Owner.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@Owner")[index].Value); }
-                    catch { INS_Owner.Text = deflabel; }
-                    try { INS_Character.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@characterStat")[index].Value); }
-                    catch { INS_Character.Text = deflabel; }
-
-                    try { INS_ServerAuthoritative.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@ServerAuthoritative")[index].Value); }
-                    catch { INS_ServerAuthoritative.Text = deflabel; }
-                    try { INS_FlushPriority.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@FlushPriority")[index].Value; }
-                    catch { INS_FlushPriority.Text = deflabel; }
-                    try { INS_UserData.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@UserData")[index].Value; }
-                    catch { INS_UserData.Text = deflabel; }
-                    try { INS_Default.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Default")[index].Value; }
-                    catch { INS_Default.Text = deflabel; }
-                    try { INS_Min.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Min")[index].Value; }
-                    catch { INS_Min.Text = deflabel; }
-                    try { INS_Max.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Max")[index].Value; }
-                    catch { INS_Max.Text = deflabel; }
-
-                    try { INS_Comment.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Comment")[index].Value; }
-                    catch { INS_Comment.Text = deflabel; }
-                }
-                ++index;
-            }
-        }
-
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            setStat("CHAR_WEAP_VIEWED", -1);
-            setStat("CHAR_WEAP_VIEWED2", -1);
-            setStat("CHAR_WEAP_VIEWED3", -1);
-            setStat("CHAR_WEAP_ADDON_1_VIEWED", -1);
-            setStat("CHAR_WEAP_ADDON_2_VIEWED", -1);
-            setStat("CHAR_WEAP_ADDON_3_VIEWED", -1);
-            setStat("CHAR_WEAP_ADDON_4_VIEWED", -1);
-            setStat("CHAR_WEAP_ADDON_5_VIEWED", -1);
-            setStat("CHAR_WEAP_ADDON_6_VIEWED", -1);
-            setStat("CHAR_KIT_1_FM_VIEWED", -1);
-            setStat("CHAR_KIT_2_FM_VIEWED", -1);
-            setStat("CHAR_KIT_3_FM_VIEWED", -1);
-            setStat("CHAR_KIT_4_FM_VIEWED", -1);
-            setStat("CHAR_KIT_5_FM_VIEWED", -1);
-            setStat("CHAR_KIT_6_FM_VIEWED", -1);
-            setStat("CHAR_KIT_7_FM_VIEWED", -1);
-            setStat("CHAR_KIT_8_FM_VIEWED", -1);
-            setStat("CHAR_KIT_9_FM_VIEWED", -1);
-            setStat("CHAR_KIT_10_FM_VIEWED", -1);
-            setStat("CHAR_KIT_11_FM_VIEWED", -1);
-            setStat("CHAR_KIT_12_FM_VIEWED", -1);
-            setStat("CHAR_KIT_13_FM_VIEWED", -1);
-            setStat("CHAR_KIT_14_FM_VIEWED", -1);
-            setStat("CHAR_KIT_15_FM_VIEWED", -1);
-            setStat("CHAR_KIT_16_FM_VIEWED", -1);
-            setStat("TATTOO_FM_VIEWED_0", -1);
-            setStat("TATTOO_FM_VIEWED_1", -1);
-            setStat("TATTOO_FM_VIEWED_2", -1);
-            setStat("TATTOO_FM_VIEWED_3", -1);
-            setStat("TATTOO_FM_VIEWED_4", -1);
-            setStat("TATTOO_FM_VIEWED_5", -1);
-            setStat("TATTOO_FM_VIEWED_6", -1);
-            setStat("TATTOO_FM_VIEWED_7", -1);
-            setStat("TATTOO_FM_VIEWED_8", -1);
-            setStat("TATTOO_FM_VIEWED_9", -1);
-            setStat("TATTOO_FM_VIEWED_10", -1);
-            setStat("TATTOO_FM_VIEWED_11", -1);
-            setStat("TATTOO_FM_VIEWED_12", -1);
-            setStat("CHAR_CARMODWHEELS_VIEWED_0", -1);
-            setStat("CHAR_CARMODWHEELS_VIEWED_1", -1);
-            setStat("CHAR_CARMODWHEELS_VIEWED_2", -1);
-            setStat("CHAR_CARMODWHEELS_VIEWED_3", -1);
-            setStat("CHAR_CARMODWHEELS_VIEWED_4", -1);
-            setStat("CHAR_CARMODWHEELS_VIEWED_5", -1);
-            setStat("CHAR_CARMODWHEELS_VIEWED_6", -1);
-            setStat("CHAR_CARMODWHEELS_VIEWED_7", -1);
-            setStat("CHAR_CARMODWHCOL_VIEWED_0", -1);
-            setStat("CHAR_CARMODWHCOL_VIEWED_1", -1);
-            setStat("CHAR_CARPAINTPRIME_VIEW_0", -1);
-            setStat("CHAR_CARPAINTPRIME_VIEW_1", -1);
-            setStat("CHAR_CARPAINTPRIME_VIEW_2", -1);
-            setStat("CHAR_CARPAINTPRIME_VIEW_3", -1);
-            setStat("CHAR_CARPAINTPRIME_VIEW_4", -1);
-            setStat("CHAR_CARPAINTPRIME_VIEW_5", -1);
-            setStat("CHAR_CARPAINTPRIME_VIEW_6", -1);
-            setStat("CHAR_CARPAINTPRIME_VIEW_7", -1);
-            setStat("CHAR_CARPAINTSEC_VIEW_0", -1);
-            setStat("CHAR_CARPAINTSEC_VIEW_1", -1);
-            setStat("CHAR_CARPAINTSEC_VIEW_2", -1);
-            setStat("CHAR_CARPAINTSEC_VIEW_3", -1);
-            setStat("CHAR_CARPAINTSEC_VIEW_4", -1);
-            setStat("CHAR_CARPAINTSEC_VIEW_5", -1);
-            setStat("CHAR_CARPAINTSEC_VIEW_6", -1);
-            setStat("CHAR_CARPAINTSEC_VIEW_7", -1);
-            setStat("CREW_EMBLEMS_PURCHASED", -1);
-            setStat("CHAR_HAIR_VIEWED1", -1);
-            setStat("CHAR_HAIR_VIEWED2", -1);
-            setStat("CHAR_HAIR_VIEWED3", -1);
-            setStat("CHAR_HAIR_VIEWED4", -1);
-            setStat("CHAR_HAIR_VIEWED5", -1);
-            setStat("CHAR_HAIR_VIEWED6", -1);
-            setStat("CHAR_HAIR_VIEWED7", -1);
-            setStat("CHAR_HAIR_VIEWED8", -1);
-            setStat("CHAR_HAIR_VIEWED9", -1);
-            setStat("CHAR_HAIR_VIEWED10", -1);
-            setStat("CHAR_HAIR_VIEWED11", -1);
-            setStat("CHAR_HAIR_VIEWED12", -1);
-        }
-        private void timeDur_Save_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                RPC.Call(Natives.STAT_SET_INT, Main.Hash(formatStat(timeDur_Stat.Text)),
-                    (Convert.ToUInt32(timeDur_Day.Text) * 86400000) +
-                    (Convert.ToUInt32(timeDur_Hour.Text) * 3600000) +
-                    (Convert.ToUInt32(timeDur_Minute.Text) * 60000) +
-                    (Convert.ToUInt32(timeDur_Second.Text) * 1000), 1);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
-
-        private void timeDate_Save_Click(object sender, EventArgs e)
-        {
-            uint new_date = DateStruct_2_Memory(
-                (int)timeDate_Year.Value, (int)timeDate_Month.Value, (int)timeDate_Day.Value, 
-                (int)timeDate_Hour.Value, (int)timeDate_Minute.Value, (int)timeDate_Second.Value, 0);
-            RPC.Call(Natives.STAT_SET_DATE, Main.Hash(formatStat(timeDate_Stat.Text)), new_date, 7, 1);
         }
 
         private void TMB_Do_Click(object sender, EventArgs e)
@@ -2870,18 +2073,31 @@ namespace Imperium
             "--- FOR TRANSFERRING ---\n1. Leave GTA Online.\n2. Transfer.\n(If you join a new session on PS3 after setting this, it won't transfer.)");
         }
 
-        private void simpleButton4_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Advanced
+        private void timeDur_Save_Click(object sender, EventArgs e)
         {
-            RPC.Call(Natives.STAT_SET_INT, Hash("SCADMIN_BADSPORT_START"), 0, 1);
-            RPC.Call(Natives.STAT_SET_INT, Hash("SCADMIN_BADSPORT_END"), 0, 1);
-            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_BAD_SPORT_BITSET"), 0, 1);
-            RPC.Call(Natives.STAT_SET_INT, Hash("MP1_BAD_SPORT_BITSET"), 0, 1);
-            RPC.Call(Natives.STAT_SET_BOOL, Hash("MPPLY_WAS_I_BAD_SPORT"), 0, 1);
-            RPC.Call(Natives.STAT_SET_FLOAT, Hash("MPPLY_OVERALL_BADSPORT"), 0, 1);
-            RPC.Call(Natives.STAT_SET_BOOL, Hash("MPPLY_CHAR_IS_BADSPORT"), 0, 1);
-            RPC.Call(Natives.STAT_SET_INT, Hash("MPPLY_BECAME_BADSPORT_NUM"), 0, 1);
-            RPC.Call(Natives.STAT_SET_INT, Hash("MPPLY_BADSPORT_MESSAGE"), 0, 1);
-            Tunables.escapeBadsport();
+            try
+            {
+                RPC.Call(Natives.STAT_SET_INT, Hash(formatStat(timeDur_Stat.Text)),
+                    (Convert.ToUInt32(timeDur_Day.Text) * 86400000) +
+                    (Convert.ToUInt32(timeDur_Hour.Text) * 3600000) +
+                    (Convert.ToUInt32(timeDur_Minute.Text) * 60000) +
+                    (Convert.ToUInt32(timeDur_Second.Text) * 1000), 1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void timeDate_Save_Click(object sender, EventArgs e)
+        {
+            uint new_date = DateStruct_2_Memory(
+                (int)timeDate_Year.Value, (int)timeDate_Month.Value, (int)timeDate_Day.Value,
+                (int)timeDate_Hour.Value, (int)timeDate_Minute.Value, (int)timeDate_Second.Value, 0);
+            RPC.Call(Natives.STAT_SET_DATE, Hash(formatStat(timeDate_Stat.Text)), new_date, 7, 1);
         }
 
         private void WS_Weapon_SelectedIndexChanged(object sender, EventArgs e)
@@ -3066,6 +2282,824 @@ namespace Imperium
             }
             else CMBT_BountOn.Text = "0";
         }
+        #endregion
+
+        #region Garage
+        private void garModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var query = (from item in VehicleModels
+                         where item.Key == garModel.Text
+                         select new { item.Value }).SingleOrDefault();
+            uint model = Hash(query.Value);
+            Garage.setUint(garListing.SelectedIndex, Garage.Model, model);
+            Garage.resetSlot(garListing.SelectedIndex);
+            refreshGarage();
+        }
+
+        private void garListing_Refresh_Click(object sender, EventArgs e)
+        {
+            refreshGarage();
+        }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                Garage.setByte(i, Garage.Paint_Primary, Convert.ToByte(120));
+                Garage.resetSlot(i);
+            }
+        }
+
+        private void garListing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refreshGarageControls();
+        }
+
+        private void garRefresh_Click(object sender, EventArgs e)
+        {
+            refreshGarageControls();
+        }
+
+        private void garPlateText_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!garUpdating && garPlateText.Text.Length <= 8)
+            {
+                Garage.setString(garListing.SelectedIndex, Garage.Plate_Text, garPlateText.Text);
+                Garage.resetSlot(garListing.SelectedIndex);
+            }
+        }
+
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            Garage.setByte(garListing.SelectedIndex, Garage.Paint_Primary, Convert.ToByte(120));
+            Garage.resetSlot(garListing.SelectedIndex);
+        }
+
+        private void garRGB_Prim_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!garUpdating)
+            {
+                int i = garListing.SelectedIndex;
+                Garage.setUint(i, Garage.RGB_Cache_R, garRGB.Color.R);
+                Garage.setUint(i, Garage.RGB_Cache_G, garRGB.Color.G);
+                Garage.setUint(i, Garage.RGB_Cache_B, garRGB.Color.B);
+            }
+        }
+
+        private void garRGB_Prim_Set_Click(object sender, EventArgs e)
+        {
+            int i = garListing.SelectedIndex;
+            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) | Garage.RGB_Primary);
+            Garage.resetSlot(i);
+        }
+
+        private void garRGB_Prim_Clear_Click(object sender, EventArgs e)
+        {
+            int i = garListing.SelectedIndex;
+            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Primary));
+            Garage.resetSlot(i);
+        }
+
+        private void garRGB_Sec_Set_Click(object sender, EventArgs e)
+        {
+            int i = garListing.SelectedIndex;
+            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) | Garage.RGB_Secondary);
+            Garage.resetSlot(i);
+        }
+
+        private void garRGB_Sec_Clear_Click(object sender, EventArgs e)
+        {
+            int i = garListing.SelectedIndex;
+            Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Secondary));
+            Garage.resetSlot(i);
+        }
+        #endregion
+
+        #region Appearance
+
+        private void aoRefresh_Click(object sender, EventArgs e)
+        {
+            refreshOutfitListing();
+            aoListing.SelectedIndex = outfitTabs.SelectedTabPageIndex = 0;
+        }
+
+        private void aoListing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            aoeRefreshControls();
+        }
+
+        private void aoeSave_Click(object sender, EventArgs e)
+        {
+            // Load XML
+            string filepath = "Data/Outfits.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+
+            // Find outfit node
+            XmlNode foundNode = null;
+            foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
+            {
+                if (node.Attributes["title"].InnerText == aoListing.Text)
+                {
+                    foundNode = node;
+                }
+            }
+
+            // Set title
+            foundNode.Attributes["title"].InnerText = aoeTitle.Text;
+
+            // Set values
+            DevExpress.XtraEditors.SpinEdit[] aoeControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_m, aoeHat_m, aoeEyes_m, aoeEars_m, aoeHair_m, aoeTorso_m, aoeTops1_m, aoeTops2_m, aoeLegs_m, aoeShoes_m, aoeFace_m, aoeExtra_m, aoeHands_m, aoeArmor_m, aoeEmblem_m };
+            DevExpress.XtraEditors.SpinEdit[] aoeControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_t, aoeHat_t, aoeEyes_t, aoeEars_t, aoeHair_t, aoeTorso_t, aoeTops1_t, aoeTops2_t, aoeLegs_t, aoeShoes_t, aoeFace_t, aoeExtra_t, aoeHands_t, aoeArmor_t, aoeEmblem_t };
+            for (int i = 0; i < aoElements.Count(); i++)
+            {
+                foundNode.SelectSingleNode(aoElements[i]).Attributes["model"].InnerText = aoeControls_m[i].Text;
+                foundNode.SelectSingleNode(aoElements[i]).Attributes["texture"].InnerText = aoeControls_t[i].Text;
+            }
+
+            // Set gender
+            foundNode.Attributes["gender"].InnerText = aoeGender.SelectedIndex == 0 ? "male" : "female";
+            // Set description
+            foundNode.SelectSingleNode("description").InnerXml = aoeDescription.Text;
+
+            // Save XML
+            doc.Save(filepath);
+
+            refreshOutfitListing();
+        }
+
+        private void aoaAdd_Click(object sender, EventArgs e)
+        {
+            // Load XML
+            string filepath = "Data/Outfits.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+
+            // Create main node
+            XmlNode node = doc.CreateNode(XmlNodeType.Element, "outfit", null);
+
+            // Add title attribute to main node
+            XmlAttribute nodeTitle = doc.CreateAttribute("title");
+            nodeTitle.Value = aoaTitle.Text;
+            node.Attributes.SetNamedItem(nodeTitle);
+            XmlAttribute nodeGender = doc.CreateAttribute("gender");
+            nodeGender.Value = aoaGender.Text.ToLower();
+            node.Attributes.SetNamedItem(nodeGender);
+            XmlAttribute nodeCreator = doc.CreateAttribute("creator");
+            nodeCreator.Value = aoaCreator.Text;
+            node.Attributes.SetNamedItem(nodeCreator);
+
+            DevExpress.XtraEditors.SpinEdit[] aoaControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoaMask_m, aoaHat_m, aoaEyes_m, aoaEars_m, aoaHair_m, aoaTorso_m, aoaTops1_m, aoaTops2_m, aoaLegs_m, aoaShoes_m, aoaFace_m, aoaExtra_m, aoaHands_m, aoaArmor_m, aoaEmblem_m };
+            DevExpress.XtraEditors.SpinEdit[] aoaControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoaMask_t, aoaHat_t, aoaEyes_t, aoaEars_t, aoaHair_t, aoaTorso_t, aoaTops1_t, aoaTops2_t, aoaLegs_t, aoaShoes_t, aoaFace_t, aoaExtra_t, aoaHands_t, aoaArmor_t, aoaEmblem_t };
+            for (int i = 0; i < aoElements.Count(); i++)
+            {
+                // Create new node
+                XmlNode newNode = doc.CreateElement(aoElements[i]);
+
+                // Add model attribute to new node
+                XmlAttribute newNode_m = doc.CreateAttribute("model");
+                newNode_m.Value = aoaControls_m[i].Text;
+                newNode.Attributes.SetNamedItem(newNode_m);
+
+                XmlAttribute newNode_t = doc.CreateAttribute("texture");
+                newNode_t.Value = aoaControls_t[i].Text;
+                newNode.Attributes.SetNamedItem(newNode_t);
+
+                // Add new node to main node
+                node.AppendChild(newNode);
+            }
+
+            // Add description
+            XmlNode descriptionNode = doc.CreateElement("description");
+            descriptionNode.InnerXml = aoaDescription.Text == "" ? "None" : aoaDescription.Text;
+            node.AppendChild(descriptionNode);
+
+            // Add main node to XML
+            doc.DocumentElement.AppendChild(node);
+
+            // Save XML
+            doc.Save(filepath);
+
+            refreshOutfitListing();
+        }
+
+        private void aoEquip_Click(object sender, EventArgs e)
+        {
+            Reset();
+            setClothing("MASK", aoeMask_m.Text, aoeMask_t.Text);
+            setClothing("HAT", aoeHat_m.Text, aoeHat_t.Text);
+            setClothing("EYES", aoeEyes_m.Text, aoeEyes_t.Text);
+            setClothing("EARS", aoeEars_m.Text, aoeEars_t.Text);
+            setClothing("HAIR", aoeHair_m.Text, aoeHair_t.Text);
+            setClothing("TORSO", aoeTorso_m.Text, aoeTorso_t.Text);
+            setClothing("TOPS1", aoeTops1_m.Text, aoeTops1_t.Text);
+            setClothing("TOPS2", aoeTops2_m.Text, aoeTops2_t.Text);
+            setClothing("LEGS", aoeLegs_m.Text, aoeLegs_t.Text);
+            setClothing("SHOES", aoeShoes_m.Text, aoeShoes_t.Text);
+            setClothing("FACE", aoeFace_m.Text, aoeFace_t.Text);
+            setClothing("EXTRA", aoeExtra_m.Text, aoeExtra_t.Text);
+            setClothing("HANDS", aoeHands_m.Text, aoeHands_t.Text);
+            setClothing("ARMOR", aoeArmor_m.Text, aoeArmor_t.Text);
+            setClothing("EMBLEM", aoeEmblem_m.Text, aoeEmblem_t.Text);
+        }
+
+        private void aoDelete_Click(object sender, EventArgs e)
+        {
+            if (aoListing.SelectedIndex != -1)
+            {
+                string filepath = "Data/Outfits.xml";
+                XmlDocument doc = new XmlDocument();
+                doc.Load(filepath);
+
+                XmlNode foundNode = null;
+                foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
+                {
+                    if (node.Attributes["title"].InnerText == aoListing.Text)
+                    {
+                        foundNode = node;
+                    }
+                }
+                foundNode.ParentNode.RemoveChild(foundNode);
+                doc.Save(filepath);
+                aoListing.SelectedIndex = 0;
+                refreshOutfitListing();
+            }
+        }
+
+        private void otftListing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            otftDoRefresh();
+        }
+
+        private void otR_Click(object sender, EventArgs e)
+        {
+            otftDoRefresh(true);
+        }
+
+        private void ot1_s_Click(object sender, EventArgs e)
+        {
+            Outfit.Name(otftListing.SelectedIndex, otftTitle.Text);
+            OutfitStruct outfit = Outfit.Fetch(otftListing.SelectedIndex);
+            outfit.mask = Convert.ToInt32(otft_eMask_m.Value);
+            outfit.maskT = Convert.ToInt32(otft_eMask_t.Value);
+            outfit.torso = Convert.ToInt32(otft_eTorso_m.Value);
+            outfit.torsoT = Convert.ToInt32(otft_eTorso_t.Value);
+            outfit.legs = Convert.ToInt32(otft_eLegs_m.Value);
+            outfit.legsT = Convert.ToInt32(otft_eLegs_t.Value);
+            outfit.hands = Convert.ToInt32(otft_eHands_m.Value);
+            outfit.handsT = Convert.ToInt32(otft_eHands_t.Value);
+            outfit.shoes = Convert.ToInt32(otft_eShoes_m.Value);
+            outfit.shoesT = Convert.ToInt32(otft_eShoes_t.Value);
+            outfit.extra = Convert.ToInt32(otft_eExtra_m.Value);
+            outfit.extraT = Convert.ToInt32(otft_eExtra_t.Value);
+            outfit.tops1 = Convert.ToInt32(otft_eTops1_m.Value);
+            outfit.tops1T = Convert.ToInt32(otft_eTops1_t.Value);
+            outfit.armor = Convert.ToInt32(otft_eArmor_m.Value);
+            outfit.armorT = Convert.ToInt32(otft_eArmor_t.Value);
+            outfit.emblem = Convert.ToInt32(otft_eEmblem_m.Value);
+            outfit.emblemT = Convert.ToInt32(otft_eEmblem_t.Value);
+            outfit.tops2 = Convert.ToInt32(otft_eTops2_m.Value);
+            outfit.tops2T = Convert.ToInt32(otft_eTops2_t.Value);
+            outfit.hat = Convert.ToInt32(otft_eHat_m.Value);
+            outfit.hatT = Convert.ToInt32(otft_eHat_t.Value);
+            outfit.eyes = Convert.ToInt32(otft_eEyes_m.Value);
+            outfit.eyesT = Convert.ToInt32(otft_eEyes_t.Value);
+            outfit.ears = Convert.ToInt32(otft_eEars_m.Value);
+            outfit.earsT = Convert.ToInt32(otft_eEars_t.Value);
+            Outfit.Apply(otftListing.SelectedIndex, outfit);
+            otftDoRefresh(true);
+        }
+
+        private void otftMod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (otftMod.Text)
+            {
+                case "Font - Pricedown":
+                    {
+                        otftTitle.Text = "~s~<font face=\"$gtaCash\">Text";
+                        break;
+                    }
+                case "Font - Sign-Painter":
+                    {
+                        otftTitle.Text = "~s~<font face=\"$Font5\">Text";
+                        break;
+                    }
+                case "Font - Chalet":
+                    {
+                        otftTitle.Text = "~s~<font face=\"$Font2_cond\">Text";
+                        break;
+                    }
+                case "Icon - R* Verified":
+                    {
+                        if (otftTitle.Text.Length <= 30)
+                            otftTitle.Text += "¦";
+                        break;
+                    }
+                case "Icon - R* Logo #1":
+                    {
+                        if (otftTitle.Text.Length <= 30)
+                            otftTitle.Text += "÷";
+                        break;
+                    }
+                case "Icon - R* Logo #2":
+                    {
+                        if (otftTitle.Text.Length <= 30)
+                            otftTitle.Text += "∑";
+                        break;
+                    }
+                case "Icon - Wanted Star":
+                    {
+                        if (otftTitle.Text.Length <= 27)
+                            otftTitle.Text += "~ws~";
+                        break;
+                    }
+                case "Icon - Lock":
+                    {
+                        if (otftTitle.Text.Length <= 30)
+                            otftTitle.Text += "Ω";
+                        break;
+                    }
+                case "Size - Small":
+                    {
+                        otftTitle.Text = "~s~<font size=\"10\">Text";
+                        break;
+                    }
+                case "Size - Large":
+                    {
+                        otftTitle.Text = "~s~<font size=\"50\">Text";
+                        break;
+                    }
+                case "Size - Huge":
+                    {
+                        otftTitle.Text = "~s~<font size=\"200\">Text";
+                        break;
+                    }
+                case "Color - RGB":
+                    {
+                        otftTitle.Text = "~s~<font color=\"#FF0000\">Text";
+                        break;
+                    }
+                case "Color - Blue":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~b~";
+                        break;
+                    }
+                case "Color - Gold":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~y~";
+                        break;
+                    }
+                case "Color - Green":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~g~";
+                        break;
+                    }
+                case "Color - Light Blue":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~f~";
+                        break;
+                    }
+                case "Color - Orange":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~o~";
+                        break;
+                    }
+                case "Color - Purple":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~p~";
+                        break;
+                    }
+                case "Color - Red":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~r~";
+                        break;
+                    }
+                case "Color - Teal":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~d~";
+                        break;
+                    }
+                case "Style - Bold":
+                    {
+                        if (otftTitle.Text.Length <= 28)
+                            otftTitle.Text += "~h~";
+                        break;
+                    }
+                case "Style - Italic":
+                    {
+                        if (otftTitle.Text.Length <= 23)
+                            otftTitle.Text += "~italic~";
+                        break;
+                    }
+            }
+            otftMod.SelectedIndex = -1;
+        }
+
+        #endregion
+
+        #region Debugger
+
+        private void sdSync_Click(object sender, EventArgs e)
+        {
+            NativeFunctions.save();
+        }
+
+        private void sdE_set_Click(object sender, EventArgs e)
+        {
+            switch (sdE_t.Text)
+            {
+                case "int":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToInt32(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "s64":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToInt64(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "u8":
+                case "u16":
+                case "u32":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToUInt32(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "u64":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToUInt64(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "bool":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_BOOL, Hash(sdE_s.Text), Convert.ToInt32(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "float":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_FLOAT, Hash(sdE_s.Text), float.Parse((sdE_v.Text)), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "string":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_STRING, Hash(sdE_s.Text), sdE_v.Text, 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+                case "userid":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_USER_ID, Hash(sdE_s.Text), sdE_v.Text, 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
+            }
+        }
+        
+        private void sdV_get_Click(object sender, EventArgs e)
+        {
+            switch (sdV_t.Text)
+            {
+                case "int":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "s64":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadInt64(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "u8":
+                case "u16":
+                case "u32":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadUInt32(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "u64":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadUInt64(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "bool":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_BOOL, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "float":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_FLOAT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadFloat(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "string":
+                    sdV_v.Text = PS3.Extension.ReadString(Convert.ToUInt32(RPC.Call(Natives.STAT_GET_STRING, Hash(sdV_s.Text), -1)));
+                    sdV_r.Text = "";
+                    break;
+                case "userid":
+                    sdV_v.Text = PS3.Extension.ReadString(Convert.ToUInt32(RPC.Call(Natives.STAT_GET_USER_ID, Hash(sdV_s.Text))));
+                    sdV_r.Text = "";
+                    break;
+            }
+        }
+
+        private void dbgrDate_V_Do_Click(object sender, EventArgs e)
+        {
+            dbgrDate_V_Response.Text = RPC.Call(Natives.STAT_GET_DATE, Hash(dbgrDate_V_Stat.Text), 0x10030000, 7, 3) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
+
+            dbgrDate_V_Year.Text = PS3.Extension.ReadInt32(0x10030000).ToString();
+            dbgrDate_V_Month.Text = PS3.Extension.ReadInt32(0x10030000 + 4).ToString();
+            dbgrDate_V_Day.Text = PS3.Extension.ReadInt32(0x10030000 + 8).ToString();
+            dbgrDate_V_Hour.Text = PS3.Extension.ReadInt32(0x10030000 + 12).ToString();
+            dbgrDate_V_Minute.Text = PS3.Extension.ReadInt32(0x10030000 + 16).ToString();
+            dbgrDate_V_Second.Text = PS3.Extension.ReadInt32(0x10030000 + 20).ToString();
+        }
+
+        private void dbgrDate_E_Do_Click(object sender, EventArgs e)
+        {
+            uint date = DateStruct_2_Memory(
+                Convert.ToInt32(dbgrDate_E_Year.Text),
+                Convert.ToInt32(dbgrDate_E_Month.Text),
+                Convert.ToInt32(dbgrDate_E_Day.Text),
+                Convert.ToInt32(dbgrDate_E_Hour.Text),
+                Convert.ToInt32(dbgrDate_E_Minute.Text),
+                Convert.ToInt32(dbgrDate_E_Second.Text),
+                0
+                );
+            dbgrDate_E_Response.Text = RPC.Call(Natives.STAT_SET_DATE, Hash(dbgrDate_E_Stat.Text), date, 7, 1) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
+        }
+
+        private void dbgrPos_V_Do_Click(object sender, EventArgs e)
+        {
+            dbgrPos_V_Response.Text = RPC.Call(Natives.STAT_GET_POS, Hash(dbgrPos_V_Stat.Text), 0x10030000, 0x10030000 + 4, 0x10030000 + 8, 0) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
+            dbgrPos_V_X.Text = PS3.Extension.ReadFloat(0x10030000).ToString();
+            dbgrPos_V_Y.Text = PS3.Extension.ReadFloat(0x10030000 + 4).ToString();
+            dbgrPos_V_Z.Text = PS3.Extension.ReadFloat(0x10030000 + 8).ToString();
+        }
+
+        private void dbgrPos_E_Do_Click(object sender, EventArgs e)
+        {
+            dbgrPos_E_Response.Text = RPC.Call(Natives.STAT_SET_POS, Hash(dbgrPos_E_Stat.Text), float.Parse(dbgrPos_E_X.Text), float.Parse(dbgrPos_E_Y.Text), float.Parse(dbgrPos_E_Z.Text), 1) == 1 ? "Stat Query Successful!" : "Stat Query Failed...";
+        }
+
+        private void INS_File_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            xd_mp.Load("Data/StatFiles/" + INS_File.Text);
+            INS_Stat.Properties.Items.Clear();
+            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
+                INS_Stat.Properties.Items.Add((object)xmlNode.Value);
+            INS_Stat.SelectedIndex = 0;
+        }
+
+        private void INS_Stat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = 0;
+            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
+            {
+                if (xmlNode.Value == INS_Stat.Text)
+                {
+                    string deflabel = "Unavailable";
+
+                    try { INS_Type.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@Type")[index].Value); }
+                    catch { INS_Type.Text = deflabel; }
+                    try { if (xd_mp.SelectNodes("StatsSetup/stats/stat/@SaveCategory")[index].Value == "1") INS_Save.Text = "True"; else INS_Save.Text = "False"; }
+                    catch { INS_Save.Text = deflabel; }
+                    try { INS_Online.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@online")[index].Value); }
+                    catch { INS_Online.Text = deflabel; }
+                    try { INS_Profile.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@profile")[index].Value); }
+                    catch { INS_Profile.Text = deflabel; }
+                    try { INS_Owner.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@Owner")[index].Value); }
+                    catch { INS_Owner.Text = deflabel; }
+                    try { INS_Character.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@characterStat")[index].Value); }
+                    catch { INS_Character.Text = deflabel; }
+
+                    try { INS_ServerAuthoritative.Text = Cap1(xd_mp.SelectNodes("StatsSetup/stats/stat/@ServerAuthoritative")[index].Value); }
+                    catch { INS_ServerAuthoritative.Text = deflabel; }
+                    try { INS_FlushPriority.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@FlushPriority")[index].Value; }
+                    catch { INS_FlushPriority.Text = deflabel; }
+                    try { INS_UserData.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@UserData")[index].Value; }
+                    catch { INS_UserData.Text = deflabel; }
+                    try { INS_Default.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Default")[index].Value; }
+                    catch { INS_Default.Text = deflabel; }
+                    try { INS_Min.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Min")[index].Value; }
+                    catch { INS_Min.Text = deflabel; }
+                    try { INS_Max.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Max")[index].Value; }
+                    catch { INS_Max.Text = deflabel; }
+
+                    try { INS_Comment.Text = xd_mp.SelectNodes("StatsSetup/stats/stat/@Comment")[index].Value; }
+                    catch { INS_Comment.Text = deflabel; }
+                }
+                ++index;
+            }
+        }
+
+        #endregion
+
+        #region Experimental
+
+        private void simpleButton2_Click_2(object sender, EventArgs e)
+        {
+            // Old Date
+            uint old_date = DateStruct_2_Memory(2015, 12, 24, 0, 0, 0, 0);
+            bool _1 = RPC.Call(Natives.STAT_SET_DATE, Hash("MP0_CHAR_DATE_CREATED"), old_date, 7, 1) == 1;
+            bool _2 = RPC.Call(Natives.STAT_SET_DATE, Hash("MPPLY_STARTED_MP"), old_date, 1) == 1;
+
+            // Recent Date
+            uint new_date = DateStruct_2_Memory(2016, 8, 11, 6, 34, 54, 23);
+            bool _3 = RPC.Call(Natives.STAT_SET_DATE, Hash("MP0_CHAR_DATE_RANKUP"), new_date, 7, 1) == 1;
+
+            // Posix/Unix Timestamp
+            int timestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(2015, 12, 24))).TotalSeconds;
+            bool _4 = RPC.Call(Natives.STAT_SET_INT, Hash("MP0_CLOUD_TIME_CHAR_CREATED"), timestamp, 1) == 1;
+            bool _5 = RPC.Call(Natives.STAT_SET_INT, Hash("MP0_PS_TIME_CHAR_CREATED"), timestamp, 1) == 1;
+
+            // Duration
+            int duration = Convert.ToInt32((8/*D*/ * 86400000) + (12/*H*/ * 3600000) + (54/*M*/ * 60000) + (6/*S*/ * 1000));
+            bool _6 = RPC.Call(Natives.STAT_SET_INT, Hash("MP0_TOTAL_PLAYING_TIME"), duration, 1) == 1;
+            bool _7 = RPC.Call(Natives.STAT_SET_INT, Hash("MPPLY_TOTAL_TIME_SPENT_FREEMODE"), duration, 1) == 1;
+            bool _8 = RPC.Call(Natives.STAT_SET_INT, Hash("LEADERBOARD_PLAYING_TIME"), duration, 1) == 1;
+
+            // Output
+            MessageBox.Show(
+                "#1 " + (_1 ? "Worked\n" : "Failed\n") +
+                "#2 " + (_2 ? "Worked\n" : "Failed\n") +
+                "#3 " + (_3 ? "Worked\n" : "Failed\n") +
+                "#4 " + (_4 ? "Worked\n" : "Failed\n") +
+                "#5 " + (_5 ? "Worked\n" : "Failed\n") +
+                "#6 " + (_6 ? "Worked\n" : "Failed\n") +
+                "#7 " + (_7 ? "Worked\n" : "Failed\n") +
+                "#8 " + (_8 ? "Worked\n" : "Failed\n") +
+                "");
+        }
+
+        private void exSkillEnhanced_Click(object sender, EventArgs e)
+        {
+            setStat("SCRIPT_INCREASE_DRIV", 120);
+            setStat("SCRIPT_INCREASE_FLY", 120);
+            setStat("SCRIPT_INCREASE_LUNG", 120);
+            setStat("SCRIPT_INCREASE_MECH", 120);
+            setStat("SCRIPT_INCREASE_SHO", 120);
+            setStat("SCRIPT_INCREASE_STAM", 120);
+            setStat("SCRIPT_INCREASE_STL", 120);
+            setStat("SCRIPT_INCREASE_STRN", 120);
+        }
+
+        private void exSkillSuperhuman_Click(object sender, EventArgs e)
+        {
+            setStat("SCRIPT_INCREASE_DRIV", 1000);
+            setStat("SCRIPT_INCREASE_FLY", 1000);
+            setStat("SCRIPT_INCREASE_LUNG", 1000);
+            setStat("SCRIPT_INCREASE_MECH", 1000);
+            setStat("SCRIPT_INCREASE_SHO", 1000);
+            setStat("SCRIPT_INCREASE_STAM", 1000);
+            setStat("SCRIPT_INCREASE_STL", 1000);
+            setStat("SCRIPT_INCREASE_STRN", 1000);
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            setStat("CHAR_WEAP_VIEWED", -1);
+            setStat("CHAR_WEAP_VIEWED2", -1);
+            setStat("CHAR_WEAP_VIEWED3", -1);
+            setStat("CHAR_WEAP_ADDON_1_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_2_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_3_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_4_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_5_VIEWED", -1);
+            setStat("CHAR_WEAP_ADDON_6_VIEWED", -1);
+            setStat("CHAR_KIT_1_FM_VIEWED", -1);
+            setStat("CHAR_KIT_2_FM_VIEWED", -1);
+            setStat("CHAR_KIT_3_FM_VIEWED", -1);
+            setStat("CHAR_KIT_4_FM_VIEWED", -1);
+            setStat("CHAR_KIT_5_FM_VIEWED", -1);
+            setStat("CHAR_KIT_6_FM_VIEWED", -1);
+            setStat("CHAR_KIT_7_FM_VIEWED", -1);
+            setStat("CHAR_KIT_8_FM_VIEWED", -1);
+            setStat("CHAR_KIT_9_FM_VIEWED", -1);
+            setStat("CHAR_KIT_10_FM_VIEWED", -1);
+            setStat("CHAR_KIT_11_FM_VIEWED", -1);
+            setStat("CHAR_KIT_12_FM_VIEWED", -1);
+            setStat("CHAR_KIT_13_FM_VIEWED", -1);
+            setStat("CHAR_KIT_14_FM_VIEWED", -1);
+            setStat("CHAR_KIT_15_FM_VIEWED", -1);
+            setStat("CHAR_KIT_16_FM_VIEWED", -1);
+            setStat("TATTOO_FM_VIEWED_0", -1);
+            setStat("TATTOO_FM_VIEWED_1", -1);
+            setStat("TATTOO_FM_VIEWED_2", -1);
+            setStat("TATTOO_FM_VIEWED_3", -1);
+            setStat("TATTOO_FM_VIEWED_4", -1);
+            setStat("TATTOO_FM_VIEWED_5", -1);
+            setStat("TATTOO_FM_VIEWED_6", -1);
+            setStat("TATTOO_FM_VIEWED_7", -1);
+            setStat("TATTOO_FM_VIEWED_8", -1);
+            setStat("TATTOO_FM_VIEWED_9", -1);
+            setStat("TATTOO_FM_VIEWED_10", -1);
+            setStat("TATTOO_FM_VIEWED_11", -1);
+            setStat("TATTOO_FM_VIEWED_12", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_0", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_1", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_2", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_3", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_4", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_5", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_6", -1);
+            setStat("CHAR_CARMODWHEELS_VIEWED_7", -1);
+            setStat("CHAR_CARMODWHCOL_VIEWED_0", -1);
+            setStat("CHAR_CARMODWHCOL_VIEWED_1", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_0", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_1", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_2", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_3", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_4", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_5", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_6", -1);
+            setStat("CHAR_CARPAINTPRIME_VIEW_7", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_0", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_1", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_2", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_3", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_4", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_5", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_6", -1);
+            setStat("CHAR_CARPAINTSEC_VIEW_7", -1);
+            setStat("CREW_EMBLEMS_PURCHASED", -1);
+            setStat("CHAR_HAIR_VIEWED1", -1);
+            setStat("CHAR_HAIR_VIEWED2", -1);
+            setStat("CHAR_HAIR_VIEWED3", -1);
+            setStat("CHAR_HAIR_VIEWED4", -1);
+            setStat("CHAR_HAIR_VIEWED5", -1);
+            setStat("CHAR_HAIR_VIEWED6", -1);
+            setStat("CHAR_HAIR_VIEWED7", -1);
+            setStat("CHAR_HAIR_VIEWED8", -1);
+            setStat("CHAR_HAIR_VIEWED9", -1);
+            setStat("CHAR_HAIR_VIEWED10", -1);
+            setStat("CHAR_HAIR_VIEWED11", -1);
+            setStat("CHAR_HAIR_VIEWED12", -1);
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("SCADMIN_BADSPORT_START"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("SCADMIN_BADSPORT_END"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_BAD_SPORT_BITSET"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP1_BAD_SPORT_BITSET"), 0, 1);
+            RPC.Call(Natives.STAT_SET_BOOL, Hash("MPPLY_WAS_I_BAD_SPORT"), 0, 1);
+            RPC.Call(Natives.STAT_SET_FLOAT, Hash("MPPLY_OVERALL_BADSPORT"), 0, 1);
+            RPC.Call(Natives.STAT_SET_BOOL, Hash("MPPLY_CHAR_IS_BADSPORT"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("MPPLY_BECAME_BADSPORT_NUM"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("MPPLY_BADSPORT_MESSAGE"), 0, 1);
+            Tunables.escapeBadsport();
+        }
+
+        #endregion
+
         #endregion
 
     }

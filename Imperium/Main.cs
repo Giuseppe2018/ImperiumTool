@@ -159,6 +159,35 @@ namespace Imperium
             }
         }
 
+        class NativeFunctions
+        {
+            public static int pid()
+            {
+                return RPC.Call(Natives.PLAYER_ID);
+            }
+            public static int pedid()
+            {
+                return RPC.Call(Natives.PLAYER_PED_ID);
+            }
+            public static int vehid()
+            {
+                return RPC.Call(Natives.GET_VEHICLE_PED_IS_USING, pedid());
+            }
+            public static bool isInVehicle()
+            {
+                return Convert.ToBoolean(RPC.Call(Natives.IS_PED_IN_ANY_VEHICLE, pedid()));
+            }
+            public static string psn()
+            {
+                int name = RPC.Call(Natives.GET_PLAYER_NAME, pid());
+                return PS3.Extension.ReadString((uint)name);
+            }
+            public static void save()
+            {
+                RPC.Call(Natives.STAT_SAVE, 0, false, 3);
+            }
+        }
+
         class Tunables
         {
             public static uint PTR_TUNABLES = 0x1E70374; // 1.26 // BLES
@@ -378,6 +407,7 @@ namespace Imperium
             public int eyes, eyesT;
             public int ears, earsT;
         }
+
         class Outfit
         {
             public static uint pointer = 0x02223918;
@@ -481,35 +511,7 @@ namespace Imperium
                 PS3.Extension.WriteInt32(accessory_textures + 0x08, outfit.earsT);
             }
         }
-
-        class NativeFunctions
-        {
-            public static int pid()
-            {
-                return RPC.Call(Natives.PLAYER_ID);
-            }
-            public static int pedid()
-            {
-                return RPC.Call(Natives.PLAYER_PED_ID);
-            }
-            public static int vehid()
-            {
-                return RPC.Call(Natives.GET_VEHICLE_PED_IS_USING, pedid());
-            }
-            public static bool isInVehicle()
-            {
-                return Convert.ToBoolean(RPC.Call(Natives.IS_PED_IN_ANY_VEHICLE, pedid()));
-            }
-            public static string psn()
-            {
-                int name = RPC.Call(Natives.GET_PLAYER_NAME, pid());
-                return PS3.Extension.ReadString((uint)name);
-            }
-            public static void save()
-            {
-                RPC.Call(Natives.STAT_SAVE, 0, false, 3);
-            }
-        }
+        
         #region Stats
         public class StatData
         {
@@ -1089,6 +1091,8 @@ namespace Imperium
                 Garage.setUint(slot, Garage.Model, model);
             }
         }
+
+        private List<Setting> settingsList = new List<Setting>();
         public class Setting
         {
             public string name { get; set; }
@@ -1099,6 +1103,8 @@ namespace Imperium
                 value = Value;
             }
         }
+
+        Dictionary<string, string> VehicleModels = new Dictionary<string, string>();
         public class VehicleModel
         {
             public string label { get; set; }
@@ -1109,8 +1115,7 @@ namespace Imperium
                 model = Model;
             }
         }
-        private List<Setting> settingsList = new List<Setting>();
-        Dictionary<string, string> VehicleModels = new Dictionary<string, string>();
+
         string[] filePaths;
         private XmlDocument xd_mp = new XmlDocument();
 
@@ -1124,7 +1129,8 @@ namespace Imperium
             #region Server Data
             if (new Ping().Send("lexicongta.com").Status == IPStatus.Success) // Server is online
             {
-                System.Net.HttpWebRequest Request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://lexicongta.com/imperium/client_data.json");
+                System.Net.HttpWebRequest Request =
+                    (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://lexicongta.com/imperium/client_data.json");
                 Request.UserAgent = "dick";
                 var Response = Request.GetResponse().GetResponseStream();
                 using (StreamReader sr = new StreamReader(Response))
@@ -1134,7 +1140,7 @@ namespace Imperium
                     #region Main
                     if (ImperiumData.ContainsKey("name") && ImperiumData.ContainsKey("tag"))
                     {
-                        this.Text = ImperiumData["name"] + " " + Variables.versionLabel + " " + ImperiumData["tag"];
+                        this.Text = $"{ImperiumData["name"]} {Variables.versionLabel} {ImperiumData["tag"]}";
                     }
 
                     if (ImperiumData.ContainsKey("latest_version") && ImperiumData.ContainsKey("latest_version_label"))
@@ -1146,7 +1152,7 @@ namespace Imperium
                                 );
                             DevExpress.XtraEditors.XtraMessageBox.Show(
                             "Woah! There's an Imperium update available!\n\n" +
-                            "Your version is " + Variables.versionLabel + ", the newest version is " + ImperiumData["latest_version_label"].ToString() + "!"
+                            $"Your version is {Variables.versionLabel}, the newest version is {ImperiumData["latest_version_label"].ToString()}!"
                             );
                             Properties.Settings.Default.UpdateNotified = true;
                             Properties.Settings.Default.Save();
@@ -1244,7 +1250,7 @@ namespace Imperium
             }
             else
             {
-                this.Text = "Imperium Account Editor " + Variables.versionLabel + " [PS3 BLES 1.27]";
+                this.Text = $"Imperium Account Editor {Variables.versionLabel} [PS3 BLES 1.27]";
                 DevExpress.XtraEditors.XtraMessageBox.Show(
                 "Unable to connect to server! (lexicongta.com)\n" +
                 "The server is used to grab information about new updates & ensure compatibility with the latest GTA update.\n" +
@@ -1299,18 +1305,22 @@ namespace Imperium
                     garModel.Properties.Items.Add(entry.Key);
                 }
             }
-            else MessageBox.Show(vehicles_filepath + " is missing! :(");
+            else MessageBox.Show($"{vehicles_filepath} is missing! :(");
             #endregion
 
             #region XML File Importing
             filePaths = Directory.GetFiles("Data/StatFiles/");
             foreach (string path in filePaths)
+            {
                 INS_File.Properties.Items.Add(path.Substring(15, path.Length - 15));
+            }
             INS_File.SelectedIndex = 0;
 
             xd_mp.Load(filePaths[0]);
             foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
-                INS_Stat.Properties.Items.Add((object)xmlNode.Value);
+            {
+                INS_Stat.Properties.Items.Add(xmlNode.Value);
+            }
             #endregion
 
             // Refresh Outfit
@@ -1340,8 +1350,8 @@ namespace Imperium
                 }
                 else
                 {
-                    connectionStatus.Caption = "Connected [" + (tmapi ? "TM" : "CC") + "]";
-                    connectionPSN.Caption = "Welcome, " + NativeFunctions.psn() + " [Console: " + PS3.GetConsoleName() + "]";
+                    connectionStatus.Caption = $"Connected [{(tmapi ? "TM" : "CC")}]";
+                    connectionPSN.Caption = $"Welcome, {NativeFunctions.psn()} [Console: {PS3.GetConsoleName()}]";
                     connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
 
                     otftDoRefresh(true);
@@ -1351,7 +1361,7 @@ namespace Imperium
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Connection Failed\n\nError: " + ex.Message);
+                MessageBox.Show($"Connection Failed\n\nError: {ex.Message}");
             }
         }
 

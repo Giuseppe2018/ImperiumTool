@@ -106,6 +106,10 @@
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl155 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_Kills = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl68 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_KillsPlayers = new DevExpress.XtraEditors.ButtonEdit();
             this.CMBT_Load = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl154 = new DevExpress.XtraEditors.LabelControl();
             this.CMBT_BountOn = new DevExpress.XtraEditors.ButtonEdit();
@@ -513,10 +517,6 @@
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.advert = new System.Windows.Forms.PictureBox();
-            this.labelControl68 = new DevExpress.XtraEditors.LabelControl();
-            this.CMBT_KillsPlayers = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl155 = new DevExpress.XtraEditors.LabelControl();
-            this.CMBT_Kills = new DevExpress.XtraEditors.ButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -547,6 +547,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Kills.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_KillsPlayers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CMBT_BountOn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CMBT_BountPlaced.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CMBT_HeadshotsPlayers.Properties)).BeginInit();
@@ -789,8 +791,6 @@
             this.xtraTabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advert)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CMBT_KillsPlayers.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Kills.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -1660,6 +1660,52 @@
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage2.Text = "Combat";
+            // 
+            // labelControl155
+            // 
+            this.labelControl155.Location = new System.Drawing.Point(111, 35);
+            this.labelControl155.Name = "labelControl155";
+            this.labelControl155.Size = new System.Drawing.Size(44, 13);
+            this.labelControl155.TabIndex = 64;
+            this.labelControl155.Text = "Total Kills";
+            // 
+            // CMBT_Kills
+            // 
+            this.CMBT_Kills.EditValue = "0";
+            this.CMBT_Kills.Location = new System.Drawing.Point(161, 32);
+            this.CMBT_Kills.MenuManager = this.barManager1;
+            this.CMBT_Kills.Name = "CMBT_Kills";
+            this.CMBT_Kills.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_Kills.Properties.Mask.EditMask = "f0";
+            this.CMBT_Kills.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_Kills.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_Kills.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_Kills.TabIndex = 63;
+            this.CMBT_Kills.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_Kills_ButtonClick);
+            // 
+            // labelControl68
+            // 
+            this.labelControl68.Location = new System.Drawing.Point(93, 57);
+            this.labelControl68.Name = "labelControl68";
+            this.labelControl68.Size = new System.Drawing.Size(62, 13);
+            this.labelControl68.TabIndex = 62;
+            this.labelControl68.Text = "Players Killed";
+            // 
+            // CMBT_KillsPlayers
+            // 
+            this.CMBT_KillsPlayers.EditValue = "0";
+            this.CMBT_KillsPlayers.Location = new System.Drawing.Point(161, 54);
+            this.CMBT_KillsPlayers.MenuManager = this.barManager1;
+            this.CMBT_KillsPlayers.Name = "CMBT_KillsPlayers";
+            this.CMBT_KillsPlayers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_KillsPlayers.Properties.Mask.EditMask = "f0";
+            this.CMBT_KillsPlayers.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_KillsPlayers.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_KillsPlayers.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_KillsPlayers.TabIndex = 61;
+            this.CMBT_KillsPlayers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_KillsPlayers_ButtonClick);
             // 
             // CMBT_Load
             // 
@@ -6558,52 +6604,6 @@
             this.advert.TabStop = false;
             this.advert.Click += new System.EventHandler(this.advert_Click);
             // 
-            // labelControl68
-            // 
-            this.labelControl68.Location = new System.Drawing.Point(93, 57);
-            this.labelControl68.Name = "labelControl68";
-            this.labelControl68.Size = new System.Drawing.Size(62, 13);
-            this.labelControl68.TabIndex = 62;
-            this.labelControl68.Text = "Players Killed";
-            // 
-            // CMBT_KillsPlayers
-            // 
-            this.CMBT_KillsPlayers.EditValue = "0";
-            this.CMBT_KillsPlayers.Location = new System.Drawing.Point(161, 54);
-            this.CMBT_KillsPlayers.MenuManager = this.barManager1;
-            this.CMBT_KillsPlayers.Name = "CMBT_KillsPlayers";
-            this.CMBT_KillsPlayers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.CMBT_KillsPlayers.Properties.Mask.EditMask = "f0";
-            this.CMBT_KillsPlayers.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.CMBT_KillsPlayers.Properties.Mask.PlaceHolder = '0';
-            this.CMBT_KillsPlayers.Size = new System.Drawing.Size(86, 20);
-            this.CMBT_KillsPlayers.TabIndex = 61;
-            this.CMBT_KillsPlayers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_KillsPlayers_ButtonClick);
-            // 
-            // labelControl155
-            // 
-            this.labelControl155.Location = new System.Drawing.Point(111, 35);
-            this.labelControl155.Name = "labelControl155";
-            this.labelControl155.Size = new System.Drawing.Size(44, 13);
-            this.labelControl155.TabIndex = 64;
-            this.labelControl155.Text = "Total Kills";
-            // 
-            // CMBT_Kills
-            // 
-            this.CMBT_Kills.EditValue = "0";
-            this.CMBT_Kills.Location = new System.Drawing.Point(161, 32);
-            this.CMBT_Kills.MenuManager = this.barManager1;
-            this.CMBT_Kills.Name = "CMBT_Kills";
-            this.CMBT_Kills.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.CMBT_Kills.Properties.Mask.EditMask = "f0";
-            this.CMBT_Kills.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.CMBT_Kills.Properties.Mask.PlaceHolder = '0';
-            this.CMBT_Kills.Size = new System.Drawing.Size(86, 20);
-            this.CMBT_Kills.TabIndex = 63;
-            this.CMBT_Kills.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_Kills_ButtonClick);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6621,7 +6621,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Imperium Account Editor 0.9  [1.27/BLES/PS3]";
+            this.Text = "Imperium";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -6654,6 +6654,8 @@
             this.xtraTabControl2.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Kills.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_KillsPlayers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CMBT_BountOn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CMBT_BountPlaced.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CMBT_HeadshotsPlayers.Properties)).EndInit();
@@ -6916,8 +6918,6 @@
             this.xtraTabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advert)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CMBT_KillsPlayers.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Kills.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

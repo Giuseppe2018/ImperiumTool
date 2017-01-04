@@ -14,6 +14,8 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
+using System.Net.NetworkInformation;
+using System.Web.Script.Serialization;
 
 namespace Imperium
 {
@@ -24,10 +26,10 @@ namespace Imperium
         class RPC
         {
             // 1.27
-            private static uint SFA1 = 0x1BE4C80;
-            private static uint EFA1 = 0x1BE4D08;
-            private static uint BFA1 = 0x18614;
-            private static uint BAB1 = 0x18620;
+            public static uint SFA1 = 0x1BE4C80;
+            public static uint EFA1 = 0x1BE4D08;
+            public static uint BFA1 = 0x18614;
+            public static uint BAB1 = 0x18620;
             // 1.26
             /*private static uint SFA1 = 0x1BF5000;
             private static uint EFA1 = 0x1BF5088;
@@ -87,9 +89,9 @@ namespace Imperium
                 PS3.Extension.WriteUInt32(BFA1, CBAB(BFA1, SFA1));
             }
 
-            public static int Call(Natives func_address, params object[] parameters)
+            public static int Call(uint func_address, params object[] parameters)
             {
-                uint address = (uint)func_address;
+                uint address = func_address;
                 int length = parameters.Length;
                 int index = 0;
                 uint num3 = 0;
@@ -635,16 +637,139 @@ namespace Imperium
         Dictionary<string, string> VehicleModels = new Dictionary<string, string>();
         string[] filePaths;
         private XmlDocument xd_mp = new XmlDocument();
+
+        Dictionary<string, object> ImperiumData = new Dictionary<string, object>();
+
+
         public Main()
         {
             InitializeComponent();
-            int version = Convert.ToInt32(Regex.Replace(new System.Net.WebClient().DownloadString("http://lexicongta.com/ngu/imperium.php"), "<.*?>", String.Empty));
-            if (!Properties.Settings.Default.UpdateNotified && version > Variables.version)
+
+            // Connect to Site
+            if (new Ping().Send("lexicongta.com").Status == IPStatus.Success) // Server is online
             {
-                System.Diagnostics.Process.Start("http://www.nextgenupdate.com/forums/gta-5-mod-tools/921980-ps3-1-26-bles-cc-tm-imperium-account-editor-0-7-alpha-release-source.html");
-                DevExpress.XtraEditors.XtraMessageBox.Show("Woah! There's an Imperium update available!\nYour version is " + Variables.version + ", the newest version is " + version + "!");
-                Properties.Settings.Default.UpdateNotified = true;
-                Properties.Settings.Default.Save();
+                System.Net.HttpWebRequest Request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://lexicongta.com/imperium/client_data.json");
+                Request.UserAgent = "dick";
+                var Response = Request.GetResponse().GetResponseStream();
+                using (StreamReader sr = new StreamReader(Response))
+                {
+                    ImperiumData = JsonConvert.DeserializeObject<Dictionary<string, object>>( sr.ReadToEnd() );
+
+                    // Main
+                    if (ImperiumData.ContainsKey("name") && ImperiumData.ContainsKey("tag"))
+                    {
+                        this.Text = ImperiumData["name"] + " " + Variables.versionLabel + " " + ImperiumData["tag"];
+                    }
+
+                    if (ImperiumData.ContainsKey("latest_version"))
+                    {
+                        if (Convert.ToInt32(ImperiumData["latest_version"]) > Variables.version && !Properties.Settings.Default.UpdateNotified)
+                        {
+                            System.Diagnostics.Process.Start(
+                                "http://www.nextgenupdate.com/forums/gta-5-mod-tools/921980-ps3-1-26-bles-cc-tm-imperium-account-editor-0-7-alpha-release-source.html"
+                                );
+                            DevExpress.XtraEditors.XtraMessageBox.Show(
+                            "Woah! There's an Imperium update available!\n\n" +
+                            "Your version is " + Variables.version + ", the newest version is " + ImperiumData["latest_version"].ToString() + "!"
+                            );
+                            Properties.Settings.Default.UpdateNotified = true;
+                            Properties.Settings.Default.Save();
+                        }
+                    }
+
+                    if (ImperiumData.ContainsKey("news_show") && ImperiumData.ContainsKey("news"))
+                    {
+                        if (Convert.ToBoolean(ImperiumData["news_show"]) && ImperiumData["news"].ToString().Length > 0)
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show("--- NEWS! ------------------------------------------------------\n" +
+                                ImperiumData["news"].ToString());
+                        }
+                    }
+
+                    // RPC
+                    if (ImperiumData.ContainsKey("SFA1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["SFA1"]);
+                    if (ImperiumData.ContainsKey("EFA1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["EFA1"]);
+                    if (ImperiumData.ContainsKey("BFA1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["BFA1"]);
+                    if (ImperiumData.ContainsKey("BAB1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["BAB1"]);
+                    
+
+                    // Addresses
+                    if (ImperiumData.ContainsKey("UNK_70559AC7"))
+                        Natives.UNK_70559AC7 = Convert.ToUInt32(ImperiumData["UNK_70559AC7"]);
+                    if (ImperiumData.ContainsKey("MEM_MONEY"))
+                        Natives.MEM_MONEY = Convert.ToUInt32(ImperiumData["MEM_MONEY"]);
+                    if (ImperiumData.ContainsKey("CLEAR_ALL_PED_PROPS"))
+                        Natives.CLEAR_ALL_PED_PROPS = Convert.ToUInt32(ImperiumData["CLEAR_ALL_PED_PROPS"]);
+                    if (ImperiumData.ContainsKey("CLEAR_PED_DECORATIONS"))
+                        Natives.CLEAR_PED_DECORATIONS = Convert.ToUInt32(ImperiumData["CLEAR_PED_DECORATIONS"]);
+                    if (ImperiumData.ContainsKey("DO_SCREEN_FADE_IN"))
+                        Natives.DO_SCREEN_FADE_IN = Convert.ToUInt32(ImperiumData["DO_SCREEN_FADE_IN"]);
+                    if (ImperiumData.ContainsKey("DO_SCREEN_FADE_OUT"))
+                        Natives.DO_SCREEN_FADE_OUT = Convert.ToUInt32(ImperiumData["DO_SCREEN_FADE_OUT"]);
+                    if (ImperiumData.ContainsKey("GET_PLAYER_NAME"))
+                        Natives.GET_PLAYER_NAME = Convert.ToUInt32(ImperiumData["GET_PLAYER_NAME"]);
+                    if (ImperiumData.ContainsKey("GET_VEHICLE_PED_IS_USING"))
+                        Natives.GET_VEHICLE_PED_IS_USING = Convert.ToUInt32(ImperiumData["GET_VEHICLE_PED_IS_USING"]);
+                    if (ImperiumData.ContainsKey("IS_PED_IN_ANY_VEHICLE"))
+                        Natives.IS_PED_IN_ANY_VEHICLE = Convert.ToUInt32(ImperiumData["IS_PED_IN_ANY_VEHICLE"]);
+                    if (ImperiumData.ContainsKey("NETWORK_EARN_FROM_ROCKSTAR"))
+                        Natives.NETWORK_EARN_FROM_ROCKSTAR = Convert.ToUInt32(ImperiumData["NETWORK_EARN_FROM_ROCKSTAR"]);
+                    if (ImperiumData.ContainsKey("NETWORK_SPENT_CASH_DROP"))
+                        Natives.NETWORK_SPENT_CASH_DROP = Convert.ToUInt32(ImperiumData["NETWORK_SPENT_CASH_DROP"]);
+                    if (ImperiumData.ContainsKey("PLAYER_ID"))
+                        Natives.PLAYER_ID = Convert.ToUInt32(ImperiumData["PLAYER_ID"]);
+                    if (ImperiumData.ContainsKey("PLAYER_PED_ID"))
+                        Natives.PLAYER_PED_ID = Convert.ToUInt32(ImperiumData["PLAYER_PED_ID"]);
+                    if (ImperiumData.ContainsKey("SET_ENTITY_COORDS"))
+                        Natives.SET_ENTITY_COORDS = Convert.ToUInt32(ImperiumData["SET_ENTITY_COORDS"]);
+                    if (ImperiumData.ContainsKey("SET_PED_COMPONENT_VARIATION"))
+                        Natives.SET_PED_COMPONENT_VARIATION = Convert.ToUInt32(ImperiumData["SET_PED_COMPONENT_VARIATION"]);
+                    if (ImperiumData.ContainsKey("SET_PED_PROP_INDEX"))
+                        Natives.SET_PED_PROP_INDEX = Convert.ToUInt32(ImperiumData["SET_PED_PROP_INDEX"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_BOOL"))
+                        Natives.STAT_GET_BOOL = Convert.ToUInt32(ImperiumData["STAT_GET_BOOL"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_DATE"))
+                        Natives.STAT_GET_DATE = Convert.ToUInt32(ImperiumData["STAT_GET_DATE"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_FLOAT"))
+                        Natives.STAT_GET_FLOAT = Convert.ToUInt32(ImperiumData["STAT_GET_FLOAT"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_INT"))
+                        Natives.STAT_GET_INT = Convert.ToUInt32(ImperiumData["STAT_GET_INT"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_POS"))
+                        Natives.STAT_GET_POS = Convert.ToUInt32(ImperiumData["STAT_GET_POS"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_STRING"))
+                        Natives.STAT_GET_STRING = Convert.ToUInt32(ImperiumData["STAT_GET_STRING"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_USER_ID"))
+                        Natives.STAT_GET_USER_ID = Convert.ToUInt32(ImperiumData["STAT_GET_USER_ID"]);
+                    if (ImperiumData.ContainsKey("STAT_SAVE"))
+                        Natives.STAT_SAVE = Convert.ToUInt32(ImperiumData["STAT_SAVE"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_BOOL"))
+                        Natives.STAT_SET_BOOL = Convert.ToUInt32(ImperiumData["STAT_SET_BOOL"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_DATE"))
+                        Natives.STAT_SET_DATE = Convert.ToUInt32(ImperiumData["STAT_SET_DATE"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_FLOAT"))
+                        Natives.STAT_SET_FLOAT = Convert.ToUInt32(ImperiumData["STAT_SET_FLOAT"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_INT"))
+                        Natives.STAT_SET_INT = Convert.ToUInt32(ImperiumData["STAT_SET_INT"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_POS"))
+                        Natives.STAT_SET_POS = Convert.ToUInt32(ImperiumData["STAT_SET_POS"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_STRING"))
+                        Natives.STAT_SET_STRING = Convert.ToUInt32(ImperiumData["STAT_SET_STRING"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_USER_ID"))
+                        Natives.STAT_SET_USER_ID = Convert.ToUInt32(ImperiumData["STAT_SET_USER_ID"]);
+                }
+            }
+            else
+            {
+                this.Text = "Imperium Account Editor " + Variables.versionLabel + " [PS3 BLES 1.27]";
+                DevExpress.XtraEditors.XtraMessageBox.Show(
+                "Unable to connect to server! (lexicongta.com)\n" +
+                "The server is used to grab information about new updates & ensure compatibility with the latest GTA update.\n" +
+                "Try again in a bit... For now, we'll use default application data."
+                );
             }
 
             // Initialize Settings
@@ -1279,7 +1404,7 @@ namespace Imperium
             statStatus.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             if (value is int || value is bool)
             {
-                Natives address = value is int ? Natives.STAT_SET_INT : Natives.STAT_SET_BOOL;
+                uint address = value is int ? Natives.STAT_SET_INT : Natives.STAT_SET_BOOL;
                 if (stat.Contains("MPPLY_"))
                 {
                     RPC.Call(address, Main.Hash(stat), Convert.ToInt32(value), 1);
@@ -1507,7 +1632,7 @@ namespace Imperium
 
         private void gAddCash_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            RPC.Call(Natives.MONEY, Convert.ToInt32(gAddCash.Text), 0);
+            RPC.Call(Natives.MEM_MONEY, Convert.ToInt32(gAddCash.Text), 0);
         }
 
         #region Outfit

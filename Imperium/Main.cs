@@ -683,6 +683,7 @@ namespace Imperium
                         {
                             DevExpress.XtraEditors.XtraMessageBox.Show("--- NEWS! ------------------------------------------------------\n" +
                                 ImperiumData["news"].ToString());
+                            //
                         }
                     }
 

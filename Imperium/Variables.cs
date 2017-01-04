@@ -12,6 +12,6 @@ namespace Imperium
         public static int version = 100;
         public static string versionLabel = "1.0";
         public static bool character1, character2;
-        public static SelectAPI api = SelectAPI.TargetManager;
+        public static SelectAPI api = SelectAPI.TargetManager;//
     }
 }

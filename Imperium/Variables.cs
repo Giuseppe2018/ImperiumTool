@@ -9,8 +9,8 @@ namespace Imperium
 {
     class Variables
     {
-        public static int version = 90;
-        public static string versionLabel = "0.9";
+        public static int version = 100;
+        public static string versionLabel = "1.0";
         public static bool character1, character2;
         public static SelectAPI api = SelectAPI.TargetManager;
     }

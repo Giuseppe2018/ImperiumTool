@@ -21,6 +21,7 @@ namespace Imperium
 {
     public partial class Main : DevExpress.XtraEditors.XtraForm
     {
+        #region Classes, Structs, Dictionaries...
         public static PS3API PS3 = new PS3API();
 
         class RPC
@@ -30,11 +31,6 @@ namespace Imperium
             public static uint EFA1 = 0x1BE4D08;
             public static uint BFA1 = 0x18614;
             public static uint BAB1 = 0x18620;
-            // 1.26
-            /*private static uint SFA1 = 0x1BF5000;
-            private static uint EFA1 = 0x1BF5088;
-            private static uint BFA1 = 0x18614;
-            private static uint BAB1 = 0x18620;*/
 
             public static uint CBAB(uint F, uint T)
             {
@@ -491,7 +487,7 @@ namespace Imperium
             }
         }
 
-        class NFunc
+        class NativeFunctions
         {
             public static int pid()
             {
@@ -519,324 +515,8 @@ namespace Imperium
                 RPC.Call(Natives.STAT_SAVE, 0, false, 3);
             }
         }
-
-        class Garage
-        {
-            public static uint pointer = 0x1E70390;
-            public static uint Armor = 115,
-            Body = 211,
-            Brakes = 99,
-            Bulletproof = 195,
-            Bulletproof2 = 210,
-            Bumper_Front = 55,
-            Bumper_Rear = 59,
-            Chassis = 71,
-            CustomTire_Front = 155,
-            CustomTire_Rear = 159,
-            Engine = 95,
-            Exhaust = 67,
-            Grille = 75,
-            Hood = 79,
-            Horn = 107,
-            Insurance = 287,
-            Model = 176,
-            Padding = 400,
-            Paint_Pearl = 39,
-            Paint_Primary = 31,
-            Paint_Secondary = 35,
-            Plate_Type = 11,
-            Plate_Text = 12,
-            Repair = 285,
-            Rims_Color = 43,
-            Rims_Front = 143,
-            Rims_Rear = 147,
-            Rims_Type = 191,
-            Roof = 91,
-            Skirts = 63,
-            Smoke_B = 171,
-            Smoke_Enabled = 131,
-            Smoke_G = 167,
-            Smoke_R = 163,
-            Spolier = 51,
-            Suspension = 111,
-            Transmission = 103,
-            Turbo = 123,
-            Window = 175,
-            Xenon = 139,
-            RGB_Cache_R = 49 * 4,
-            RGB_Cache_G = 50 * 4,
-            RGB_Cache_B = 51 * 4,
-            RGB = 52 * 4,
-            RGB_Primary = 0x2000,
-            RGB_Secondary = 0x1000;
-            public static uint offset()
-            {
-                return PS3.Extension.ReadUInt32(pointer);
-            }
-            public static uint getUint(int slot, uint mod)
-            {
-                return PS3.Extension.ReadUInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod));
-            }
-            public static void setUint(int slot, uint mod, uint value)
-            {
-                PS3.Extension.WriteUInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
-            }
-            public static int getInt(int slot, uint mod)
-            {
-                return PS3.Extension.ReadInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod));
-            }
-            public static void setByte(int slot, uint mod, byte value)
-            {
-                PS3.Extension.WriteByte(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
-            }
-            public static byte getByte(int slot, uint mod)
-            {
-                return PS3.Extension.ReadByte(Convert.ToUInt32(offset() + (slot * Padding) + mod));
-            }
-            public static void setInt(int slot, uint mod, int value)
-            {
-                PS3.Extension.WriteInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
-            }
-            public static void setString(int slot, uint mod, string value)
-            {
-                PS3.Extension.WriteString(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
-            }
-            public static string getString(int slot, uint mod)
-            {
-                return PS3.Extension.ReadString(Convert.ToUInt32(offset() + (slot * Padding) + mod));
-            }
-            public static void resetSlot(int slot)
-            {
-                uint model = Garage.getUint(slot, Garage.Model);
-                Garage.setUint(slot, Garage.Model, 0);
-                Thread.Sleep(250);
-                Garage.setUint(slot, Garage.Model, model);
-            }
-        }
-        public class Setting
-        {
-            public string name { get; set; }
-            public object value { get; set; }
-            public Setting(string Name, object Value)
-            {
-                name = Name;
-                value = Value;
-            }
-        }
-        public class VehicleModel
-        {
-            public string label { get; set; }
-            public string model { get; set; }
-            public VehicleModel(string Label, string Model)
-            {
-                label = Label;
-                model = Model;
-            }
-        }
-        private List<Setting> settingsList = new List<Setting>();
-        Dictionary<string, string> VehicleModels = new Dictionary<string, string>();
-        string[] filePaths;
-        private XmlDocument xd_mp = new XmlDocument();
-
-        Dictionary<string, object> ImperiumData = new Dictionary<string, object>();
-
-
-        public Main()
-        {
-            InitializeComponent();
-
-            // Connect to Site
-            if (new Ping().Send("lexicongta.com").Status == IPStatus.Success) // Server is online
-            {
-                System.Net.HttpWebRequest Request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://lexicongta.com/imperium/client_data.json");
-                Request.UserAgent = "dick";
-                var Response = Request.GetResponse().GetResponseStream();
-                using (StreamReader sr = new StreamReader(Response))
-                {
-                    ImperiumData = JsonConvert.DeserializeObject<Dictionary<string, object>>( sr.ReadToEnd() );
-
-                    // Main
-                    if (ImperiumData.ContainsKey("name") && ImperiumData.ContainsKey("tag"))
-                    {
-                        this.Text = ImperiumData["name"] + " " + Variables.versionLabel + " " + ImperiumData["tag"];
-                    }
-
-                    if (ImperiumData.ContainsKey("latest_version"))
-                    {
-                        if (Convert.ToInt32(ImperiumData["latest_version"]) > Variables.version && !Properties.Settings.Default.UpdateNotified)
-                        {
-                            System.Diagnostics.Process.Start(
-                                "http://www.nextgenupdate.com/forums/gta-5-mod-tools/921980-ps3-1-26-bles-cc-tm-imperium-account-editor-0-7-alpha-release-source.html"
-                                );
-                            DevExpress.XtraEditors.XtraMessageBox.Show(
-                            "Woah! There's an Imperium update available!\n\n" +
-                            "Your version is " + Variables.version + ", the newest version is " + ImperiumData["latest_version"].ToString() + "!"
-                            );
-                            Properties.Settings.Default.UpdateNotified = true;
-                            Properties.Settings.Default.Save();
-                        }
-                    }
-
-                    if (ImperiumData.ContainsKey("news_show") && ImperiumData.ContainsKey("news"))
-                    {
-                        if (Convert.ToBoolean(ImperiumData["news_show"]) && ImperiumData["news"].ToString().Length > 0)
-                        {
-                            DevExpress.XtraEditors.XtraMessageBox.Show("--- NEWS! ------------------------------------------------------\n" +
-                                ImperiumData["news"].ToString());
-                        }
-                    }
-
-                    // RPC
-                    if (ImperiumData.ContainsKey("SFA1"))
-                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["SFA1"]);
-                    if (ImperiumData.ContainsKey("EFA1"))
-                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["EFA1"]);
-                    if (ImperiumData.ContainsKey("BFA1"))
-                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["BFA1"]);
-                    if (ImperiumData.ContainsKey("BAB1"))
-                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["BAB1"]);
-                    
-
-                    // Addresses
-                    if (ImperiumData.ContainsKey("UNK_70559AC7"))
-                        Natives.UNK_70559AC7 = Convert.ToUInt32(ImperiumData["UNK_70559AC7"]);
-                    if (ImperiumData.ContainsKey("MEM_MONEY"))
-                        Natives.MEM_MONEY = Convert.ToUInt32(ImperiumData["MEM_MONEY"]);
-                    if (ImperiumData.ContainsKey("CLEAR_ALL_PED_PROPS"))
-                        Natives.CLEAR_ALL_PED_PROPS = Convert.ToUInt32(ImperiumData["CLEAR_ALL_PED_PROPS"]);
-                    if (ImperiumData.ContainsKey("CLEAR_PED_DECORATIONS"))
-                        Natives.CLEAR_PED_DECORATIONS = Convert.ToUInt32(ImperiumData["CLEAR_PED_DECORATIONS"]);
-                    if (ImperiumData.ContainsKey("DO_SCREEN_FADE_IN"))
-                        Natives.DO_SCREEN_FADE_IN = Convert.ToUInt32(ImperiumData["DO_SCREEN_FADE_IN"]);
-                    if (ImperiumData.ContainsKey("DO_SCREEN_FADE_OUT"))
-                        Natives.DO_SCREEN_FADE_OUT = Convert.ToUInt32(ImperiumData["DO_SCREEN_FADE_OUT"]);
-                    if (ImperiumData.ContainsKey("GET_PLAYER_NAME"))
-                        Natives.GET_PLAYER_NAME = Convert.ToUInt32(ImperiumData["GET_PLAYER_NAME"]);
-                    if (ImperiumData.ContainsKey("GET_VEHICLE_PED_IS_USING"))
-                        Natives.GET_VEHICLE_PED_IS_USING = Convert.ToUInt32(ImperiumData["GET_VEHICLE_PED_IS_USING"]);
-                    if (ImperiumData.ContainsKey("IS_PED_IN_ANY_VEHICLE"))
-                        Natives.IS_PED_IN_ANY_VEHICLE = Convert.ToUInt32(ImperiumData["IS_PED_IN_ANY_VEHICLE"]);
-                    if (ImperiumData.ContainsKey("NETWORK_EARN_FROM_ROCKSTAR"))
-                        Natives.NETWORK_EARN_FROM_ROCKSTAR = Convert.ToUInt32(ImperiumData["NETWORK_EARN_FROM_ROCKSTAR"]);
-                    if (ImperiumData.ContainsKey("NETWORK_SPENT_CASH_DROP"))
-                        Natives.NETWORK_SPENT_CASH_DROP = Convert.ToUInt32(ImperiumData["NETWORK_SPENT_CASH_DROP"]);
-                    if (ImperiumData.ContainsKey("PLAYER_ID"))
-                        Natives.PLAYER_ID = Convert.ToUInt32(ImperiumData["PLAYER_ID"]);
-                    if (ImperiumData.ContainsKey("PLAYER_PED_ID"))
-                        Natives.PLAYER_PED_ID = Convert.ToUInt32(ImperiumData["PLAYER_PED_ID"]);
-                    if (ImperiumData.ContainsKey("SET_ENTITY_COORDS"))
-                        Natives.SET_ENTITY_COORDS = Convert.ToUInt32(ImperiumData["SET_ENTITY_COORDS"]);
-                    if (ImperiumData.ContainsKey("SET_PED_COMPONENT_VARIATION"))
-                        Natives.SET_PED_COMPONENT_VARIATION = Convert.ToUInt32(ImperiumData["SET_PED_COMPONENT_VARIATION"]);
-                    if (ImperiumData.ContainsKey("SET_PED_PROP_INDEX"))
-                        Natives.SET_PED_PROP_INDEX = Convert.ToUInt32(ImperiumData["SET_PED_PROP_INDEX"]);
-                    if (ImperiumData.ContainsKey("STAT_GET_BOOL"))
-                        Natives.STAT_GET_BOOL = Convert.ToUInt32(ImperiumData["STAT_GET_BOOL"]);
-                    if (ImperiumData.ContainsKey("STAT_GET_DATE"))
-                        Natives.STAT_GET_DATE = Convert.ToUInt32(ImperiumData["STAT_GET_DATE"]);
-                    if (ImperiumData.ContainsKey("STAT_GET_FLOAT"))
-                        Natives.STAT_GET_FLOAT = Convert.ToUInt32(ImperiumData["STAT_GET_FLOAT"]);
-                    if (ImperiumData.ContainsKey("STAT_GET_INT"))
-                        Natives.STAT_GET_INT = Convert.ToUInt32(ImperiumData["STAT_GET_INT"]);
-                    if (ImperiumData.ContainsKey("STAT_GET_POS"))
-                        Natives.STAT_GET_POS = Convert.ToUInt32(ImperiumData["STAT_GET_POS"]);
-                    if (ImperiumData.ContainsKey("STAT_GET_STRING"))
-                        Natives.STAT_GET_STRING = Convert.ToUInt32(ImperiumData["STAT_GET_STRING"]);
-                    if (ImperiumData.ContainsKey("STAT_GET_USER_ID"))
-                        Natives.STAT_GET_USER_ID = Convert.ToUInt32(ImperiumData["STAT_GET_USER_ID"]);
-                    if (ImperiumData.ContainsKey("STAT_SAVE"))
-                        Natives.STAT_SAVE = Convert.ToUInt32(ImperiumData["STAT_SAVE"]);
-                    if (ImperiumData.ContainsKey("STAT_SET_BOOL"))
-                        Natives.STAT_SET_BOOL = Convert.ToUInt32(ImperiumData["STAT_SET_BOOL"]);
-                    if (ImperiumData.ContainsKey("STAT_SET_DATE"))
-                        Natives.STAT_SET_DATE = Convert.ToUInt32(ImperiumData["STAT_SET_DATE"]);
-                    if (ImperiumData.ContainsKey("STAT_SET_FLOAT"))
-                        Natives.STAT_SET_FLOAT = Convert.ToUInt32(ImperiumData["STAT_SET_FLOAT"]);
-                    if (ImperiumData.ContainsKey("STAT_SET_INT"))
-                        Natives.STAT_SET_INT = Convert.ToUInt32(ImperiumData["STAT_SET_INT"]);
-                    if (ImperiumData.ContainsKey("STAT_SET_POS"))
-                        Natives.STAT_SET_POS = Convert.ToUInt32(ImperiumData["STAT_SET_POS"]);
-                    if (ImperiumData.ContainsKey("STAT_SET_STRING"))
-                        Natives.STAT_SET_STRING = Convert.ToUInt32(ImperiumData["STAT_SET_STRING"]);
-                    if (ImperiumData.ContainsKey("STAT_SET_USER_ID"))
-                        Natives.STAT_SET_USER_ID = Convert.ToUInt32(ImperiumData["STAT_SET_USER_ID"]);
-                }
-            }
-            else
-            {
-                this.Text = "Imperium Account Editor " + Variables.versionLabel + " [PS3 BLES 1.27]";
-                DevExpress.XtraEditors.XtraMessageBox.Show(
-                "Unable to connect to server! (lexicongta.com)\n" +
-                "The server is used to grab information about new updates & ensure compatibility with the latest GTA update.\n" +
-                "Try again in a bit... For now, we'll use default application data."
-                );
-            }
-
-            // Initialize Settings
-            string settings_filepath = "Data/Settings.json";
-            if (File.Exists(settings_filepath))
-            {
-                string[] Settings_Settings_content = File.ReadAllLines(settings_filepath);
-                foreach (string line in Settings_Settings_content)
-                {
-                    Setting setting = JsonConvert.DeserializeObject<Setting>(line);
-                    settingsList.Add(setting);
-                    if (setting.name == "Character_1")
-                    {
-                        char1.Checked = Variables.character1 = (bool)setting.value;
-                    }
-                    if (setting.name == "Character_2")
-                    {
-                        char2.Checked = Variables.character2 = (bool)setting.value;
-                    }
-                }
-            }
-            else MessageBox.Show(settings_filepath + " is missing! :(");
-            // Initialize Vehicle Models
-            string vehicles_filepath = "Data/Vehicles.json";
-            if (File.Exists(vehicles_filepath))
-            {
-                string[] vehicles_content = File.ReadAllLines(vehicles_filepath);
-                garModel.Properties.Items.Clear();
-                // Grab from json
-                foreach (string line in vehicles_content)
-                {
-                    VehicleModel vehicle = JsonConvert.DeserializeObject<VehicleModel>(line);
-                    if (vehicle.model != "")
-                    {
-                        VehicleModels.Add(vehicle.label == "" ? vehicle.model.ToUpper() : vehicle.label, vehicle.model);
-                    }
-                }
-                // Alphabetize
-                /*var query = from item in VehicleModels
-                            orderby item.Key ascending
-                            select item;*/
-                // Add to combo box
-                foreach (KeyValuePair<string, string> entry in VehicleModels)
-                {
-                    garModel.Properties.Items.Add(entry.Key);
-                }
-            }
-            else MessageBox.Show(vehicles_filepath + " is missing! :(");
-
-            // Refresh Outfit
-            refreshOutfitListing();
-
-
-            #region Stat Inspector
-            filePaths = Directory.GetFiles("Data/StatFiles/");
-            foreach (string path in filePaths)
-                INS_File.Properties.Items.Add(path.Substring(15, path.Length - 15));
-            INS_File.SelectedIndex = 0;
-
-            xd_mp.Load(filePaths[0]);
-            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
-                INS_Stat.Properties.Items.Add((object)xmlNode.Value);
-            #endregion
-
-        }
         #region Stats
-        public class StatData 
+        public class StatData
         {
             public object value { get; set; }
             public string keyword { get; set; }
@@ -1233,10 +913,11 @@ namespace Imperium
 
         };
         #endregion
+
         #region Teleport
-        public class TpData 
+        public class TpData
         {
-             public string label { get; set; }
+            public string label { get; set; }
             public string grouping { get; set; }
             public TpData(string _label, string _grouping)
             {
@@ -1314,11 +995,393 @@ namespace Imperium
             Thread.Sleep(10);
             RPC.Call(Natives.DO_SCREEN_FADE_OUT, 400);
             Thread.Sleep(300);
-            RPC.Call(Natives.SET_ENTITY_COORDS, NFunc.isInVehicle() ? NFunc.vehid() : NFunc.pedid(), location, 1, 0, 0, 1);
+            RPC.Call(Natives.SET_ENTITY_COORDS, NativeFunctions.isInVehicle() ? NativeFunctions.vehid() : NativeFunctions.pedid(), location, 1, 0, 0, 1);
             Thread.Sleep(1000);
             RPC.Call(Natives.DO_SCREEN_FADE_IN, 400);
         }
         #endregion
+
+        class Garage
+        {
+            public static uint pointer = 0x1E70390;
+            public static uint Armor = 115,
+            Body = 211,
+            Brakes = 99,
+            Bulletproof = 195,
+            Bulletproof2 = 210,
+            Bumper_Front = 55,
+            Bumper_Rear = 59,
+            Chassis = 71,
+            CustomTire_Front = 155,
+            CustomTire_Rear = 159,
+            Engine = 95,
+            Exhaust = 67,
+            Grille = 75,
+            Hood = 79,
+            Horn = 107,
+            Insurance = 287,
+            Model = 176,
+            Padding = 400,
+            Paint_Pearl = 39,
+            Paint_Primary = 31,
+            Paint_Secondary = 35,
+            Plate_Type = 11,
+            Plate_Text = 12,
+            Repair = 285,
+            Rims_Color = 43,
+            Rims_Front = 143,
+            Rims_Rear = 147,
+            Rims_Type = 191,
+            Roof = 91,
+            Skirts = 63,
+            Smoke_B = 171,
+            Smoke_Enabled = 131,
+            Smoke_G = 167,
+            Smoke_R = 163,
+            Spolier = 51,
+            Suspension = 111,
+            Transmission = 103,
+            Turbo = 123,
+            Window = 175,
+            Xenon = 139,
+            RGB_Cache_R = 49 * 4,
+            RGB_Cache_G = 50 * 4,
+            RGB_Cache_B = 51 * 4,
+            RGB = 52 * 4,
+            RGB_Primary = 0x2000,
+            RGB_Secondary = 0x1000;
+            public static uint offset()
+            {
+                return PS3.Extension.ReadUInt32(pointer);
+            }
+            public static uint getUint(int slot, uint mod)
+            {
+                return PS3.Extension.ReadUInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod));
+            }
+            public static void setUint(int slot, uint mod, uint value)
+            {
+                PS3.Extension.WriteUInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
+            }
+            public static int getInt(int slot, uint mod)
+            {
+                return PS3.Extension.ReadInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod));
+            }
+            public static void setByte(int slot, uint mod, byte value)
+            {
+                PS3.Extension.WriteByte(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
+            }
+            public static byte getByte(int slot, uint mod)
+            {
+                return PS3.Extension.ReadByte(Convert.ToUInt32(offset() + (slot * Padding) + mod));
+            }
+            public static void setInt(int slot, uint mod, int value)
+            {
+                PS3.Extension.WriteInt32(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
+            }
+            public static void setString(int slot, uint mod, string value)
+            {
+                PS3.Extension.WriteString(Convert.ToUInt32(offset() + (slot * Padding) + mod), value);
+            }
+            public static string getString(int slot, uint mod)
+            {
+                return PS3.Extension.ReadString(Convert.ToUInt32(offset() + (slot * Padding) + mod));
+            }
+            public static void resetSlot(int slot)
+            {
+                uint model = Garage.getUint(slot, Garage.Model);
+                Garage.setUint(slot, Garage.Model, 0);
+                Thread.Sleep(250);
+                Garage.setUint(slot, Garage.Model, model);
+            }
+        }
+        public class Setting
+        {
+            public string name { get; set; }
+            public object value { get; set; }
+            public Setting(string Name, object Value)
+            {
+                name = Name;
+                value = Value;
+            }
+        }
+        public class VehicleModel
+        {
+            public string label { get; set; }
+            public string model { get; set; }
+            public VehicleModel(string Label, string Model)
+            {
+                label = Label;
+                model = Model;
+            }
+        }
+        private List<Setting> settingsList = new List<Setting>();
+        Dictionary<string, string> VehicleModels = new Dictionary<string, string>();
+        string[] filePaths;
+        private XmlDocument xd_mp = new XmlDocument();
+
+        Dictionary<string, object> ImperiumData = new Dictionary<string, object>();
+        #endregion
+
+        public Main()
+        {
+            InitializeComponent();
+
+            #region Server Data
+            if (new Ping().Send("lexicongta.com").Status == IPStatus.Success) // Server is online
+            {
+                System.Net.HttpWebRequest Request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://lexicongta.com/imperium/client_data.json");
+                Request.UserAgent = "dick";
+                var Response = Request.GetResponse().GetResponseStream();
+                using (StreamReader sr = new StreamReader(Response))
+                {
+                    ImperiumData = JsonConvert.DeserializeObject<Dictionary<string, object>>( sr.ReadToEnd() );
+
+                    #region Main
+                    if (ImperiumData.ContainsKey("name") && ImperiumData.ContainsKey("tag"))
+                    {
+                        this.Text = ImperiumData["name"] + " " + Variables.versionLabel + " " + ImperiumData["tag"];
+                    }
+
+                    if (ImperiumData.ContainsKey("latest_version") && ImperiumData.ContainsKey("latest_version_label"))
+                    {
+                        if (Convert.ToInt32(ImperiumData["latest_version"]) > Variables.version && !Properties.Settings.Default.UpdateNotified)
+                        {
+                            System.Diagnostics.Process.Start(
+                                "http://www.nextgenupdate.com/forums/gta-5-mod-tools/921980-ps3-1-26-bles-cc-tm-imperium-account-editor-0-7-alpha-release-source.html"
+                                );
+                            DevExpress.XtraEditors.XtraMessageBox.Show(
+                            "Woah! There's an Imperium update available!\n\n" +
+                            "Your version is " + Variables.versionLabel + ", the newest version is " + ImperiumData["latest_version_label"].ToString() + "!"
+                            );
+                            Properties.Settings.Default.UpdateNotified = true;
+                            Properties.Settings.Default.Save();
+                        }
+                    }
+
+                    if (ImperiumData.ContainsKey("news_show") && ImperiumData.ContainsKey("news"))
+                    {
+                        if (Convert.ToBoolean(ImperiumData["news_show"]) && ImperiumData["news"].ToString().Length > 0)
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show("--- NEWS! ------------------------------------------------------\n" +
+                                ImperiumData["news"].ToString());
+                        }
+                    }
+                    #endregion
+
+                    #region RPC & Addresses
+                    // RPC
+                    if (ImperiumData.ContainsKey("SFA1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["SFA1"]);
+                    if (ImperiumData.ContainsKey("SFA1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["SFA1"]);
+                    if (ImperiumData.ContainsKey("EFA1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["EFA1"]);
+                    if (ImperiumData.ContainsKey("BFA1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["BFA1"]);
+                    if (ImperiumData.ContainsKey("BAB1"))
+                        RPC.SFA1 = Convert.ToUInt32(ImperiumData["BAB1"]);
+                    
+                    // Addresses
+                    if (ImperiumData.ContainsKey("UNK_70559AC7"))
+                        Natives.UNK_70559AC7 = Convert.ToUInt32(ImperiumData["UNK_70559AC7"]);
+                    if (ImperiumData.ContainsKey("MEM_MONEY"))
+                        Natives.MEM_MONEY = Convert.ToUInt32(ImperiumData["MEM_MONEY"]);
+                    if (ImperiumData.ContainsKey("CLEAR_ALL_PED_PROPS"))
+                        Natives.CLEAR_ALL_PED_PROPS = Convert.ToUInt32(ImperiumData["CLEAR_ALL_PED_PROPS"]);
+                    if (ImperiumData.ContainsKey("CLEAR_PED_DECORATIONS"))
+                        Natives.CLEAR_PED_DECORATIONS = Convert.ToUInt32(ImperiumData["CLEAR_PED_DECORATIONS"]);
+                    if (ImperiumData.ContainsKey("DO_SCREEN_FADE_IN"))
+                        Natives.DO_SCREEN_FADE_IN = Convert.ToUInt32(ImperiumData["DO_SCREEN_FADE_IN"]);
+                    if (ImperiumData.ContainsKey("DO_SCREEN_FADE_OUT"))
+                        Natives.DO_SCREEN_FADE_OUT = Convert.ToUInt32(ImperiumData["DO_SCREEN_FADE_OUT"]);
+                    if (ImperiumData.ContainsKey("GET_PLAYER_NAME"))
+                        Natives.GET_PLAYER_NAME = Convert.ToUInt32(ImperiumData["GET_PLAYER_NAME"]);
+                    if (ImperiumData.ContainsKey("GET_VEHICLE_PED_IS_USING"))
+                        Natives.GET_VEHICLE_PED_IS_USING = Convert.ToUInt32(ImperiumData["GET_VEHICLE_PED_IS_USING"]);
+                    if (ImperiumData.ContainsKey("IS_PED_IN_ANY_VEHICLE"))
+                        Natives.IS_PED_IN_ANY_VEHICLE = Convert.ToUInt32(ImperiumData["IS_PED_IN_ANY_VEHICLE"]);
+                    if (ImperiumData.ContainsKey("NETWORK_EARN_FROM_ROCKSTAR"))
+                        Natives.NETWORK_EARN_FROM_ROCKSTAR = Convert.ToUInt32(ImperiumData["NETWORK_EARN_FROM_ROCKSTAR"]);
+                    if (ImperiumData.ContainsKey("NETWORK_SPENT_CASH_DROP"))
+                        Natives.NETWORK_SPENT_CASH_DROP = Convert.ToUInt32(ImperiumData["NETWORK_SPENT_CASH_DROP"]);
+                    if (ImperiumData.ContainsKey("PLAYER_ID"))
+                        Natives.PLAYER_ID = Convert.ToUInt32(ImperiumData["PLAYER_ID"]);
+                    if (ImperiumData.ContainsKey("PLAYER_PED_ID"))
+                        Natives.PLAYER_PED_ID = Convert.ToUInt32(ImperiumData["PLAYER_PED_ID"]);
+                    if (ImperiumData.ContainsKey("SET_ENTITY_COORDS"))
+                        Natives.SET_ENTITY_COORDS = Convert.ToUInt32(ImperiumData["SET_ENTITY_COORDS"]);
+                    if (ImperiumData.ContainsKey("SET_PED_COMPONENT_VARIATION"))
+                        Natives.SET_PED_COMPONENT_VARIATION = Convert.ToUInt32(ImperiumData["SET_PED_COMPONENT_VARIATION"]);
+                    if (ImperiumData.ContainsKey("SET_PED_PROP_INDEX"))
+                        Natives.SET_PED_PROP_INDEX = Convert.ToUInt32(ImperiumData["SET_PED_PROP_INDEX"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_BOOL"))
+                        Natives.STAT_GET_BOOL = Convert.ToUInt32(ImperiumData["STAT_GET_BOOL"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_DATE"))
+                        Natives.STAT_GET_DATE = Convert.ToUInt32(ImperiumData["STAT_GET_DATE"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_FLOAT"))
+                        Natives.STAT_GET_FLOAT = Convert.ToUInt32(ImperiumData["STAT_GET_FLOAT"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_INT"))
+                        Natives.STAT_GET_INT = Convert.ToUInt32(ImperiumData["STAT_GET_INT"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_POS"))
+                        Natives.STAT_GET_POS = Convert.ToUInt32(ImperiumData["STAT_GET_POS"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_STRING"))
+                        Natives.STAT_GET_STRING = Convert.ToUInt32(ImperiumData["STAT_GET_STRING"]);
+                    if (ImperiumData.ContainsKey("STAT_GET_USER_ID"))
+                        Natives.STAT_GET_USER_ID = Convert.ToUInt32(ImperiumData["STAT_GET_USER_ID"]);
+                    if (ImperiumData.ContainsKey("STAT_SAVE"))
+                        Natives.STAT_SAVE = Convert.ToUInt32(ImperiumData["STAT_SAVE"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_BOOL"))
+                        Natives.STAT_SET_BOOL = Convert.ToUInt32(ImperiumData["STAT_SET_BOOL"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_DATE"))
+                        Natives.STAT_SET_DATE = Convert.ToUInt32(ImperiumData["STAT_SET_DATE"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_FLOAT"))
+                        Natives.STAT_SET_FLOAT = Convert.ToUInt32(ImperiumData["STAT_SET_FLOAT"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_INT"))
+                        Natives.STAT_SET_INT = Convert.ToUInt32(ImperiumData["STAT_SET_INT"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_POS"))
+                        Natives.STAT_SET_POS = Convert.ToUInt32(ImperiumData["STAT_SET_POS"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_STRING"))
+                        Natives.STAT_SET_STRING = Convert.ToUInt32(ImperiumData["STAT_SET_STRING"]);
+                    if (ImperiumData.ContainsKey("STAT_SET_USER_ID"))
+                        Natives.STAT_SET_USER_ID = Convert.ToUInt32(ImperiumData["STAT_SET_USER_ID"]);
+                    #endregion
+                }
+            }
+            else
+            {
+                this.Text = "Imperium Account Editor " + Variables.versionLabel + " [PS3 BLES 1.27]";
+                DevExpress.XtraEditors.XtraMessageBox.Show(
+                "Unable to connect to server! (lexicongta.com)\n" +
+                "The server is used to grab information about new updates & ensure compatibility with the latest GTA update.\n" +
+                "Try again in a bit... For now, we'll use default application data."
+                );
+            }
+            #endregion
+
+            #region JSON File Importing
+            // Initialize Settings
+            string settings_filepath = "Data/Settings.json";
+            if (File.Exists(settings_filepath))
+            {
+                string[] Settings_Settings_content = File.ReadAllLines(settings_filepath);
+                foreach (string line in Settings_Settings_content)
+                {
+                    Setting setting = JsonConvert.DeserializeObject<Setting>(line);
+                    settingsList.Add(setting);
+                    if (setting.name == "Character_1")
+                    {
+                        char1.Checked = Variables.character1 = (bool)setting.value;
+                    }
+                    if (setting.name == "Character_2")
+                    {
+                        char2.Checked = Variables.character2 = (bool)setting.value;
+                    }
+                }
+            }
+            else MessageBox.Show(settings_filepath + " is missing! :(");
+            // Initialize Vehicle Models
+            string vehicles_filepath = "Data/Vehicles.json";
+            if (File.Exists(vehicles_filepath))
+            {
+                string[] vehicles_content = File.ReadAllLines(vehicles_filepath);
+                garModel.Properties.Items.Clear();
+                // Grab from json
+                foreach (string line in vehicles_content)
+                {
+                    VehicleModel vehicle = JsonConvert.DeserializeObject<VehicleModel>(line);
+                    if (vehicle.model != "")
+                    {
+                        VehicleModels.Add(vehicle.label == "" ? vehicle.model.ToUpper() : vehicle.label, vehicle.model);
+                    }
+                }
+                // Alphabetize
+                /*var query = from item in VehicleModels
+                            orderby item.Key ascending
+                            select item;*/
+                // Add to combo box
+                foreach (KeyValuePair<string, string> entry in VehicleModels)
+                {
+                    garModel.Properties.Items.Add(entry.Key);
+                }
+            }
+            else MessageBox.Show(vehicles_filepath + " is missing! :(");
+            #endregion
+
+            #region XML File Importing
+            filePaths = Directory.GetFiles("Data/StatFiles/");
+            foreach (string path in filePaths)
+                INS_File.Properties.Items.Add(path.Substring(15, path.Length - 15));
+            INS_File.SelectedIndex = 0;
+
+            xd_mp.Load(filePaths[0]);
+            foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
+                INS_Stat.Properties.Items.Add((object)xmlNode.Value);
+            #endregion
+
+            // Refresh Outfit
+            refreshOutfitListing();
+
+        }
+
+        #region Connect, Disconnect
+        void Connect(SelectAPI api)
+        {
+            PS3.DisconnectTarget();
+            Variables.api = api;
+            bool tmapi = api == SelectAPI.TargetManager;
+            PS3.ChangeAPI(api);
+            try
+            {
+                PS3.ConnectTarget();
+                PS3.AttachProcess();
+
+                RPC.Enable();
+
+                if (NativeFunctions.psn() == "")
+                {
+                    connectionStatus.Caption = "Error!";
+                    connectionPSN.Caption = "RPC Enable Failed!";
+                    connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                }
+                else
+                {
+                    connectionStatus.Caption = "Connected [" + (tmapi ? "TM" : "CC") + "]";
+                    connectionPSN.Caption = "Welcome, " + NativeFunctions.psn() + " [Console: " + PS3.GetConsoleName() + "]";
+                    connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+
+                    otftDoRefresh(true);
+
+                }
+                barSub_Connect.Glyph = Imperium.Properties.Resources.link_connected;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Connection Failed\n\nError: " + ex.Message);
+            }
+        }
+
+        // Connect
+        private void barButton_TM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Connect(SelectAPI.TargetManager);
+        }
+
+        private void barButton_CC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Connect(SelectAPI.ControlConsole);
+        }
+
+        // Disconnect
+        private void barButton_Disconnect_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            PS3.DisconnectTarget();
+            connectionStatus.Caption = "Idle...";
+            connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            barSub_Connect.Glyph = Imperium.Properties.Resources.link_idle;
+        }
+        #endregion
+
+        #region Functions
         public static uint Hash(string input)
         {
             byte[] stingbytes = Encoding.UTF8.GetBytes(input.ToLower());
@@ -1333,71 +1396,17 @@ namespace Imperium
             uint num5 = num4 ^ num4 >> 11;
             return num5 + (num5 << 15);
         }
-        #region Link
-        string cmethod;
-        void connect(SelectAPI api)
-        {
-            PS3.DisconnectTarget();
-            Variables.api = api;
-            bool tmapi = api == SelectAPI.TargetManager;
-            PS3.ChangeAPI(api);
-            cmethod = tmapi ? "TMAPI" : "CCAPI";
-            try
-            {
-                PS3.ConnectTarget();
-                PS3.AttachProcess();
 
-                RPC.Enable();
-
-                if (NFunc.psn() == "")
-                {
-                    connectionStatus.Caption = "Error!";
-                    connectionPSN.Caption = "RPC Enable Failed!";
-                    connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-                }
-                else
-                {
-                    connectionStatus.Caption = "Connected [" + (tmapi ? "TM" : "CC") + "]";
-                    connectionPSN.Caption = "Welcome, " + NFunc.psn() + " [Console: " + PS3.GetConsoleName() + "]";
-                    connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
-
-                    otftDoRefresh(true);
-
-                }
-                barSub_Connect.Glyph = Imperium.Properties.Resources.link_connected;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Connection Failed\n\nError: " + ex.Message);
-            }
-        }
-        private void barButton_TM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            connect(SelectAPI.TargetManager);
-        }
-
-        private void barButton_CC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            connect(SelectAPI.ControlConsole);
-        }
-
-        private void barButton_Disconnect_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            PS3.DisconnectTarget();
-            connectionStatus.Caption = "Idle...";
-            connectionPSN.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            barSub_Connect.Glyph = Imperium.Properties.Resources.link_idle;
-        }
-        #endregion
-        #region Functions
         private void char1_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Variables.character1 = char1.Checked;
         }
+
         private void char2_CheckedChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Variables.character2 = char2.Checked;
         }
+
         void setStat(string stat, object value)
         {
             statStatus.Caption = "Last Used: " + stat;
@@ -1444,6 +1453,7 @@ namespace Imperium
                 MessageBox.Show("Unkown stat type");
             }
         }
+
         void setStatQuery(params string[] snippets)
         {
             foreach (string snippet in snippets)
@@ -1458,6 +1468,7 @@ namespace Imperium
                 }
             }
         }
+
         void setStatKeywordQuery(params string[] snippets)
         {
             foreach (string snippet in snippets)
@@ -1472,28 +1483,253 @@ namespace Imperium
                 }
             }
         }
+
+        string[] getOutfitTitles()
+        {
+            string filepath = "Data/Outfits.xml";
+            if (File.Exists(filepath))
+            {
+                List<string> list = new List<string>();
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.ConformanceLevel = ConformanceLevel.Fragment;
+                using (XmlReader reader = XmlReader.Create(new StringReader(File.ReadAllText(filepath)), settings))
+                {
+                    while (reader.ReadToFollowing("outfit"))
+                    {
+                        reader.MoveToFirstAttribute();
+                        list.Add(reader.Value);
+                    }
+                }
+                return list.ToArray();
+            }
+            return null;
+        }
+        
+        string[] aoElements = new string[] { "mask", "hat", "eyes", "ears", "hair", "torso", "tops1", "tops2", "legs", "shoes", "face", "extra", "hands", "armor", "emblem" };
+        
+        Dictionary<string, object[]> getOutfitData(string title)
+        {
+            string filepath = "Data/Outfits.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filepath);
+
+            XmlNode foundNode = null;
+            foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
+            {
+                if (node.Attributes["title"].InnerText == title)
+                {
+                    foundNode = node;
+                }
+            }
+
+            Dictionary<string, object[]> data = new Dictionary<string, object[]>();
+            if (foundNode != null)
+            {
+                data.Add("gender", new object[] { foundNode.Attributes["gender"].InnerText });
+                data.Add("creator", new object[] { foundNode.Attributes["creator"].InnerText });
+                for (int i = 0; i < aoElements.Count(); i++)
+                {
+                    data.Add(aoElements[i], new object[] { Convert.ToInt32(foundNode.SelectSingleNode(aoElements[i]).Attributes["model"].InnerText), Convert.ToInt32(foundNode.SelectSingleNode(aoElements[i]).Attributes["texture"].InnerText) });
+                }
+                data.Add("description", new object[] { foundNode.SelectSingleNode("description").InnerXml });
+            }
+            return data;
+        }
+        void refreshOutfitListing()
+        {
+            int index = aoListing.SelectedIndex;
+            aoListing.Items.Clear();
+            foreach (string label in getOutfitTitles())
+            {
+                aoListing.Items.Add(label);
+            }
+            aoListing.SelectedIndex = index;
+        }
+        void aoeRefreshControls()
+        {
+            if (aoListing.SelectedIndex != -1)
+            {
+                DevExpress.XtraEditors.SpinEdit[] aoeControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_m, aoeHat_m, aoeEyes_m, aoeEars_m, aoeHair_m, aoeTorso_m, aoeTops1_m, aoeTops2_m, aoeLegs_m, aoeShoes_m, aoeFace_m, aoeExtra_m, aoeHands_m, aoeArmor_m, aoeEmblem_m };
+                DevExpress.XtraEditors.SpinEdit[] aoeControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_t, aoeHat_t, aoeEyes_t, aoeEars_t, aoeHair_t, aoeTorso_t, aoeTops1_t, aoeTops2_t, aoeLegs_t, aoeShoes_t, aoeFace_t, aoeExtra_t, aoeHands_t, aoeArmor_t, aoeEmblem_t };
+                Dictionary<string, object[]> data = getOutfitData(aoListing.Text);
+                aoeTitle.Text = getOutfitTitles()[aoListing.SelectedIndex];
+
+                for (int i = 0; i < aoeControls_m.Count(); i++)
+                {
+                    aoeControls_m[i].Text = data[aoElements[i]][0].ToString();
+                    aoeControls_t[i].Text = data[aoElements[i]][1].ToString();
+                }
+
+                aoeDescription.Text = data["description"][0].ToString();
+                aoeGender.SelectedIndex = data["gender"][0].ToString() == "male" ? 0 : 1;
+                aoeCreator.Text = "Creator: " + data["creator"][0].ToString();
+            }
+        }
+        
+        void Reset()
+        {
+            RPC.Call(Natives.CLEAR_ALL_PED_PROPS, NativeFunctions.pedid());
+            RPC.Call(Natives.CLEAR_PED_DECORATIONS, NativeFunctions.pedid());
+            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NativeFunctions.pedid(), 1, 0, 0);
+            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NativeFunctions.pedid(), 5, 0, 0);
+            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NativeFunctions.pedid(), 9, 0, 0);
+        }
+
+        void setClothing(string family, string model, string texture)
+        {
+            int fam = 0;
+            if (family == "HAT" || family == "EYES" || family == "EARS")
+            {
+                switch (family)
+                {
+                    case "HAT": fam = 0; break;
+                    case "EYES": fam = 1; break;
+                    case "EARS": fam = 2; break;
+                }
+                if (model != "-1" && texture != "-1")
+                    RPC.Call(Natives.SET_PED_PROP_INDEX, NativeFunctions.pedid(), fam, Convert.ToInt32(model) - 1, Convert.ToInt32(texture));
+            }
+            else
+            {
+                switch (family)
+                {
+                    case "FACE": fam = 0; break;
+                    case "MASK": fam = 1; break;
+                    case "HAIR": fam = 2; break;
+                    case "TORSO": fam = 3; break;
+                    case "LEGS": fam = 4; break;
+                    case "HANDS": fam = 5; break;
+                    case "SHOES": fam = 6; break;
+                    case "EXTRA": fam = 7; break;
+                    case "TOPS1": fam = 8; break;
+                    case "ARMOR": fam = 9; break;
+                    case "EMBLEM": fam = 10; break;
+                    case "TOPS2": fam = 11; break;
+                }
+                if (model != "-1" && texture != "-1")
+                    RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NativeFunctions.pedid(), fam, Convert.ToInt32(model), Convert.ToInt32(texture));
+            }
+        }
+
+        void otftDoRefresh(bool hard = false)
+        {
+            if (hard)
+            {
+                int scroll = otftListing.SelectedIndex;
+                otftListing.Items.Clear();
+                for (int i = 0; i < 10; i++)
+                {
+                    otftListing.Items.Add("[" + i + "] " + (Outfit.Name(i) == "" ? "Empty" : Outfit.Name(i)));
+                }
+                if (scroll >= 0)
+                    otftListing.SelectedIndex = scroll;
+            }
+            if (Outfit.Name(otftListing.SelectedIndex) != "")
+            {
+                otftPanel.Visible = true;
+                otftTitle.Text = Outfit.Name(otftListing.SelectedIndex);
+                OutfitStruct o = Outfit.Fetch(otftListing.SelectedIndex);
+                otft_eMask_m.Value = o.mask;
+                otft_eMask_t.Value = o.maskT;
+                otft_eTorso_m.Value = o.torso;
+                otft_eTorso_t.Value = o.torsoT;
+                otft_eLegs_m.Value = o.legs;
+                otft_eLegs_t.Value = o.legsT;
+                otft_eHands_m.Value = o.hands;
+                otft_eHands_t.Value = o.handsT;
+                otft_eShoes_m.Value = o.shoes;
+                otft_eShoes_t.Value = o.shoesT;
+                otft_eExtra_m.Value = o.extra;
+                otft_eExtra_t.Value = o.extraT;
+                otft_eTops1_m.Value = o.tops1;
+                otft_eTops1_t.Value = o.tops1T;
+                otft_eArmor_m.Value = o.armor;
+                otft_eArmor_t.Value = o.armorT;
+                otft_eEmblem_m.Value = o.emblem;
+                otft_eEmblem_t.Value = o.emblemT;
+                otft_eTops2_m.Value = o.tops2;
+                otft_eTops2_t.Value = o.tops2T;
+                otft_eHat_m.Value = o.hat;
+                otft_eHat_t.Value = o.hatT;
+                otft_eEyes_m.Value = o.eyes;
+                otft_eEyes_t.Value = o.eyesT;
+                otft_eEars_m.Value = o.ears;
+                otft_eEars_t.Value = o.earsT;
+            }
+            else
+            {
+                otftPanel.Visible = false;
+            }
+        }
+
+        bool garUpdating = false;
+
+        void refreshGarage()
+        {
+            int index = garListing.SelectedIndex;
+            garListing.Items.Clear();
+            for (int i = 0; i < 39; i++)
+            {
+                uint model = Garage.getUint(i, Garage.Model);
+                int ni = i + 1;
+                string prefix = "[" + Math.Ceiling((decimal)ni / 13) + "/" + (ni > 13 ? (ni > 26 ? ni - 26 : ni - 13) : ni).ToString("D2") + "] ";
+                var query = (from item in VehicleModels
+                             where Hash(item.Value) == model
+                             select new { item.Key }).SingleOrDefault();
+                if (model == 0)
+                    garListing.Items.Add(prefix + "---");
+                else if (query == null)
+                    garListing.Items.Add(prefix + model.ToString("X2"));
+                else
+                    garListing.Items.Add(prefix + query.Key);
+            }
+            garListing.SelectedIndex = index == -1 ? 0 : index;
+        }
+
+        void refreshGarageControls()
+        {
+            int i = garListing.SelectedIndex;
+            if (i >= 0 && i <= 39)
+            {
+                garUpdating = true;
+                garPlateText.Text = Garage.getString(i, Garage.Plate_Text);
+                garRGB.Color = Color.FromArgb(
+                    Garage.getInt(i, Garage.RGB_Cache_R), 
+                    Garage.getInt(i, Garage.RGB_Cache_G), 
+                    Garage.getInt(i, Garage.RGB_Cache_B)
+                    );
+                /*garRGB_Sec.Color = Color.FromArgb(
+                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_R | Garage.RGB_Secondary)),
+                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_G | Garage.RGB_Secondary)),
+                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_B | Garage.RGB_Secondary))
+                    );*/
+                garUpdating = false;
+            }
+        }
+        public uint DateStruct_2_Memory(int _year, int _month, int _day, int _hour, int _minute, int _second, int _millisecond)
+        {
+            uint location = 0x10030000;
+            PS3.Extension.WriteInt32(0x10030000, _year);
+            PS3.Extension.WriteInt32(0x10030000 + 4, _month);
+            PS3.Extension.WriteInt32(0x10030000 + 8, _day);
+            PS3.Extension.WriteInt32(0x10030000 + 12, _hour);
+            PS3.Extension.WriteInt32(0x10030000 + 16, _minute);
+            PS3.Extension.WriteInt32(0x10030000 + 20, _second);
+            PS3.Extension.WriteInt32(0x10030000 + 24, _millisecond);
+            return location;
+        }
+        private string Cap1(string text)
+        {
+            return text.Substring(0, 1).ToUpper() + text.Substring(1, text.Length - 1).ToLower();
+        }
+        string formatStat(string stat)
+        {
+            return stat.Contains("MPPLY_") ? stat : ("MP0_" + stat);
+        }
+
         #endregion
-        #region Tunables
-        private void DLC_Christmas_Click(object sender, EventArgs e)
-        {
-            Lib.boolNotify(Tunables.christmasDLC());
-        }
 
-        private void DLC_Independence_Click(object sender, EventArgs e)
-        {
-            Lib.boolNotify(Tunables.independenceDLC());
-        }
-
-        private void DLC_Valentines_Click(object sender, EventArgs e)
-        {
-            Lib.boolNotify(Tunables.valentinesDLC());
-        }
-        private void uIdleKick_Click(object sender, EventArgs e)
-        {
-            Lib.boolNotify(Tunables.idleKick());
-        }
-        #endregion
-
+        #region Options
         private void gContacts_Click(object sender, EventArgs e)
         {
             setStatKeywordQuery("contacts");
@@ -1582,6 +1818,25 @@ namespace Imperium
             }
         }
 
+        private void DLC_Christmas_Click(object sender, EventArgs e)
+        {
+            Lib.boolNotify(Tunables.christmasDLC());
+        }
+
+        private void DLC_Independence_Click(object sender, EventArgs e)
+        {
+            Lib.boolNotify(Tunables.independenceDLC());
+        }
+
+        private void DLC_Valentines_Click(object sender, EventArgs e)
+        {
+            Lib.boolNotify(Tunables.valentinesDLC());
+        }
+        private void uIdleKick_Click(object sender, EventArgs e)
+        {
+            Lib.boolNotify(Tunables.idleKick());
+        }
+
         private void gTeleportType_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Load Teleport Locations into combo box
@@ -1635,91 +1890,12 @@ namespace Imperium
             RPC.Call(Natives.MEM_MONEY, Convert.ToInt32(gAddCash.Text), 0);
         }
 
-        #region Outfit
-        string[] getOutfitTitles()
-        {
-            string filepath = "Data/Outfits.xml";
-            if (File.Exists(filepath))
-            {
-                List<string> list = new List<string>();
-                XmlReaderSettings settings = new XmlReaderSettings();
-                settings.ConformanceLevel = ConformanceLevel.Fragment;
-                using (XmlReader reader = XmlReader.Create(new StringReader(File.ReadAllText(filepath)), settings))
-                {
-                    while (reader.ReadToFollowing("outfit"))
-                    {
-                        reader.MoveToFirstAttribute();
-                        list.Add(reader.Value);
-                    }
-                }
-                return list.ToArray();
-            }
-            return null;
-        }
-        string[] aoElements = new string[] { "mask", "hat", "eyes", "ears", "hair", "torso", "tops1", "tops2", "legs", "shoes", "face", "extra", "hands", "armor", "emblem" };
-        Dictionary<string, object[]> getOutfitData(string title)
-        {
-            string filepath = "Data/Outfits.xml";
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filepath);
-
-            XmlNode foundNode = null;
-            foreach (XmlNode node in doc.DocumentElement.SelectNodes("/root/outfit"))
-            {
-                if (node.Attributes["title"].InnerText == title)
-                {
-                    foundNode = node;
-                }
-            }
-
-            Dictionary<string, object[]> data = new Dictionary<string, object[]>();
-            if (foundNode != null)
-            {
-                data.Add("gender", new object[] { foundNode.Attributes["gender"].InnerText });
-                data.Add("creator", new object[] { foundNode.Attributes["creator"].InnerText });
-                for (int i = 0; i < aoElements.Count(); i++)
-                {
-                    data.Add(aoElements[i], new object[] { Convert.ToInt32(foundNode.SelectSingleNode(aoElements[i]).Attributes["model"].InnerText), Convert.ToInt32(foundNode.SelectSingleNode(aoElements[i]).Attributes["texture"].InnerText) });
-                }
-                data.Add("description", new object[] { foundNode.SelectSingleNode("description").InnerXml });
-            }
-            return data;
-        }
-        void refreshOutfitListing()
-        {
-            int index = aoListing.SelectedIndex;
-            aoListing.Items.Clear();
-            foreach (string label in getOutfitTitles())
-            {
-                aoListing.Items.Add(label);
-            }
-            aoListing.SelectedIndex = index;
-        }
         private void aoRefresh_Click(object sender, EventArgs e)
         {
             refreshOutfitListing();
             aoListing.SelectedIndex = outfitTabs.SelectedTabPageIndex = 0;
         }
-        void aoeRefreshControls()
-        {
-            if (aoListing.SelectedIndex != -1)
-            {
-                DevExpress.XtraEditors.SpinEdit[] aoeControls_m = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_m, aoeHat_m, aoeEyes_m, aoeEars_m, aoeHair_m, aoeTorso_m, aoeTops1_m, aoeTops2_m, aoeLegs_m, aoeShoes_m, aoeFace_m, aoeExtra_m, aoeHands_m, aoeArmor_m, aoeEmblem_m };
-                DevExpress.XtraEditors.SpinEdit[] aoeControls_t = new DevExpress.XtraEditors.SpinEdit[] { aoeMask_t, aoeHat_t, aoeEyes_t, aoeEars_t, aoeHair_t, aoeTorso_t, aoeTops1_t, aoeTops2_t, aoeLegs_t, aoeShoes_t, aoeFace_t, aoeExtra_t, aoeHands_t, aoeArmor_t, aoeEmblem_t };
-                Dictionary<string, object[]> data = getOutfitData(aoListing.Text);
-                aoeTitle.Text = getOutfitTitles()[aoListing.SelectedIndex];
 
-                for (int i = 0; i < aoeControls_m.Count(); i++)
-                {
-                    aoeControls_m[i].Text = data[aoElements[i]][0].ToString();
-                    aoeControls_t[i].Text = data[aoElements[i]][1].ToString();
-                }
-
-                aoeDescription.Text = data["description"][0].ToString();
-                aoeGender.SelectedIndex = data["gender"][0].ToString() == "male" ? 0 : 1;
-                aoeCreator.Text = "Creator: " + data["creator"][0].ToString();
-            }
-        }
         private void aoListing_SelectedIndexChanged(object sender, EventArgs e)
         {
             aoeRefreshControls();
@@ -1820,49 +1996,6 @@ namespace Imperium
             refreshOutfitListing();
         }
 
-        void Reset()
-        {
-            RPC.Call(Natives.CLEAR_ALL_PED_PROPS, NFunc.pedid());
-            RPC.Call(Natives.CLEAR_PED_DECORATIONS, NFunc.pedid());
-            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NFunc.pedid(), 1, 0, 0);
-            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NFunc.pedid(), 5, 0, 0);
-            RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NFunc.pedid(), 9, 0, 0);
-        }
-        int fam;
-        void setClothing(string family, string model, string texture)
-        {
-            if (family == "HAT" || family == "EYES" || family == "EARS")
-            {
-                switch (family)
-                {
-                    case "HAT": fam = 0; break;
-                    case "EYES": fam = 1; break;
-                    case "EARS": fam = 2; break;
-                }
-                if (model != "-1" && texture != "-1")
-                    RPC.Call(Natives.SET_PED_PROP_INDEX, NFunc.pedid(), fam, Convert.ToInt32(model) - 1, Convert.ToInt32(texture));
-            }
-            else
-            {
-                switch (family)
-                {
-                    case "FACE": fam = 0; break;
-                    case "MASK": fam = 1; break;
-                    case "HAIR": fam = 2; break;
-                    case "TORSO": fam = 3; break;
-                    case "LEGS": fam = 4; break;
-                    case "HANDS": fam = 5; break;
-                    case "SHOES": fam = 6; break;
-                    case "EXTRA": fam = 7; break;
-                    case "TOPS1": fam = 8; break;
-                    case "ARMOR": fam = 9; break;
-                    case "EMBLEM": fam = 10; break;
-                    case "TOPS2": fam = 11; break;
-                }
-                if (model != "-1" && texture != "-1")
-                    RPC.Call(Natives.SET_PED_COMPONENT_VARIATION, NFunc.pedid(), fam, Convert.ToInt32(model), Convert.ToInt32(texture));
-            }
-        }
         private void aoEquip_Click(object sender, EventArgs e)
         {
             Reset();
@@ -1905,7 +2038,6 @@ namespace Imperium
                 refreshOutfitListing();
             }
         }
-        #endregion
 
         private void exSkillEnhanced_Click(object sender, EventArgs e)
         {
@@ -1933,7 +2065,7 @@ namespace Imperium
 
         private void sdSync_Click(object sender, EventArgs e)
         {
-            NFunc.save();
+            NativeFunctions.save();
         }
 
         private void sdE_set_Click(object sender, EventArgs e)
@@ -1984,6 +2116,7 @@ namespace Imperium
                     break;
             }
         }
+        
         private void sdV_get_Click(object sender, EventArgs e)
         {
             switch (sdV_t.Text)
@@ -2089,65 +2222,17 @@ namespace Imperium
         {
             setStat("MPPLY_VEHICLE_SELL_TIME", 0);
         }
-        void otftDoRefresh(bool hard = false)
-        {
-            if (hard)
-            {
-                int scroll = otftListing.SelectedIndex;
-                otftListing.Items.Clear();
-                for (int i = 0; i < 10; i++)
-                {
-                    otftListing.Items.Add("[" + i + "] " + (Outfit.Name(i) == "" ? "Empty" : Outfit.Name(i)));
-                }
-                if (scroll >= 0)
-                    otftListing.SelectedIndex = scroll;
-            }
-            if (Outfit.Name(otftListing.SelectedIndex) != "")
-            {
-                otftPanel.Visible = true;
-                otftTitle.Text = Outfit.Name(otftListing.SelectedIndex);
-                OutfitStruct o = Outfit.Fetch(otftListing.SelectedIndex);
-                otft_eMask_m.Value = o.mask;
-                otft_eMask_t.Value = o.maskT;
-                otft_eTorso_m.Value = o.torso;
-                otft_eTorso_t.Value = o.torsoT;
-                otft_eLegs_m.Value = o.legs;
-                otft_eLegs_t.Value = o.legsT;
-                otft_eHands_m.Value = o.hands;
-                otft_eHands_t.Value = o.handsT;
-                otft_eShoes_m.Value = o.shoes;
-                otft_eShoes_t.Value = o.shoesT;
-                otft_eExtra_m.Value = o.extra;
-                otft_eExtra_t.Value = o.extraT;
-                otft_eTops1_m.Value = o.tops1;
-                otft_eTops1_t.Value = o.tops1T;
-                otft_eArmor_m.Value = o.armor;
-                otft_eArmor_t.Value = o.armorT;
-                otft_eEmblem_m.Value = o.emblem;
-                otft_eEmblem_t.Value = o.emblemT;
-                otft_eTops2_m.Value = o.tops2;
-                otft_eTops2_t.Value = o.tops2T;
-                otft_eHat_m.Value = o.hat;
-                otft_eHat_t.Value = o.hatT;
-                otft_eEyes_m.Value = o.eyes;
-                otft_eEyes_t.Value = o.eyesT;
-                otft_eEars_m.Value = o.ears;
-                otft_eEars_t.Value = o.earsT;
-            }
-            else
-            {
-                otftPanel.Visible = false;
-            }
-        }
-
+        
         private void otftListing_SelectedIndexChanged(object sender, EventArgs e)
         {
             otftDoRefresh();
         }
+
         private void otR_Click(object sender, EventArgs e)
         {
             otftDoRefresh(true);
         }
+
         private void ot1_s_Click(object sender, EventArgs e)
         {
             Outfit.Name(otftListing.SelectedIndex, otftTitle.Text);
@@ -2350,48 +2435,6 @@ namespace Imperium
         {
             System.Diagnostics.Process.Start("http://lexicongta.com/order");
         }
-        bool garUpdating = false;
-        void refreshGarage()
-        {
-            int index = garListing.SelectedIndex;
-            garListing.Items.Clear();
-            for (int i = 0; i < 39; i++)
-            {
-                uint model = Garage.getUint(i, Garage.Model);
-                int ni = i + 1;
-                string prefix = "[" + Math.Ceiling((decimal)ni / 13) + "/" + (ni > 13 ? (ni > 26 ? ni - 26 : ni - 13) : ni).ToString("D2") + "] ";
-                var query = (from item in VehicleModels
-                             where Hash(item.Value) == model
-                             select new { item.Key }).SingleOrDefault();
-                if (model == 0)
-                    garListing.Items.Add(prefix + "---");
-                else if (query == null)
-                    garListing.Items.Add(prefix + model.ToString("X2"));
-                else
-                    garListing.Items.Add(prefix + query.Key);
-            }
-            garListing.SelectedIndex = index == -1 ? 0 : index;
-        }
-        void refreshGarageControls()
-        {
-            int i = garListing.SelectedIndex;
-            if (i >= 0 && i <= 39)
-            {
-                garUpdating = true;
-                garPlateText.Text = Garage.getString(i, Garage.Plate_Text);
-                garRGB.Color = Color.FromArgb(
-                    Garage.getInt(i, Garage.RGB_Cache_R), 
-                    Garage.getInt(i, Garage.RGB_Cache_G), 
-                    Garage.getInt(i, Garage.RGB_Cache_B)
-                    );
-                /*garRGB_Sec.Color = Color.FromArgb(
-                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_R | Garage.RGB_Secondary)),
-                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_G | Garage.RGB_Secondary)),
-                    Convert.ToInt32(Garage.getUint(i, Garage.RGB_Cache_B | Garage.RGB_Secondary))
-                    );*/
-                garUpdating = false;
-            }
-        }
         private void garModel_SelectedIndexChanged(object sender, EventArgs e)
         {
             var query = (from item in VehicleModels
@@ -2480,18 +2523,6 @@ namespace Imperium
             Garage.resetSlot(i);
         }
 
-        public uint DateStruct_2_Memory(int _year, int _month, int _day, int _hour, int _minute, int _second, int _millisecond)
-        {
-            uint location = 0x10030000;
-            PS3.Extension.WriteInt32(0x10030000, _year);
-            PS3.Extension.WriteInt32(0x10030000 + 4, _month);
-            PS3.Extension.WriteInt32(0x10030000 + 8, _day);
-            PS3.Extension.WriteInt32(0x10030000 + 12, _hour);
-            PS3.Extension.WriteInt32(0x10030000 + 16, _minute);
-            PS3.Extension.WriteInt32(0x10030000 + 20, _second);
-            PS3.Extension.WriteInt32(0x10030000 + 24, _millisecond);
-            return location;
-        }
         private void simpleButton2_Click_2(object sender, EventArgs e)
         {
             // Old Date
@@ -2573,10 +2604,6 @@ namespace Imperium
             foreach (XmlNode xmlNode in xd_mp.SelectNodes("StatsSetup/stats/stat/@Name"))
                 INS_Stat.Properties.Items.Add((object)xmlNode.Value);
             INS_Stat.SelectedIndex = 0;
-        }
-        private string Cap1(string text)
-        {
-            return text.Substring(0, 1).ToUpper() + text.Substring(1, text.Length - 1).ToLower();
         }
         private void INS_Stat_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2700,10 +2727,6 @@ namespace Imperium
             setStat("CHAR_HAIR_VIEWED11", -1);
             setStat("CHAR_HAIR_VIEWED12", -1);
         }
-        string formatStat(string stat)
-        {
-            return stat.Contains("MPPLY_") ? stat : ("MP0_" + stat);
-        }
         private void timeDur_Save_Click(object sender, EventArgs e)
         {
             try
@@ -2753,6 +2776,85 @@ namespace Imperium
                 { "90 Billion", 22 },
                 { "95 Billion", 23 },
                 { "100 Billion", 24 },
+                { "110 Billion", 27 },
+                { "115 Billion", 28 },
+                { "120 Billion", 29 },
+                { "125 Billion", 30 },
+                { "130 Billion", 31 },
+                { "135 Billion", 32 },
+                { "140 Billion", 34 },
+                { "145 Billion", 35 },
+                { "150 Billion", 36 },
+                { "155 Billion", 37 },
+                { "160 Billion", 38 },
+                { "165 Billion", 39 },
+                { "170 Billion", 41 },
+                { "175 Billion", 42 },
+                { "180 Billion", 43 },
+                { "185 Billion", 44 },
+                { "190 Billion", 45 },
+                { "195 Billion", 46 },
+                { "200 Billion", 48 },
+                { "205 Billion", 49 },
+                { "210 Billion", 50 },
+                { "215 Billion", 51 },
+                { "220 Billion", 52 },
+                { "225 Billion", 53 },
+                { "230 Billion", 55 },
+                { "235 Billion", 56 },
+                { "240 Billion", 57 },
+                { "245 Billion", 58 },
+                { "250 Billion", 59 },
+                { "255 Billion", 61 },
+                { "260 Billion", 62 },
+                { "265 Billion", 63 },
+                { "270 Billion", 64 },
+                { "275 Billion", 65 },
+                { "280 Billion", 66 },
+                { "285 Billion", 67 },
+                { "290 Billion", 69 },
+                { "295 Billion", 70 },
+                { "300 Billion", 71 },
+                { "305 Billion", 72 },
+                { "310 Billion", 73 },
+                { "315 Billion", 74 },
+                { "320 Billion", 76 },
+                { "325 Billion", 77 },
+                { "330 Billion", 78 },
+                { "335 Billion", 79 },
+                { "340 Billion", 80 },
+                { "345 Billion", 81 },
+                { "350 Billion", 83 },
+                { "355 Billion", 84 },
+                { "360 Billion", 85 },
+                { "365 Billion", 86 },
+                { "370 Billion", 87 },
+                { "375 Billion", 88 },
+                { "380 Billion", 90 },
+                { "385 Billion", 91 },
+                { "390 Billion", 92 },
+                { "395 Billion", 93 },
+                { "400 Billion", 94 },
+                { "405 Billion", 95 },
+                { "410 Billion", 96 },
+                { "415 Billion", 98 },
+                { "420 Billion", 99 },
+                { "425 Billion", 100 },
+                { "430 Billion", 101 },
+                { "435 Billion", 102 },
+                { "440 Billion", 103 },
+                { "445 Billion", 105 },
+                { "450 Billion", 106 },
+                { "455 Billion", 107 },
+                { "460 Billion", 108 },
+                { "465 Billion", 119 },
+                { "470 Billion", 110 },
+                { "475 Billion", 112 },
+                { "480 Billion", 113 },
+                { "485 Billion", 114 },
+                { "490 Billion", 115 },
+                { "495 Billion", 116 },
+                { "500 Billion", 117 },
             };
             RPC.Call(Natives.STAT_SET_INT, Hash("CASH_GIFT_NEW"), Values[TMB_Choice.Text], 1);
             DevExpress.XtraEditors.XtraMessageBox.Show("The value might be off a little bit...\n\n" +
@@ -2956,5 +3058,7 @@ namespace Imperium
             }
             else CMBT_BountOn.Text = "0";
         }
+        #endregion
+
     }
 }

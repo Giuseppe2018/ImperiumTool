@@ -32,12 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.tabGeneral = new DevExpress.XtraTab.XtraTabPage();
-            this.gFastRun = new DevExpress.XtraEditors.SimpleButton();
-            this.gModdedRoll = new DevExpress.XtraEditors.SimpleButton();
-            this.gHeistTrophies = new DevExpress.XtraEditors.SimpleButton();
-            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.gTeleport = new DevExpress.XtraEditors.SimpleButton();
-            this.gTeleportType = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.groupControl14 = new DevExpress.XtraEditors.GroupControl();
+            this.TMB_Choice = new DevExpress.XtraEditors.ComboBoxEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barSub_Connect = new DevExpress.XtraBars.BarSubItem();
@@ -62,6 +58,13 @@
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.TMB_Do = new DevExpress.XtraEditors.SimpleButton();
+            this.gFastRun = new DevExpress.XtraEditors.SimpleButton();
+            this.gModdedRoll = new DevExpress.XtraEditors.SimpleButton();
+            this.gHeistTrophies = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.gTeleport = new DevExpress.XtraEditors.SimpleButton();
+            this.gTeleportType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.gTeleportLoc = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -103,7 +106,46 @@
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabControl2 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl68 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_Load = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl154 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_BountOn = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl144 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_BountPlaced = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl145 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_HeadshotsPlayers = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl140 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_Headshots = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl141 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_Hits = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl138 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_Accuracy = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl139 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_Shots = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl137 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_DeathsPlayer = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl136 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl15 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl152 = new DevExpress.XtraEditors.LabelControl();
+            this.WS_Headshots = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl153 = new DevExpress.XtraEditors.LabelControl();
+            this.WS_Shots = new DevExpress.XtraEditors.SpinEdit();
+            this.WS_Gift = new DevExpress.XtraEditors.CheckEdit();
+            this.WS_Possession = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl150 = new DevExpress.XtraEditors.LabelControl();
+            this.WS_AmmoBought = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl151 = new DevExpress.XtraEditors.LabelControl();
+            this.WS_Ammo = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl148 = new DevExpress.XtraEditors.LabelControl();
+            this.WS_Hits = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl149 = new DevExpress.XtraEditors.LabelControl();
+            this.WS_Deaths = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl147 = new DevExpress.XtraEditors.LabelControl();
+            this.WS_KillsNPC = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl146 = new DevExpress.XtraEditors.LabelControl();
+            this.WS_Save = new DevExpress.XtraEditors.SimpleButton();
+            this.WS_KillsPlayer = new DevExpress.XtraEditors.SpinEdit();
+            this.WS_Weapon = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.CMBT_Deaths = new DevExpress.XtraEditors.ButtonEdit();
             this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl74 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
@@ -466,18 +508,26 @@
             this.labelControl119 = new DevExpress.XtraEditors.LabelControl();
             this.INS_Stat = new DevExpress.XtraEditors.ComboBoxEdit();
             this.xtraTabPage14 = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.advert = new System.Windows.Forms.PictureBox();
+            this.labelControl68 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_KillsPlayers = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl155 = new DevExpress.XtraEditors.LabelControl();
+            this.CMBT_Kills = new DevExpress.XtraEditors.ButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl14)).BeginInit();
+            this.groupControl14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TMB_Choice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gTeleportType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTeleportLoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
@@ -497,6 +547,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl2)).BeginInit();
             this.xtraTabControl2.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_BountOn.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_BountPlaced.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_HeadshotsPlayers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Headshots.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Hits.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Accuracy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Shots.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_DeathsPlayer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl15)).BeginInit();
+            this.groupControl15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Headshots.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Shots.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Gift.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Possession.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_AmmoBought.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Ammo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Hits.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Deaths.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_KillsNPC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_KillsPlayer.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Weapon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Deaths.Properties)).BeginInit();
             this.xtraTabPage9.SuspendLayout();
             this.xtraTabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeDate_Second.Properties)).BeginInit();
@@ -717,6 +789,8 @@
             this.xtraTabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advert)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_KillsPlayers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Kills.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -737,6 +811,7 @@
             // 
             // tabGeneral
             // 
+            this.tabGeneral.Controls.Add(this.groupControl14);
             this.tabGeneral.Controls.Add(this.gFastRun);
             this.tabGeneral.Controls.Add(this.gModdedRoll);
             this.tabGeneral.Controls.Add(this.gHeistTrophies);
@@ -759,76 +834,49 @@
             this.tabGeneral.Size = new System.Drawing.Size(564, 342);
             this.tabGeneral.Text = "General";
             // 
-            // gFastRun
+            // groupControl14
             // 
-            this.gFastRun.Location = new System.Drawing.Point(297, 178);
-            this.gFastRun.Name = "gFastRun";
-            this.gFastRun.Size = new System.Drawing.Size(142, 23);
-            this.gFastRun.TabIndex = 24;
-            this.gFastRun.Text = "Fast Run";
-            this.gFastRun.Click += new System.EventHandler(this.gFastRun_Click);
+            this.groupControl14.Controls.Add(this.TMB_Choice);
+            this.groupControl14.Controls.Add(this.TMB_Do);
+            this.groupControl14.Location = new System.Drawing.Point(151, 207);
+            this.groupControl14.Name = "groupControl14";
+            this.groupControl14.Size = new System.Drawing.Size(142, 79);
+            this.groupControl14.TabIndex = 27;
+            this.groupControl14.Text = "Transfer Money Bypass";
             // 
-            // gModdedRoll
+            // TMB_Choice
             // 
-            this.gModdedRoll.Location = new System.Drawing.Point(151, 178);
-            this.gModdedRoll.Name = "gModdedRoll";
-            this.gModdedRoll.Size = new System.Drawing.Size(142, 23);
-            this.gModdedRoll.TabIndex = 23;
-            this.gModdedRoll.Text = "Modded Roll";
-            this.gModdedRoll.Click += new System.EventHandler(this.gModdedRoll_Click);
-            // 
-            // gHeistTrophies
-            // 
-            this.gHeistTrophies.Location = new System.Drawing.Point(151, 149);
-            this.gHeistTrophies.Name = "gHeistTrophies";
-            this.gHeistTrophies.Size = new System.Drawing.Size(142, 23);
-            this.gHeistTrophies.TabIndex = 22;
-            this.gHeistTrophies.Text = "Unlock Heist Trophies";
-            this.gHeistTrophies.Click += new System.EventHandler(this.gHeistTrophies_Click);
-            // 
-            // groupControl4
-            // 
-            this.groupControl4.Controls.Add(this.gTeleport);
-            this.groupControl4.Controls.Add(this.gTeleportType);
-            this.groupControl4.Controls.Add(this.gTeleportLoc);
-            this.groupControl4.Location = new System.Drawing.Point(3, 220);
-            this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(142, 105);
-            this.groupControl4.TabIndex = 19;
-            this.groupControl4.Text = "Teleport";
-            // 
-            // gTeleport
-            // 
-            this.gTeleport.Location = new System.Drawing.Point(5, 76);
-            this.gTeleport.Name = "gTeleport";
-            this.gTeleport.Size = new System.Drawing.Size(132, 23);
-            this.gTeleport.TabIndex = 1;
-            this.gTeleport.Text = "Teleport";
-            this.gTeleport.Click += new System.EventHandler(this.gTeleport_Click);
-            // 
-            // gTeleportType
-            // 
-            this.gTeleportType.EditValue = "Ammunation";
-            this.gTeleportType.Location = new System.Drawing.Point(5, 24);
-            this.gTeleportType.MenuManager = this.barManager1;
-            this.gTeleportType.Name = "gTeleportType";
-            this.gTeleportType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.TMB_Choice.EditValue = "100 Billion";
+            this.TMB_Choice.Location = new System.Drawing.Point(5, 24);
+            this.TMB_Choice.MenuManager = this.barManager1;
+            this.TMB_Choice.Name = "TMB_Choice";
+            this.TMB_Choice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gTeleportType.Properties.DropDownRows = 15;
-            this.gTeleportType.Properties.Items.AddRange(new object[] {
-            "Ammunation",
-            "Barber Shop",
-            "Binco",
-            "Discount",
-            "LS Customs",
-            "Ponsonbys",
-            "Suburban",
-            "Tattoo",
-            "Miscellaneous"});
-            this.gTeleportType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.gTeleportType.Size = new System.Drawing.Size(132, 20);
-            this.gTeleportType.TabIndex = 17;
-            this.gTeleportType.SelectedIndexChanged += new System.EventHandler(this.gTeleportType_SelectedIndexChanged);
+            this.TMB_Choice.Properties.DropDownRows = 15;
+            this.TMB_Choice.Properties.Items.AddRange(new object[] {
+            "5 Billion",
+            "10 Billion",
+            "15 Billion",
+            "20 Billion",
+            "25 Billion",
+            "30 Billion",
+            "35 Billion",
+            "40 Billion",
+            "45 Billion",
+            "50 Billion",
+            "55 Billion",
+            "60 Billion",
+            "65 Billion",
+            "70 Billion",
+            "75 Billion",
+            "80 Billion",
+            "85 Billion",
+            "90 Billion",
+            "95 Billion",
+            "100 Billion"});
+            this.TMB_Choice.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.TMB_Choice.Size = new System.Drawing.Size(132, 20);
+            this.TMB_Choice.TabIndex = 25;
             // 
             // barManager1
             // 
@@ -1064,6 +1112,86 @@
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // TMB_Do
+            // 
+            this.TMB_Do.Location = new System.Drawing.Point(5, 50);
+            this.TMB_Do.Name = "TMB_Do";
+            this.TMB_Do.Size = new System.Drawing.Size(132, 23);
+            this.TMB_Do.TabIndex = 26;
+            this.TMB_Do.Text = "Set Money";
+            this.TMB_Do.Click += new System.EventHandler(this.TMB_Do_Click);
+            // 
+            // gFastRun
+            // 
+            this.gFastRun.Location = new System.Drawing.Point(297, 178);
+            this.gFastRun.Name = "gFastRun";
+            this.gFastRun.Size = new System.Drawing.Size(142, 23);
+            this.gFastRun.TabIndex = 24;
+            this.gFastRun.Text = "Fast Run";
+            this.gFastRun.Click += new System.EventHandler(this.gFastRun_Click);
+            // 
+            // gModdedRoll
+            // 
+            this.gModdedRoll.Location = new System.Drawing.Point(151, 178);
+            this.gModdedRoll.Name = "gModdedRoll";
+            this.gModdedRoll.Size = new System.Drawing.Size(142, 23);
+            this.gModdedRoll.TabIndex = 23;
+            this.gModdedRoll.Text = "Modded Roll";
+            this.gModdedRoll.Click += new System.EventHandler(this.gModdedRoll_Click);
+            // 
+            // gHeistTrophies
+            // 
+            this.gHeistTrophies.Location = new System.Drawing.Point(151, 149);
+            this.gHeistTrophies.Name = "gHeistTrophies";
+            this.gHeistTrophies.Size = new System.Drawing.Size(142, 23);
+            this.gHeistTrophies.TabIndex = 22;
+            this.gHeistTrophies.Text = "Unlock Heist Trophies";
+            this.gHeistTrophies.Click += new System.EventHandler(this.gHeistTrophies_Click);
+            // 
+            // groupControl4
+            // 
+            this.groupControl4.Controls.Add(this.gTeleport);
+            this.groupControl4.Controls.Add(this.gTeleportType);
+            this.groupControl4.Controls.Add(this.gTeleportLoc);
+            this.groupControl4.Location = new System.Drawing.Point(3, 220);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(142, 105);
+            this.groupControl4.TabIndex = 19;
+            this.groupControl4.Text = "Teleport";
+            // 
+            // gTeleport
+            // 
+            this.gTeleport.Location = new System.Drawing.Point(5, 76);
+            this.gTeleport.Name = "gTeleport";
+            this.gTeleport.Size = new System.Drawing.Size(132, 23);
+            this.gTeleport.TabIndex = 1;
+            this.gTeleport.Text = "Teleport";
+            this.gTeleport.Click += new System.EventHandler(this.gTeleport_Click);
+            // 
+            // gTeleportType
+            // 
+            this.gTeleportType.EditValue = "Ammunation";
+            this.gTeleportType.Location = new System.Drawing.Point(5, 24);
+            this.gTeleportType.MenuManager = this.barManager1;
+            this.gTeleportType.Name = "gTeleportType";
+            this.gTeleportType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gTeleportType.Properties.DropDownRows = 15;
+            this.gTeleportType.Properties.Items.AddRange(new object[] {
+            "Ammunation",
+            "Barber Shop",
+            "Binco",
+            "Discount",
+            "LS Customs",
+            "Ponsonbys",
+            "Suburban",
+            "Tattoo",
+            "Miscellaneous"});
+            this.gTeleportType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.gTeleportType.Size = new System.Drawing.Size(132, 20);
+            this.gTeleportType.TabIndex = 17;
+            this.gTeleportType.SelectedIndexChanged += new System.EventHandler(this.gTeleportType_SelectedIndexChanged);
             // 
             // gTeleportLoc
             // 
@@ -1505,21 +1633,581 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.labelControl155);
+            this.xtraTabPage2.Controls.Add(this.CMBT_Kills);
             this.xtraTabPage2.Controls.Add(this.labelControl68);
+            this.xtraTabPage2.Controls.Add(this.CMBT_KillsPlayers);
+            this.xtraTabPage2.Controls.Add(this.CMBT_Load);
+            this.xtraTabPage2.Controls.Add(this.labelControl154);
+            this.xtraTabPage2.Controls.Add(this.CMBT_BountOn);
+            this.xtraTabPage2.Controls.Add(this.labelControl144);
+            this.xtraTabPage2.Controls.Add(this.CMBT_BountPlaced);
+            this.xtraTabPage2.Controls.Add(this.labelControl145);
+            this.xtraTabPage2.Controls.Add(this.CMBT_HeadshotsPlayers);
+            this.xtraTabPage2.Controls.Add(this.labelControl140);
+            this.xtraTabPage2.Controls.Add(this.CMBT_Headshots);
+            this.xtraTabPage2.Controls.Add(this.labelControl141);
+            this.xtraTabPage2.Controls.Add(this.CMBT_Hits);
+            this.xtraTabPage2.Controls.Add(this.labelControl138);
+            this.xtraTabPage2.Controls.Add(this.CMBT_Accuracy);
+            this.xtraTabPage2.Controls.Add(this.labelControl139);
+            this.xtraTabPage2.Controls.Add(this.CMBT_Shots);
+            this.xtraTabPage2.Controls.Add(this.labelControl137);
+            this.xtraTabPage2.Controls.Add(this.CMBT_DeathsPlayer);
+            this.xtraTabPage2.Controls.Add(this.labelControl136);
+            this.xtraTabPage2.Controls.Add(this.groupControl15);
+            this.xtraTabPage2.Controls.Add(this.CMBT_Deaths);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.PageVisible = false;
             this.xtraTabPage2.Size = new System.Drawing.Size(552, 308);
             this.xtraTabPage2.Text = "Combat";
             // 
-            // labelControl68
+            // CMBT_Load
             // 
-            this.labelControl68.Location = new System.Drawing.Point(3, 3);
-            this.labelControl68.Name = "labelControl68";
-            this.labelControl68.Size = new System.Drawing.Size(147, 78);
-            this.labelControl68.TabIndex = 26;
-            this.labelControl68.Text = "To-Do:\r\n- Death Types (Explosion, Fall)\r\n- Kill Counts\r\n- Weapon Kills\r\n- Bounty\r" +
-    "\n- Stars\r\n";
-            this.labelControl68.Visible = false;
+            this.CMBT_Load.Location = new System.Drawing.Point(3, 3);
+            this.CMBT_Load.Name = "CMBT_Load";
+            this.CMBT_Load.Size = new System.Drawing.Size(244, 23);
+            this.CMBT_Load.TabIndex = 60;
+            this.CMBT_Load.Text = "Load";
+            this.CMBT_Load.Click += new System.EventHandler(this.CMBT_Load_Click);
+            // 
+            // labelControl154
+            // 
+            this.labelControl154.Location = new System.Drawing.Point(44, 255);
+            this.labelControl154.Name = "labelControl154";
+            this.labelControl154.Size = new System.Drawing.Size(111, 13);
+            this.labelControl154.TabIndex = 44;
+            this.labelControl154.Text = "Bounties Placed on You";
+            // 
+            // CMBT_BountOn
+            // 
+            this.CMBT_BountOn.EditValue = "0";
+            this.CMBT_BountOn.Location = new System.Drawing.Point(161, 252);
+            this.CMBT_BountOn.MenuManager = this.barManager1;
+            this.CMBT_BountOn.Name = "CMBT_BountOn";
+            this.CMBT_BountOn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_BountOn.Properties.Mask.EditMask = "f0";
+            this.CMBT_BountOn.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_BountOn.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_BountOn.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_BountOn.TabIndex = 43;
+            this.CMBT_BountOn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_BountOn_ButtonClick);
+            // 
+            // labelControl144
+            // 
+            this.labelControl144.Location = new System.Drawing.Point(44, 233);
+            this.labelControl144.Name = "labelControl144";
+            this.labelControl144.Size = new System.Drawing.Size(111, 13);
+            this.labelControl144.TabIndex = 42;
+            this.labelControl144.Text = "Bounties Placed by You";
+            // 
+            // CMBT_BountPlaced
+            // 
+            this.CMBT_BountPlaced.EditValue = "0";
+            this.CMBT_BountPlaced.Location = new System.Drawing.Point(161, 230);
+            this.CMBT_BountPlaced.MenuManager = this.barManager1;
+            this.CMBT_BountPlaced.Name = "CMBT_BountPlaced";
+            this.CMBT_BountPlaced.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_BountPlaced.Properties.Mask.EditMask = "f0";
+            this.CMBT_BountPlaced.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_BountPlaced.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_BountPlaced.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_BountPlaced.TabIndex = 41;
+            this.CMBT_BountPlaced.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_BountPlaced_ButtonClick);
+            // 
+            // labelControl145
+            // 
+            this.labelControl145.Location = new System.Drawing.Point(71, 211);
+            this.labelControl145.Name = "labelControl145";
+            this.labelControl145.Size = new System.Drawing.Size(84, 13);
+            this.labelControl145.TabIndex = 40;
+            this.labelControl145.Text = "Player Headshots";
+            // 
+            // CMBT_HeadshotsPlayers
+            // 
+            this.CMBT_HeadshotsPlayers.EditValue = "0";
+            this.CMBT_HeadshotsPlayers.Location = new System.Drawing.Point(161, 208);
+            this.CMBT_HeadshotsPlayers.MenuManager = this.barManager1;
+            this.CMBT_HeadshotsPlayers.Name = "CMBT_HeadshotsPlayers";
+            this.CMBT_HeadshotsPlayers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_HeadshotsPlayers.Properties.Mask.EditMask = "f0";
+            this.CMBT_HeadshotsPlayers.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_HeadshotsPlayers.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_HeadshotsPlayers.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_HeadshotsPlayers.TabIndex = 39;
+            this.CMBT_HeadshotsPlayers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_HeadshotsPlayers_ButtonClick);
+            // 
+            // labelControl140
+            // 
+            this.labelControl140.Location = new System.Drawing.Point(104, 189);
+            this.labelControl140.Name = "labelControl140";
+            this.labelControl140.Size = new System.Drawing.Size(51, 13);
+            this.labelControl140.TabIndex = 38;
+            this.labelControl140.Text = "Headshots";
+            // 
+            // CMBT_Headshots
+            // 
+            this.CMBT_Headshots.EditValue = "0";
+            this.CMBT_Headshots.Location = new System.Drawing.Point(161, 186);
+            this.CMBT_Headshots.MenuManager = this.barManager1;
+            this.CMBT_Headshots.Name = "CMBT_Headshots";
+            this.CMBT_Headshots.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_Headshots.Properties.Mask.EditMask = "f0";
+            this.CMBT_Headshots.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_Headshots.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_Headshots.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_Headshots.TabIndex = 37;
+            this.CMBT_Headshots.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_Headshots_ButtonClick);
+            // 
+            // labelControl141
+            // 
+            this.labelControl141.Location = new System.Drawing.Point(137, 167);
+            this.labelControl141.Name = "labelControl141";
+            this.labelControl141.Size = new System.Drawing.Size(18, 13);
+            this.labelControl141.TabIndex = 36;
+            this.labelControl141.Text = "Hits";
+            // 
+            // CMBT_Hits
+            // 
+            this.CMBT_Hits.EditValue = "0";
+            this.CMBT_Hits.Location = new System.Drawing.Point(161, 164);
+            this.CMBT_Hits.MenuManager = this.barManager1;
+            this.CMBT_Hits.Name = "CMBT_Hits";
+            this.CMBT_Hits.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_Hits.Properties.Mask.EditMask = "f0";
+            this.CMBT_Hits.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_Hits.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_Hits.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_Hits.TabIndex = 35;
+            this.CMBT_Hits.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_Hits_ButtonClick);
+            // 
+            // labelControl138
+            // 
+            this.labelControl138.Location = new System.Drawing.Point(68, 145);
+            this.labelControl138.Name = "labelControl138";
+            this.labelControl138.Size = new System.Drawing.Size(87, 13);
+            this.labelControl138.TabIndex = 34;
+            this.labelControl138.Text = "Weapon Accuracy";
+            // 
+            // CMBT_Accuracy
+            // 
+            this.CMBT_Accuracy.EditValue = "0";
+            this.CMBT_Accuracy.Location = new System.Drawing.Point(161, 142);
+            this.CMBT_Accuracy.MenuManager = this.barManager1;
+            this.CMBT_Accuracy.Name = "CMBT_Accuracy";
+            this.CMBT_Accuracy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_Accuracy.Properties.Mask.EditMask = "f2";
+            this.CMBT_Accuracy.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_Accuracy.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_Accuracy.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_Accuracy.TabIndex = 33;
+            this.CMBT_Accuracy.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_Accuracy_ButtonClick);
+            // 
+            // labelControl139
+            // 
+            this.labelControl139.Location = new System.Drawing.Point(128, 123);
+            this.labelControl139.Name = "labelControl139";
+            this.labelControl139.Size = new System.Drawing.Size(27, 13);
+            this.labelControl139.TabIndex = 32;
+            this.labelControl139.Text = "Shots";
+            // 
+            // CMBT_Shots
+            // 
+            this.CMBT_Shots.EditValue = "0";
+            this.CMBT_Shots.Location = new System.Drawing.Point(161, 120);
+            this.CMBT_Shots.MenuManager = this.barManager1;
+            this.CMBT_Shots.Name = "CMBT_Shots";
+            this.CMBT_Shots.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_Shots.Properties.Mask.EditMask = "f0";
+            this.CMBT_Shots.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_Shots.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_Shots.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_Shots.TabIndex = 31;
+            this.CMBT_Shots.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_Shots_ButtonClick);
+            // 
+            // labelControl137
+            // 
+            this.labelControl137.Location = new System.Drawing.Point(73, 101);
+            this.labelControl137.Name = "labelControl137";
+            this.labelControl137.Size = new System.Drawing.Size(82, 13);
+            this.labelControl137.TabIndex = 30;
+            this.labelControl137.Text = "Deaths by Player";
+            // 
+            // CMBT_DeathsPlayer
+            // 
+            this.CMBT_DeathsPlayer.EditValue = "0";
+            this.CMBT_DeathsPlayer.Location = new System.Drawing.Point(161, 98);
+            this.CMBT_DeathsPlayer.MenuManager = this.barManager1;
+            this.CMBT_DeathsPlayer.Name = "CMBT_DeathsPlayer";
+            this.CMBT_DeathsPlayer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_DeathsPlayer.Properties.Mask.EditMask = "f0";
+            this.CMBT_DeathsPlayer.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_DeathsPlayer.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_DeathsPlayer.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_DeathsPlayer.TabIndex = 29;
+            this.CMBT_DeathsPlayer.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_DeathsPlayer_ButtonClick);
+            // 
+            // labelControl136
+            // 
+            this.labelControl136.Location = new System.Drawing.Point(94, 79);
+            this.labelControl136.Name = "labelControl136";
+            this.labelControl136.Size = new System.Drawing.Size(61, 13);
+            this.labelControl136.TabIndex = 28;
+            this.labelControl136.Text = "Total Deaths";
+            // 
+            // groupControl15
+            // 
+            this.groupControl15.Controls.Add(this.labelControl152);
+            this.groupControl15.Controls.Add(this.WS_Headshots);
+            this.groupControl15.Controls.Add(this.labelControl153);
+            this.groupControl15.Controls.Add(this.WS_Shots);
+            this.groupControl15.Controls.Add(this.WS_Gift);
+            this.groupControl15.Controls.Add(this.WS_Possession);
+            this.groupControl15.Controls.Add(this.labelControl150);
+            this.groupControl15.Controls.Add(this.WS_AmmoBought);
+            this.groupControl15.Controls.Add(this.labelControl151);
+            this.groupControl15.Controls.Add(this.WS_Ammo);
+            this.groupControl15.Controls.Add(this.labelControl148);
+            this.groupControl15.Controls.Add(this.WS_Hits);
+            this.groupControl15.Controls.Add(this.labelControl149);
+            this.groupControl15.Controls.Add(this.WS_Deaths);
+            this.groupControl15.Controls.Add(this.labelControl147);
+            this.groupControl15.Controls.Add(this.WS_KillsNPC);
+            this.groupControl15.Controls.Add(this.labelControl146);
+            this.groupControl15.Controls.Add(this.WS_Save);
+            this.groupControl15.Controls.Add(this.WS_KillsPlayer);
+            this.groupControl15.Controls.Add(this.WS_Weapon);
+            this.groupControl15.Location = new System.Drawing.Point(253, 3);
+            this.groupControl15.Name = "groupControl15";
+            this.groupControl15.Size = new System.Drawing.Size(294, 207);
+            this.groupControl15.TabIndex = 27;
+            this.groupControl15.Text = "Weapon Stats";
+            // 
+            // labelControl152
+            // 
+            this.labelControl152.Location = new System.Drawing.Point(221, 104);
+            this.labelControl152.Name = "labelControl152";
+            this.labelControl152.Size = new System.Drawing.Size(51, 13);
+            this.labelControl152.TabIndex = 59;
+            this.labelControl152.Text = "Headshots";
+            // 
+            // WS_Headshots
+            // 
+            this.WS_Headshots.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.WS_Headshots.Location = new System.Drawing.Point(149, 101);
+            this.WS_Headshots.MenuManager = this.barManager1;
+            this.WS_Headshots.Name = "WS_Headshots";
+            this.WS_Headshots.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_Headshots.Size = new System.Drawing.Size(66, 20);
+            this.WS_Headshots.TabIndex = 58;
+            // 
+            // labelControl153
+            // 
+            this.labelControl153.Location = new System.Drawing.Point(44, 104);
+            this.labelControl153.Name = "labelControl153";
+            this.labelControl153.Size = new System.Drawing.Size(27, 13);
+            this.labelControl153.TabIndex = 57;
+            this.labelControl153.Text = "Shots";
+            // 
+            // WS_Shots
+            // 
+            this.WS_Shots.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.WS_Shots.Location = new System.Drawing.Point(77, 101);
+            this.WS_Shots.MenuManager = this.barManager1;
+            this.WS_Shots.Name = "WS_Shots";
+            this.WS_Shots.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_Shots.Size = new System.Drawing.Size(66, 20);
+            this.WS_Shots.TabIndex = 56;
+            // 
+            // WS_Gift
+            // 
+            this.WS_Gift.Location = new System.Drawing.Point(5, 153);
+            this.WS_Gift.MenuManager = this.barManager1;
+            this.WS_Gift.Name = "WS_Gift";
+            this.WS_Gift.Properties.Appearance.Options.UseTextOptions = true;
+            this.WS_Gift.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.WS_Gift.Properties.Caption = "Acquired as Gift";
+            this.WS_Gift.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.WS_Gift.Size = new System.Drawing.Size(138, 19);
+            this.WS_Gift.TabIndex = 55;
+            // 
+            // WS_Possession
+            // 
+            this.WS_Possession.Location = new System.Drawing.Point(149, 153);
+            this.WS_Possession.MenuManager = this.barManager1;
+            this.WS_Possession.Name = "WS_Possession";
+            this.WS_Possession.Properties.Caption = "In Possession";
+            this.WS_Possession.Size = new System.Drawing.Size(138, 19);
+            this.WS_Possession.TabIndex = 54;
+            // 
+            // labelControl150
+            // 
+            this.labelControl150.Location = new System.Drawing.Point(42, 130);
+            this.labelControl150.Name = "labelControl150";
+            this.labelControl150.Size = new System.Drawing.Size(29, 13);
+            this.labelControl150.TabIndex = 53;
+            this.labelControl150.Text = "Ammo";
+            // 
+            // WS_AmmoBought
+            // 
+            this.WS_AmmoBought.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.WS_AmmoBought.Location = new System.Drawing.Point(149, 127);
+            this.WS_AmmoBought.MenuManager = this.barManager1;
+            this.WS_AmmoBought.Name = "WS_AmmoBought";
+            this.WS_AmmoBought.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_AmmoBought.Size = new System.Drawing.Size(66, 20);
+            this.WS_AmmoBought.TabIndex = 52;
+            // 
+            // labelControl151
+            // 
+            this.labelControl151.Location = new System.Drawing.Point(221, 130);
+            this.labelControl151.Name = "labelControl151";
+            this.labelControl151.Size = new System.Drawing.Size(66, 13);
+            this.labelControl151.TabIndex = 51;
+            this.labelControl151.Text = "Ammo Bought";
+            // 
+            // WS_Ammo
+            // 
+            this.WS_Ammo.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.WS_Ammo.Location = new System.Drawing.Point(77, 127);
+            this.WS_Ammo.MenuManager = this.barManager1;
+            this.WS_Ammo.Name = "WS_Ammo";
+            this.WS_Ammo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_Ammo.Size = new System.Drawing.Size(66, 20);
+            this.WS_Ammo.TabIndex = 50;
+            // 
+            // labelControl148
+            // 
+            this.labelControl148.Location = new System.Drawing.Point(221, 78);
+            this.labelControl148.Name = "labelControl148";
+            this.labelControl148.Size = new System.Drawing.Size(18, 13);
+            this.labelControl148.TabIndex = 49;
+            this.labelControl148.Text = "Hits";
+            // 
+            // WS_Hits
+            // 
+            this.WS_Hits.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.WS_Hits.Location = new System.Drawing.Point(149, 75);
+            this.WS_Hits.MenuManager = this.barManager1;
+            this.WS_Hits.Name = "WS_Hits";
+            this.WS_Hits.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_Hits.Size = new System.Drawing.Size(66, 20);
+            this.WS_Hits.TabIndex = 48;
+            // 
+            // labelControl149
+            // 
+            this.labelControl149.Location = new System.Drawing.Point(31, 78);
+            this.labelControl149.Name = "labelControl149";
+            this.labelControl149.Size = new System.Drawing.Size(34, 13);
+            this.labelControl149.TabIndex = 47;
+            this.labelControl149.Text = "Deaths";
+            // 
+            // WS_Deaths
+            // 
+            this.WS_Deaths.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.WS_Deaths.Location = new System.Drawing.Point(77, 75);
+            this.WS_Deaths.MenuManager = this.barManager1;
+            this.WS_Deaths.Name = "WS_Deaths";
+            this.WS_Deaths.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_Deaths.Size = new System.Drawing.Size(66, 20);
+            this.WS_Deaths.TabIndex = 46;
+            // 
+            // labelControl147
+            // 
+            this.labelControl147.Location = new System.Drawing.Point(21, 52);
+            this.labelControl147.Name = "labelControl147";
+            this.labelControl147.Size = new System.Drawing.Size(50, 13);
+            this.labelControl147.TabIndex = 45;
+            this.labelControl147.Text = "Player Kills";
+            // 
+            // WS_KillsNPC
+            // 
+            this.WS_KillsNPC.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.WS_KillsNPC.Location = new System.Drawing.Point(149, 49);
+            this.WS_KillsNPC.MenuManager = this.barManager1;
+            this.WS_KillsNPC.Name = "WS_KillsNPC";
+            this.WS_KillsNPC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_KillsNPC.Size = new System.Drawing.Size(66, 20);
+            this.WS_KillsNPC.TabIndex = 44;
+            // 
+            // labelControl146
+            // 
+            this.labelControl146.Location = new System.Drawing.Point(221, 52);
+            this.labelControl146.Name = "labelControl146";
+            this.labelControl146.Size = new System.Drawing.Size(40, 13);
+            this.labelControl146.TabIndex = 43;
+            this.labelControl146.Text = "NPC Kills";
+            // 
+            // WS_Save
+            // 
+            this.WS_Save.Location = new System.Drawing.Point(5, 178);
+            this.WS_Save.Name = "WS_Save";
+            this.WS_Save.Size = new System.Drawing.Size(284, 23);
+            this.WS_Save.TabIndex = 2;
+            this.WS_Save.Text = "Save";
+            this.WS_Save.Click += new System.EventHandler(this.WS_Save_Click);
+            // 
+            // WS_KillsPlayer
+            // 
+            this.WS_KillsPlayer.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.WS_KillsPlayer.Location = new System.Drawing.Point(77, 49);
+            this.WS_KillsPlayer.MenuManager = this.barManager1;
+            this.WS_KillsPlayer.Name = "WS_KillsPlayer";
+            this.WS_KillsPlayer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_KillsPlayer.Size = new System.Drawing.Size(66, 20);
+            this.WS_KillsPlayer.TabIndex = 1;
+            // 
+            // WS_Weapon
+            // 
+            this.WS_Weapon.Location = new System.Drawing.Point(5, 24);
+            this.WS_Weapon.MenuManager = this.barManager1;
+            this.WS_Weapon.Name = "WS_Weapon";
+            this.WS_Weapon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.WS_Weapon.Properties.DropDownRows = 20;
+            this.WS_Weapon.Properties.Items.AddRange(new object[] {
+            "UNARMED",
+            "KNIFE",
+            "NIGHTSTICK",
+            "CROWBAR",
+            "SHOVEL",
+            "WRENCH",
+            "HAMMER",
+            "BAT",
+            "GCLUB",
+            "PISTOL",
+            "CMBTPISTOL",
+            "PISTOL50",
+            "APPISTOL",
+            "MICROSMG",
+            "SMG",
+            "ASLTSMG",
+            "ASLTRIFLE",
+            "CRBNRIFLE",
+            "ADVRIFLE",
+            "MG",
+            "CMBTMG",
+            "ASLTMG",
+            "PUMP",
+            "SAWNOFF",
+            "BULLPUP",
+            "ASLTSHTGN",
+            "STUNGUN",
+            "SNIPERRFL",
+            "HVYSNIPER",
+            "GRNLAUNCH",
+            "RPG",
+            "MINIGUNS",
+            "GRENADE",
+            "SMKGRENADE",
+            "STKYBMB",
+            "MOLOTOV",
+            "VEHICLE_ROCKET",
+            "RHINO",
+            "PASS_ROCKET",
+            "AIRSTRIKE",
+            "VEH_ROCKET",
+            "BUZZARD_BULLET",
+            "BUZZARD_ROCKET",
+            "ANNIHL_BULLET",
+            "HUNTER_BULLET",
+            "HUNTER_ROCKET",
+            "LAZER_BULLET",
+            "LAZER_ROCKET",
+            "SPPLAYER_LASER",
+            "WATER_CANNON",
+            "BOTTLE",
+            "SNSPISTOL",
+            "HVYPISTOL",
+            "SPCARBINE",
+            "BULLRIFLE",
+            "PRXMINE",
+            "HOMLNCH",
+            "FLAREGUN",
+            "HYDRA_ROCKET",
+            "HYDRA_BULLET",
+            "INSURGENT_TURR",
+            "SAVAGE_ROCKET",
+            "SAVAGE_BULLET",
+            "TECHNICAL_TURR",
+            "VALKYRIE_CANNON",
+            "VALKYRIE_TURR",
+            "DAGGER",
+            "VPISTOL",
+            "FIREWRK",
+            "MUSKET",
+            "HVYSHGN",
+            "MKRIFLE",
+            "COMBATPDW",
+            "KNUCKLE",
+            "MKPISTOL",
+            "GUSNBRG"});
+            this.WS_Weapon.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.WS_Weapon.Size = new System.Drawing.Size(284, 20);
+            this.WS_Weapon.TabIndex = 0;
+            this.WS_Weapon.SelectedIndexChanged += new System.EventHandler(this.WS_Weapon_SelectedIndexChanged);
+            // 
+            // CMBT_Deaths
+            // 
+            this.CMBT_Deaths.EditValue = "0";
+            this.CMBT_Deaths.Location = new System.Drawing.Point(161, 76);
+            this.CMBT_Deaths.MenuManager = this.barManager1;
+            this.CMBT_Deaths.Name = "CMBT_Deaths";
+            this.CMBT_Deaths.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_Deaths.Properties.Mask.EditMask = "f0";
+            this.CMBT_Deaths.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_Deaths.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_Deaths.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_Deaths.TabIndex = 15;
+            this.CMBT_Deaths.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_Deaths_ButtonClick);
             // 
             // xtraTabPage9
             // 
@@ -4820,6 +5508,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.sdV_t.Properties.Items.AddRange(new object[] {
             "int",
+            "s64",
             "u8",
             "u16",
             "u32",
@@ -4884,6 +5573,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.sdE_t.Properties.Items.AddRange(new object[] {
             "int",
+            "s64",
             "u8",
             "u16",
             "u32",
@@ -5812,11 +6502,21 @@
             // 
             // xtraTabPage14
             // 
+            this.xtraTabPage14.Controls.Add(this.simpleButton4);
             this.xtraTabPage14.Controls.Add(this.simpleButton3);
             this.xtraTabPage14.Controls.Add(this.simpleButton2);
             this.xtraTabPage14.Name = "xtraTabPage14";
             this.xtraTabPage14.Size = new System.Drawing.Size(564, 342);
             this.xtraTabPage14.Text = "Experimental";
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Location = new System.Drawing.Point(284, 47);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(277, 38);
+            this.simpleButton4.TabIndex = 25;
+            this.simpleButton4.Text = "Escape Badsport";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // simpleButton3
             // 
@@ -5833,7 +6533,7 @@
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(558, 38);
             this.simpleButton2.TabIndex = 4;
-            this.simpleButton2.Text = "Transfer Test #1";
+            this.simpleButton2.Text = "Transfer Bypass - Test #1";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click_2);
             // 
             // pictureBox1
@@ -5858,6 +6558,52 @@
             this.advert.TabStop = false;
             this.advert.Click += new System.EventHandler(this.advert_Click);
             // 
+            // labelControl68
+            // 
+            this.labelControl68.Location = new System.Drawing.Point(93, 57);
+            this.labelControl68.Name = "labelControl68";
+            this.labelControl68.Size = new System.Drawing.Size(62, 13);
+            this.labelControl68.TabIndex = 62;
+            this.labelControl68.Text = "Players Killed";
+            // 
+            // CMBT_KillsPlayers
+            // 
+            this.CMBT_KillsPlayers.EditValue = "0";
+            this.CMBT_KillsPlayers.Location = new System.Drawing.Point(161, 54);
+            this.CMBT_KillsPlayers.MenuManager = this.barManager1;
+            this.CMBT_KillsPlayers.Name = "CMBT_KillsPlayers";
+            this.CMBT_KillsPlayers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_KillsPlayers.Properties.Mask.EditMask = "f0";
+            this.CMBT_KillsPlayers.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_KillsPlayers.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_KillsPlayers.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_KillsPlayers.TabIndex = 61;
+            this.CMBT_KillsPlayers.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_KillsPlayers_ButtonClick);
+            // 
+            // labelControl155
+            // 
+            this.labelControl155.Location = new System.Drawing.Point(111, 35);
+            this.labelControl155.Name = "labelControl155";
+            this.labelControl155.Size = new System.Drawing.Size(44, 13);
+            this.labelControl155.TabIndex = 64;
+            this.labelControl155.Text = "Total Kills";
+            // 
+            // CMBT_Kills
+            // 
+            this.CMBT_Kills.EditValue = "0";
+            this.CMBT_Kills.Location = new System.Drawing.Point(161, 32);
+            this.CMBT_Kills.MenuManager = this.barManager1;
+            this.CMBT_Kills.Name = "CMBT_Kills";
+            this.CMBT_Kills.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.CMBT_Kills.Properties.Mask.EditMask = "f0";
+            this.CMBT_Kills.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.CMBT_Kills.Properties.Mask.PlaceHolder = '0';
+            this.CMBT_Kills.Size = new System.Drawing.Size(86, 20);
+            this.CMBT_Kills.TabIndex = 63;
+            this.CMBT_Kills.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CMBT_Kills_ButtonClick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5875,15 +6621,18 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Imperium Account Editor 0.8.2  [1.27/BLES/PS3]";
+            this.Text = "Imperium Account Editor 0.9  [1.27/BLES/PS3]";
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl14)).EndInit();
+            this.groupControl14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TMB_Choice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gTeleportType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gTeleportLoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
@@ -5905,6 +6654,29 @@
             this.xtraTabControl2.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_BountOn.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_BountPlaced.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_HeadshotsPlayers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Headshots.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Hits.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Accuracy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Shots.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_DeathsPlayer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl15)).EndInit();
+            this.groupControl15.ResumeLayout(false);
+            this.groupControl15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Headshots.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Shots.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Gift.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Possession.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_AmmoBought.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Ammo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Hits.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Deaths.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_KillsNPC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_KillsPlayer.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WS_Weapon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Deaths.Properties)).EndInit();
             this.xtraTabPage9.ResumeLayout(false);
             this.xtraTabPage9.PerformLayout();
             this.xtraTabPage6.ResumeLayout(false);
@@ -6144,6 +6916,8 @@
             this.xtraTabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advert)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_KillsPlayers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CMBT_Kills.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -6418,7 +7192,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl57;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
-        private DevExpress.XtraEditors.LabelControl labelControl68;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage9;
         private DevExpress.XtraEditors.LabelControl labelControl74;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
@@ -6590,6 +7363,54 @@
         private DevExpress.XtraEditors.LabelControl labelControl135;
         private DevExpress.XtraEditors.SimpleButton timeDate_Save;
         private DevExpress.XtraEditors.SpinEdit timeDate_Year;
+        private DevExpress.XtraEditors.GroupControl groupControl14;
+        private DevExpress.XtraEditors.ComboBoxEdit TMB_Choice;
+        private DevExpress.XtraEditors.SimpleButton TMB_Do;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.LabelControl labelControl144;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_BountPlaced;
+        private DevExpress.XtraEditors.LabelControl labelControl145;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_HeadshotsPlayers;
+        private DevExpress.XtraEditors.LabelControl labelControl140;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_Headshots;
+        private DevExpress.XtraEditors.LabelControl labelControl141;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_Hits;
+        private DevExpress.XtraEditors.LabelControl labelControl138;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_Accuracy;
+        private DevExpress.XtraEditors.LabelControl labelControl139;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_Shots;
+        private DevExpress.XtraEditors.LabelControl labelControl137;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_DeathsPlayer;
+        private DevExpress.XtraEditors.LabelControl labelControl136;
+        private DevExpress.XtraEditors.GroupControl groupControl15;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_Deaths;
+        private DevExpress.XtraEditors.CheckEdit WS_Gift;
+        private DevExpress.XtraEditors.CheckEdit WS_Possession;
+        private DevExpress.XtraEditors.LabelControl labelControl150;
+        private DevExpress.XtraEditors.SpinEdit WS_AmmoBought;
+        private DevExpress.XtraEditors.LabelControl labelControl151;
+        private DevExpress.XtraEditors.SpinEdit WS_Ammo;
+        private DevExpress.XtraEditors.LabelControl labelControl148;
+        private DevExpress.XtraEditors.SpinEdit WS_Hits;
+        private DevExpress.XtraEditors.LabelControl labelControl149;
+        private DevExpress.XtraEditors.SpinEdit WS_Deaths;
+        private DevExpress.XtraEditors.LabelControl labelControl147;
+        private DevExpress.XtraEditors.SpinEdit WS_KillsNPC;
+        private DevExpress.XtraEditors.LabelControl labelControl146;
+        private DevExpress.XtraEditors.SimpleButton WS_Save;
+        private DevExpress.XtraEditors.SpinEdit WS_KillsPlayer;
+        private DevExpress.XtraEditors.ComboBoxEdit WS_Weapon;
+        private DevExpress.XtraEditors.LabelControl labelControl152;
+        private DevExpress.XtraEditors.SpinEdit WS_Headshots;
+        private DevExpress.XtraEditors.LabelControl labelControl153;
+        private DevExpress.XtraEditors.SpinEdit WS_Shots;
+        private DevExpress.XtraEditors.LabelControl labelControl154;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_BountOn;
+        private DevExpress.XtraEditors.SimpleButton CMBT_Load;
+        private DevExpress.XtraEditors.LabelControl labelControl155;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_Kills;
+        private DevExpress.XtraEditors.LabelControl labelControl68;
+        private DevExpress.XtraEditors.ButtonEdit CMBT_KillsPlayers;
 
     }
 }

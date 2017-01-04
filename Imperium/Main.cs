@@ -174,6 +174,21 @@ namespace Imperium
                 // 1.26
                 AMOUNT_TO_FORGIVE_BADSPORT_BY = 82,
                 BADSPORT_RESET_MINUTES = 81,
+                BAD_SPORT_QUITTING_EVENT_PLAYLIST = 4718,
+                BAD_SPORT_QUITTING_PLAYLIST = 4717,
+                BADSPORT_NUMDAYS_10TH_OFFENCE = 128,
+                BADSPORT_NUMDAYS_1ST_OFFENCE = 119,
+                BADSPORT_NUMDAYS_2ND_OFFENCE = 120,
+                BADSPORT_NUMDAYS_3RD_OFFENCE = 121,
+                BADSPORT_NUMDAYS_4TH_OFFENCE = 122,
+                BADSPORT_NUMDAYS_5TH_OFFENCE = 123,
+                BADSPORT_NUMDAYS_6TH_OFFENCE = 124,
+                BADSPORT_NUMDAYS_7TH_OFFENCE = 125,
+                BADSPORT_NUMDAYS_8TH_OFFENCE = 126,
+                BADSPORT_NUMDAYS_9TH_OFFENCE = 127,
+                BADSPORT_THRESHOLD = 79,
+                BADSPORT_THRESHOLD_NOTCHEATER = 80,
+                BADSPORTCHEAT_AUTOMUTE_PERCENT = 58,
                 Car_impound_fee = 5978,
                 DISABLE_CHRISTMAS_CLOTHING = 6884,
                 DISABLE_CHRISTMAS_MASKS = 6885,
@@ -268,6 +283,26 @@ namespace Imperium
             public static void toggleTunable(Indices index, bool toggle)
             {
                 setTunable(index, toggle);
+            }
+            public static void escapeBadsport()
+            {
+                setTunable(Indices.AMOUNT_TO_FORGIVE_BADSPORT_BY, Int32.MaxValue);
+                setTunable(Indices.BADSPORT_RESET_MINUTES, 0);
+                setTunable(Indices.BAD_SPORT_QUITTING_EVENT_PLAYLIST, 0);
+                setTunable(Indices.BAD_SPORT_QUITTING_PLAYLIST, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_10TH_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_1ST_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_2ND_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_3RD_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_4TH_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_5TH_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_6TH_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_7TH_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_8TH_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_NUMDAYS_9TH_OFFENCE, 0);
+                setTunable(Indices.BADSPORT_THRESHOLD, 0);
+                setTunable(Indices.BADSPORT_THRESHOLD_NOTCHEATER, 0);
+                setTunable(Indices.BADSPORTCHEAT_AUTOMUTE_PERCENT, 0);
             }
             public static bool disableIdleKick()
             {
@@ -604,10 +639,12 @@ namespace Imperium
         {
             InitializeComponent();
             int version = Convert.ToInt32(Regex.Replace(new System.Net.WebClient().DownloadString("http://lexicongta.com/ngu/imperium.php"), "<.*?>", String.Empty));
-            if (version > Variables.version)
+            if (!Properties.Settings.Default.UpdateNotified && version > Variables.version)
             {
                 System.Diagnostics.Process.Start("http://www.nextgenupdate.com/forums/gta-5-mod-tools/921980-ps3-1-26-bles-cc-tm-imperium-account-editor-0-7-alpha-release-source.html");
                 DevExpress.XtraEditors.XtraMessageBox.Show("Woah! There's an Imperium update available!\nYour version is " + Variables.version + ", the newest version is " + version + "!");
+                Properties.Settings.Default.UpdateNotified = true;
+                Properties.Settings.Default.Save();
             }
 
             // Initialize Settings
@@ -1284,37 +1321,31 @@ namespace Imperium
         }
         void setStatQuery(params string[] snippets)
         {
-            new Thread(() =>
+            foreach (string snippet in snippets)
             {
-                foreach (string snippet in snippets)
+                var query = from item in Stats
+                            where item.Key.ToLower().Contains(snippet.ToLower())
+                            orderby item.Key ascending
+                            select item;
+                foreach (KeyValuePair<string, StatData> item in query)
                 {
-                    var query = from item in Stats
-                                where item.Key.ToLower().Contains(snippet.ToLower())
-                                orderby item.Key ascending
-                                select item;
-                    foreach (KeyValuePair<string, StatData> item in query)
-                    {
-                        setStat(item.Key, item.Value.value);
-                    }
+                    setStat(item.Key, item.Value.value);
                 }
-            }).Start();
+            }
         }
         void setStatKeywordQuery(params string[] snippets)
         {
-            new Thread(() =>
+            foreach (string snippet in snippets)
             {
-                foreach (string snippet in snippets)
+                var query = from item in Stats
+                            where item.Value.keyword.ToLower().Contains(snippet.ToLower())
+                            orderby item.Key ascending
+                            select item;
+                foreach (KeyValuePair<string, StatData> item in query)
                 {
-                    var query = from item in Stats
-                                where item.Value.keyword.ToLower().Contains(snippet.ToLower())
-                                orderby item.Key ascending
-                                select item;
-                    foreach (KeyValuePair<string, StatData> item in query)
-                    {
-                        setStat(item.Key, item.Value.value);
-                    }
+                    setStat(item.Key, item.Value.value);
                 }
-            }).Start();
+            }
         }
         #endregion
         #region Tunables
@@ -1789,6 +1820,11 @@ namespace Imperium
                         sdE_r.Text = "Stat Query Successful!";
                     else sdE_r.Text = "Stat Query Failed...";
                     break;
+                case "s64":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_SET_INT, Hash(sdE_s.Text), Convert.ToInt64(sdE_v.Text), 1)))
+                        sdE_r.Text = "Stat Query Successful!";
+                    else sdE_r.Text = "Stat Query Failed...";
+                    break;
                 case "u8":
                 case "u16":
                 case "u32":
@@ -1831,6 +1867,18 @@ namespace Imperium
                     if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
                     {
                         sdV_v.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+                        sdV_r.Text = "Stat Query Successful!";
+                    }
+                    else
+                    {
+                        sdV_v.Text = "";
+                        sdV_r.Text = "Stat Query Failed...";
+                    }
+                    break;
+                case "s64":
+                    if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash(sdV_s.Text), 0x10030040)))
+                    {
+                        sdV_v.Text = PS3.Extension.ReadInt64(0x10030040).ToString();
                         sdV_r.Text = "Stat Query Successful!";
                     }
                     else
@@ -2553,6 +2601,235 @@ namespace Imperium
                 (int)timeDate_Year.Value, (int)timeDate_Month.Value, (int)timeDate_Day.Value, 
                 (int)timeDate_Hour.Value, (int)timeDate_Minute.Value, (int)timeDate_Second.Value, 0);
             RPC.Call(Natives.STAT_SET_DATE, Main.Hash(formatStat(timeDate_Stat.Text)), new_date, 7, 1);
+        }
+
+        private void TMB_Do_Click(object sender, EventArgs e)
+        {
+            // I'm too lazy to properly cast it so I'm just throwing garbage in that works as int32.
+            Dictionary<string, int> Values = new Dictionary<string, int>()
+            {
+                { "5 Billion", 2 },
+                { "10 Billion", 3 },
+                { "15 Billion", 4 },
+                { "20 Billion", 6 },
+                { "25 Billion", 7 },
+                { "30 Billion", 8 },
+                { "35 Billion", 9 },
+                { "40 Billion", 10 },
+                { "45 Billion", 11 },
+                { "50 Billion", 13 },
+                { "55 Billion", 14 },
+                { "60 Billion", 15 },
+                { "65 Billion", 16 },
+                { "70 Billion", 17 },
+                { "75 Billion", 18 },
+                { "80 Billion", 20 },
+                { "85 Billion", 21 },
+                { "90 Billion", 22 },
+                { "95 Billion", 23 },
+                { "100 Billion", 24 },
+            };
+            RPC.Call(Natives.STAT_SET_INT, Hash("CASH_GIFT_NEW"), Values[TMB_Choice.Text], 1);
+            DevExpress.XtraEditors.XtraMessageBox.Show("The value might be off a little bit...\n\n" +
+            "--- FOR USE ON PS3 ---\n1. Leave GTA Online.\n2. Join a new session.\n\n" +
+            "--- FOR TRANSFERRING ---\n1. Leave GTA Online.\n2. Transfer.\n(If you join a new session on PS3 after setting this, it won't transfer.)");
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("SCADMIN_BADSPORT_START"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("SCADMIN_BADSPORT_END"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_BAD_SPORT_BITSET"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP1_BAD_SPORT_BITSET"), 0, 1);
+            RPC.Call(Natives.STAT_SET_BOOL, Hash("MPPLY_WAS_I_BAD_SPORT"), 0, 1);
+            RPC.Call(Natives.STAT_SET_FLOAT, Hash("MPPLY_OVERALL_BADSPORT"), 0, 1);
+            RPC.Call(Natives.STAT_SET_BOOL, Hash("MPPLY_CHAR_IS_BADSPORT"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("MPPLY_BECAME_BADSPORT_NUM"), 0, 1);
+            RPC.Call(Natives.STAT_SET_INT, Hash("MPPLY_BADSPORT_MESSAGE"), 0, 1);
+            Tunables.escapeBadsport();
+        }
+
+        private void WS_Weapon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_" + WS_Weapon.Text + "_ENEMY_KILLS"), 0x10030040)))
+            {
+                WS_KillsPlayer.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else WS_KillsPlayer.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_" + WS_Weapon.Text + "_KILLS"), 0x10030040)))
+            {
+                WS_KillsNPC.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else WS_KillsNPC.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_" + WS_Weapon.Text + "_DEATHS"), 0x10030040)))
+            {
+                WS_Deaths.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else WS_Deaths.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_" + WS_Weapon.Text + "_HITS"), 0x10030040)))
+            {
+                WS_Hits.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else WS_Hits.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_" + WS_Weapon.Text + "_SHOTS"), 0x10030040)))
+            {
+                WS_Shots.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else WS_Shots.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_" + WS_Weapon.Text + "_HEADSHOTS"), 0x10030040)))
+            {
+                WS_Headshots.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else WS_Headshots.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_" + WS_Weapon.Text + "_FM_AMMO_CURRENT"), 0x10030040)))
+            {
+                WS_Ammo.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else WS_Ammo.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_" + WS_Weapon.Text + "_FM_AMMO_BOUGHT"), 0x10030040)))
+            {
+                WS_AmmoBought.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else WS_AmmoBought.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_BOOL, Hash("MP0_" + WS_Weapon.Text + "_AQUIRED_AS_GIFT"), 0x10030040)))
+            {
+                WS_Gift.Checked = PS3.Extension.ReadBool(0x10030040);
+            }
+            else WS_Gift.Checked = false;
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_BOOL, Hash("MP0_" + WS_Weapon.Text + "_IN_POSSESSION"), 0x10030040)))
+            {
+                WS_Possession.Checked = PS3.Extension.ReadBool(0x10030040);
+            }
+            else WS_Possession.Checked = false;
+        }
+
+        private void WS_Save_Click(object sender, EventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_" + WS_Weapon.Text + "_ENEMY_KILLS"), Convert.ToInt32(WS_KillsPlayer.Text));
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_" + WS_Weapon.Text + "_KILLS"), Convert.ToInt32(WS_KillsNPC.Text));
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_" + WS_Weapon.Text + "_DEATHS"), Convert.ToInt32(WS_Deaths.Text));
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_" + WS_Weapon.Text + "_HITS"), Convert.ToInt32(WS_Hits.Text));
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_" + WS_Weapon.Text + "_SHOTS"), Convert.ToInt32(WS_Shots.Text));
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_" + WS_Weapon.Text + "_HEADSHOTS"), Convert.ToInt32(WS_Headshots.Text));
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_" + WS_Weapon.Text + "_FM_AMMO_CURRENT"), Convert.ToInt32(WS_Ammo.Text));
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_" + WS_Weapon.Text + "_FM_AMMO_BOUGHT"), Convert.ToInt32(WS_AmmoBought.Text));
+
+            RPC.Call(Natives.STAT_SET_BOOL, Hash("MP0_" + WS_Weapon.Text + "_AQUIRED_AS_GIFT"), Convert.ToInt32(WS_Gift.Checked));
+            RPC.Call(Natives.STAT_SET_BOOL, Hash("MP0_" + WS_Weapon.Text + "_IN_POSSESSION"), Convert.ToInt32(WS_Possession.Checked));
+        }
+
+        private void CMBT_Kills_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_KILLS"), Convert.ToInt32(CMBT_Kills.Text));
+        }
+
+        private void CMBT_KillsPlayers_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_KILLS_PLAYERS"), Convert.ToInt32(CMBT_KillsPlayers.Text));
+        }
+
+        private void CMBT_Deaths_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_DEATHS"), Convert.ToInt32(CMBT_Deaths.Text));
+        }
+
+        private void CMBT_DeathsPlayer_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_DEATHS_PLAYER"), Convert.ToInt32(CMBT_DeathsPlayer.Text));
+        }
+
+        private void CMBT_Shots_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_SHOTS"), Convert.ToInt32(CMBT_Shots.Text));
+        }
+
+        private void CMBT_Accuracy_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_FLOAT, Hash("MP0_WEAPON_ACCURACY"), float.Parse(CMBT_Accuracy.Text));
+        }
+
+        private void CMBT_Hits_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_HITS"), Convert.ToInt32(CMBT_Hits.Text));
+        }
+
+        private void CMBT_Headshots_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_HEADSHOTS"), Convert.ToInt32(CMBT_Headshots.Text));
+        }
+
+        private void CMBT_HeadshotsPlayers_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_PLAYER_HEADSHOTS"), Convert.ToInt32(CMBT_HeadshotsPlayers.Text));
+        }
+
+        private void CMBT_BountPlaced_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_BOUNTPLACED"), Convert.ToInt32(CMBT_BountPlaced.Text));
+        }
+
+        private void CMBT_BountOn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            RPC.Call(Natives.STAT_SET_INT, Hash("MP0_BOUNTSONU"), Convert.ToInt32(CMBT_BountOn.Text));
+        }
+
+        private void CMBT_Load_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_KILLS"), 0x10030040)))
+            {
+                CMBT_Kills.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_Kills.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_KILLS_PLAYERS"), 0x10030040)))
+            {
+                CMBT_KillsPlayers.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_KillsPlayers.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_DEATHS"), 0x10030040)))
+            {
+                CMBT_Deaths.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_Deaths.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_DEATHS_PLAYER"), 0x10030040)))
+            {
+                CMBT_DeathsPlayer.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_DeathsPlayer.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_SHOTS"), 0x10030040)))
+            {
+                CMBT_Shots.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_Shots.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_FLOAT, Hash("MP0_WEAPON_ACCURACY"), 0x10030040)))
+            {
+                CMBT_Accuracy.Text = PS3.Extension.ReadFloat(0x10030040).ToString();
+            }
+            else CMBT_Accuracy.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_HITS"), 0x10030040)))
+            {
+                CMBT_Hits.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_Hits.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_HEADSHOTS"), 0x10030040)))
+            {
+                CMBT_Headshots.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_Headshots.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_PLAYER_HEADSHOTS"), 0x10030040)))
+            {
+                CMBT_HeadshotsPlayers.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_HeadshotsPlayers.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_BOUNTPLACED"), 0x10030040)))
+            {
+                CMBT_BountPlaced.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_BountPlaced.Text = "0";
+            if (Convert.ToBoolean(RPC.Call(Natives.STAT_GET_INT, Hash("MP0_BOUNTSONU"), 0x10030040)))
+            {
+                CMBT_BountOn.Text = PS3.Extension.ReadInt32(0x10030040).ToString();
+            }
+            else CMBT_BountOn.Text = "0";
         }
     }
 }

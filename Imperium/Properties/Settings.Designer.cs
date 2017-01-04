@@ -22,5 +22,17 @@ namespace Imperium.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UpdateNotified {
+            get {
+                return ((bool)(this["UpdateNotified"]));
+            }
+            set {
+                this["UpdateNotified"] = value;
+            }
+        }
     }
 }

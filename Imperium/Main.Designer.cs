@@ -6678,7 +6678,7 @@
             this.advert.Location = new System.Drawing.Point(12, 486);
             this.advert.Name = "advert";
             this.advert.Size = new System.Drawing.Size(570, 70);
-            this.advert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.advert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.advert.TabIndex = 6;
             this.advert.TabStop = false;
             this.advert.Click += new System.EventHandler(this.advert_Click);

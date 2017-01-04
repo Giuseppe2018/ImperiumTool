@@ -1132,7 +1132,7 @@ namespace Imperium
             {
                 // Connect to json
                 System.Net.HttpWebRequest Request =
-                    (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://lexicongta.com/imperium/client_data.json");
+                    (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://lexicongta.com/imperium/client_data.php");
                 Request.UserAgent = "dick"; // It was returning a 502 error without editing the user agent.
                 var Response = Request.GetResponse().GetResponseStream();
                 using (StreamReader sr = new StreamReader(Response))
@@ -1140,6 +1140,7 @@ namespace Imperium
                     ImperiumData = JsonConvert.DeserializeObject<Dictionary<string, object>>( sr.ReadToEnd() );
 
                     #region Main
+
                     if (ImperiumData.ContainsKey("name") && ImperiumData.ContainsKey("tag"))
                     {
                         Text = $"{ImperiumData["name"]} {Variables.versionLabel} {ImperiumData["tag"]}";
@@ -1169,6 +1170,20 @@ namespace Imperium
                                 ImperiumData["news"].ToString());
                         }
                     }
+
+                    if (ImperiumData.ContainsKey("ad_image") && ImperiumData.ContainsKey("ad_image_replace"))
+                    {
+                        if (Convert.ToBoolean(ImperiumData["ad_image_replace"]))
+                        {
+                            var ImageRequest = System.Net.WebRequest.Create(ImperiumData["ad_image"].ToString());
+                            using (var ImageResponse = ImageRequest.GetResponse())
+                            using (var ImageStream = ImageResponse.GetResponseStream())
+                            {
+                                advert.Image = Image.FromStream(ImageStream);
+                            }
+                        }
+                    }
+
                     #endregion
 
                     #region RPC & Addresses
@@ -1747,7 +1762,9 @@ namespace Imperium
 
         private void advert_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://lexicongta.com/order");
+            if (ImperiumData.ContainsKey("ad_url"))
+                System.Diagnostics.Process.Start(ImperiumData["ad_url"].ToString());
+            else System.Diagnostics.Process.Start("http://lexicongta.com/order");
         }
 
         #region General

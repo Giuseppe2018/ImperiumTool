@@ -1141,11 +1141,13 @@ namespace Imperium
 
                     #region Main
 
+                    // Form title
                     if (ImperiumData.ContainsKey("name") && ImperiumData.ContainsKey("tag"))
                     {
                         Text = $"{ImperiumData["name"]} {Variables.versionLabel} {ImperiumData["tag"]}";
                     }
 
+                    // Version
                     if (ImperiumData.ContainsKey("latest_version") && ImperiumData.ContainsKey("latest_version_label"))
                     {
                         if (Convert.ToInt32(ImperiumData["latest_version"]) > Variables.version && !Properties.Settings.Default.UpdateNotified)
@@ -1162,6 +1164,7 @@ namespace Imperium
                         }
                     }
 
+                    // News
                     if (ImperiumData.ContainsKey("news_show") && ImperiumData.ContainsKey("news"))
                     {
                         if (Convert.ToBoolean(ImperiumData["news_show"]) && ImperiumData["news"].ToString().Length > 0)
@@ -1171,6 +1174,7 @@ namespace Imperium
                         }
                     }
 
+                    // Ad Image
                     if (ImperiumData.ContainsKey("ad_image") && ImperiumData.ContainsKey("ad_image_replace"))
                     {
                         if (Convert.ToBoolean(ImperiumData["ad_image_replace"]))
@@ -1277,7 +1281,7 @@ namespace Imperium
             #endregion
 
             #region JSON File Importing
-            // Initialize Settings
+            // Settings
             string settings_filepath = "Data/Settings.json";
             if (File.Exists(settings_filepath))
             {
@@ -1298,7 +1302,7 @@ namespace Imperium
             }
             else MessageBox.Show(settings_filepath + " is missing! :(");
 
-            // Initialize Vehicle Models
+            // Vehicle Models
             string vehicles_filepath = "Data/Vehicles.json";
             if (File.Exists(vehicles_filepath))
             {
@@ -1313,10 +1317,6 @@ namespace Imperium
                         VehicleModels.Add(vehicle.label == "" ? vehicle.model.ToUpper() : vehicle.label, vehicle.model);
                     }
                 }
-                // Alphabetize
-                /*var query = from item in VehicleModels
-                            orderby item.Key ascending
-                            select item;*/
                 // Add to combo box
                 foreach (KeyValuePair<string, string> entry in VehicleModels)
                 {
@@ -2093,6 +2093,7 @@ namespace Imperium
         #endregion
 
         #region Advanced
+
         private void timeDur_Save_Click(object sender, EventArgs e)
         {
             try
@@ -2299,9 +2300,11 @@ namespace Imperium
             }
             else CMBT_BountOn.Text = "0";
         }
+        
         #endregion
 
         #region Garage
+
         private void garModel_SelectedIndexChanged(object sender, EventArgs e)
         {
             var query = (from item in VehicleModels
@@ -2390,6 +2393,7 @@ namespace Imperium
             Garage.setUint(i, Garage.RGB, Garage.getUint(i, Garage.RGB) & (0xFFFFFFFF ^ Garage.RGB_Secondary));
             Garage.resetSlot(i);
         }
+        
         #endregion
 
         #region Appearance

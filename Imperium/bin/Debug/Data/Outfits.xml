@@ -1,0 +1,114 @@
+<root>
+  <!-- 
+    - Do not create outfits with identical names. If you do only the last will be read. 
+    - For type to make no modification, set both to -1
+    -->
+  <outfit title="Pilot" gender="male" creator="CodeShark">
+    <mask model="0" texture="0" />
+    <hat model="20" texture="0" />
+    <eyes model="6" texture="0" />
+    <ears model="0" texture="0" />
+    <hair model="0" texture="0" />
+    <torso model="16" texture="0" />
+    <tops1 model="15" texture="0" />
+    <tops2 model="48" texture="0" />
+    <legs model="30" texture="0" />
+    <shoes model="24" texture="0" />
+    <face model="0" texture="0" />
+    <extra model="0" texture="0" />
+    <hands model="39" texture="4" />
+    <armor model="0" texture="0" />
+    <emblem model="0" texture="0" />
+    <description>None</description>
+  </outfit>
+  <outfit title="Thug" gender="male" creator="V3RGUD0">
+    <mask model="51" texture="9" />
+    <hat model="45" texture="1" />
+    <eyes model="16" texture="6" />
+    <ears model="0" texture="0" />
+    <hair model="0" texture="0" />
+    <torso model="20" texture="0" />
+    <tops1 model="15" texture="0" />
+    <tops2 model="14" texture="0" />
+    <legs model="33" texture="0" />
+    <shoes model="28" texture="5" />
+    <face model="0" texture="0" />
+    <extra model="0" texture="0" />
+    <hands model="45" texture="0" />
+    <armor model="0" texture="0" />
+    <emblem model="0" texture="0" />
+    <description>None</description>
+  </outfit>
+  <outfit title="Pedophile" gender="male" creator="Surge_02">
+    <mask model="0" texture="0" />
+    <hat model="0" texture="0" />
+    <eyes model="20" texture="7" />
+    <ears model="0" texture="0" />
+    <hair model="22" texture="3" />
+    <torso model="15" texture="0" />
+    <tops1 model="14" texture="0" />
+    <tops2 model="76" texture="0" />
+    <legs model="21" texture="0" />
+    <shoes model="6" texture="0" />
+    <face model="0" texture="0" />
+    <extra model="0" texture="0" />
+    <hands model="0" texture="0" />
+    <armor model="0" texture="0" />
+    <emblem model="0" texture="0" />
+    <description>None</description>
+  </outfit>
+  <outfit title="The Spook" gender="male" creator="Mr4skin">
+    <mask model="6" texture="2" />
+    <hat model="32" texture="0" />
+    <eyes model="6" texture="0" />
+    <ears model="0" texture="0" />
+    <hair model="0" texture="0" />
+    <torso model="16" texture="0" />
+    <tops1 model="0" texture="0" />
+    <tops2 model="2" texture="1" />
+    <legs model="4" texture="6" />
+    <shoes model="2" texture="1" />
+    <face model="0" texture="0" />
+    <extra model="45" texture="0" />
+    <hands model="39" texture="4" />
+    <armor model="0" texture="0" />
+    <emblem model="0" texture="0" />
+    <description>None</description>
+  </outfit>
+  <outfit title="Checkered" gender="male" creator="V3RGUD0">
+    <mask model="51" texture="7" />
+    <hat model="9" texture="0" />
+    <eyes model="2" texture="0" />
+    <ears model="0" texture="0" />
+    <hair model="0" texture="0" />
+    <torso model="21" texture="0" />
+    <tops1 model="15" texture="0" />
+    <tops2 model="2" texture="0" />
+    <legs model="33" texture="0" />
+    <shoes model="0" texture="0" />
+    <face model="0" texture="0" />
+    <extra model="0" texture="0" />
+    <hands model="45" texture="0" />
+    <armor model="0" texture="0" />
+    <emblem model="0" texture="0" />
+    <description>None</description>
+  </outfit>
+  <outfit title="Biker Cut" gender="male" creator="Whitedodge00">
+    <mask model="0" texture="0" />
+    <hat model="0" texture="0" />
+    <eyes model="0" texture="0" />
+    <ears model="0" texture="0" />
+    <hair model="0" texture="0" />
+    <torso model="29" texture="0" />
+    <tops1 model="8" texture="15" />
+    <tops2 model="11" texture="1" />
+    <legs model="0" texture="10" />
+    <shoes model="12" texture="6" />
+    <face model="0" texture="0" />
+    <extra model="0" texture="0" />
+    <hands model="0" texture="0" />
+    <armor model="0" texture="0" />
+    <emblem model="2" texture="0" />
+    <description>None</description>
+  </outfit>
+</root>

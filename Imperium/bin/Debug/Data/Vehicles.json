@@ -1,0 +1,437 @@
+{ "label": "9F Convertible", "model": "ninef2" }
+{ "label": "9F", "model": "ninef" }
+{ "label": "Adder", "model": "adder" }
+{ "label": "Airport Bus", "model": "airbus" }
+{ "label": "Airtug", "model": "airtug" }
+{ "label": "Akuma", "model": "akuma" }
+{ "label": "Alpha", "model": "alpha" }
+{ "label": "Ambulance", "model": "ambulance" }
+{ "label": "Annihilator", "model": "annihilator" }
+{ "label": "Army Tanker", "model": "armytanker" }
+{ "label": "Asea (Snow)", "model": "asea2" }
+{ "label": "Asea", "model": "asea" }
+{ "label": "Asterope", "model": "asterope" }
+{ "label": "Bagger", "model": "bagger" }
+{ "label": "Baller 2", "model": "baller2" }
+{ "label": "Baller", "model": "baller" }
+{ "label": "Banshee", "model": "banshee" }
+{ "label": "Barracks (Dark)", "model": "barracks3" }
+{ "label": "Barracks (Semi)", "model": "barracks2" }
+{ "label": "Barracks", "model": "barracks" }
+{ "label": "Bati (Livery)", "model": "bati2" }
+{ "label": "Bati", "model": "bati" }
+{ "label": "Benson", "model": "benson" }
+{ "label": "Besra", "model": "besra" }
+{ "label": "BF Injection", "model": "bfinjection" }
+{ "label": "Biff", "model": "biff" }
+{ "label": "Bifta", "model": "bifta" }
+{ "label": "Bison (Cowboy Construction)", "model": "bison2" }
+{ "label": "Bison (Landscaping)", "model": "bison3" }
+{ "label": "Bison", "model": "bison" }
+{ "label": "BJ-XL", "model": "bjxl" }
+{ "label": "Blade", "model": "blade" }
+{ "label": "Blazer (Hotrod)", "model": "blazer3" }
+{ "label": "Blazer (Lifeguard)", "model": "blazer2" }
+{ "label": "Blazer", "model": "blazer" }
+{ "label": "Blimp", "model": "blimp" }
+{ "label": "Blista", "model": "blista" }
+{ "label": "BMX", "model": "bmx" }
+{ "label": "Bobcat XL", "model": "bobcatxl" }
+{ "label": "Bodhi", "model": "bodhi2" }
+{ "label": "Boxville (Humane)", "model": "boxville3" }
+{ "label": "Boxville (Post Op)", "model": "boxville4" }
+{ "label": "Boxville (Postal)", "model": "boxville2" }
+{ "label": "Boxville (Water & Power)", "model": "boxville" }
+{ "label": "Brawler", "model": "brawler" }
+{ "label": "Buccaneer", "model": "buccaneer" }
+{ "label": "Buffalo (Franklin's)", "model": "buffalo2" }
+{ "label": "Buffalo (Sprunk)", "model": "buffalo3" }
+{ "label": "Buffalo", "model": "buffalo" }
+{ "label": "Bulldozer", "model": "bulldozer" }
+{ "label": "Bullet", "model": "bullet" }
+{ "label": "Burrito (Bugstars)", "model": "burrito2" }
+{ "label": "Burrito (Cowboy Construction)", "model": "burrito4" }
+{ "label": "Burrito (Gang)", "model": "gburrito" }
+{ "label": "Burrito (Generic)", "model": "burrito" }
+{ "label": "Burrito (No Livery)", "model": "burrito3" }
+{ "label": "Burrito (Snow)", "model": "burrito5" }
+{ "label": "Bus", "model": "bus" }
+{ "label": "Buzzard (Transport)", "model": "buzzard2" }
+{ "label": "Buzzard", "model": "buzzard" }
+{ "label": "Cablecar", "model": "cablecar" }
+{ "label": "Caddy (Old)", "model": "caddy2" }
+{ "label": "Caddy", "model": "caddy" }
+{ "label": "Camper", "model": "camper" }
+{ "label": "Carbon RS", "model": "carbonrs" }
+{ "label": "Carbonizzare", "model": "carbonizzare" }
+{ "label": "Cargo Plane", "model": "cargoplane" }
+{ "label": "Cargobob (Medical)", "model": "cargobob2" }
+{ "label": "Cargobob (Trevor's)", "model": "cargobob3" }
+{ "label": "Cargobob", "model": "cargobob" }
+{ "label": "Casco", "model": "casco" }
+{ "label": "Cavalcade 2", "model": "cavalcade2" }
+{ "label": "Cavalcade", "model": "cavalcade" }
+{ "label": "Cheetah", "model": "cheetah" }
+{ "label": "Chino", "model": "chino" }
+{ "label": "Coach", "model": "coach" }
+{ "label": "Cogcabrio", "model": "cogcabrio" }
+{ "label": "Comet", "model": "comet2" }
+{ "label": "Coquette Blackfin", "model": "coquette3" }
+{ "label": "Coquette Classic", "model": "coquette2" }
+{ "label": "Coquette", "model": "coquette" }
+{ "label": "Cruiser", "model": "cruiser" }
+{ "label": "Crusader", "model": "crusader" }
+{ "label": "Cuban 800", "model": "cuban800" }
+{ "label": "Cutter", "model": "cutter" }
+{ "label": "Daemon", "model": "daemon" }
+{ "label": "Dilettante (Merryweather)", "model": "dilettante2" }
+{ "label": "Dilettante", "model": "dilettante" }
+{ "label": "Dinghy (2-Seater)", "model": "dinghy2" }
+{ "label": "Dinghy (Heist)", "model": "dinghy3" }
+{ "label": "Dinghy", "model": "dinghy" }
+{ "label": "Docktug", "model": "docktug" }
+{ "label": "Dominator", "model": "dominator" }
+{ "label": "Double", "model": "double" }
+{ "label": "Dubsta (Blacked Out)", "model": "dubsta2" }
+{ "label": "Dubsta 6x6", "model": "dubsta3" }
+{ "label": "Dubsta", "model": "dubsta" }
+{ "label": "Dump", "model": "dump" }
+{ "label": "Dune", "model": "dune" }
+{ "label": "Duneloaders", "model": "dloader" }
+{ "label": "Duster", "model": "duster" }
+{ "label": "Elegy", "model": "elegy2" }
+{ "label": "Emperor (Rusty)", "model": "emperor2" }
+{ "label": "Emperor (Snow)", "model": "emperor3" }
+{ "label": "Emperor", "model": "emperor" }
+{ "label": "Enduro", "model": "enduro" }
+{ "label": "Entity XF", "model": "entityxf" }
+{ "label": "Exemplar", "model": "exemplar" }
+{ "label": "F620", "model": "f620" }
+{ "label": "Faggio", "model": "faggio2" }
+{ "label": "Felon GT", "model": "felon2" }
+{ "label": "Felon", "model": "felon" }
+{ "label": "Feltzer", "model": "feltzer2" }
+{ "label": "FIB Buffalo", "model": "fbi" }
+{ "label": "FIB Granger", "model": "fbi2" }
+{ "label": "Firetruck", "model": "firetruk" }
+{ "label": "Fixter", "model": "fixter" }
+{ "label": "Flatbed", "model": "flatbed" }
+{ "label": "Forklift", "model": "forklift" }
+{ "label": "FQ2", "model": "fq2" }
+{ "label": "Freight Boxcar", "model": "freightgrain" }
+{ "label": "Freight Car", "model": "freightcar" }
+{ "label": "Freight Container (Livery)", "model": "freightcont2" }
+{ "label": "Freight Container", "model": "freightcont1" }
+{ "label": "Freight Trailer", "model": "freighttrailer" }
+{ "label": "Freight Train", "model": "freight" }
+{ "label": "Frogger (Trevor's)", "model": "frogger2" }
+{ "label": "Frogger", "model": "frogger" }
+{ "label": "Fugitive", "model": "fugitive" }
+{ "label": "Furore GT", "model": "furoregt" }
+{ "label": "Fusilade", "model": "fusilade" }
+{ "label": "Futo", "model": "futo" }
+{ "label": "Gauntlet", "model": "gauntlet" }
+{ "label": "Glendale", "model": "glendale" }
+{ "label": "Granger", "model": "granger" }
+{ "label": "Gresley", "model": "gresley" }
+{ "label": "Guardian", "model": "guardian" }
+{ "label": "Habanero", "model": "habanero" }
+{ "label": "Hakuchou", "model": "hakuchou" }
+{ "label": "Handler", "model": "handler" }
+{ "label": "Hauler", "model": "hauler" }
+{ "label": "Hexer", "model": "hexer" }
+{ "label": "Hotknife", "model": "hotknife" }
+{ "label": "Huntley", "model": "huntley" }
+{ "label": "Hydra", "model": "hydra" }
+{ "label": "Infernus", "model": "infernus" }
+{ "label": "Ingot", "model": "ingot" }
+{ "label": "Innovation", "model": "innovation" }
+{ "label": "Insurgent (Transport)", "model": "insurgent2" }
+{ "label": "Insurgent", "model": "insurgent" }
+{ "label": "Intruder", "model": "intruder" }
+{ "label": "Issi", "model": "issi2" }
+{ "label": "Jackal", "model": "jackal" }
+{ "label": "JB700", "model": "jb700" }
+{ "label": "Jester (Racing)", "model": "jester2" }
+{ "label": "Jester", "model": "jester" }
+{ "label": "Jet (747)", "model": "jet" }
+{ "label": "Jetmax", "model": "jetmax" }
+{ "label": "Journey", "model": "journey" }
+{ "label": "Kalahari", "model": "kalahari" }
+{ "label": "Khamelion", "model": "khamelion" }
+{ "label": "Kuruma (Armored)", "model": "kuruma2" }
+{ "label": "Kuruma", "model": "kuruma" }
+{ "label": "Landstalker", "model": "landstalker" }
+{ "label": "Lazer", "model": "lazer" }
+{ "label": "Lectro", "model": "lectro" }
+{ "label": "Liberator", "model": "monster" }
+{ "label": "Lifeguard", "model": "lguard" }
+{ "label": "Luxor (Gold)", "model": "luxor2" }
+{ "label": "Luxor", "model": "luxor" }
+{ "label": "Mammatus", "model": "mammatus" }
+{ "label": "Manana", "model": "manana" }
+{ "label": "Marquis", "model": "marquis" }
+{ "label": "Massacro (Race)", "model": "massacro2" }
+{ "label": "Massacro", "model": "massacro" }
+{ "label": "Maverick", "model": "maverick" }
+{ "label": "Mesa (Merryweather)", "model": "mesa3" }
+{ "label": "Mesa (Snow)", "model": "mesa2" }
+{ "label": "Mesa", "model": "mesa" }
+{ "label": "Metrotrain", "model": "metrotrain" }
+{ "label": "Miljet", "model": "miljet" }
+{ "label": "Minivan", "model": "minivan" }
+{ "label": "Mixer #2", "model": "mixer2" }
+{ "label": "Mixer", "model": "mixer" }
+{ "label": "Monroe", "model": "monroe" }
+{ "label": "Mower", "model": "mower" }
+{ "label": "Mule (Drop Down)", "model": "mule2" }
+{ "label": "Mule (No Livery)", "model": "mule3" }
+{ "label": "Mule", "model": "mule" }
+{ "label": "Nemesis", "model": "nemesis" }
+{ "label": "Oracle XS", "model": "oracle2" }
+{ "label": "Oracle", "model": "oracle" }
+{ "label": "Osiris", "model": "osiris" }
+{ "label": "Packer", "model": "packer" }
+{ "label": "Panto", "model": "panto" }
+{ "label": "Paradise", "model": "paradise" }
+{ "label": "Patriot", "model": "patriot" }
+{ "label": "PCJ", "model": "pcj" }
+{ "label": "Penumbra", "model": "penumbra" }
+{ "label": "Peyote", "model": "peyote" }
+{ "label": "Phantom", "model": "phantom" }
+{ "label": "Phoenix", "model": "phoenix" }
+{ "label": "Picador", "model": "picador" }
+{ "label": "Pigalle", "model": "pigalle" }
+{ "label": "Police Bike", "model": "policeb" }
+{ "label": "Police Buffalo", "model": "police2" }
+{ "label": "Police Esperanto (Snow)", "model": "policeold2" }
+{ "label": "Police Interceptor", "model": "police3" }
+{ "label": "Police Maverick", "model": "polmav" }
+{ "label": "Police Rancher (Snow)", "model": "policeold1" }
+{ "label": "Police Stainer (Undercover)", "model": "police4" }
+{ "label": "Police Stainer", "model": "police" }
+{ "label": "Police Transport", "model": "policet" }
+{ "label": "Pony (Weed)", "model": "pony2" }
+{ "label": "Pony", "model": "pony" }
+{ "label": "Pounder", "model": "pounder" }
+{ "label": "Prairie", "model": "prairie" }
+{ "label": "Pranger", "model": "pranger" }
+{ "label": "Predator", "model": "predator" }
+{ "label": "Premier", "model": "premier" }
+{ "label": "Primo", "model": "primo" }
+{ "label": "Prison Bus", "model": "pbus" }
+{ "label": "Race Bike (Endurex)", "model": "tribike2" }
+{ "label": "Race Bike (Tri-Cycles)", "model": "tribike3" }
+{ "label": "Race Bike (Whippet)", "model": "tribike" }
+{ "label": "Radi", "model": "radi" }
+{ "label": "Rancher XL (Snow)", "model": "rancherxl2" }
+{ "label": "Rancher XL", "model": "rancherxl" }
+{ "label": "Rapid GT (Convertible)", "model": "rapidgt2" }
+{ "label": "Rapid GT", "model": "rapidgt" }
+{ "label": "Rat Truck", "model": "ratloader2" }
+{ "label": "Ratloader", "model": "ratloader" }
+{ "label": "Rebel (Clean)", "model": "rebel2" }
+{ "label": "Rebel (Rusty)", "model": "rebel" }
+{ "label": "Regina", "model": "regina" }
+{ "label": "Rental Bus", "model": "rentalbus" }
+{ "label": "Rhapsody", "model": "rhapsody" }
+{ "label": "Rhino", "model": "rhino" }
+{ "label": "Riot", "model": "riot" }
+{ "label": "Ripley", "model": "ripley" }
+{ "label": "Rocoto", "model": "rocoto" }
+{ "label": "Romero", "model": "romero" }
+{ "label": "Roosevelt", "model": "btype" }
+{ "label": "Rubble", "model": "rubble" }
+{ "label": "Ruffian", "model": "ruffian" }
+{ "label": "Ruiner", "model": "ruiner" }
+{ "label": "Rumpo (Deludamol)", "model": "rumpo2" }
+{ "label": "Rumpo (Weazel News)", "model": "rumpo" }
+{ "label": "Sabre GT", "model": "sabregt" }
+{ "label": "Sadler (Snow)", "model": "sadler2" }
+{ "label": "Sadler", "model": "sadler" }
+{ "label": "Sanchez (Livery)", "model": "sanchez" }
+{ "label": "Sanchez (Paint)", "model": "sanchez2" }
+{ "label": "Sandking (2-Door)", "model": "sandking2" }
+{ "label": "Sandking (4-Door)", "model": "sandking" }
+{ "label": "Savage", "model": "savage" }
+{ "label": "Schafter", "model": "schafter2" }
+{ "label": "Schwarzer", "model": "schwarzer" }
+{ "label": "Scorcher", "model": "scorcher" }
+{ "label": "Scrap", "model": "scrap" }
+{ "label": "Seashark (Lifeguard)", "model": "seashark2" }
+{ "label": "Seashark", "model": "seashark" }
+{ "label": "Seminole", "model": "seminole" }
+{ "label": "Sentinel (Convertible)", "model": "sentinel2" }
+{ "label": "Sentinel XS", "model": "sentinel" }
+{ "label": "Serrano", "model": "serrano" }
+{ "label": "Shamal", "model": "shamal" }
+{ "label": "Sheriff Granger", "model": "sheriff2" }
+{ "label": "Sheriff Stainer", "model": "sheriff" }
+{ "label": "Skylift", "model": "skylift" }
+{ "label": "Slamvan (Lost & Damned)", "model": "slamvan2" }
+{ "label": "Slamvan", "model": "slamvan" }
+{ "label": "Sovereign", "model": "sovereign" }
+{ "label": "Space Docker", "model": "dune2" }
+{ "label": "Speeder", "model": "speeder" }
+{ "label": "Speedo (Clown)", "model": "speedo2" }
+{ "label": "Speedo", "model": "speedo" }
+{ "label": "Squalo", "model": "squalo" }
+{ "label": "Stanier", "model": "stanier" }
+{ "label": "Stinger GT", "model": "stingergt" }
+{ "label": "Stinger", "model": "stinger" }
+{ "label": "Stockade (Snow)", "model": "stockade3" }
+{ "label": "Stockade", "model": "stockade" }
+{ "label": "Stratum", "model": "stratum" }
+{ "label": "Stretch", "model": "stretch" }
+{ "label": "Stunt", "model": "stunt" }
+{ "label": "Submersible", "model": "submersible" }
+{ "label": "Sultan", "model": "sultan" }
+{ "label": "Suntrap", "model": "suntrap" }
+{ "label": "Super Diamond", "model": "superd" }
+{ "label": "Surano", "model": "surano" }
+{ "label": "Surfer (Rusty)", "model": "surfer2" }
+{ "label": "Surfer", "model": "surfer" }
+{ "label": "Surge", "model": "surge" }
+{ "label": "Swift (Gold)", "model": "swift2" }
+{ "label": "Swift", "model": "swift" }
+{ "label": "T20", "model": "t20" }
+{ "label": "Taco", "model": "taco" }
+{ "label": "Tailgater", "model": "tailgater" }
+{ "label": "Tanker (No Livery)", "model": "tanker2" }
+{ "label": "Tanker Fuel Car", "model": "tankercar" }
+{ "label": "Tanker", "model": "tanker" }
+{ "label": "Taxi", "model": "taxi" }
+{ "label": "Technical", "model": "technical" }
+{ "label": "Thrust", "model": "thrust" }
+{ "label": "Tiptruck (10-Wheeler)", "model": "tiptruck2" }
+{ "label": "Tiptruck (6-Wheeler)", "model": "tiptruck" }
+{ "label": "Titan", "model": "titan" }
+{ "label": "Tornado (Convertible)", "model": "tornado2" }
+{ "label": "Tornado (Mariachi)", "model": "tornado4" }
+{ "label": "Tornado (Rusty)", "model": "tornado3" }
+{ "label": "Tornado", "model": "tornado" }
+{ "label": "Toro", "model": "toro" }
+{ "label": "Tourbus", "model": "tourbus" }
+{ "label": "Towtruck (Large)", "model": "towtruck" }
+{ "label": "Towtruck (Small)", "model": "towtruck2" }
+{ "label": "Tractor (Farm)", "model": "tractor2" }
+{ "label": "Tractor (Rusty)", "model": "tractor" }
+{ "label": "Tractor (Snow)", "model": "tractor3" }
+{ "label": "Trailer (Army - Cutter)", "model": "armytrailer2" }
+{ "label": "Trailer (Army)", "model": "armytrailer" }
+{ "label": "Trailer (Bale)", "model": "baletrailer" }
+{ "label": "Trailer (Biggoods)", "model": "trailers3" }
+{ "label": "Trailer (Boat)", "model": "boattrailer" }
+{ "label": "Trailer (Brand)", "model": "trailers2" }
+{ "label": "Trailer (Car Carrier)", "model": "tr2" }
+{ "label": "Trailer (Dock)", "model": "docktrailer" }
+{ "label": "Trailer (Fame or Shame)", "model": "tvtrailer" }
+{ "label": "Trailer (Farm Cultivator)", "model": "raketrailer" }
+{ "label": "Trailer (Flatbed)", "model": "trflat" }
+{ "label": "Trailer (Grain)", "model": "graintrailer" }
+{ "label": "Trailer (Log)", "model": "trailerlogs" }
+{ "label": "Trailer (Marquis)", "model": "tr3" }
+{ "label": "Trailer (Mobile Home)", "model": "proptrailer" }
+{ "label": "Trailer (Small)", "model": "trailersmall" }
+{ "label": "Trailer (Super Car)", "model": "tr4" }
+{ "label": "Trailer (Tarp)", "model": "trailers" }
+{ "label": "Trash (Rusty)", "model": "trash2" }
+{ "label": "Trash", "model": "trash" }
+{ "label": "Tropic", "model": "tropic" }
+{ "label": "Turismo R", "model": "turismor" }
+{ "label": "Utility Truck (Basket)", "model": "utillitruck" }
+{ "label": "Utility Truck (Landscaping)", "model": "utillitruck2" }
+{ "label": "Utility Truck (Pickup)", "model": "utillitruck3" }
+{ "label": "Vacca", "model": "vacca" }
+{ "label": "Vader", "model": "vader" }
+{ "label": "Valkyrie", "model": "valkyrie" }
+{ "label": "Velum (5-Seater)", "model": "velum2" }
+{ "label": "Velum", "model": "velum" }
+{ "label": "Vestra", "model": "vestra" }
+{ "label": "Vigero", "model": "vigero" }
+{ "label": "Vindicator", "model": "vindicator" }
+{ "label": "Virgo", "model": "virgo" }
+{ "label": "Voltic", "model": "voltic" }
+{ "label": "Voodoo", "model": "voodoo2" }
+{ "label": "Warrener", "model": "warrener" }
+{ "label": "Washington", "model": "washington" }
+{ "label": "Windsor", "model": "windsor" }
+{ "label": "Youga", "model": "youga" }
+{ "label": "Zentorno", "model": "zentorno" }
+{ "label": "Zion (Convertible)", "model": "zion2" }
+{ "label": "Zion", "model": "zion" }
+{ "label": "Ztype", "model": "ztype" }
+{ "label": "[NG] Baller (Long Wheelbase)", "model": "baller4" }
+{ "label": "[NG] Baller (LWB Armored)", "model": "baller6" }
+{ "label": "[NG] Baller (Short Wheelbase)", "model": "baller3" }
+{ "label": "[NG] Baller (SWB Armored)", "model": "baller5" }
+{ "label": "[NG] Banshee Custom", "model": "banshee2" }
+{ "label": "[NG] Bestia GTS", "model": "bestiagts" }
+{ "label": "[NG] BF400", "model": "bf400" }
+{ "label": "[NG] Blimp (Xero)", "model": "blimp2" }
+{ "label": "[NG] Blista (Compact)", "model": "blista2" }
+{ "label": "[NG] Blista (Go-Go Monkey)", "model": "blista3" }
+{ "label": "[NG] Brickade", "model": "brickade" }
+{ "label": "[NG] Brioso R/A", "model": "brioso" }
+{ "label": "[NG] Buccaneer (Lowrider)", "model": "buccaneer2" }
+{ "label": "[NG] Burrito (Gang No Livery)", "model": "gburrito2" }
+{ "label": "[NG] Chino (Lowrider)", "model": "chino2" }
+{ "label": "[NG] Cliffhanger", "model": "cliffhanger" }
+{ "label": "[NG] Cog55 (Armored)", "model": "cog552" }
+{ "label": "[NG] Cog55", "model": "cog55" }
+{ "label": "[NG] Cognoscenti (Armored)", "model": "cognoscenti2" }
+{ "label": "[NG] Cognoscenti", "model": "cognoscenti" }
+{ "label": "[NG] Contender", "model": "contender" }
+{ "label": "[NG] Desert Raid", "model": "trophytruck2" }
+{ "label": "[NG] Dodo", "model": "dodo" }
+{ "label": "[NG] Dominator (Pisswasser)", "model": "dominator2" }
+{ "label": "[NG] Dukes (Duke O'Death", "model": "dukes2" }
+{ "label": "[NG] Dukes", "model": "dukes" }
+{ "label": "[NG] ETR1", "model": "sheava" }
+{ "label": "[NG] Faction (Lowrider)", "model": "faction2" }
+{ "label": "[NG] Faction Donk", "model": "faction3" }
+{ "label": "[NG] Faction", "model": "faction" }
+{ "label": "[NG] FMJ", "model": "fmj" }
+{ "label": "[NG] Franken Stange", "model": "btype2" }
+{ "label": "[NG] Gargoyle", "model": "gargoyle" }
+{ "label": "[NG] Gauntlet (Redwood)", "model": "gauntlet2" }
+{ "label": "[NG] Lurcher", "model": "lurcher" }
+{ "label": "[NG] Lynx", "model": "lynx" }
+{ "label": "[NG] Mamba", "model": "mamba" }
+{ "label": "[NG] Marshall", "model": "marshall" }
+{ "label": "[NG] Minivan (Lowrider)", "model": "minivan2" }
+{ "label": "[NG] Moonbeam (Lowrider)", "model": "moonbeam2" }
+{ "label": "[NG] Moonbeam", "model": "moonbeam" }
+{ "label": "[NG] MTL Dune", "model": "rallytruck" }
+{ "label": "[NG] Nightshade", "model": "nightshade" }
+{ "label": "[NG] Omnis", "model": "omnis" }
+{ "label": "[NG] Phister 811", "model": "pfister811" }
+{ "label": "[NG] Primo (Lowrider)", "model": "primo2" }
+{ "label": "[NG] Prototipo", "model": "prototipo" }
+{ "label": "[NG] RE-7B", "model": "le7b" }
+{ "label": "[NG] Reaper", "model": "reaper" }
+{ "label": "[NG] Roosevelt Valor", "model": "btype3" }
+{ "label": "[NG] Rumpo (Offroad)", "model": "rumpo3" }
+{ "label": "[NG] Sabre Turbo (Lowrider)", "model": "sabregt2" }
+{ "label": "[NG] Schafter LWB (Armored)", "model": "schafter6" }
+{ "label": "[NG] Schafter LWB", "model": "schafter4" }
+{ "label": "[NG] Schafter SWB (Armored)", "model": "schafter5" }
+{ "label": "[NG] Schafter SWB", "model": "schafter3" }
+{ "label": "[NG] Seven70", "model": "seven70" }
+{ "label": "[NG] Slamvan (Lowrider)", "model": "slamvan3" }
+{ "label": "[NG] Stallion (Burger Shot)", "model": "stalion2" }
+{ "label": "[NG] Stallion", "model": "stalion" }
+{ "label": "[NG] Stirling GT", "model": "feltzer3" }
+{ "label": "[NG] Submersible (Kraken)", "model": "submersible2" }
+{ "label": "[NG] Sultan RS Custom", "model": "sultanrs" }
+{ "label": "[NG] Tampa (Drift)", "model": "tampa2" }
+{ "label": "[NG] Tampa", "model": "tampa" }
+{ "label": "[NG] Tornado (Lowrider)", "model": "tornado5" }
+{ "label": "[NG] Trophy Truck", "model": "trophytruck" }
+{ "label": "[NG] Tropos", "model": "tropos" }
+{ "label": "[NG] Tyrus", "model": "tyrus" }
+{ "label": "[NG] Verlierer", "model": "verlierer2" }
+{ "label": "[NG] Voodoo (Lowrider)", "model": "voodoo" }
+{ "label": "[NG] Windsor Drop", "model": "windsor2" }
+{ "label": "[NG] XLS (Armored)", "model": "xls2" }
+{ "label": "[NG] XLS", "model": "xls" }
